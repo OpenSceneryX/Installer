@@ -27,6 +27,14 @@ Inherits Application
 		    HelpAboutSeparator.Close
 		  #endif
 		  
+		  // The system-wide HTTP cache on Mac will cache HTTP content
+		  #If TargetMacOS And TargetCocoa Then
+		    Declare Function NSClassFromString Lib "Cocoa" ( className As CFStringRef ) As Ptr
+		    Declare Function sharedURLCache Lib "Cocoa" selector "sharedURLCache" ( NSURLCacheClass As ptr ) As Ptr
+		    Declare Sub removeAllCachedResponses Lib "Cocoa" selector "removeAllCachedResponses" ( NSURLCacheInstance As Ptr )
+		    removeAllCachedResponses( sharedURLCache( NSClassFromString( "NSURLCache" ) ) )
+		  #EndIf
+		  
 		  pPreferences = new Dictionary()
 		  loadPreferences()
 		  
@@ -104,6 +112,13 @@ Inherits Application
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function mbToString(dst as Xojo.Core.MemoryBlock) As String
+		  Return(CType(dst.Data, MemoryBlock).StringValue(0, dst.Size))
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function processParameterizedString(str as String, parameters() as String) As String
 		  if ubound(parameters) > -1 then
 		    dim i as integer
@@ -125,6 +140,12 @@ Inherits Application
 		  dim prefsFile as FolderItem = SpecialFolder.Preferences().Child(App.kApplicationName + ".plist")
 		  dim result as Boolean = pPreferences.saveXML(prefsFile, true)
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function stringToText(str as String) As Text
+		  Return Str.ToText
+		End Function
 	#tag EndMethod
 
 
@@ -413,34 +434,34 @@ Inherits Application
 	#tag Constant, Name = kSteamDefaultPath, Type = String, Dynamic = False, Default = \"Steam:SteamApps:common:X-plane 10", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevManifest, Type = String, Dynamic = False, Default = \"http://www.opensceneryx.com/manifestdev.xml.zip", Scope = Public
+	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifestdev.xml.zip", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevReleaseNotes, Type = String, Dynamic = False, Default = \"http://www.opensceneryx.com/versioninfo/installerdevreleasenotes.html", Scope = Public
+	#tag Constant, Name = kURLDevReleaseNotes, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevreleasenotes.html", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevRepository, Type = String, Dynamic = False, Default = \"http://www.opensceneryx.com/repository-staging", Scope = Public
+	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository-staging", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevVersion, Type = String, Dynamic = False, Default = \"http://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
+	#tag Constant, Name = kURLDevVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLLicense, Type = String, Dynamic = False, Default = \"http://creativecommons.org/licenses/by-nc-nd/2.0/uk/", Scope = Public
+	#tag Constant, Name = kURLLicense, Type = Text, Dynamic = False, Default = \"https://creativecommons.org/licenses/by-nc-nd/2.0/uk/", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLManifest, Type = String, Dynamic = False, Default = \"http://www.opensceneryx.com/manifest.xml.zip", Scope = Public
+	#tag Constant, Name = kURLManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifest.xml.zip", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLReleaseNotes, Type = String, Dynamic = False, Default = \"http://www.opensceneryx.com/versioninfo/installerreleasenotes.html", Scope = Public
+	#tag Constant, Name = kURLReleaseNotes, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerreleasenotes.html", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLRepository, Type = String, Dynamic = False, Default = \"http://www.opensceneryx.com/repository", Scope = Public
+	#tag Constant, Name = kURLRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLVersion, Type = String, Dynamic = False, Default = \"http://www.opensceneryx.com/versioninfo/installerversion.txt", Scope = Public
+	#tag Constant, Name = kURLVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerversion.txt", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLWebsite, Type = String, Dynamic = False, Default = \"http://www.opensceneryx.com", Scope = Public
+	#tag Constant, Name = kURLWebsite, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com", Scope = Public
 	#tag EndConstant
 
 

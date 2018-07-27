@@ -47,6 +47,7 @@ Begin Window wndMain
       TabPanelIndex   =   0
       Top             =   118
       TopLeftColor    =   &c80808000
+      Transparent     =   True
       Visible         =   True
       Width           =   508
       Begin PagePanel ppnlMain
@@ -68,7 +69,8 @@ Begin Window wndMain
          TabIndex        =   0
          TabPanelIndex   =   0
          Top             =   125
-         Value           =   6
+         Transparent     =   True
+         Value           =   2
          Visible         =   True
          Width           =   495
          Begin Label StaticText2
@@ -93,6 +95,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   1
+            TabStop         =   True
             Text            =   "#kIntroText"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -127,6 +130,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "#kLicenseText1"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -161,6 +165,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   ""
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -195,6 +200,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   ""
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -225,6 +231,7 @@ Begin Window wndMain
             TabPanelIndex   =   5
             TabStop         =   True
             Top             =   137
+            Transparent     =   True
             Visible         =   False
             Width           =   16
          End
@@ -250,6 +257,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   ""
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -280,6 +288,7 @@ Begin Window wndMain
             TabPanelIndex   =   5
             TabStop         =   True
             Top             =   214
+            Transparent     =   True
             Visible         =   False
             Width           =   16
          End
@@ -305,6 +314,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   ""
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -335,6 +345,7 @@ Begin Window wndMain
             TabPanelIndex   =   5
             TabStop         =   True
             Top             =   289
+            Transparent     =   True
             Visible         =   False
             Width           =   16
          End
@@ -360,6 +371,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   ""
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -394,6 +406,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "#kLicenseText3"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -424,6 +437,7 @@ Begin Window wndMain
             TabPanelIndex   =   3
             TabStop         =   True
             Top             =   137
+            Transparent     =   True
             Visible         =   False
             Width           =   16
          End
@@ -449,6 +463,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   ""
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -511,6 +526,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   6
+            TabStop         =   True
             Text            =   ""
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -541,6 +557,7 @@ Begin Window wndMain
             TabPanelIndex   =   6
             TabStop         =   True
             Top             =   137
+            Transparent     =   True
             Visible         =   False
             Width           =   16
          End
@@ -566,6 +583,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   6
+            TabStop         =   True
             Text            =   ""
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -596,6 +614,7 @@ Begin Window wndMain
             TabPanelIndex   =   6
             TabStop         =   True
             Top             =   192
+            Transparent     =   True
             Visible         =   False
             Width           =   16
          End
@@ -621,6 +640,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   7
+            TabStop         =   True
             Text            =   "#kInstallComplete2"
             TextAlign       =   1
             TextColor       =   &c00000000
@@ -655,6 +675,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   7
+            TabStop         =   True
             Text            =   "#kInstallComplete1"
             TextAlign       =   1
             TextColor       =   &c00000000
@@ -685,6 +706,7 @@ Begin Window wndMain
             TabIndex        =   20
             TabPanelIndex   =   6
             Top             =   475
+            Transparent     =   True
             Value           =   0
             Visible         =   False
             Width           =   317
@@ -716,6 +738,7 @@ Begin Window wndMain
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   237
+            Transparent     =   True
             Underline       =   False
             Visible         =   True
             Width           =   413
@@ -738,6 +761,7 @@ Begin Window wndMain
             TabIndex        =   22
             TabPanelIndex   =   6
             Top             =   441
+            Transparent     =   True
             Value           =   0
             Visible         =   False
             Width           =   317
@@ -764,6 +788,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   6
+            TabStop         =   True
             Text            =   "#kCurrentFile"
             TextAlign       =   2
             TextColor       =   &c00000000
@@ -798,6 +823,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   6
+            TabStop         =   True
             Text            =   "#kAllFiles"
             TextAlign       =   2
             TextColor       =   &c00000000
@@ -832,6 +858,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   6
+            TabStop         =   True
             Text            =   ""
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -866,6 +893,7 @@ Begin Window wndMain
             Selectable      =   False
             TabIndex        =   7
             TabPanelIndex   =   6
+            TabStop         =   True
             Text            =   ""
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -902,6 +930,7 @@ Begin Window wndMain
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   140
+            Transparent     =   True
             Underline       =   False
             Visible         =   True
             Width           =   459
@@ -927,6 +956,7 @@ Begin Window wndMain
                Selectable      =   False
                TabIndex        =   0
                TabPanelIndex   =   4
+               TabStop         =   True
                Text            =   "Untitled"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -966,6 +996,7 @@ Begin Window wndMain
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   228
+               Transparent     =   True
                Underline       =   False
                Visible         =   True
                Width           =   190
@@ -997,6 +1028,7 @@ Begin Window wndMain
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   228
+               Transparent     =   True
                Underline       =   False
                Visible         =   False
                Width           =   168
@@ -1026,6 +1058,7 @@ Begin Window wndMain
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   278
+            Transparent     =   True
             Underline       =   False
             Visible         =   True
             Width           =   459
@@ -1053,6 +1086,7 @@ Begin Window wndMain
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   314
+               Transparent     =   True
                Underline       =   False
                Value           =   True
                Visible         =   True
@@ -1082,6 +1116,7 @@ Begin Window wndMain
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   346
+               Transparent     =   True
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -1167,6 +1202,7 @@ Begin Window wndMain
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "PRE-RELEASE TEST VERSION, DO NOT RE-DISTRIBUTE!"
          TextAlign       =   0
          TextColor       =   &cFF000000
@@ -1179,44 +1215,6 @@ Begin Window wndMain
          Visible         =   False
          Width           =   522
       End
-   End
-   Begin HTTPSocket sockManifest
-      Address         =   ""
-      BytesAvailable  =   0
-      BytesLeftToSend =   0
-      Handle          =   0
-      httpProxyAddress=   ""
-      httpProxyPort   =   0
-      Index           =   -2147483648
-      InitialParent   =   ""
-      IsConnected     =   False
-      LastErrorCode   =   0
-      LocalAddress    =   ""
-      LockedInPosition=   False
-      Port            =   80
-      RemoteAddress   =   ""
-      Scope           =   0
-      TabPanelIndex   =   0
-      yield           =   False
-   End
-   Begin HTTPSocket sockFile
-      Address         =   ""
-      BytesAvailable  =   0
-      BytesLeftToSend =   0
-      Handle          =   0
-      httpProxyAddress=   ""
-      httpProxyPort   =   0
-      Index           =   -2147483648
-      InitialParent   =   ""
-      IsConnected     =   False
-      LastErrorCode   =   0
-      LocalAddress    =   ""
-      LockedInPosition=   False
-      Port            =   80
-      RemoteAddress   =   ""
-      Scope           =   0
-      TabPanelIndex   =   0
-      yield           =   False
    End
    Begin Label txtStage
       AutoDeactivate  =   True
@@ -1240,6 +1238,7 @@ Begin Window wndMain
       Selectable      =   False
       TabIndex        =   15
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "#kStageIntroduction"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1274,6 +1273,7 @@ Begin Window wndMain
       Selectable      =   False
       TabIndex        =   17
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "#kStageLicense"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1308,6 +1308,7 @@ Begin Window wndMain
       Selectable      =   False
       TabIndex        =   23
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "#kStageSettings"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1342,6 +1343,7 @@ Begin Window wndMain
       Selectable      =   False
       TabIndex        =   26
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Introduction"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1381,6 +1383,7 @@ Begin Window wndMain
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   534
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   91
@@ -1412,6 +1415,7 @@ Begin Window wndMain
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   534
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   91
@@ -1438,6 +1442,7 @@ Begin Window wndMain
       Selectable      =   False
       TabIndex        =   30
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "#kStageSummary"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1472,6 +1477,7 @@ Begin Window wndMain
       Selectable      =   False
       TabIndex        =   31
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "#kStageInstallerVersion"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1506,6 +1512,7 @@ Begin Window wndMain
       Selectable      =   False
       TabIndex        =   35
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "#kStageLocalScan"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1540,6 +1547,7 @@ Begin Window wndMain
       Selectable      =   False
       TabIndex        =   36
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "#kStageInstall"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1576,6 +1584,7 @@ Begin Window wndMain
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   -198
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   459
@@ -1603,6 +1612,7 @@ Begin Window wndMain
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   -164
+         Transparent     =   True
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -1632,6 +1642,7 @@ Begin Window wndMain
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   -164
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1664,6 +1675,7 @@ Begin Window wndMain
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   -93
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1696,6 +1708,7 @@ Begin Window wndMain
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   -134
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1740,6 +1753,7 @@ Begin Window wndMain
       TabIndex        =   39
       TabPanelIndex   =   0
       Top             =   124
+      Transparent     =   True
       Visible         =   True
       Width           =   10
    End
@@ -1763,6 +1777,7 @@ Begin Window wndMain
       TabIndex        =   40
       TabPanelIndex   =   0
       Top             =   156
+      Transparent     =   True
       Visible         =   True
       Width           =   10
    End
@@ -1786,6 +1801,7 @@ Begin Window wndMain
       TabIndex        =   41
       TabPanelIndex   =   0
       Top             =   188
+      Transparent     =   True
       Visible         =   True
       Width           =   10
    End
@@ -1809,6 +1825,7 @@ Begin Window wndMain
       TabIndex        =   42
       TabPanelIndex   =   0
       Top             =   220
+      Transparent     =   True
       Visible         =   True
       Width           =   10
    End
@@ -1832,6 +1849,7 @@ Begin Window wndMain
       TabIndex        =   43
       TabPanelIndex   =   0
       Top             =   252
+      Transparent     =   True
       Visible         =   True
       Width           =   10
    End
@@ -1855,6 +1873,7 @@ Begin Window wndMain
       TabIndex        =   44
       TabPanelIndex   =   0
       Top             =   284
+      Transparent     =   True
       Visible         =   True
       Width           =   10
    End
@@ -1878,21 +1897,30 @@ Begin Window wndMain
       TabIndex        =   45
       TabPanelIndex   =   0
       Top             =   316
+      Transparent     =   True
       Visible         =   True
       Width           =   10
    End
-   Begin HTTPSocket sockVersion
-      Address         =   ""
-      BytesAvailable  =   0
-      BytesLeftToSend =   0
-      Handle          =   0
-      httpProxyPort   =   0
+   Begin Xojo.Net.HTTPSocket sockVersion
       Index           =   -2147483648
-      LastErrorCode   =   0
       LockedInPosition=   False
-      Port            =   80
       Scope           =   0
       TabPanelIndex   =   0
+      ValidateCertificates=   False
+   End
+   Begin Xojo.Net.HTTPSocket sockManifest
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Scope           =   0
+      TabPanelIndex   =   0
+      ValidateCertificates=   False
+   End
+   Begin Xojo.Net.HTTPSocket sockFile
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Scope           =   0
+      TabPanelIndex   =   0
+      ValidateCertificates=   False
    End
 End
 #tag EndWindow
@@ -1900,17 +1928,17 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  sockManifest.setRequestHeader("User-Agent", App.kApplicationName + " " + App.shortVersion)
-		  sockFile.setRequestHeader("User-Agent", App.kApplicationName + " " + App.shortVersion)
-		  sockVersion.setRequestHeader("User-Agent", App.kApplicationName + " " + App.shortVersion)
-		  sockManifest.SetRequestHeader("Authorization", "Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
-		  sockFile.SetRequestHeader("Authorization", "Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
-		  sockVersion.SetRequestHeader("Authorization", "Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
+		  sockManifest.RequestHeader("User-Agent") = App.stringToText(App.kApplicationName + " " + App.shortVersion)
+		  sockFile.RequestHeader("User-Agent") = App.stringToText(App.kApplicationName + " " + App.shortVersion)
+		  sockVersion.RequestHeader("User-Agent") = App.stringToText(App.kApplicationName + " " + App.shortVersion)
+		  sockManifest.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
+		  sockFile.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
+		  sockVersion.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
 		  
 		  if (App.StageCode = 3) then
 		    lblPreRelease.visible = false
 		  else
-		    lblPreRelease.visible = true
+		    lblPreRelease.visible = True
 		  end if
 		  
 		  // Set up the panel completed booleans
@@ -2040,9 +2068,10 @@ End
 		  ' Can't use getTemporaryFolderItem here because there's a bug in it where the file handle is left open on Linux.
 		  ' So instead we create our own randomly-named file inside the system temporary folder
 		  dim r as Random = new Random
-		  dim destinationFolderItem as FolderItem = SpecialFolder.Temporary.child(str(r.InRange(10000000, 99999999)))
+		  Dim destinationFolderItem As FolderItem = SpecialFolder.Temporary.child(Str(r.InRange(10000000, 99999999)))
+		  Dim destinationFile As New Xojo.IO.FolderItem(destinationFolderItem.NativePath.ToText)
 		  
-		  dim url as string
+		  Dim url As Text
 		  
 		  if (App.StageCode = 3) then
 		    url = App.kURLRepository
@@ -2052,12 +2081,12 @@ End
 		  
 		  for i = 0 to ubound(parts)
 		    if (parts(i) <> "") then url = url + "/"
-		    url = url + encodeURLComponent(parts(i))
+		    url = url + App.StringToText(encodeURLComponent(parts(i)))
 		  next
 		  
 		  url = url + ".zip"
 		  
-		  sockFile.get(url, destinationFolderItem)
+		  sockFile.send("GET", url, destinationFile)
 		  
 		  pSockFileWorking = true
 		End Sub
@@ -2159,7 +2188,7 @@ End
 
 	#tag Method, Flags = &h0
 		Sub selectPanel(panelIndex as integer)
-		  dim i as integer = 0
+		  Dim i As Integer = 0
 		  
 		  // Set the page panel index
 		  ppnlMain.value = panelIndex
@@ -2190,34 +2219,15 @@ End
 		      showMessage(txtInstallerVersionBodyText1, kCheckingInstallerVersion)
 		      showMessage(txtInstallerVersionBodyText2, "")
 		      
-		      // Possibly wrap this in a thread
-		      dim content as String
 		      if (App.StageCode = 3) then
-		        content = sockVersion.get(App.kURLVersion, 60)
+		        sockVersion.send("GET", App.kURLVersion)
 		      else
-		        content = sockVersion.get(App.kURLDevVersion, 60)
-		      end if
+		        sockVersion.send("GET", App.kURLDevVersion)
+		      End If
 		      
-		      // Finished connection with server
-		      prgwCheckInstaller.visible = false
-		      showMessage(txtInstallerVersionBodyText1, kCheckingInstallerVersion + " " + kDone)
+		      // Synchronous content checking was here with old Socket.  Now done in Socket methods
 		      
-		      if (sockVersion.HTTPStatusCode = 200) then
-		        if (not startsWith(content, App.shortVersion)) then
-		          showMessage(txtInstallerVersionBodyText2, kNewInstallerAvailable)
-		        else
-		          showMessage(txtInstallerVersionBodyText2, kInstallerVersionUpToDate)
-		          setPanelCompleted(ppnlMain.value)
-		          enableContinue()
-		        end if
-		      else
-		        // Error from server, continue anyway
-		        showMessage(txtInstallerVersionBodyText2, kCouldntCheckInstallerVersion)
-		        setPanelCompleted(ppnlMain.value)
-		        enableContinue()
-		      end if
-		      
-		      enableBack()
+		      enableBack
 		      
 		    case kStageSettings
 		      #if TargetMacOS then
@@ -2275,14 +2285,16 @@ End
 		      
 		      if pServerManifest = nil then
 		        // Download the server manifest
-		        pServerManifest = new FolderManifest()
+		        pServerManifest = New FolderManifest
 		        
-		        if (App.StageCode = 3) then
-		          sockManifest.get(App.kURLManifest, getTemporaryFolderItem())
+		        Dim temporaryFile As FolderItem = GetTemporaryFolderItem
+		        
+		        If (App.StageCode = 3) Then
+		          sockManifest.send("GET", App.kURLManifest, New Xojo.IO.FolderItem(temporaryFile.NativePath.ToText))
 		        else
-		          sockManifest.get(App.kURLDevManifest, getTemporaryFolderItem())
+		          sockManifest.send("GET", App.kURLDevManifest, New Xojo.IO.FolderItem(temporaryFile.NativePath.ToText))
 		        end if
-		      else
+		      Else
 		        // We had already downloaded the server manifest
 		        prgwLocalScan2.visible = false
 		        showMessage(txtLocalScanBodyText2, kDownloadingManifest + " " + kDone)
@@ -3189,119 +3201,6 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events sockManifest
-	#tag Event
-		Sub DownloadComplete(url as string, httpStatus as integer, headers as internetHeaders, file as folderItem)
-		  if (httpStatus = 200) then
-		    dim zar as ZipArchive = new ZipArchive
-		    dim f as FolderItem, e as ZipEntry
-		    
-		    if not zar.Open(file, false) then
-		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (0)")
-		      prgwLocalScan2.visible = false
-		      return
-		    end
-		    
-		    e = zar.Entry(1)
-		    f = e.MakeDestination(getTemporaryFolderItem().parent, false)
-		    
-		    if not e.Extract(f) then
-		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (1) " + e.ErrorMessage())
-		      prgwLocalScan2.visible = false
-		      return
-		    end
-		    
-		    if not zar.Close() then
-		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (2)")
-		      prgwLocalScan2.visible = false
-		      return
-		    end
-		    
-		    file.delete()
-		    
-		    prgwLocalScan2.visible = false
-		    
-		    '!!!! Remove these lines
-		    'dim g as FolderItem = new FolderItem("/Users/austin/Desktop/testmanifest.xml", FolderItem.PathTypeShell)
-		    'dim tis as TextInputStream = g.openAsTextFile
-		    '!!!
-		    dim tis as TextInputStream = f.openAsTextFile
-		    
-		    if pServerManifest.gatherManifestFromXMLString(tis.readAll) then
-		      f.delete()
-		      showMessage(txtLocalScanBodyText2, kDownloadingManifest + " " + kDone)
-		      checkFolderStructure()
-		    else
-		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (3)")
-		    end if
-		    
-		  else
-		    showMessage(txtLocalScanBodyText2, kErrorManifest + " (4)")
-		    prgwLocalScan2.visible = false
-		  end if
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Error(code as integer)
-		  prgwLocalScan2.visible = false
-		  showMessage(txtLocalScanBodyText2, kGivingUp)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events sockFile
-	#tag Event
-		Sub ReceiveProgress(bytesReceived as integer, totalBytes as integer, newData as string)
-		  prgBarFile.maximum = totalBytes
-		  prgBarFile.value = bytesReceived
-		  txtFilePercent.text = str(round((bytesReceived / totalBytes) * 100)) + "%"
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub DownloadComplete(url as string, httpStatus as integer, headers as internetHeaders, file as folderItem)
-		  if (httpStatus = 200) then
-		    dim filePath as String = pPendingFiles.item(1)
-		    dim zar as ZipArchive = new ZipArchive
-		    dim f as FolderItem
-		    dim e as ZipEntry
-		    
-		    pPendingFiles.remove(1)
-		    
-		    dim destinationFolderItem as FolderItem = pLocalManifest.getLocalFolderItem(filePath)
-		    if (destinationFolderItem.exists) then destinationFolderItem.delete()
-		    
-		    if not zar.Open(file, false) then
-		      showMessage(txtInstallBodyText2, kError, Array(zar.ErrorMessage))
-		      return
-		    end
-		    
-		    e = zar.Entry(1)
-		    
-		    f = e.MakeDestination(file.parent, false)
-		    
-		    if not e.Extract(f) then
-		      showMessage(txtInstallBodyText2, kExtractionFailed, Array(e.RawPath, e.ErrorMessage))
-		      return
-		    end
-		    
-		    if not zar.Close() then
-		      showMessage(txtInstallBodyText2, kError, Array(zar.ErrorMessage))
-		      return
-		    end
-		    
-		    f.copyFileTo(destinationFolderItem)
-		    f.delete()
-		    file.delete()
-		    
-		  else
-		    showMessage(txtInstallBodyText2, kErrorHTTP, Array(str(httpStatus)))
-		    'prgBarFile.visible = false
-		    'txtProgress.visible = false
-		  end if
-		  
-		  pSockFileWorking = false
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events btnContinue
 	#tag Event
 		Sub Action()
@@ -3386,6 +3285,160 @@ End
 		    
 		    me.Mode = Timer.ModeOff
 		  end if
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events sockVersion
+	#tag Event
+		Sub PageReceived(URL as Text, HTTPStatus as Integer, Content as xojo.Core.MemoryBlock)
+		  // Finished connection with server
+		  prgwCheckInstaller.visible = False
+		  showMessage(txtInstallerVersionBodyText1, kCheckingInstallerVersion + " " + kDone)
+		  
+		  If (HTTPStatus = 200) Then
+		    If (Not startsWith(App.mbToString(Content), App.shortVersion)) Then
+		      showMessage(txtInstallerVersionBodyText2, kNewInstallerAvailable)
+		    Else
+		      showMessage(txtInstallerVersionBodyText2, kInstallerVersionUpToDate)
+		      setPanelCompleted(ppnlMain.value)
+		      enableContinue
+		    End If
+		  Else
+		    // Error from server, continue anyway
+		    showMessage(txtInstallerVersionBodyText2, kCouldntCheckInstallerVersion)
+		    setPanelCompleted(ppnlMain.value)
+		    enableContinue
+		  End If
+		  
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Error(err as RuntimeException)
+		  showMessage(txtInstallerVersionBodyText2, kCouldntCheckInstallerVersion)
+		  setPanelCompleted(ppnlMain.value)
+		  enableContinue
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events sockManifest
+	#tag Event
+		Sub Error(err as RuntimeException)
+		  prgwLocalScan2.visible = False
+		  showMessage(txtLocalScanBodyText2, kGivingUp)
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub FileReceived(URL as Text, HTTPStatus as Integer, File as xojo.IO.FolderItem)
+		  If (HTTPStatus = 200) Then
+		    Dim zar As ZipArchive = New ZipArchive
+		    Dim f As FolderItem, e As ZipEntry
+		    Dim classicFile As New FolderItem(File.Path, FolderItem.PathTypeNative)
+		    
+		    If Not zar.Open(classicFile, False) Then
+		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (0)")
+		      prgwLocalScan2.visible = False
+		      Return
+		    End
+		    
+		    e = zar.Entry(1)
+		    f = e.MakeDestination(GetTemporaryFolderItem.parent, False)
+		    
+		    If Not e.Extract(f) Then
+		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (1) " + e.ErrorMessage)
+		      prgwLocalScan2.visible = False
+		      Return
+		    End
+		    
+		    If Not zar.Close Then
+		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (2)")
+		      prgwLocalScan2.visible = False
+		      Return
+		    End
+		    
+		    File.delete
+		    
+		    prgwLocalScan2.visible = False
+		    
+		    '!!!! Remove these lines
+		    'dim g as FolderItem = new FolderItem("/Users/austin/Desktop/testmanifest.xml", FolderItem.PathTypeShell)
+		    'dim tis as TextInputStream = g.openAsTextFile
+		    '!!!
+		    Dim tis As TextInputStream = f.openAsTextFile
+		    
+		    If pServerManifest.gatherManifestFromXMLString(tis.readAll) Then
+		      f.delete
+		      showMessage(txtLocalScanBodyText2, kDownloadingManifest + " " + kDone)
+		      checkFolderStructure
+		    Else
+		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (3)")
+		    End If
+		    
+		  Else
+		    showMessage(txtLocalScanBodyText2, kErrorManifest + " (4)")
+		    prgwLocalScan2.visible = False
+		  End If
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events sockFile
+	#tag Event
+		Sub Error(err as RuntimeException)
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub FileReceived(URL as Text, HTTPStatus as Integer, File as xojo.IO.FolderItem)
+		  If (HTTPStatus = 200) Then
+		    Dim filePath As String = pPendingFiles.item(1)
+		    Dim zar As ZipArchive = New ZipArchive
+		    Dim f As FolderItem
+		    Dim e As ZipEntry
+		    Dim classicFile As New FolderItem(File.Path, FolderItem.PathTypeNative)
+		    
+		    pPendingFiles.remove(1)
+		    
+		    Dim destinationFolderItem As FolderItem = pLocalManifest.getLocalFolderItem(filePath)
+		    If (destinationFolderItem.exists) Then destinationFolderItem.delete
+		    
+		    If Not zar.Open(classicFile, False) Then
+		      showMessage(txtInstallBodyText2, kError, Array(zar.ErrorMessage))
+		      Return
+		    End
+		    
+		    e = zar.Entry(1)
+		    
+		    f = e.MakeDestination(classicFile.parent, False)
+		    
+		    If Not e.Extract(f) Then
+		      showMessage(txtInstallBodyText2, kExtractionFailed, Array(e.RawPath, e.ErrorMessage))
+		      Return
+		    End
+		    
+		    If Not zar.Close Then
+		      showMessage(txtInstallBodyText2, kError, Array(zar.ErrorMessage))
+		      Return
+		    End
+		    
+		    f.copyFileTo(destinationFolderItem)
+		    f.delete
+		    classicFile.delete
+		    
+		  Else
+		    showMessage(txtInstallBodyText2, kErrorHTTP, Array(Str(httpStatus)))
+		    'prgBarFile.visible = false
+		    'txtProgress.visible = false
+		  End If
+		  
+		  pSockFileWorking = False
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub ReceiveProgress(BytesReceived as Int64, TotalBytes as Int64, NewData as xojo.Core.MemoryBlock)
+		  prgBarFile.maximum = TotalBytes
+		  prgBarFile.value = BytesReceived
+		  txtFilePercent.Text = Str(Round((BytesReceived / TotalBytes) * 100)) + "%"
 		End Sub
 	#tag EndEvent
 #tag EndEvents
