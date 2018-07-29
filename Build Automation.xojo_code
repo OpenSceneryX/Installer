@@ -22,5 +22,11 @@
 			Begin BuildStepList Windows
 				Begin BuildProjectStep Build
 				End
+				Begin CopyFilesBuildStep copyFileszlib
+					AppliesTo = 0
+					Destination = 0
+					Subdirectory = 
+					FolderItem = Li4vTGlicmFyaWVzL3psaWIxLTY0L3psaWIxLmRsbA==
+				End
 			End
 #tag EndBuildAutomation
