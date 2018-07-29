@@ -2709,6 +2709,9 @@ End
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x92\xD0\xBE\xD0\xB7\xD0\xBD\xD0\xB8\xD0\xBA\xD0\xBB\xD0\xB0 \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB1\xD0\xBB\xD0\xB5\xD0\xBC\xD0\xB0 \xD1\x81\xD0\xBE \xD1\x81\xD0\xBF\xD0\xB8\xD1\x81\xD0\xBA\xD0\xBE\xD0\xBC \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xBE\xD0\xB2\x2C \xD0\xB7\xD0\xB0\xD0\xB3\xD1\x80\xD1\x83\xD0\xB6\xD0\xB5\xD0\xBD\xD0\xBD\xD1\x8B\xD1\x85 \xD1\x81 \xD1\x81\xD0\xB5\xD1\x80\xD0\xB2\xD0\xB5\xD1\x80\xD0\xB0\x2C \xD0\xBF\xD0\xBE\xD0\xB2\xD1\x82\xD0\xBE\xD1\x80\xD0\xB8\xD1\x82\xD1\x8C \xD0\xBF\xD0\xBE\xD0\xBF\xD1\x8B\xD1\x82\xD0\xBA\xD1\x83 \xD0\xBF\xD0\xBE\xD0\xB7\xD0\xB4\xD0\xBD\xD0\xB5\xD0\xB5."
 	#tag EndConstant
 
+	#tag Constant, Name = kErrorWritingFile, Type = String, Dynamic = False, Default = \"There was an error creating the local file\x2C do you have permission to write to the X-Plane folder structure\?", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kExtractionFailed, Type = String, Dynamic = True, Default = \"Extraction of \"${1}\" failed: \"${2}\"", Scope = Public
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Extracci\xC3\xB3n de \"${1}\" fall\xC3\xB3: \"${2}\""
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"L\'extraction de \"{1}\" a \xC3\xA9chou\xC3\xA9e:\"{2}\""
@@ -3432,6 +3435,12 @@ End
 		  End If
 		  
 		  pSockFileWorking = False
+		  
+		  Exception err As NilObjectException
+		    // Will throw exception if we weren't able to create the folder structure
+		    tmrUpdateFolderStructure.Enabled = False
+		    showMessage(txtInstallBodyText2, kErrorWritingFile)
+		    
 		End Sub
 	#tag EndEvent
 	#tag Event

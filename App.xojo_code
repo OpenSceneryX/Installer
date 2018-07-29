@@ -11,9 +11,9 @@ Inherits Application
 		Sub Open()
 		  // Check whether we are running as an administrator.  If not, re-run as admin.  This is only applicable on Windows and
 		  // if we're not debugging (when remote debugging, this causes a failure to connect to the IDE).
-		  #if not DebugBuild then
-		    if not isUserLocalAdministrator() then
-		      rerunAsAdministrator()
+		  #If TargetWindows Then
+		    If Not isUserLocalAdministrator Then
+		      MsgBox("The installer is not running as an administrator.  This may cause problems as it needs to write to your X-Plane folder which is often in 'Program Files'.  Re-run as administrator to avoid any problems.")
 		    end if
 		  #endif
 		  

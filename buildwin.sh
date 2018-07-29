@@ -11,9 +11,6 @@ export COPYFILE_DISABLE=true
 
 cd Builds\ -\ Installer.xojo_project/Windows\ 64\ bit/
 
-# Code signing
-# signtool sign /v /f "<certificate_path>certificate.pfx" /d "OpenSceneryX Installer" /t http://timestamp.verisign.com/scripts/timstamp.dll OpenSceneryX Installer.exe
-
 echo
 echo "Zipping"
 echo "-------"
