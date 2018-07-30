@@ -1922,6 +1922,22 @@ Begin Window wndMain
       TabPanelIndex   =   0
       ValidateCertificates=   False
    End
+   Begin Thread thrLocalScan
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Priority        =   5
+      Scope           =   0
+      StackSize       =   0
+      TabPanelIndex   =   0
+   End
+   Begin Timer tmrLocalScan
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Mode            =   0
+      Period          =   500
+      Scope           =   0
+      TabPanelIndex   =   0
+   End
 End
 #tag EndWindow
 
@@ -2243,7 +2259,7 @@ End
 		        setPanelCompleted(panelIndex)
 		      end if
 		      
-		      if (App.pPreferences.hasKey(App.kPreferenceInstallType) and App.pPreferences.value(App.kPreferenceInstallType) = App.kPreferenceInstallTypeMinimal) then rdoInstallTypeMinimal.value = true
+		      If (App.pPreferences.hasKey(App.kPreferenceInstallType) And App.pPreferences.value(App.kPreferenceInstallType) = App.kPreferenceInstallTypeMinimal) Then rdoInstallTypeMinimal.value = True
 		      if (App.pPreferences.hasKey(App.kPreferenceDeleteUnused)) then chkDeleteUnused.value = App.pPreferences.value(App.kPreferenceDeleteUnused)
 		      if (App.pPreferences.hasKey(App.kPreferenceScanDisabled)) then chkScanDisabled.value = App.pPreferences.value(App.kPreferenceScanDisabled)
 		      
@@ -2264,44 +2280,8 @@ End
 		      showMessage(txtLocalScanBodyText2, "")
 		      showMessage(txtLocalScanBodyText3, "")
 		      showMessage(txtLocalScanBodyText4, "")
-		      preProcessLocalFolderItem(pOsxFolderItem)
 		      
-		      // Scan local files
-		      // Possibly wrap this in a thread
-		      pLocalManifest.gatherManifestFromLocalFolderItem(pOsxFolderItem)
-		      
-		      // Scan DSFs (if option selected)
-		      if (rdoInstallTypeMinimal.value = true) then
-		        pDSFManifest.gatherManifestFromDSFFiles(App.pXPlaneFolder, chkScanDisabled.value)
-		      end if
-		      
-		      // Local Scan Done
-		      prgwLocalScan1.visible = false
-		      showMessage(txtLocalScanBodyText1, kCollectingLocalFileInformation + " " + kDone)
-		      
-		      // Starting Download Manifest
-		      prgwLocalScan2.visible = true
-		      showMessage(txtLocalScanBodyText2, kDownloadingManifest)
-		      
-		      if pServerManifest = nil then
-		        // Download the server manifest
-		        pServerManifest = New FolderManifest
-		        
-		        Dim temporaryFile As FolderItem = GetTemporaryFolderItem
-		        
-		        If (App.StageCode = 3) Then
-		          sockManifest.send("GET", App.kURLManifest, New Xojo.IO.FolderItem(temporaryFile.NativePath.ToText))
-		        else
-		          sockManifest.send("GET", App.kURLDevManifest, New Xojo.IO.FolderItem(temporaryFile.NativePath.ToText))
-		        end if
-		      Else
-		        // We had already downloaded the server manifest
-		        prgwLocalScan2.visible = false
-		        showMessage(txtLocalScanBodyText2, kDownloadingManifest + " " + kDone)
-		        
-		        // Starting checking folder structure
-		        checkFolderStructure()
-		      end if
+		      thrLocalScan.run
 		      
 		    case kStageInstall
 		      dim j as Integer
@@ -3252,7 +3232,8 @@ End
 		  tmrUpdateFolderStructure.Mode = Timer.ModeMultiple
 		  
 		  while (pPendingFiles.Count > 0)
-		    if not pSockFileWorking then
+		    If Not pSockFileWorking Then
+		      App.YieldToNextThread
 		      downloadNextFile()
 		    end if
 		  wend
@@ -3448,6 +3429,63 @@ End
 		  prgBarFile.maximum = TotalBytes
 		  prgBarFile.value = BytesReceived
 		  txtFilePercent.Text = Str(Round((BytesReceived / TotalBytes) * 100)) + "%"
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events thrLocalScan
+	#tag Event
+		Sub Run()
+		  tmrLocalScan.Mode = Timer.ModeMultiple
+		  
+		  // Tidy up previous problems
+		  preProcessLocalFolderItem(pOsxFolderItem)
+		  
+		  // Scan local files
+		  pLocalManifest.gatherManifestFromLocalFolderItem(pOsxFolderItem)
+		  
+		  // Scan DSFs (if option selected)
+		  If (App.pPreferences.hasKey(App.kPreferenceInstallType) And App.pPreferences.value(App.kPreferenceInstallType) = App.kPreferenceInstallTypeMinimal) Then
+		    pDSFManifest.gatherManifestFromDSFFiles(App.pXPlaneFolder, chkScanDisabled.value)
+		  End If
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events tmrLocalScan
+	#tag Event
+		Sub Action()
+		  If (thrLocalScan.State <> Thread.Running) Then
+		    Me.Mode = Timer.ModeOff
+		    
+		    // Local Scan Done
+		    prgwLocalScan1.visible = False
+		    showMessage(txtLocalScanBodyText1, kCollectingLocalFileInformation + " " + kDone)
+		    
+		    // Starting Download Manifest
+		    prgwLocalScan2.visible = True
+		    showMessage(txtLocalScanBodyText2, kDownloadingManifest)
+		    
+		    // Really the next stuff should go into another thread
+		    If pServerManifest = Nil Then
+		      // Download the server manifest
+		      pServerManifest = New FolderManifest
+		      
+		      Dim temporaryFile As FolderItem = GetTemporaryFolderItem
+		      
+		      If (App.StageCode = 3) Then
+		        sockManifest.send("GET", App.kURLManifest, New Xojo.IO.FolderItem(temporaryFile.NativePath.ToText))
+		      Else
+		        sockManifest.send("GET", App.kURLDevManifest, New Xojo.IO.FolderItem(temporaryFile.NativePath.ToText))
+		      End If
+		    Else
+		      // We had already downloaded the server manifest
+		      prgwLocalScan2.visible = False
+		      showMessage(txtLocalScanBodyText2, kDownloadingManifest + " " + kDone)
+		      
+		      // Starting checking folder structure
+		      checkFolderStructure
+		    End If
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
