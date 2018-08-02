@@ -21,7 +21,14 @@ echo
 echo Administrator Launch
 echo --------------------
 
+# This works
 /usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\Resource Hacker\\ResourceHacker.exe" -open "../Builds - Installer.xojo_project/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe" -save "Manifest.rc" -action extract -mask MANIFEST,1,1033
+
+# This works
+/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user powershell -Command "(gc MANIFEST1_1.txt) -replace 'asInvoker', 'requireAdministrator' | Out-File MANIFEST1_1_Modified.txt"
+
+# This doesn't work
+/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\Resource Hacker\\ResourceHacker.exe" -open "../Builds - Installer.xojo_project/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe" -save "OpenSceneryX Installer mod.exe" -action addoverwrite MANIFEST1_1.txt,MANIFEST,1,
 
 echo
 echo
