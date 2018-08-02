@@ -3231,9 +3231,9 @@ End
 		Sub Run()
 		  tmrUpdateFolderStructure.Mode = Timer.ModeMultiple
 		  
-		  while (pPendingFiles.Count > 0)
+		  While (pPendingFiles.Count > 0)
+		    App.YieldToNextThread
 		    If Not pSockFileWorking Then
-		      App.YieldToNextThread
 		      downloadNextFile()
 		    end if
 		  wend
