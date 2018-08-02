@@ -3,8 +3,12 @@ Building and Deploying the Installer
 
 o The Windows version of the installer needs the zlib1 DLL to be included at the same level as the executable.  This is done by a Windows build step, but the DLL must be downloaded and present at Libraries/zlib1-64/zlib1.dll
 
-o To sign the Windows app, copy it to a Windows machine as well as the .p12 certificate and sign using the following command:
+o The Windows version needs to run as an administrator.  Using angusj.com/resourcehacker, edit the Manifest and change the <requestedExecutionLevel> from "asInvoker" to "requireAdministrator".  Remember to 'Compile' before 'Save'.
 
-> "C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" sign /v /f "Austin Goudge.pfx" /p <certificate-password> /d "OpenSceneryX Installer" /t http://timestamp.verisign.com/scripts/timestamp.dll "OpenSceneryX Installer.exe"
+o For signing the Windows app, signtool needs to be installed which is part of the Windows 10 SDK (https://go.microsoft.com/fwlink/?LinkID=698771).  Sign using the following command:
+
+> "C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" sign /v /f "Austin Goudge.p12" /p <certificate-password> /d "OpenSceneryX Installer" /t http://timestamp.verisign.com/scripts/timestamp.dll "OpenSceneryX Installer.exe"
+
+This is now done automatically by the Windows build process.
 
 o The Mac app is signed automatically by the build process, but some machines it still claims it's from an unidentified developer.

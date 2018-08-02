@@ -6,7 +6,7 @@
 			Begin BuildStepList Mac OS X
 				Begin BuildProjectStep Build
 				End
-				Begin IDEScriptBuildStep scrCodeSign , AppliesTo = 2
+				Begin IDEScriptBuildStep scrCodesignMac , AppliesTo = 2
 					Dim command As String
 					Dim result As String
 					
@@ -27,6 +27,16 @@
 					Destination = 0
 					Subdirectory = 
 					FolderItem = Li4vTGlicmFyaWVzL3psaWIxLTY0L3psaWIxLmRsbA==
+				End
+				Begin IDEScriptBuildStep scrCodesignWin , AppliesTo = 2
+					Dim command As String
+					Dim result As String
+					
+					command = "open -n -W -F -a Terminal " + CurrentBuildLocation + "/../../../Scripts/codesign-win.sh"
+					result = DoShellCommand(command)
+					
+					If (result <> "") Then Print(result)
+					
 				End
 			End
 #tag EndBuildAutomation
