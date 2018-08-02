@@ -21,7 +21,7 @@ echo
 echo Administrator Launch
 echo --------------------
 
-read -n 1 -s -r -p "Please edit the .exe manifest to launch the app as an Administrator.  Press any key to continue."
+/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\Resource Hacker\\ResourceHacker.exe" -open "../Builds - Installer.xojo_project/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe" -save "Manifest.rc" -action extract -mask MANIFEST,1,1033
 
 echo
 echo
