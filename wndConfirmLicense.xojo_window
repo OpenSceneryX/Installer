@@ -268,15 +268,16 @@ End
 #tag Events btnAgree
 	#tag Event
 		Sub Action()
-		  wndConfirmLicense.close()
-		  wndMain.licenseConfirmed()
+		  wndConfirmLicense.close
+		  wndMain.licenseConfirmed
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events btnDisagree
 	#tag Event
 		Sub Action()
-		  wndConfirmLicense.Close
+		  wndConfirmLicense.close
 		  Quit
 		  
 		End Sub
@@ -285,7 +286,9 @@ End
 #tag Events btnReadLicense
 	#tag Event
 		Sub Action()
-		  wndConfirmLicense.close()
+		  wndConfirmLicense.close
+		  wndLicense.show
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
