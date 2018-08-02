@@ -13,7 +13,6 @@ Folder=Modules;Modules;&h000000004863AD30;&h0000000000000000;false
 Module=Utilities;Modules/Utilities.xojo_code;&h000000003E475564;&h000000004863AD30;false
 Module=XMLDictionary;Modules/XMLDictionary.xojo_code;&hFFFFFFFFBC36C4A8;&h000000004863AD30;false
 Folder=Images;images;&h00000000418A0E08;&h0000000000000000;false
-MultiImage=imgMontage;images/imgMontage.xojo_image;&h00000000258697FF;&h00000000418A0E08;false
 Folder=ZipPackage;ZipPackage;&h000000007EF407FF;&h0000000000000000;false
 Picture=imgGreenTick;images/imgGreenTick.png;&h000000005A2E4B72;&h00000000418A0E08;false;0;&h00000000155B9945
 Picture=imgTickMask;images/imgTickMask.png;&h00000000155B9945;&h00000000418A0E08;false;0;&h0000000000000000
