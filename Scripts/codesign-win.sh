@@ -21,6 +21,9 @@ echo
 echo Administrator Launch
 echo --------------------
 
+# Trying to get resource editing to work with Resource Hacker.  Discussion thread here: 
+# https://www.askvg.com/tutorial-all-about-resource-hacker-in-a-brief-tutorial/
+
 # This works
 /usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\Resource Hacker\\ResourceHacker.exe" -open "../Builds - Installer.xojo_project/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe" -save "Manifest.rc" -action extract -mask MANIFEST,1,1033
 
