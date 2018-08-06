@@ -24,13 +24,13 @@ ditto -rsrc ../Builds\ -\ Installer.xojo_project/OS\ X\ 64\ bit/OpenSceneryX\ In
 # Unmount the working copy dmg
 WC_DEV=`hdiutil info | grep "wc" | grep "/dev/disk" | awk '{print $1}'` && hdiutil detach $WC_DEV -quiet -force
 # Create the final, compressed DMG
-rm -f OpenSceneryX\ Installer.dmg
-hdiutil convert wc.dmg -quiet -format UDZO -imagekey zlib-level=9 -o OpenSceneryX\ Installer.dmg
+rm -f OpenSceneryX-Installer.dmg
+hdiutil convert wc.dmg -quiet -format UDZO -imagekey zlib-level=9 -o OpenSceneryX-Installer.dmg
 # Clean up
 rmdir wc
 rm -f wc.dmg
 
-mv OpenSceneryX\ Installer.dmg ..
+mv OpenSceneryX-Installer.dmg ..
 
 echo "Finished"
 echo "--------"
