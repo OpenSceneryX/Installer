@@ -6,15 +6,25 @@ Building
 
 o The Windows version of the installer needs the zlib1 DLL to be included at the same level as the executable.  This is done by a Windows build step, but the DLL must be downloaded and present at Libraries/zlib1-64/zlib1.dll
 
-o The Windows version needs to run as an administrator.  Using angusj.com/resourcehacker, edit the Manifest and change the <requestedExecutionLevel> from "asInvoker" to "requireAdministrator".  Remember to 'Compile' before 'Save'.
+o The Windows version needs to run as an administrator.  This is done by a Windows build step, but the Windows VM must have rcedit from https://github.com/electron/rcedit installed.
 
-o For signing the Windows app, signtool needs to be installed which is part of the Windows 10 SDK (https://go.microsoft.com/fwlink/?LinkID=698771).  Sign using the following command:
+o The Windows version is signed during the build, but signtool needs to be installed in the VM which is part of the Windows 10 SDK (https://go.microsoft.com/fwlink/?LinkID=698771).
 
-> "C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" sign /v /f "Austin Goudge.p12" /p <certificate-password> /d "OpenSceneryX Installer" /t http://timestamp.verisign.com/scripts/timestamp.dll "OpenSceneryX Installer.exe"
+o The Mac app is signed automatically by the build process.
 
-This is now done automatically by the Windows build process.
+o Upload all installers, replacing existing versions.
 
-o The Mac app is signed automatically by the build process, but some machines it still claims it's from an unidentified developer.
+o Upload release notes and version file, replacing existing versions.
+
+o Clear Cloudflare cache for the following URLs:
+
+https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Mac.dmg
+https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Windows.zip
+https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Linux-x86-64.zip
+https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Linux-x86-32.zip
+https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Linux-ARM-32.zip
+https://www.opensceneryx.com/versioninfo/installerreleasenotes.html
+https://www.opensceneryx.com/versioninfo/installerversion.txt
 
 
 Customising the DMG
