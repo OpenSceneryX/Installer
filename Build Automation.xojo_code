@@ -11,12 +11,14 @@
 					Dim result As String
 					
 					// Remove all Finder information from files (codesign fails if this is not done)
-					command = "xattr -cr ""OpenSceneryX Installer.app"""
+					command = "xattr -cr " + CurrentBuildLocation + "/OpenSceneryX\ Installer.app"
 					result = DoShellCommand(command)
+					Print result
 					
 					// Sign the build
-					command = "codesign -f --deep -s ""Developer ID Application: Austin Goudge"" ""OpenSceneryX Installer.app"""
+					command = "codesign -f --deep -s ""Developer ID Application: Austin Goudge"" " + CurrentBuildLocation + "/OpenSceneryX\ Installer.app"
 					result = DoShellCommand(command)
+					Print result
 				End
 			End
 			Begin BuildStepList Windows
