@@ -1,6 +1,9 @@
 Building and Deploying the Installer
 ====================================
 
+Building
+--------
+
 o The Windows version of the installer needs the zlib1 DLL to be included at the same level as the executable.  This is done by a Windows build step, but the DLL must be downloaded and present at Libraries/zlib1-64/zlib1.dll
 
 o The Windows version needs to run as an administrator.  Using angusj.com/resourcehacker, edit the Manifest and change the <requestedExecutionLevel> from "asInvoker" to "requireAdministrator".  Remember to 'Compile' before 'Save'.
@@ -12,3 +15,15 @@ o For signing the Windows app, signtool needs to be installed which is part of t
 This is now done automatically by the Windows build process.
 
 o The Mac app is signed automatically by the build process, but some machines it still claims it's from an unidentified developer.
+
+
+Customising the DMG
+-------------------
+
+o The template DMG should be saved as Support/template.dmg (git ignored).  This is created using Disk Utility and then customised.
+
+o The background image is modified by copying a new one into /Volumes/OpenSceneryX Installer/.background with the DMG mounted
+
+o The icon positions are changed by simply moving them in the template DMG and closing it.
+
+o Other customisations are done by View -> Show View Options… in the DMG.
