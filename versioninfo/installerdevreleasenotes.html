@@ -6,14 +6,31 @@
 	<body>
 		<h1>Release Notes</h1>
 		
-		<h2>Version 2.1.0 - xxx xxxxx xxxx</h2>
+		<h2>Version x.x.x - xxx xxxxx xxxx</h2>
 		<ol>
-			<li>Applications on Mac and Windows are now code signed.  This is required to run apps using default settings in the latest Mac OS versions.</li>
-			<li>Rebuilt and reimplemented parts of the installer in latest Xojo development environment.  This means we now build for native Cocoa and Linux 64 bit.</li>
-			<li>Now include support for the backup library, including user-selectable setting to use visible or invisible placeholders.</li>
-			<li>Support for default Steam install folder on Mac, there is now a button to choose the folder if it exists.</li>
-			<li>Mac Retina support.</li>
-			<li>Switched to secure HTTPS for all server communications.  This required a rebuild of the network code.</li>
+			<li></li>
+		</ol>
+
+		<h2>Version 2.2.0 - 8th August 2018</h2>
+		<ol>
+			<li>The intensive local file checking process is now threaded, improving application responsiveness and redraw. The improvements are especially noticeable on Windows.</li>
+			<li>Both intensive file operations now yield some time to other threads to improve application responsiveness and redraw. The improvements are especially noticeable on Windows.</li>
+			<li>The install operation is now much faster, and can make full use of fast Internet connections.</li>
+			<li>The Mac and Windows installers are now code signed, meaning they will not be blocked from running.</li>
+			<li>The Windows installer now runs as an administrator, using the proper UAC mechanism, specified in the application's Manifest.</li>
+			<li>The Mac installer is now distributed as a Disk Image (DMG) with a custom design.</li>
+			<li>Cross-platform bugs in the license confirmation dialog fixed.</li>
+		</ol>
+
+		<h2>Version 2.1.0 - 29th July 2018</h2>
+		<ol>
+			<li>The Mac installer now provides support for the default Steam location.  A new button allows you to select the Steam folder if it exists.</li>
+			<li>The installer now includes the <a href="http://forums.x-plane.org/index.php?app=downloads&amp;showfile=25033" target="_blank" rel="noopener">Backup Library</a> that <a href="http://forums.x-plane.org/index.php?showuser=45106" target="_blank" rel="noopener">chris k</a> originally built and <a href="http://forums.x-plane.org/index.php?showuser=389608" target="_blank" rel="noopener">einstein</a> took control of.  This means that if you have OpenSceneryX installed, you no longer need the Backup Library.  The installer allows you to choose whether the placeholders used are visible or invisible – the visible ones should be bright red.</li>
+			<li>The Mac version is now a full Cocoa application.</li>
+			<li>There are three Linux versions: x86-32 bit, x86-64 bit and ARM 32 bit.</li>
+			<li>The installer should be a bit more robust if your network connection is interrupted.</li>
+			<li>We now support high resolution displays.</li>
+			<li>Switched to secure HTTPS for all server communications. This required a rebuild of the network code.</li>
 			<li>Small design refresh.</li>
 		</ol>
 

@@ -1,10 +1,39 @@
 Building and Deploying the Installer
 ====================================
 
+Building
+--------
+
 o The Windows version of the installer needs the zlib1 DLL to be included at the same level as the executable.  This is done by a Windows build step, but the DLL must be downloaded and present at Libraries/zlib1-64/zlib1.dll
 
-o To sign the Windows app, copy it to a Windows machine as well as the .p12 certificate and sign using the following command:
+o The Windows version needs to run as an administrator.  This is done by a Windows build step, but the Windows VM must have rcedit from https://github.com/electron/rcedit installed.
 
-> "C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" sign /v /f "Austin Goudge.pfx" /p <certificate-password> /d "OpenSceneryX Installer" /t http://timestamp.verisign.com/scripts/timestamp.dll "OpenSceneryX Installer.exe"
+o The Windows version is signed during the build, but signtool needs to be installed in the VM which is part of the Windows 10 SDK (https://go.microsoft.com/fwlink/?LinkID=698771).
 
-o The Mac app is signed automatically by the build process, but some machines it still claims it's from an unidentified developer.
+o The Mac app is signed automatically by the build process.
+
+o Upload all installers, replacing existing versions.
+
+o Upload release notes and version file, replacing existing versions.
+
+o Clear Cloudflare cache for the following URLs:
+
+https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Mac.dmg
+https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Windows.zip
+https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Linux-x86-64.zip
+https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Linux-x86-32.zip
+https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Linux-ARM-32.zip
+https://www.opensceneryx.com/versioninfo/installerreleasenotes.html
+https://www.opensceneryx.com/versioninfo/installerversion.txt
+
+
+Customising the DMG
+-------------------
+
+o The template DMG should be saved as Support/template.dmg (git ignored).  This is created using Disk Utility and then customised.
+
+o The background image is modified by copying a new one into /Volumes/OpenSceneryX Installer/.background with the DMG mounted
+
+o The icon positions are changed by simply moving them in the template DMG and closing it.
+
+o Other customisations are done by View -> Show View Options… in the DMG.

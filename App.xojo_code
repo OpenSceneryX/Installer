@@ -14,13 +14,8 @@ Inherits Application
 		  #If TargetWindows Then
 		    If Not isUserLocalAdministrator Then
 		      MsgBox("The installer is not running as an administrator.  This may cause problems as it needs to write to your X-Plane folder which is often in 'Program Files'.  Re-run as administrator to avoid any problems.")
-		    end if
-		  #endif
-		  
-		  // The file menu is empty on the Mac, so hide it
-		  //#if targetMacOS
-		  //FileMenu.visible = false
-		  //#endif
+		    End If
+		  #EndIf
 		  
 		  // Remove the separator under the help item if we're not on a Mac (no separator needed in Help menu on Windows and Linux)
 		  #if not TargetMacOS
