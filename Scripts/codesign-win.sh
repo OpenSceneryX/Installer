@@ -12,6 +12,12 @@ echo --------------------
 BASEDIR=$(dirname "$0")
 cd $BASEDIR
 
+# Move STDIN to file descriptor 3 and remap STDIN to /dev/null.  This is needed because some of the prlctl
+# commands below cause STDIN to become blocked, meaning the `read` command fails with
+# 'read error: 0: Resource temporarily unavailable'.
+
+exec 3<&0 0</dev/null
+
 # Start the Parallels VM (this assumes the Parallels is installed with a VM
 # called "Windows 10.1")
 
@@ -41,7 +47,7 @@ echo -------
 # --resolve-paths uses magic to convert Mac paths into Windows paths inside the VM
 # --current-user runs the command as the current Mac user, which is necessary
 
-read -sp 'Certificate Password: ' PASSWORD
+read -sp 'Certificate Password: ' PASSWORD 0<&3
 
 /usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\x64\\signtool.exe" sign /v /f "../Certificates/COMODO/Austin Goudge.p12" /p $PASSWORD /d "OpenSceneryX Installer" /t http://timestamp.verisign.com/scripts/timestamp.dll "../Builds - Installer.xojo_project/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe"
 
