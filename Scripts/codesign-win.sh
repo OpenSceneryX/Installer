@@ -21,17 +21,12 @@ echo
 echo Administrator Launch
 echo --------------------
 
-# Trying to get resource editing to work with Resource Hacker.  Discussion thread here: 
-# https://www.askvg.com/tutorial-all-about-resource-hacker-in-a-brief-tutorial/
+# Modify the Manifest to ensure the app runs as administrator.
+# This requires the executable from the electron project: https://github.com/electron/rcedit to be present 
+# at 'C:\Program Files (x86)\rcedit\rcedit-x64.exe' within the VM.
 
-# This works
-/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\Resource Hacker\\ResourceHacker.exe" -open "../Builds - Installer.xojo_project/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe" -save "Manifest.rc" -action extract -mask MANIFEST,1,1033
-
-# This works
-/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user powershell -Command "(gc MANIFEST1_1.txt) -replace 'asInvoker', 'requireAdministrator' | Out-File MANIFEST1_1_Modified.txt"
-
-# This doesn't work
-/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\Resource Hacker\\ResourceHacker.exe" -open "../Builds - Installer.xojo_project/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe" -save "OpenSceneryX Installer mod.exe" -action addoverwrite MANIFEST1_1.txt,MANIFEST,1,
+/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\rcedit\\rcedit-x64.exe" "../Builds - Installer.xojo_project/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe" --set-requested-execution-level "requireAdministrator"
+echo Done
 
 echo
 echo
