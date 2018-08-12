@@ -3233,8 +3233,8 @@ End
 		  
 		  While (pPendingFiles.Count > 0)
 		    App.YieldToNextThread
-		    If Not pSockFileWorking Then
-		      downloadNextFile()
+		    If Not pSockFileWorking and pPendingFiles.Count > 0 Then
+		      downloadNextFile
 		    end if
 		  wend
 		  
@@ -3244,7 +3244,7 @@ End
 #tag Events tmrUpdateFolderStructure
 	#tag Event
 		Sub Action()
-		  if (thrUpdateFolderStructure.State = Thread.Running) then
+		  If (thrUpdateFolderStructure.State = Thread.Running And pPendingFiles.Count > 0) Then
 		    dim currentFile as integer = prgBarOverall.maximum - pPendingFiles.count
 		    dim filePath as String = pPendingFiles.item(1)
 		    
