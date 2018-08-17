@@ -9,7 +9,7 @@ Inherits Application
 
 	#tag Event
 		Sub Open()
-		  // Check whether we are running as an administrator.  If not, re-run as admin.  This is only applicable on Windows and
+		  // Check whether we are running as an administrator.  If not, warn the user.  This is only applicable on Windows and
 		  // if we're not debugging (when remote debugging, this causes a failure to connect to the IDE).
 		  #If TargetWindows Then
 		    If Not isUserLocalAdministrator Then
@@ -30,6 +30,7 @@ Inherits Application
 		    removeAllCachedResponses( sharedURLCache( NSClassFromString( "NSURLCache" ) ) )
 		  #EndIf
 		  
+		  # WINDOWS DIES In HERE SOMETIMES
 		  pPreferences = new Dictionary()
 		  loadPreferences()
 		  
