@@ -70,7 +70,7 @@ Begin Window wndMain
          TabPanelIndex   =   0
          Top             =   125
          Transparent     =   True
-         Value           =   5
+         Value           =   3
          Visible         =   True
          Width           =   495
          Begin Label StaticText2
@@ -911,7 +911,7 @@ Begin Window wndMain
             Bold            =   False
             Caption         =   "#kXPlaneFolder"
             Enabled         =   True
-            Height          =   126
+            Height          =   132
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
@@ -929,7 +929,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   140
+            Top             =   145
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -940,7 +940,7 @@ Begin Window wndMain
                DataField       =   ""
                DataSource      =   ""
                Enabled         =   True
-               Height          =   42
+               Height          =   48
                HelpTag         =   ""
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
@@ -963,7 +963,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   170
+               Top             =   175
                Transparent     =   True
                Underline       =   False
                Visible         =   True
@@ -995,13 +995,13 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   228
+               Top             =   232
                Transparent     =   True
                Underline       =   False
                Visible         =   True
                Width           =   190
             End
-            Begin PushButton btnUseSteam
+            Begin AutoHeightPushButton btnUseSteam
                AutoDeactivate  =   True
                Bold            =   False
                ButtonStyle     =   "0"
@@ -1014,12 +1014,12 @@ Begin Window wndMain
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
                Italic          =   False
-               Left            =   301
-               LockBottom      =   False
+               Left            =   305
+               LockBottom      =   True
                LockedInPosition=   False
-               LockLeft        =   True
-               LockRight       =   False
-               LockTop         =   True
+               LockLeft        =   False
+               LockRight       =   True
+               LockTop         =   False
                Scope           =   0
                TabIndex        =   3
                TabPanelIndex   =   4
@@ -1027,7 +1027,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   228
+               Top             =   232
                Transparent     =   True
                Underline       =   False
                Visible         =   False
@@ -1057,7 +1057,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   278
+            Top             =   296
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -1085,7 +1085,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   314
+               Top             =   332
                Transparent     =   True
                Underline       =   False
                Value           =   True
@@ -1115,7 +1115,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   346
+               Top             =   364
                Transparent     =   True
                Underline       =   False
                Value           =   False
