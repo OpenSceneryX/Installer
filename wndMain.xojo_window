@@ -9,16 +9,16 @@ Begin Window wndMain
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   574
+   Height          =   565
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
    MaxHeight       =   32000
-   MaximizeButton  =   False
+   MaximizeButton  =   True
    MaxWidth        =   32000
    MenuBar         =   341440760
    MenuBarVisible  =   True
-   MinHeight       =   524
+   MinHeight       =   565
    MinimizeButton  =   True
    MinWidth        =   784
    Placement       =   0
@@ -32,7 +32,7 @@ Begin Window wndMain
       BottomRightColor=   &c80808000
       Enabled         =   True
       FillColor       =   &cF5F5F500
-      Height          =   400
+      Height          =   391
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -45,7 +45,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   118
       TopLeftColor    =   &c80808000
       Transparent     =   True
@@ -54,7 +53,7 @@ Begin Window wndMain
       Begin PagePanel ppnlMain
          AutoDeactivate  =   True
          Enabled         =   True
-         Height          =   386
+         Height          =   377
          HelpTag         =   ""
          Index           =   -2147483648
          InitialParent   =   "Rectangle1"
@@ -69,10 +68,9 @@ Begin Window wndMain
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Top             =   125
          Transparent     =   True
-         Value           =   2
+         Value           =   5
          Visible         =   True
          Width           =   495
          Begin Label StaticText2
@@ -81,7 +79,7 @@ Begin Window wndMain
             DataField       =   ""
             DataSource      =   ""
             Enabled         =   True
-            Height          =   344
+            Height          =   335
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
@@ -707,8 +705,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   6
-            TabStop         =   True
-            Top             =   475
+            Top             =   466
             Transparent     =   True
             Value           =   0
             Visible         =   False
@@ -763,8 +760,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   6
-            TabStop         =   True
-            Top             =   441
+            Top             =   432
             Transparent     =   True
             Value           =   0
             Visible         =   False
@@ -799,7 +795,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   441
+            Top             =   432
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -834,7 +830,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   473
+            Top             =   464
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -869,7 +865,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   441
+            Top             =   432
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -904,7 +900,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   475
+            Top             =   466
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -1386,7 +1382,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   534
+      Top             =   525
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -1418,7 +1414,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   534
+      Top             =   525
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -1720,7 +1716,6 @@ Begin Window wndMain
       End
    End
    Begin Thread thrUpdateFolderStructure
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -1730,7 +1725,6 @@ Begin Window wndMain
       TabPanelIndex   =   0
    End
    Begin Timer tmrUpdateFolderStructure
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -1758,7 +1752,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   39
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   124
       Transparent     =   True
       Visible         =   True
@@ -1783,7 +1776,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   40
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   156
       Transparent     =   True
       Visible         =   True
@@ -1808,7 +1800,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   41
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   188
       Transparent     =   True
       Visible         =   True
@@ -1833,7 +1824,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   42
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   220
       Transparent     =   True
       Visible         =   True
@@ -1858,7 +1848,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   43
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   252
       Transparent     =   True
       Visible         =   True
@@ -1883,7 +1872,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   44
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   284
       Transparent     =   True
       Visible         =   True
@@ -1908,14 +1896,12 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   45
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   316
       Transparent     =   True
       Visible         =   True
       Width           =   10
    End
    Begin Xojo.Net.HTTPSocket sockVersion
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -1923,7 +1909,6 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Xojo.Net.HTTPSocket sockManifest
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -1931,7 +1916,6 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Xojo.Net.HTTPSocket sockFile
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -1939,7 +1923,6 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Thread thrLocalScan
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Priority        =   5
@@ -1948,13 +1931,92 @@ Begin Window wndMain
       TabPanelIndex   =   0
    End
    Begin Timer tmrLocalScan
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Mode            =   0
       Period          =   500
       Scope           =   0
       TabPanelIndex   =   0
+   End
+   Begin BevelButton btnPaypal
+      AcceptFocus     =   True
+      AutoDeactivate  =   True
+      BackColor       =   &c00000000
+      Bevel           =   0
+      Bold            =   False
+      ButtonType      =   0
+      Caption         =   ""
+      CaptionAlign    =   3
+      CaptionDelta    =   0
+      CaptionPlacement=   1
+      Enabled         =   True
+      HasBackColor    =   False
+      HasMenu         =   0
+      Height          =   70
+      HelpTag         =   ""
+      Icon            =   949340159
+      IconAlign       =   1
+      IconDX          =   0
+      IconDY          =   0
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   46
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      MenuValue       =   0
+      Scope           =   0
+      TabIndex        =   46
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   439
+      Transparent     =   True
+      Underline       =   False
+      Value           =   False
+      Visible         =   True
+      Width           =   197
+   End
+   Begin Label txtDonatePrompt
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   71
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   46
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   47
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "#App.kDonationPrompt"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   364
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   197
    End
 End
 #tag EndWindow
@@ -3510,6 +3572,26 @@ End
 		      checkFolderStructure
 		    End If
 		  End If
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnPaypal
+	#tag Event
+		Sub Action()
+		  Dim url As String = ""
+		  
+		  Dim business As String = "austin@opensceneryx.com"
+		  Dim country As String = "GB"
+		  Dim curr As String = "GBP"
+		  
+		  url = "https://www.paypal.com/cgi-bin/webscr" + _
+		  "?cmd=" + "_donations" + _
+		  "&business=" + business + _
+		  "&lc=" + country + _
+		  "&currency_code=" + curr + _
+		  "&bn=" + "PP%2dDonationsBF"
+		  
+		  ShowURL(url)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

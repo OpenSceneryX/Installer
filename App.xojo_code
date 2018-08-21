@@ -30,7 +30,7 @@ Inherits Application
 		    removeAllCachedResponses( sharedURLCache( NSClassFromString( "NSURLCache" ) ) )
 		  #EndIf
 		  
-		  # WINDOWS DIES In HERE SOMETIMES
+		  // WINDOWS DIES In HERE SOMETIMES
 		  pPreferences = new Dictionary()
 		  loadPreferences()
 		  
@@ -173,6 +173,9 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kConnectionRetries, Type = Double, Dynamic = False, Default = \"3", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kDonationPrompt, Type = String, Dynamic = True, Default = \"If you use and like the library\x2C please consider a donation to keep it running:", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kEdit, Type = String, Dynamic = True, Default = \"&Edit", Scope = Public
