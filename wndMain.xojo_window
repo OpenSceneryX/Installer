@@ -916,21 +916,21 @@ Begin Window wndMain
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
             Italic          =   False
-            Left            =   285
+            Left            =   289
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   True
             LockRight       =   True
             LockTop         =   True
             Scope           =   0
-            TabIndex        =   5
+            TabIndex        =   1
             TabPanelIndex   =   4
             TabStop         =   True
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   145
-            Transparent     =   True
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   459
@@ -945,7 +945,7 @@ Begin Window wndMain
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
                Italic          =   False
-               Left            =   301
+               Left            =   305
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -982,7 +982,7 @@ Begin Window wndMain
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
                Italic          =   False
-               Left            =   534
+               Left            =   538
                LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   False
@@ -1014,7 +1014,7 @@ Begin Window wndMain
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
                Italic          =   False
-               Left            =   305
+               Left            =   309
                LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   False
@@ -1044,35 +1044,35 @@ Begin Window wndMain
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
             Italic          =   False
-            Left            =   285
+            Left            =   289
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   True
             LockRight       =   True
             LockTop         =   True
             Scope           =   0
-            TabIndex        =   6
+            TabIndex        =   2
             TabPanelIndex   =   4
             TabStop         =   True
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   296
-            Transparent     =   True
+            Top             =   289
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   459
-            Begin RadioButton rdoBackupLibraryVisible
+            Begin RadioButton rdoBackupLibraryInvisible
                AutoDeactivate  =   True
                Bold            =   False
-               Caption         =   "#kBackupLibraryVisible"
+               Caption         =   "#kBackupLibraryInvisible"
                Enabled         =   True
                Height          =   20
-               HelpTag         =   "#kBackupLibraryVisibleHelp"
+               HelpTag         =   "#kBackupLibraryInvisibleHelp"
                Index           =   -2147483648
                InitialParent   =   "GroupBox3"
                Italic          =   False
-               Left            =   305
+               Left            =   309
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -1085,24 +1085,24 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   332
+               Top             =   357
                Transparent     =   True
                Underline       =   False
-               Value           =   True
+               Value           =   False
                Visible         =   True
                Width           =   419
             End
-            Begin RadioButton rdoBackupLibraryInvisible
+            Begin RadioButton rdoBackupLibraryVisible
                AutoDeactivate  =   True
                Bold            =   False
-               Caption         =   "#kBackupLibraryInvisible"
+               Caption         =   "#kBackupLibraryVisible"
                Enabled         =   True
                Height          =   20
-               HelpTag         =   "#kBackupLibraryInvisibleHelp"
+               HelpTag         =   "#kBackupLibraryVisibleHelp"
                Index           =   -2147483648
                InitialParent   =   "GroupBox3"
                Italic          =   False
-               Left            =   305
+               Left            =   309
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -1115,10 +1115,10 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   364
+               Top             =   325
                Transparent     =   True
                Underline       =   False
-               Value           =   False
+               Value           =   True
                Visible         =   True
                Width           =   419
             End
@@ -2334,7 +2334,9 @@ End
 		    case kStageSettings
 		      #if TargetMacOS then
 		        btnUseSteam.visible = true
-		      #endif
+		      #EndIf
+		      
+		      GroupBox1.Height = GroupBox1.Height + 1
 		      
 		      if (App.pXPlaneFolder = nil or not App.pXPlaneFolder.exists() or not App.pXPlaneFolder.directory or not App.pXPlaneFolder.child("Custom Scenery").exists()) then
 		        txtXplaneFolder.text = "[Not Set]"
@@ -3186,46 +3188,52 @@ End
 #tag Events btnUseSteam
 	#tag Event
 		Sub Action()
-		  dim path as String = SpecialFolder.ApplicationData.nativePath
-		  dim i as integer
+		  Dim appDataPath As String = SpecialFolder.ApplicationData.nativePath
+		  Dim steamPaths() As String = App.kSteamDefaultPath.Split(EndOfLine)
+		  Dim i As Integer
 		  
-		  path = path + App.kSteamDefaultPath
-		  dim folder as FolderItem = new FolderItem(path)
+		  For Each steamPath As String In steamPaths
+		    Dim path As String = appDataPath + steamPath
+		    Dim folder As FolderItem = New FolderItem(path, FolderItem.PathTypeShell)
+		    
+		    if (folder.exists() and folder.Child("Custom Scenery").exists()) then
+		      App.pXPlaneFolder = folder
+		      App.pPreferences.value(App.kPreferenceXPlanePath) = App.pXPlaneFolder.nativePath
+		      
+		      setupOSXFolder
+		      
+		      // Set the current panel as having been completed
+		      setPanelCompleted(ppnlMain.value)
+		      
+		      // Set all subsequent panels as not being completed
+		      for i = ppnlMain.value + 1 to ppnlMain.PanelCount - 1
+		        setPanelCompleted(i, false)
+		      next
+		      
+		      txtXplaneFolder.text = App.pXPlaneFolder.nativePath
+		      enableContinue(1)
+		      
+		      Return
+		    End If
+		  Next
 		  
-		  if (folder.exists() and folder.Child("Custom Scenery").exists()) then
-		    App.pXPlaneFolder = folder
-		    App.pPreferences.value(App.kPreferenceXPlanePath) = App.pXPlaneFolder.nativePath
-		    
-		    setupOSXFolder()
-		    
-		    // Set the current panel as having been completed
-		    setPanelCompleted(ppnlMain.value)
-		    
-		    // Set all subsequent panels as not being completed
-		    for i = ppnlMain.value + 1 to ppnlMain.PanelCount - 1
-		      setPanelCompleted(i, false)
-		    next
-		    
-		    txtXplaneFolder.text = App.pXPlaneFolder.nativePath
-		    enableContinue(1)
-		  else
-		    msgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, array(path)))
-		  end if
+		  ' If we get here then none of the possible Steam X-Plane paths exist
+		  MsgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, Array(Join(steamPaths, ", "))))
 		  
-		  exception err as UnsupportedFormatException
+		  Exception err As UnsupportedFormatException
 		    ' Thrown if the path passed to the FolderItem is invalid
-		    msgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, array(path)))
+		    MsgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, Array(Join(steamPaths, ", "))))
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events rdoBackupLibraryVisible
+#tag Events rdoBackupLibraryInvisible
 	#tag Event
 		Sub Action()
 		  backupLibraryChanged()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events rdoBackupLibraryInvisible
+#tag Events rdoBackupLibraryVisible
 	#tag Event
 		Sub Action()
 		  backupLibraryChanged()

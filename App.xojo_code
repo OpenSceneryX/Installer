@@ -430,16 +430,16 @@ Inherits Application
 	#tag Constant, Name = kPreferenceXPlanePath, Type = String, Dynamic = False, Default = \"XPlanePath", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kSteamDefaultPath, Type = String, Dynamic = False, Default = \"Steam:SteamApps:common:X-plane 10", Scope = Public
+	#tag Constant, Name = kSteamDefaultPath, Type = String, Dynamic = False, Default = \"/Steam/SteamApps/common/X-plane 11\n/Steam/SteamApps/common/X-plane 10", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifestdev.xml.zip", Scope = Public
+	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifest.xml.zip", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevReleaseNotes, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevreleasenotes.html", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository-staging", Scope = Public
+	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
