@@ -116,7 +116,7 @@ Inherits Application
 
 	#tag Method, Flags = &h0
 		Function processParameterizedString(str as String, parameters() as String) As String
-		  if ubound(parameters) > -1 then
+		  If parameters <> Nil And ubound(parameters) > -1 Then
 		    dim i as integer
 		    for i = 0 to ubound(parameters)
 		      str = str.ReplaceAll("${" + str(i+1) + "}", parameters(i))
