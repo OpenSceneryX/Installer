@@ -1,0 +1,40 @@
+#tag MultiImage
+Image imgPaypalDonate
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAGIAAAAAAGIAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8TaW1nUGF5cGFsRG9uYXRlLnBuZwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAAAP////8AAAogY3UAAAAAAAAAAAAAAAAABmltYWdlcwACAEMvOlVzZXJzOmF1c3RpbjpEZXZlbG9wbWVudDpPU1g6SW5zdGFsbGVyOmltYWdlczppbWdQYXlwYWxEb25hdGUucG5nAAAOACgAEwBpAG0AZwBQAGEAeQBwAGEAbABEAG8AbgBhAHQAZQAuAHAAbgBnAA8AGgAMAE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIAQVVzZXJzL2F1c3Rpbi9EZXZlbG9wbWVudC9PU1gvSW5zdGFsbGVyL2ltYWdlcy9pbWdQYXlwYWxEb25hdGUucG5nAAATAAEvAAAVAAIADf//AAAAAAAAAAA=
+		FullPath = /Users/austin/Development/OSX/Installer/images/imgPaypalDonate.png
+		PartialPath = images\imgPaypalDonate.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 160.00
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = 47.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 160.00
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = 47.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 160.00
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = 47.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

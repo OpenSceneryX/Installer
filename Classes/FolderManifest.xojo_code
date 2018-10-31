@@ -20,6 +20,8 @@ Protected Class FolderManifest
 		  pDifferenceExclusions.Append("/opensceneryx/placeholder.obj")
 		  pDifferenceExclusions.Append("/opensceneryx/placeholder.png")
 		  pDifferenceExclusions.Append("/opensceneryx/placeholder.pol")
+		  pDifferenceExclusions.Append("/opensceneryx/placeholder.net")
+		  pDifferenceExclusions.Append("/opensceneryx/placeholder.str")
 		End Sub
 	#tag EndMethod
 

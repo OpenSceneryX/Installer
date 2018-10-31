@@ -9,16 +9,16 @@ Begin Window wndMain
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   574
+   Height          =   565
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
    MaxHeight       =   32000
-   MaximizeButton  =   False
+   MaximizeButton  =   True
    MaxWidth        =   32000
    MenuBar         =   341440760
    MenuBarVisible  =   True
-   MinHeight       =   524
+   MinHeight       =   565
    MinimizeButton  =   True
    MinWidth        =   784
    Placement       =   0
@@ -32,7 +32,7 @@ Begin Window wndMain
       BottomRightColor=   &c80808000
       Enabled         =   True
       FillColor       =   &cF5F5F500
-      Height          =   400
+      Height          =   391
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -53,7 +53,7 @@ Begin Window wndMain
       Begin PagePanel ppnlMain
          AutoDeactivate  =   True
          Enabled         =   True
-         Height          =   386
+         Height          =   377
          HelpTag         =   ""
          Index           =   -2147483648
          InitialParent   =   "Rectangle1"
@@ -70,7 +70,7 @@ Begin Window wndMain
          TabPanelIndex   =   0
          Top             =   125
          Transparent     =   True
-         Value           =   2
+         Value           =   3
          Visible         =   True
          Width           =   495
          Begin Label StaticText2
@@ -79,7 +79,7 @@ Begin Window wndMain
             DataField       =   ""
             DataSource      =   ""
             Enabled         =   True
-            Height          =   344
+            Height          =   335
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
@@ -705,7 +705,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   6
-            Top             =   475
+            Top             =   466
             Transparent     =   True
             Value           =   0
             Visible         =   False
@@ -760,7 +760,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   6
-            Top             =   441
+            Top             =   432
             Transparent     =   True
             Value           =   0
             Visible         =   False
@@ -795,7 +795,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   441
+            Top             =   432
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -830,7 +830,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   473
+            Top             =   464
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -865,7 +865,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   441
+            Top             =   432
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -900,7 +900,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   475
+            Top             =   466
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -911,26 +911,26 @@ Begin Window wndMain
             Bold            =   False
             Caption         =   "#kXPlaneFolder"
             Enabled         =   True
-            Height          =   126
+            Height          =   132
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
             Italic          =   False
-            Left            =   285
+            Left            =   289
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   True
             LockRight       =   True
             LockTop         =   True
             Scope           =   0
-            TabIndex        =   5
+            TabIndex        =   1
             TabPanelIndex   =   4
             TabStop         =   True
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   140
-            Transparent     =   True
+            Top             =   145
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   459
@@ -940,12 +940,12 @@ Begin Window wndMain
                DataField       =   ""
                DataSource      =   ""
                Enabled         =   True
-               Height          =   42
+               Height          =   48
                HelpTag         =   ""
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
                Italic          =   False
-               Left            =   301
+               Left            =   305
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -963,7 +963,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   170
+               Top             =   175
                Transparent     =   True
                Underline       =   False
                Visible         =   True
@@ -982,7 +982,7 @@ Begin Window wndMain
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
                Italic          =   False
-               Left            =   534
+               Left            =   538
                LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   False
@@ -995,13 +995,13 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   228
+               Top             =   232
                Transparent     =   True
                Underline       =   False
                Visible         =   True
                Width           =   190
             End
-            Begin PushButton btnUseSteam
+            Begin AutoHeightPushButton btnUseSteam
                AutoDeactivate  =   True
                Bold            =   False
                ButtonStyle     =   "0"
@@ -1014,12 +1014,12 @@ Begin Window wndMain
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
                Italic          =   False
-               Left            =   301
-               LockBottom      =   False
+               Left            =   309
+               LockBottom      =   True
                LockedInPosition=   False
-               LockLeft        =   True
-               LockRight       =   False
-               LockTop         =   True
+               LockLeft        =   False
+               LockRight       =   True
+               LockTop         =   False
                Scope           =   0
                TabIndex        =   3
                TabPanelIndex   =   4
@@ -1027,7 +1027,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   228
+               Top             =   232
                Transparent     =   True
                Underline       =   False
                Visible         =   False
@@ -1044,35 +1044,35 @@ Begin Window wndMain
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
             Italic          =   False
-            Left            =   285
+            Left            =   289
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   True
             LockRight       =   True
             LockTop         =   True
             Scope           =   0
-            TabIndex        =   6
+            TabIndex        =   2
             TabPanelIndex   =   4
             TabStop         =   True
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   278
-            Transparent     =   True
+            Top             =   289
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   459
-            Begin RadioButton rdoBackupLibraryVisible
+            Begin RadioButton rdoBackupLibraryInvisible
                AutoDeactivate  =   True
                Bold            =   False
-               Caption         =   "#kBackupLibraryVisible"
+               Caption         =   "#kBackupLibraryInvisible"
                Enabled         =   True
                Height          =   20
-               HelpTag         =   "#kBackupLibraryVisibleHelp"
+               HelpTag         =   "#kBackupLibraryInvisibleHelp"
                Index           =   -2147483648
                InitialParent   =   "GroupBox3"
                Italic          =   False
-               Left            =   305
+               Left            =   309
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -1085,24 +1085,24 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   314
+               Top             =   357
                Transparent     =   True
                Underline       =   False
-               Value           =   True
+               Value           =   False
                Visible         =   True
                Width           =   419
             End
-            Begin RadioButton rdoBackupLibraryInvisible
+            Begin RadioButton rdoBackupLibraryVisible
                AutoDeactivate  =   True
                Bold            =   False
-               Caption         =   "#kBackupLibraryInvisible"
+               Caption         =   "#kBackupLibraryVisible"
                Enabled         =   True
                Height          =   20
-               HelpTag         =   "#kBackupLibraryInvisibleHelp"
+               HelpTag         =   "#kBackupLibraryVisibleHelp"
                Index           =   -2147483648
                InitialParent   =   "GroupBox3"
                Italic          =   False
-               Left            =   305
+               Left            =   309
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -1115,10 +1115,10 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   346
+               Top             =   325
                Transparent     =   True
                Underline       =   False
-               Value           =   False
+               Value           =   True
                Visible         =   True
                Width           =   419
             End
@@ -1382,7 +1382,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   534
+      Top             =   525
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -1414,7 +1414,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   534
+      Top             =   525
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -1938,6 +1938,86 @@ Begin Window wndMain
       Scope           =   0
       TabPanelIndex   =   0
    End
+   Begin BevelButton btnPaypal
+      AcceptFocus     =   True
+      AutoDeactivate  =   True
+      BackColor       =   &c00000000
+      Bevel           =   0
+      Bold            =   False
+      ButtonType      =   0
+      Caption         =   ""
+      CaptionAlign    =   3
+      CaptionDelta    =   0
+      CaptionPlacement=   1
+      Enabled         =   True
+      HasBackColor    =   False
+      HasMenu         =   0
+      Height          =   70
+      HelpTag         =   ""
+      Icon            =   949340159
+      IconAlign       =   1
+      IconDX          =   0
+      IconDY          =   0
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   46
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      MenuValue       =   0
+      Scope           =   0
+      TabIndex        =   46
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   439
+      Transparent     =   True
+      Underline       =   False
+      Value           =   False
+      Visible         =   True
+      Width           =   197
+   End
+   Begin Label txtDonatePrompt
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   71
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   46
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   47
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "#App.kDonationPrompt"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   364
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   197
+   End
 End
 #tag EndWindow
 
@@ -2044,12 +2124,14 @@ End
 		    pOsxFolderItem.Child("opensceneryx").createAsFolder()
 		  end if
 		  
-		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.fac").delete()
-		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.for").delete()
-		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.lin").delete()
-		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.obj").delete()
-		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.png").delete()
-		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.pol").delete()
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.fac").delete
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.for").delete
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.lin").delete
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.obj").delete
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.png").delete
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.pol").delete
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.net").delete
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.str").delete
 		  
 		  if (not App.pPreferences.hasKey(App.kPreferenceBackupLibraries) or App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesVisible) then
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.fac").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
@@ -2058,6 +2140,8 @@ End
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.obj").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.png").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.pol").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
+		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.net").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
+		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.str").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		  else
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.fac").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.for").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
@@ -2065,6 +2149,8 @@ End
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.obj").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.png").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.pol").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
+		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.net").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
+		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.str").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		  end if
 		End Sub
 	#tag EndMethod
@@ -2248,7 +2334,9 @@ End
 		    case kStageSettings
 		      #if TargetMacOS then
 		        btnUseSteam.visible = true
-		      #endif
+		      #EndIf
+		      
+		      GroupBox1.Height = GroupBox1.Height + 1
 		      
 		      if (App.pXPlaneFolder = nil or not App.pXPlaneFolder.exists() or not App.pXPlaneFolder.directory or not App.pXPlaneFolder.child("Custom Scenery").exists()) then
 		        txtXplaneFolder.text = "[Not Set]"
@@ -3100,46 +3188,52 @@ End
 #tag Events btnUseSteam
 	#tag Event
 		Sub Action()
-		  dim path as String = SpecialFolder.ApplicationData.nativePath
-		  dim i as integer
+		  Dim appDataPath As String = SpecialFolder.ApplicationData.nativePath
+		  Dim steamPaths() As String = App.kSteamDefaultPath.Split(EndOfLine)
+		  Dim i As Integer
 		  
-		  path = path + App.kSteamDefaultPath
-		  dim folder as FolderItem = new FolderItem(path)
+		  For Each steamPath As String In steamPaths
+		    Dim path As String = appDataPath + steamPath
+		    Dim folder As FolderItem = New FolderItem(path, FolderItem.PathTypeShell)
+		    
+		    if (folder.exists() and folder.Child("Custom Scenery").exists()) then
+		      App.pXPlaneFolder = folder
+		      App.pPreferences.value(App.kPreferenceXPlanePath) = App.pXPlaneFolder.nativePath
+		      
+		      setupOSXFolder
+		      
+		      // Set the current panel as having been completed
+		      setPanelCompleted(ppnlMain.value)
+		      
+		      // Set all subsequent panels as not being completed
+		      for i = ppnlMain.value + 1 to ppnlMain.PanelCount - 1
+		        setPanelCompleted(i, false)
+		      next
+		      
+		      txtXplaneFolder.text = App.pXPlaneFolder.nativePath
+		      enableContinue(1)
+		      
+		      Return
+		    End If
+		  Next
 		  
-		  if (folder.exists() and folder.Child("Custom Scenery").exists()) then
-		    App.pXPlaneFolder = folder
-		    App.pPreferences.value(App.kPreferenceXPlanePath) = App.pXPlaneFolder.nativePath
-		    
-		    setupOSXFolder()
-		    
-		    // Set the current panel as having been completed
-		    setPanelCompleted(ppnlMain.value)
-		    
-		    // Set all subsequent panels as not being completed
-		    for i = ppnlMain.value + 1 to ppnlMain.PanelCount - 1
-		      setPanelCompleted(i, false)
-		    next
-		    
-		    txtXplaneFolder.text = App.pXPlaneFolder.nativePath
-		    enableContinue(1)
-		  else
-		    msgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, array(path)))
-		  end if
+		  ' If we get here then none of the possible Steam X-Plane paths exist
+		  MsgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, Array(Join(steamPaths, ", "))))
 		  
-		  exception err as UnsupportedFormatException
+		  Exception err As UnsupportedFormatException
 		    ' Thrown if the path passed to the FolderItem is invalid
-		    msgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, array(path)))
+		    MsgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, Array(Join(steamPaths, ", "))))
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events rdoBackupLibraryVisible
+#tag Events rdoBackupLibraryInvisible
 	#tag Event
 		Sub Action()
 		  backupLibraryChanged()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events rdoBackupLibraryInvisible
+#tag Events rdoBackupLibraryVisible
 	#tag Event
 		Sub Action()
 		  backupLibraryChanged()
@@ -3486,6 +3580,26 @@ End
 		      checkFolderStructure
 		    End If
 		  End If
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnPaypal
+	#tag Event
+		Sub Action()
+		  Dim url As String = ""
+		  
+		  Dim business As String = "austin@opensceneryx.com"
+		  Dim country As String = "GB"
+		  Dim curr As String = "GBP"
+		  
+		  url = "https://www.paypal.com/cgi-bin/webscr" + _
+		  "?cmd=" + "_donations" + _
+		  "&business=" + business + _
+		  "&lc=" + country + _
+		  "&currency_code=" + curr + _
+		  "&bn=" + "PP%2dDonationsBF"
+		  
+		  ShowURL(url)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

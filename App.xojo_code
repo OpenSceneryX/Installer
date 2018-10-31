@@ -9,7 +9,7 @@ Inherits Application
 
 	#tag Event
 		Sub Open()
-		  // Check whether we are running as an administrator.  If not, re-run as admin.  This is only applicable on Windows and
+		  // Check whether we are running as an administrator.  If not, warn the user.  This is only applicable on Windows and
 		  // if we're not debugging (when remote debugging, this causes a failure to connect to the IDE).
 		  #If TargetWindows Then
 		    If Not isUserLocalAdministrator Then
@@ -30,6 +30,7 @@ Inherits Application
 		    removeAllCachedResponses( sharedURLCache( NSClassFromString( "NSURLCache" ) ) )
 		  #EndIf
 		  
+		  // WINDOWS DIES In HERE SOMETIMES
 		  pPreferences = new Dictionary()
 		  loadPreferences()
 		  
@@ -115,7 +116,7 @@ Inherits Application
 
 	#tag Method, Flags = &h0
 		Function processParameterizedString(str as String, parameters() as String) As String
-		  if ubound(parameters) > -1 then
+		  If parameters <> Nil And ubound(parameters) > -1 Then
 		    dim i as integer
 		    for i = 0 to ubound(parameters)
 		      str = str.ReplaceAll("${" + str(i+1) + "}", parameters(i))
@@ -172,6 +173,9 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kConnectionRetries, Type = Double, Dynamic = False, Default = \"3", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kDonationPrompt, Type = String, Dynamic = True, Default = \"If you use and like the library\x2C please consider a donation to keep it running:", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kEdit, Type = String, Dynamic = True, Default = \"&Edit", Scope = Public
@@ -426,16 +430,16 @@ Inherits Application
 	#tag Constant, Name = kPreferenceXPlanePath, Type = String, Dynamic = False, Default = \"XPlanePath", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kSteamDefaultPath, Type = String, Dynamic = False, Default = \"Steam:SteamApps:common:X-plane 10", Scope = Public
+	#tag Constant, Name = kSteamDefaultPath, Type = String, Dynamic = False, Default = \"/Steam/SteamApps/common/X-plane 11\n/Steam/SteamApps/common/X-plane 10", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifestdev.xml.zip", Scope = Public
+	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifest.xml.zip", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevReleaseNotes, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevreleasenotes.html", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository-staging", Scope = Public
+	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
