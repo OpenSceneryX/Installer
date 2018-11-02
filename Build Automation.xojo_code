@@ -15,7 +15,7 @@
 					result = DoShellCommand(command)
 					
 					// Sign the build
-					command = "codesign -f --deep -s ""Developer ID Application: Austin Goudge"" " + CurrentBuildLocation + "/OpenSceneryX\ Installer.app"
+					command = "codesign --force --options runtime --deep --sign ""Developer ID Application: Austin Goudge"" " + CurrentBuildLocation + "/OpenSceneryX\ Installer.app"
 					result = DoShellCommand(command)
 					
 				End
