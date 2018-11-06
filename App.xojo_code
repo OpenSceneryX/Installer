@@ -436,9 +436,6 @@ Inherits Application
 	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifest.xml.zip", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevReleaseNotes, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevreleasenotes.html", Scope = Public
-	#tag EndConstant
-
 	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository", Scope = Public
 	#tag EndConstant
 
@@ -449,9 +446,6 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kURLManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifest.xml.zip", Scope = Public
-	#tag EndConstant
-
-	#tag Constant, Name = kURLReleaseNotes, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerreleasenotes.html", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository", Scope = Public
