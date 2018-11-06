@@ -32,11 +32,11 @@ Inherits Application
 		  
 		  // WINDOWS DIES In HERE SOMETIMES
 		  pPreferences = new Dictionary()
-		  loadPreferences()
+		  loadPreferences
 		  
 		  dim xPlanePath as String
 		  if (pPreferences.hasKey(App.kPreferenceXPlanePath)) then xPlanePath = pPreferences.value(App.kPreferenceXPlanePath)
-		  if (xPlanePath <> "") then pXPlaneFolder = getFolderItem(xPlanePath, FolderItem.PathTypeAbsolute)
+		  If (xPlanePath <> "") Then pXPlaneFolder = GetFolderItem(xPlanePath, FolderItem.PathTypeNative)
 		  
 		  wndMain.show()
 		End Sub
