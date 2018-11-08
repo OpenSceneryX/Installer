@@ -26,12 +26,14 @@ Begin Window wndMain
    Title           =   "#App.kApplicationName"
    Visible         =   False
    Width           =   784
-   Begin Rectangle Rectangle1
+   Begin Canvas cnvBG
+      AcceptFocus     =   False
+      AcceptTabs      =   False
       AutoDeactivate  =   True
-      BorderWidth     =   1
-      BottomRightColor=   &c80808000
+      Backdrop        =   0
+      DoubleBuffer    =   False
       Enabled         =   True
-      FillColor       =   &cF5F5F500
+      EraseBackground =   True
       Height          =   391
       HelpTag         =   ""
       Index           =   -2147483648
@@ -45,9 +47,10 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   118
-      TopLeftColor    =   &c80808000
-      Transparent     =   True
+      Transparent     =   False
+      UseFocusRing    =   True
       Visible         =   True
       Width           =   508
       Begin PagePanel ppnlMain
@@ -56,7 +59,7 @@ Begin Window wndMain
          Height          =   377
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "Rectangle1"
+         InitialParent   =   "cnvBG"
          Left            =   269
          LockBottom      =   True
          LockedInPosition=   False
@@ -70,7 +73,7 @@ Begin Window wndMain
          TabPanelIndex   =   0
          Top             =   125
          Transparent     =   True
-         Value           =   3
+         Value           =   6
          Visible         =   True
          Width           =   495
          Begin Label StaticText2
@@ -3148,6 +3151,20 @@ End
 
 #tag EndWindowCode
 
+#tag Events cnvBG
+	#tag Event
+		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  If IsDarkMode Then
+		    g.ForeColor = &c000000
+		  Else
+		    g.ForeColor = &cFFFFFF
+		  End If
+		  
+		  g.FillRect(0, 0, g.Width, g.Height)
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events cnvComplete
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
