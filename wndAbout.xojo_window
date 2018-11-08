@@ -26,34 +26,6 @@ Begin Window wndAbout
    Title           =   "#kWindowTitle"
    Visible         =   True
    Width           =   276
-   Begin Canvas cnvOSXLogo
-      AcceptFocus     =   False
-      AcceptTabs      =   False
-      AutoDeactivate  =   True
-      Backdrop        =   200112520
-      DoubleBuffer    =   False
-      Enabled         =   True
-      EraseBackground =   True
-      Height          =   52
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
-      Scope           =   0
-      TabIndex        =   0
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Top             =   14
-      Transparent     =   True
-      UseFocusRing    =   True
-      Visible         =   True
-      Width           =   236
-   End
    Begin Label txtWebAddress
       AutoDeactivate  =   True
       Bold            =   False
@@ -89,7 +61,7 @@ Begin Window wndAbout
       Visible         =   True
       Width           =   236
    End
-   Begin Timer Timer1
+   Begin Timer tmrScroll
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -161,6 +133,62 @@ Begin Window wndAbout
       Visible         =   True
       Width           =   100
    End
+   Begin Canvas cnvHeaderBG
+      AcceptFocus     =   False
+      AcceptTabs      =   False
+      AutoDeactivate  =   True
+      Backdrop        =   0
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      Height          =   74
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   0
+      Transparent     =   True
+      UseFocusRing    =   True
+      Visible         =   True
+      Width           =   276
+      Begin Canvas cnvHeaderX
+         AcceptFocus     =   False
+         AcceptTabs      =   False
+         AutoDeactivate  =   True
+         Backdrop        =   0
+         DoubleBuffer    =   False
+         Enabled         =   True
+         EraseBackground =   True
+         Height          =   74
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "cnvHeaderBG"
+         Left            =   -72
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   True
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   0
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Top             =   0
+         Transparent     =   True
+         UseFocusRing    =   True
+         Visible         =   True
+         Width           =   348
+      End
+   End
 End
 #tag EndWindow
 
@@ -225,7 +253,7 @@ End
 		End Function
 	#tag EndEvent
 #tag EndEvents
-#tag Events Timer1
+#tag Events tmrScroll
 	#tag Event
 		Sub Action()
 		  yScroll = yScroll - 1
@@ -251,6 +279,44 @@ End
 		  End If
 		  
 		  g.drawString(kAboutBoxContents, 0, yScroll, Me.width)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events cnvHeaderBG
+	#tag Event
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  showURL(App.kURLWebsite)
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub Open()
+		  me.mouseCursor = System.Cursors.FingerPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  'Need to draw dynamically so that the image is scaled to the on screen region.  Caters for Retina and normal displays.
+		  g.DrawPicture(imgBannerBG, 0, 0, g.Width, g.Height, 0, 0, imgBannerBG.Width, imgBannerBG.Height)
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events cnvHeaderX
+	#tag Event
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  showURL(App.kURLWebsite)
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub Open()
+		  me.mouseCursor = System.Cursors.FingerPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  'Need to draw dynamically so that the image is scaled to the on screen region.  Caters for Retina and normal displays.
+		  g.DrawPicture(imgBannerX, 0, 0, g.Width, g.Height, 0, 0, imgBannerX.Width, imgBannerX.Height)
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
