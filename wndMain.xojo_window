@@ -73,7 +73,7 @@ Begin Window wndMain
          TabPanelIndex   =   0
          Top             =   125
          Transparent     =   True
-         Value           =   6
+         Value           =   3
          Visible         =   True
          Width           =   495
          Begin Label StaticText2
@@ -1033,7 +1033,7 @@ Begin Window wndMain
                Top             =   232
                Transparent     =   True
                Underline       =   False
-               Visible         =   False
+               Visible         =   True
                Width           =   168
             End
          End
@@ -2334,11 +2334,7 @@ End
 		      
 		      enableBack
 		      
-		    case kStageSettings
-		      #if TargetMacOS then
-		        btnUseSteam.visible = true
-		      #EndIf
-		      
+		    Case kStageSettings
 		      GroupBox1.Height = GroupBox1.Height + 1
 		      
 		      if (App.pXPlaneFolder = nil or not App.pXPlaneFolder.exists() or not App.pXPlaneFolder.directory or not App.pXPlaneFolder.child("Custom Scenery").exists()) then
@@ -3205,15 +3201,29 @@ End
 #tag Events btnUseSteam
 	#tag Event
 		Sub Action()
-		  Dim appDataPath As String = SpecialFolder.ApplicationData.nativePath
-		  Dim steamPaths() As String = App.kSteamDefaultPath.Split(EndOfLine)
 		  Dim i As Integer
 		  
-		  For Each steamPath As String In steamPaths
-		    Dim path As String = appDataPath + steamPath
-		    Dim folder As FolderItem = New FolderItem(path, FolderItem.PathTypeShell)
+		  #If TargetMacOS
+		    ' Mac Steam location is in the ApplicationData path
+		    Dim appDataPath As String = SpecialFolder.ApplicationData.nativePath
+		    Dim steamPaths() As String = App.kSteamMacDefaultPaths.Split(EndOfLine.OSX)
+		  #ElseIf TargetWindows
+		    ' Windows Steam location is in the Registry
+		    Dim regItem As New RegistryItem("HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Valve\Steam", False)
+		    Dim appDataPath As String = regItem.Value("InstallPath")
+		    Dim steamPaths() As String = App.kSteamWindowsDefaultPaths.Split(EndOfLine.OSX)
+		  #ElseIf TargetLinux
+		    ' Linux Steam location is in the user's folder
+		    Dim appDataPath As String = "~/.steam"
+		    Dim steamPaths() As String = App.kSteamLinuxDefaultPaths.Split(EndOfLine.OSX)
+		  #EndIf
+		  
+		  Dim pathCount As Integer = steamPaths.Ubound
+		  For i  = 0 To pathCount
+		    steamPaths(i) = appDataPath + steamPaths(i)
+		    Dim folder As FolderItem = New FolderItem(steamPaths(i), FolderItem.PathTypeShell)
 		    
-		    if (folder.exists() and folder.Child("Custom Scenery").exists()) then
+		    If (folder.exists And folder.Child("Custom Scenery").exists) Then
 		      App.pXPlaneFolder = folder
 		      App.pPreferences.value(App.kPreferenceXPlanePath) = App.pXPlaneFolder.nativePath
 		      
@@ -3225,7 +3235,7 @@ End
 		      // Set all subsequent panels as not being completed
 		      for i = ppnlMain.value + 1 to ppnlMain.PanelCount - 1
 		        setPanelCompleted(i, false)
-		      next
+		      Next
 		      
 		      txtXplaneFolder.text = App.pXPlaneFolder.nativePath
 		      enableContinue(1)
@@ -3237,6 +3247,10 @@ End
 		  ' If we get here then none of the possible Steam X-Plane paths exist
 		  MsgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, Array(Join(steamPaths, ", "))))
 		  
+		  Exception err As RegistryAccessErrorException
+		    ' The registry item (Windows) was not found - i.e. Steam not installed
+		    MsgBox(App.kErrorSteamNotFound)
+		    
 		  Exception err As UnsupportedFormatException
 		    ' Thrown if the path passed to the FolderItem is invalid
 		    MsgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, Array(Join(steamPaths, ", "))))

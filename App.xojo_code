@@ -301,6 +301,9 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD0\xB0 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8 \xD0\xBD\xD0\xB5 \xD0\xBC\xD0\xBE\xD0\xB6\xD0\xB5\xD1\x82 \xD1\x80\xD0\xB0\xD0\xB1\xD0\xBE\xD1\x82\xD0\xB0\xD1\x82\xD1\x8C \xD0\xB1\xD0\xB5\xD0\xB7 \xD1\x83\xD0\xBA\xD0\xB0\xD0\xB7\xD0\xB0\xD0\xBD\xD0\xB8\xD1\x8F \xD0\xBC\xD0\xB5\xD1\x81\xD1\x82\xD0\xBE\xD0\xBF\xD0\xBE\xD0\xBB\xD0\xBE\xD0\xB6\xD0\xB5\xD0\xBD\xD0\xB8\xD1\x8F \xD0\xBF\xD0\xB0\xD0\xBF\xD0\xBA\xD0\xB8 X-Plane\xC2\xAE \xD0\xB8 \xD0\xB7\xD0\xB0\xD0\xB2\xD0\xB5\xD1\x80\xD1\x88\xD0\xB0\xD0\xB5\xD1\x82 \xD1\x80\xD0\xB0\xD0\xB1\xD0\xBE\xD1\x82\xD1\x83."
 	#tag EndConstant
 
+	#tag Constant, Name = kErrorSteamNotFound, Type = String, Dynamic = True, Default = \"A Steam installation could not be found.", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kErrorXPlaneSteamFolderNotFound, Type = String, Dynamic = True, Default = \"The XPlane Steam folder could not be found at ${1}.", Scope = Public
 	#tag EndConstant
 
@@ -430,7 +433,13 @@ Inherits Application
 	#tag Constant, Name = kPreferenceXPlanePath, Type = String, Dynamic = False, Default = \"XPlanePath", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kSteamDefaultPath, Type = String, Dynamic = False, Default = \"/Steam/SteamApps/common/X-plane 11\n/Steam/SteamApps/common/X-plane 10", Scope = Public
+	#tag Constant, Name = kSteamLinuxDefaultPaths, Type = String, Dynamic = False, Default = \"/steam/SteamApps/common/X-plane 11\n/steam/SteamApps/common/X-plane 10", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kSteamMacDefaultPaths, Type = String, Dynamic = False, Default = \"/Steam/SteamApps/common/X-plane 11\n/Steam/SteamApps/common/X-plane 10", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kSteamWindowsDefaultPaths, Type = String, Dynamic = False, Default = \"\\steamapps\\common\\X-plane 11\n\\steamapps\\common\\X-plane 10", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifest.xml.zip", Scope = Public
