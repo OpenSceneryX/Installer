@@ -3,7 +3,7 @@ Notarizing with Apple
 
 From Mojave onwards, Gatekeeper will soon start to require that an application is Notirized with Apple.  As we have a .dmg package, the notarization is done on the DMG using the following command from the directory where OpenSceneryX-Installer.dmg is located:
 
-$ xcrun altool --notarize-app -f OpenSceneryX-Installer.dmg --primary-bundle-id com.aussi.opensceneryx.installer -u <username> -itc_provider <team_id>
+$ xcrun altool --type osx --notarize-app --file OpenSceneryX-Installer.dmg --primary-bundle-id com.aussi.opensceneryx.installer --username <username> -itc_provider <team_id>
 
 This will request a password, which is an app-specific password generated here: https://appleid.apple.com/account/manage (stored in Keychain)
 The <username> is the email address for the Apple Develor ID
