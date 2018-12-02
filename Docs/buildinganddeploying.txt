@@ -12,17 +12,27 @@ o The Windows version is signed during the build, but signtool needs to be insta
 
 o The Mac app is signed automatically by the build process.
 
-o Upload all installers, replacing existing versions.
+o Upload all installers to the AWS S3 bucket, replacing existing versions.
 
-o Upload release notes and version file, replacing existing versions.
+o Upload release notes and version file to hosting servers, replacing existing versions.
+
+o Ensure AWS S3 permissions on the uploaded files are public
+
+o In AWS Cloudfront console, create invalidatation in downloads.opensceneryx.com distribution for the following paths:
+
+/OpenSceneryX-Installer-Mac.dmg
+/OpenSceneryX-Installer-Windows.zip
+/OpenSceneryX-Installer-Linux-x86-64.zip
+/OpenSceneryX-Installer-Linux-x86-32.zip
+/OpenSceneryX-Installer-Linux-ARM-32.zip
 
 o Clear Cloudflare cache for the following URLs:
 
-https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Mac.dmg
-https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Windows.zip
-https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Linux-x86-64.zip
-https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Linux-x86-32.zip
-https://www.opensceneryx.com/downloads/OpenSceneryX-Installer-Linux-ARM-32.zip
+https://downloads.opensceneryx.com/OpenSceneryX-Installer-Mac.dmg
+https://downloads.opensceneryx.com/OpenSceneryX-Installer-Windows.zip
+https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-x86-64.zip
+https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-x86-32.zip
+https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-ARM-32.zip
 https://www.opensceneryx.com/versioninfo/installerreleasenotes.html
 https://www.opensceneryx.com/versioninfo/installerversion.txt
 

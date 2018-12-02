@@ -454,10 +454,10 @@ Inherits Application
 	#tag Constant, Name = kURLLicense, Type = Text, Dynamic = False, Default = \"https://creativecommons.org/licenses/by-nc-nd/2.0/uk/", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifest.xml.zip", Scope = Public
+	#tag Constant, Name = kURLManifest, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/manifest.xml.zip", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository", Scope = Public
+	#tag Constant, Name = kURLRepository, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/repository", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerversion.txt", Scope = Public
