@@ -18,6 +18,10 @@ o The Mac app is signed automatically by the build process.
 Building
 --------
 
+o Update version number in app
+
+o Build app
+
 o Update versioninfo/installerversion.txt with new version number
 
 o Update versioninfo/installerreleasenotes.html with new version number
