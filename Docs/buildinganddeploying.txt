@@ -1,20 +1,32 @@
 Building and Deploying the Installer
 ====================================
 
-Building
---------
+Prerequisites and Notes
+-----------------------
 
 o The Windows version of the installer needs the zlib1 DLL to be included at the same level as the executable.  This is done by a Windows build step, but the DLL must be downloaded and present at Libraries/zlib1-64/zlib1.dll
 
-o The Windows version needs to run as an administrator.  This is done by a Windows build step, but the Windows VM must have rcedit from https://github.com/electron/rcedit installed.
+o The Windows version needs to run as an administrator.  This is done by a Windows build step, but the Windows VM (or machine) must have rcedit from https://github.com/electron/rcedit installed.
 
-o The Windows version is signed during the build, but signtool needs to be installed in the VM which is part of the Windows 10 SDK (https://go.microsoft.com/fwlink/?LinkID=698771).
+o If the build is done on a Mac with Parallels installed (and a VM called "Windows 10" present), the Windows version is signed automatically during the build, but signtool needs to be installed which is part of the Windows 10 SDK (https://go.microsoft.com/fwlink/?LinkID=698771).
+
+o If rcedit and signing needs to be done manually for Windows (e.g. if build / signing is done on a real Windows machine, not via Parallels) then there is a utility script available for this in Scripts/codesign-win-manual.cmd.
 
 o The Mac app is signed automatically by the build process.
 
+
+Building
+--------
+
+o Update versioninfo/installerversion.txt with new version number
+
+o Update versioninfo/installerreleasenotes.html with new version number
+
+o Tag release with new version number
+
 o Upload all installers to the AWS S3 bucket, replacing existing versions.
 
-o Upload release notes and version file to hosting servers, replacing existing versions.
+o Upload versioninfo/installerversion.txt and versioninfo/installerreleasenotes.html to hosting servers, replacing existing versions.
 
 o Ensure AWS S3 permissions on the uploaded files are public
 
