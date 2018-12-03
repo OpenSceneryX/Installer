@@ -30,7 +30,7 @@ o Tag release with new version number
 
 o Build app for all platforms
 
-o If not using a Parallels VM for the Windows signing and resource fork editing, copy the Windows build across to the Windows machine and perform those steps, then copy it back in place
+o If not using a Parallels VM for the Windows signing and resource fork editing, copy the Windows build across to the Windows machine and perform those steps, then copy it back in place (using a Parallels VM, this is done automatically as part of the build).
 
 o Run Scripts/buildall.sh
 
@@ -38,9 +38,9 @@ o Notarize Mac .dmg - see separate Docs/notarizing.txt instructions
 
 o Upload all installers to the AWS S3 bucket, replacing existing versions.
 
-o Upload versioninfo/installerversion.txt and versioninfo/installerreleasenotes.html to hosting servers, replacing existing versions.
+o In AWS S3 console, select new uploads and choose Actions -> Make Public
 
-o Ensure AWS S3 permissions on the uploaded files are public
+o Upload versioninfo/installerversion.txt and versioninfo/installerreleasenotes.html to hosting servers, replacing existing versions.
 
 o In AWS Cloudfront console, create invalidatation in downloads.opensceneryx.com distribution for the following paths:
 
@@ -52,13 +52,20 @@ o In AWS Cloudfront console, create invalidatation in downloads.opensceneryx.com
 
 o Clear Cloudflare cache for the following URLs:
 
-https://downloads.opensceneryx.com/OpenSceneryX-Installer-Mac.dmg
+https://downloads.opensceneryx.com/OpenSceneryX-Installer.dmg
 https://downloads.opensceneryx.com/OpenSceneryX-Installer-Windows.zip
 https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-x86-64.zip
 https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-x86-32.zip
 https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-ARM-32.zip
 https://www.opensceneryx.com/versioninfo/installerreleasenotes.html
 https://www.opensceneryx.com/versioninfo/installerversion.txt
+
+o Promotion:
+
+    - Post a new reply to the x-plane.org main OpenSceneryX thread
+	- Post an article on the site
+	- Tweet
+    - Reddit r/Xplane
 
 
 Customising the DMG
