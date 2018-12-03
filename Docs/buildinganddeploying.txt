@@ -18,15 +18,23 @@ o The Mac app is signed automatically by the build process.
 Building
 --------
 
-o Update version number in app
+o Clear out any old builds / zips
 
-o Build app
+o Update version number in app
 
 o Update versioninfo/installerversion.txt with new version number
 
 o Update versioninfo/installerreleasenotes.html with new version number
 
 o Tag release with new version number
+
+o Build app for all platforms
+
+o If not using a Parallels VM for the Windows signing and resource fork editing, copy the Windows build across to the Windows machine and perform those steps, then copy it back in place
+
+o Run Scripts/buildall.sh
+
+o Notarize Mac .dmg - see separate Docs/notarizing.txt instructions
 
 o Upload all installers to the AWS S3 bucket, replacing existing versions.
 
