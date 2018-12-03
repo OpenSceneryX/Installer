@@ -1,16 +1,21 @@
 <h2>Installer Release Notes</h2>
 
-<h3>Version x.x.x - xx xxxxx xxxx</h3>
+<h3>Version x.x.x - xxx xxxxx xxxx</h3>
+<ol>
+	<li></li>
+</ol>
+
+<h3>Version 2.4.0 - 3rd December 2018</h3>
 <ol>
 	<li>Library update hosting has now switched to AWS + CloudFront + CloudFlare, to reduce load on the web servers for static files (even with full Cloudflare caching the origin servers were still serving ~200k requests per day).</li>
 	<li>Steam install button now implemented on Linux and Windows.</li>
 	<li>Fixed a problem in the Mac version where the X-Plane folder was not remembered between executions.</li>
-	<li>Mac version is now notarized for macOS Mojave.</li>
+	<li>Mac version is now notarized (security audited by Apple).</li>
 	<li>Mac version now supports new 'Dark Mode' in macOS Mojave.</li>
 	<li>Fixed missing logo banner in about box.</li>
 </ol>
 
-<h3>Version 2.3.0 - 31 October 2018</h3>
+<h3>Version 2.3.0 - 31st October 2018</h3>
 <ol>
 	<li>The new backup library was missing placeholders for .net (roads) and .str (object strings) which could cause issues with some scenery packs installed.</li>
 	<li>Added a PayPal donation button to the installer to try to help cover the costs of running the library.</li>
@@ -18,7 +23,7 @@
 	<li>The 'Steam' button on Mac now finds an X-Plane 11 install if one exists, and if not it will try to find an X-Plane 10 install.</li>
 </ol>
 
-<h3>Version 2.2.1 - 12 August 2018</h3>
+<h3>Version 2.2.1 - 12th August 2018</h3>
 <ol>
 	<li>Fixed 'Unhandled Exception' bug at very end of install process on fast machines.</li>
 </ol>
