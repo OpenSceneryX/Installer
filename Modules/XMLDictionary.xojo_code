@@ -372,7 +372,7 @@ Protected Module XMLDictionary
 		  
 		  //ClearStorage storage
 		  
-		  if firstIteration and parent.Name <> "dict" then
+		  If firstIteration And parent.Name <> "dict" And parent.Name <> "xmldict" Then
 		    key = "cf" + parent.Name // Set the initial key since we aren't really starting with a dictionary.
 		    node = parent
 		  else
