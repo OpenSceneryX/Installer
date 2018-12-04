@@ -2,23 +2,48 @@
 Protected Module XMLDictionary
 	#tag Method, Flags = &h21
 		Private Sub ClearStorage(storage As Variant)
-		  Dim i, n As Integer
-		  
 		  If storage.Type = 9 Then
 		    If storage.ObjectValue IsA Dictionary Then
 		      Dictionary(storage).Clear
-		    ElseIf storage.ObjectValue IsA Collection Then
-		      n = Collection(storage.ObjectValue).Count
-		      For i = n DownTo 1
-		        Collection(storage.ObjectValue).Remove i
-		      Next
 		    End If
+		  ElseIf storage.IsArray Then
+		    dim t as Integer = storage.ArrayElementType
+		    if t = Variant.TypeString then
+		      dim a() as String = storage
+		      redim a(-1)
+		    elseif t = Variant.TypeInteger then
+		      dim a() as Integer = storage
+		      redim a(-1)
+		    elseif t = Variant.TypeBoolean then
+		      dim a() as Boolean = storage
+		      redim a(-1)
+		    elseif t = Variant.TypeDouble then
+		      dim a() as Double = storage
+		      redim a(-1)
+		    elseif t = Variant.TypeSingle then
+		      dim a() as Single = storage
+		      redim a(-1)
+		    elseif t = Variant.TypeDate then
+		      dim a() as Date = storage
+		      redim a(-1)
+		    elseif t = Variant.TypeLong then
+		      dim a() as Int64 = storage
+		      redim a(-1)
+		    elseif t = Variant.TypeObject then
+		      dim a() as Object = storage
+		      redim a(-1)
+		    end
+		    
+		    // fallback for unknown types - if this gets a TypeMismatchException, add the missing type to another elseif/dim/return above
+		    dim a() as Variant = storage
+		    redim a(-1)
+		    
 		  End If
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ExportXML(Extends xmldict As Dictionary, plist As Boolean = False) As XmlDocument
+		Function ExportXML(Extends xmldict As Dictionary, plist As Boolean = False, indented as Boolean = true) As XmlDocument
 		  Dim xdoc As XmlDocument
 		  Dim root, dict As XmlElement
 		  
@@ -27,14 +52,18 @@ Protected Module XMLDictionary
 		    // Plist-compatible output
 		    root = XmlElement(xdoc.AppendChild(xdoc.CreateElement("plist")))
 		    root.SetAttribute("version", PlistVersion)
-		    dict = XmlElement(root.AppendChild(xdoc.CreateElement("dict")))
-		    ParseStorage xmldict, dict, True
+		    if xmldict.Count = 1 and xmldict.HasKey( "cfarray" ) then // It has array at its root
+		      dict = root // The root is an array so we don't create a sub-element
+		    else // The root is a dict
+		      dict = XmlElement(root.AppendChild(xdoc.CreateElement("dict")))
+		    end if
+		    ParseStorage xmldict, dict, True, indented
 		    IndentNode root, 0, True
 		    IndentNode dict, 0, True
 		  Else
 		    root = XmlElement(xdoc.AppendChild(xdoc.CreateElement("xmldict")))
 		    root.SetAttribute("version", CurrentVersion)
-		    ParseStorage xmldict, root, False
+		    ParseStorage xmldict, root, False, indented
 		    IndentNode root, 0, True
 		  End If
 		  xdoc.AppendChild(xdoc.CreateTextNode(EndOfLine))
@@ -44,13 +73,13 @@ Protected Module XMLDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ExportXMLString(Extends xmldict As Dictionary, plist As Boolean = False) As String
+		Function ExportXMLString(Extends xmldict As Dictionary, plist As Boolean = False, indented as Boolean = true) As String
 		  // Since we can't add a DOCTYPE to the XmlDocument,
 		  // lets hack this output to add it
 		  
 		  Dim s, DTD As String
 		  Dim i As Integer
-		  s = xmldict.ExportXML(plist).ToString
+		  s = xmldict.ExportXML(plist, indented).ToString
 		  
 		  // Let's add the DTD
 		  i = s.InStr(EndOfLine)
@@ -67,16 +96,18 @@ Protected Module XMLDictionary
 
 	#tag Method, Flags = &h21
 		Private Sub IndentNode(node As XmlNode, level As Integer, indentCloseTag As Boolean = False)
-		  Dim i As Integer
-		  Dim s As String
-		  s = EndOfLine
-		  For i = 1 To level
-		    s = s + Chr(9) // Tab
-		  Next
-		  node.Parent.Insert(node.OwnerDocument.CreateTextNode(s), node)
-		  If indentCloseTag Then
-		    node.AppendChild(node.OwnerDocument.CreateTextNode(s))
-		  End If
+		  if level >= 0 then
+		    Dim i As Integer
+		    Dim s As String
+		    s = EndOfLine
+		    For i = 1 To level
+		      s = s + Chr(9) // Tab
+		    Next
+		    node.Parent.Insert(node.OwnerDocument.CreateTextNode(s), node)
+		    If indentCloseTag Then
+		      node.AppendChild(node.OwnerDocument.CreateTextNode(s))
+		    End If
+		  end if
 		End Sub
 	#tag EndMethod
 
@@ -85,7 +116,8 @@ Protected Module XMLDictionary
 		  Dim tos As TextInputStream
 		  Dim s As String
 		  
-		  tos = XMLFile.OpenAsTextFile()
+		  'tos = XMLFile.OpenAsTextFile()
+		  tos = TextInputStream.Open( XMLFile )
 		  If tos <> nil Then
 		    s = tos.ReadAll
 		    tos.Close
@@ -124,13 +156,13 @@ Protected Module XMLDictionary
 		    While node.Type <> XmlNodeType.ELEMENT_NODE And node <> nil
 		      node = node.NextSibling
 		    Wend
-		    If node = nil Or node.Name <> "dict" Then
+		    If node = nil Or ( node.Name <> "dict" and node.Name <> "array" ) Then // Modified by Kem Tekinay: PLists can have any valid type at their root, but array and dict are the most common
 		      // It's not valid
 		      Return False
 		    End If
 		    // Now check the version
 		    If Val(XMLDoc.DocumentElement.GetAttribute("version")) <= Val(PlistVersion) Then
-		      ParseXML node, xmldict
+		      ParseXML node, xmldict, true
 		      Return True
 		    Else
 		      Return False
@@ -138,7 +170,7 @@ Protected Module XMLDictionary
 		  Else
 		    // First, make sure the version is at most what we expect
 		    If Val(XMLDoc.DocumentElement.GetAttribute("version")) <= Val(CurrentVersion) Then
-		      ParseXML XMLDoc.DocumentElement, xmldict
+		      ParseXML XMLDoc.DocumentElement, xmldict, true
 		      Return True
 		    Else
 		      // We can't reliably parse a higher version, so lets not parse it at all
@@ -175,134 +207,149 @@ Protected Module XMLDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub ParseStorage(storage As Variant, parent As XmlNode, plist As Boolean = False)
-		  Dim v(-1) As Variant
-		  ParseStorage(storage, parent, v, 1, plist)
+		Private Sub ParseStorage(storage As Variant, parent As XmlNode, plist As Boolean, indented as Boolean)
+		  dim level as Integer
+		  if indented then
+		    level = 1
+		  else
+		    level = -1000
+		  end
+		  ParseStorage(storage, parent, new Dictionary, level, plist)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub ParseStorage(storage As Variant, parent As XmlNode, alreadySeen() As Variant, indentLevel As Integer, plist As Boolean = False)
-		  Dim i, n, x As Integer
+		Private Sub ParseStorage(storage As Variant, parent As XmlNode, alreadySeen As Dictionary, indentLevel As Integer, plist As Boolean = False)
 		  Dim key, value As Variant
 		  Dim node, tempNode As XmlNode
 		  Dim xdoc As XmlDocument
 		  Dim s, data(-1) As String
 		  Dim multilineTag As Boolean
-		  Dim mb As MemoryBlock
+		  Dim i, n As Integer
 		  
 		  // First, make sure we haven't already seen this dictionary
 		  // This protects against circular dictionary references
-		  n = UBound(alreadySeen)
-		  For i = 0 To n
-		    If alreadySeen(i) = storage Then
-		      // Ack! We've seen this! Bail out
-		      Return
-		    End If
-		  Next
-		  // Ok, lets add out storage to the list
-		  alreadySeen.Append storage
+		  If alreadySeen.HasKey(storage) Then
+		    // We've seen this! Bail out
+		    Return
+		  End If
+		  // Ok, lets add our storage to the list
+		  alreadySeen.Value(storage) = true
 		  
 		  xdoc = parent.OwnerDocument
 		  n = StorageCount(storage) - 1
 		  For i = 0 To n
 		    // Key
 		    key = StorageKey(storage, i)
-		    If key <> nil Then // It's a keyed storage
+		    
+		    // Modified by Kem Tekinay.
+		    // Some plists will have array at the root. If such a plist is parsed by this module,
+		    // there will only be one element in the dictionary and its key will be "cfarray".
+		    // In that case, we ignore that first key.
+		    If key <> nil and ( Dictionary( storage ).Count <> 1 or key <> "cfarray" ) Then // It's a keyed storage
 		      node = parent.AppendChild(xdoc.CreateElement("key"))
 		      node.AppendChild(xdoc.CreateTextNode(key.StringValue))
 		      IndentNode node, indentLevel
 		    End If
 		    
 		    // Value
+		    node = nil
 		    multilineTag = False
 		    value = StorageValue(storage, i)
-		    Select Case value.Type
-		    Case 0 // Null
-		      // If it's a plist, we can't use null, so lets use false
-		      If plist Then
-		        node = xdoc.CreateElement("false")
-		      Else
-		        node = xdoc.CreateElement("null")
-		      End If
-		    Case 2, 3 // Integer
-		      node = xdoc.CreateElement("integer")
-		      node.AppendChild(xdoc.CreateTextNode(Str(value.IntegerValue)))
-		    Case 5 // Double/Single
-		      node = xdoc.CreateElement("real")
-		      node.AppendChild(xdoc.CreateTextNode(Format(value.DoubleValue, "-#.0##############")))
-		    Case 7 // Date
-		      node = xdoc.CreateElement("date")
-		      node.AppendChild(xdoc.CreateTextNode(value.StringValue))
-		    Case 8 // String
-		      node = xdoc.CreateElement("string")
-		      s = ConvertEncoding(value.StringValue, Encodings.UTF8) // Convert to UTF8
-		      If s.Encoding = nil Then s = DefineEncoding(s, Encodings.UTF8) // If encoding was undefined, convert fails. Simply define instead
-		      node.AppendChild(xdoc.CreateTextNode(s))
-		    Case 9 // Object
-		      // Is this a dictionary, memoryblock, collection, or folderitem?
-		      If value.ObjectValue IsA Dictionary Then
-		        // We can parse this dictionary
-		        node = xdoc.CreateElement("dict")
-		        ParseStorage Dictionary(value.ObjectValue), node, alreadySeen, indentLevel+1, plist
-		        multilineTag = True
-		      ElseIf value.ObjectValue IsA MemoryBlock Then
-		        // We can parse this memoryblock
-		        node = xdoc.CreateElement("data")
-		        data = Split(EncodeBase64(MemoryBlock(value.ObjectValue), 45), ChrB(13)+ChrB(10)) // 45 is what plists use
-		        For Each s In data
-		          tempNode = node.AppendChild(xdoc.CreateTextNode(DefineEncoding(s, Encodings.ASCII)))
-		          IndentNode tempNode, indentLevel
-		        Next
-		        multilineTag = True
-		      ElseIf value.ObjectValue IsA Collection Then
-		        // We can parse this collection
-		        node = xdoc.CreateElement("array")
-		        ParseStorage Collection(value.ObjectValue), node, alreadySeen, indentLevel+1, plist
-		        multilineTag = True
-		      ElseIf value.ObjectValue IsA FolderItem And Not plist Then // We can't output this if it's plist-compatible
-		        // Do the same thing as a memoryblock, but with a different tag
-		        node = xdoc.CreateElement("file")
-		        data = Split(EncodeBase64(FolderItem(value.ObjectValue).GetSaveInfo(Nil), 45), ChrB(13)+ChrB(10))
-		        For Each s In Data
-		          tempNode = node.AppendChild(xdoc.CreateTextNode(s))
-		          IndentNode tempNode, indentLevel
-		        Next
-		        multilineTag = True
-		      Else
-		        // Arbitrary object? We can't do this. Let's just add a null element
+		    dim vType as Integer = value.Type
+		    
+		    if value.IsArray then
+		      node = xdoc.CreateElement("array")
+		      ParseStorage value, node, alreadySeen, indentLevel+1, plist
+		      multilineTag = True
+		    else
+		      Select Case vType
+		      Case 0 // Null
 		        // If it's a plist, we can't use null, so lets use false
 		        If plist Then
 		          node = xdoc.CreateElement("false")
 		        Else
 		          node = xdoc.CreateElement("null")
 		        End If
-		      End If
-		    Case 11 // Boolean
-		      If value.BooleanValue = True Then
-		        node = xdoc.CreateElement("true")
-		      Else
-		        node = xdoc.CreateElement("false")
-		      End If
-		    Case 16 // Color
-		      If plist Then
-		        // We can't output colors in plists
-		        // Lets just add a False node
-		        node = xdoc.CreateElement("false")
-		      Else
-		        node = xdoc.CreateElement("color")
-		        node.AppendChild(xdoc.CreateTextNode("#" + Hex(value.IntegerValue)))
-		      End If
-		    Else
+		      Case 2 // Integer
+		        node = xdoc.CreateElement("integer")
+		        node.AppendChild(xdoc.CreateTextNode(Str(value.IntegerValue)))
+		      case 3 // Long
+		        node = xdoc.CreateElement( "integer" )
+		        node.AppendChild( xdoc.CreateTextNode( str( value.Int64Value ) ) )
+		      Case 5 // Double/Single
+		        node = xdoc.CreateElement("real")
+		        node.AppendChild( xdoc.CreateTextNode( value.StringValue ) ) // Modified by Kem Tekinay. Replaced str with format to prevent truncation of the value
+		      Case 7 // Date
+		        node = xdoc.CreateElement("date")
+		        dim s2 as String = value.DateValue.SQLDateTime
+		        if plist then
+		          s2 = s2.Replace(" ","T")+"Z"
+		        end
+		        node.AppendChild(xdoc.CreateTextNode(s2))
+		      Case 8 // String
+		        node = xdoc.CreateElement("string")
+		        s = ConvertEncoding(value.StringValue, Encodings.UTF8) // Convert to UTF8
+		        If s.Encoding = nil Then s = DefineEncoding(s, Encodings.UTF8) // If encoding was undefined, convert fails. Simply define instead
+		        node.AppendChild(xdoc.CreateTextNode(s))
+		      Case 9 // Object
+		        // Is this a dictionary, memoryblock or folderitem?
+		        If value.ObjectValue IsA Dictionary Then
+		          // We can parse this dictionary
+		          node = xdoc.CreateElement("dict")
+		          ParseStorage Dictionary(value.ObjectValue), node, alreadySeen, indentLevel+1, plist
+		          multilineTag = True
+		        ElseIf value.ObjectValue IsA MemoryBlock Then
+		          // We can parse this memoryblock
+		          node = xdoc.CreateElement("data")
+		          data = Split(EncodeBase64(MemoryBlock(value.ObjectValue), 45), ChrB(13)+ChrB(10)) // 45 is what plists use
+		          For Each s In data
+		            tempNode = node.AppendChild(xdoc.CreateTextNode(DefineEncoding(s, Encodings.ASCII)))
+		            IndentNode tempNode, indentLevel
+		          Next
+		          multilineTag = True
+		        ElseIf value.ObjectValue IsA FolderItem And Not plist Then // We can't output this if it's plist-compatible
+		          // Do the same thing as a memoryblock, but with a different tag
+		          node = xdoc.CreateElement("file")
+		          data = Split(EncodeBase64(FolderItem(value.ObjectValue).GetSaveInfo(Nil), 45), ChrB(13)+ChrB(10))
+		          For Each s In Data
+		            tempNode = node.AppendChild(xdoc.CreateTextNode(s))
+		            IndentNode tempNode, indentLevel
+		          Next
+		          multilineTag = True
+		        Else
+		          // Arbitrary object?
+		          break
+		        End If
+		      Case 11 // Boolean
+		        If value.BooleanValue = True Then
+		          node = xdoc.CreateElement("true")
+		        Else
+		          node = xdoc.CreateElement("false")
+		        End If
+		      Case 16 // Color
+		        If plist Then
+		          // We can't output colors in plists
+		          // Lets just add a False node
+		          node = xdoc.CreateElement("false")
+		        Else
+		          node = xdoc.CreateElement("color")
+		          node.AppendChild(xdoc.CreateTextNode("#" + Hex(value.IntegerValue)))
+		        End If
+		      End Select
+		    end
+		    
+		    if node = nil then
 		      // Buh? We should never reach this point, but just in case, lets add a null value
 		      // However, if it's plist-compatible mode, we have to add a false value, since it doesn't support null
-		      msgbox(str(value.type))
+		      break
 		      if plist Then
 		        node = xdoc.CreateElement("false")
 		      Else
 		        node = xdoc.CreateElement("null")
 		      End If
-		    End Select
+		    end
+		    
 		    parent.AppendChild node // workaround for AppendChild() as XmlNode bug
 		    IndentNode node, indentLevel, multilineTag
 		  Next
@@ -310,18 +357,28 @@ Protected Module XMLDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub ParseXML(parent As XmlNode, storage As Variant)
-		  Dim i As Integer
-		  Dim node, tempNode As XmlNode
+		Private Sub ParseXML(parent As XmlNode, storage As Variant, firstIteration As Boolean = False)
+		  // Modified by Kem Tekinay.
+		  // Added firstIteration parameter.
+		  // Because a plist can have at its root any valid type, the first iteration of this method
+		  // has to check to see what it is. If it's anything other than "dict", it has create an initial key
+		  // that is the right type.
+		  
+		  Dim node As XmlNode
 		  Dim key As Variant
 		  Dim v As Variant
 		  Dim d As Dictionary
-		  Dim col As Collection
 		  Dim mb As MemoryBlock
 		  
 		  //ClearStorage storage
 		  
-		  node = parent.FirstChild
+		  if firstIteration and parent.Name <> "dict" then
+		    key = "cf" + parent.Name // Set the initial key since we aren't really starting with a dictionary.
+		    node = parent
+		  else
+		    node = parent.FirstChild
+		  end if
+		  
 		  While node <> nil
 		    // We only want to deal with element nodes
 		    // The only other type of node that *should* show up is
@@ -341,6 +398,10 @@ Protected Module XMLDictionary
 		          StoreValue key, Val(NodeContents(node)), storage
 		        Case "date"
 		          v = NodeContents(node)
+		          if Strcomp(Right(v, 1), "Z", 0) = 0 then
+		            // plist format
+		            v = v.StringValue.Left(v.StringValue.Len-1).Replace("T", " ")
+		          end
 		          StoreValue key, v.DateValue, storage
 		        Case "string"
 		          StoreValue key, NodeContents(node), storage
@@ -354,7 +415,7 @@ Protected Module XMLDictionary
 		          ParseXML node, d
 		          StoreValue key, d, storage
 		        Case "array"
-		          col = New Collection
+		          dim col() as Variant
 		          ParseXML node, col
 		          StoreValue key, col, storage
 		        Case "data"
@@ -381,23 +442,18 @@ Protected Module XMLDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SaveXML(Extends xmldict As Dictionary, XMLFile As FolderItem, plist As Boolean = False) As Boolean
-		  Dim bs As BinaryStream
+		Function SaveXML(Extends xmldict As Dictionary, XMLFile As FolderItem, plist As Boolean = False, indented as Boolean = true) As Boolean
+		  dim txt as String = xmldict.ExportXMLString(plist, indented)
 		  
-		  ' Shouldn't need this with 'true' passed to BinaryStream.Create, but it fails to delete the file
-		  if (XMLFile.exists()) then
-		    XMLFile.delete()
+		  if txt <> "" then
+		    'dim bs As BinaryStream = XMLFile.CreateBinaryFile("")
+		    dim bs as BinaryStream = BinaryStream.Create( XMLFile, true )
+		    if bs <> nil then
+		      bs.Write txt
+		      bs.Close
+		      return true
+		    end
 		  end if
-		  
-		  bs = BinaryStream.Create(XMLFile, true)
-		  
-		  If bs <> nil Then
-		    bs.Write xmldict.ExportXMLString(plist)
-		    bs.Close
-		    Return True
-		  Else
-		    Return False
-		  End If
 		End Function
 	#tag EndMethod
 
@@ -421,11 +477,40 @@ Protected Module XMLDictionary
 		  If storage.Type = 9 Then
 		    If storage.ObjectValue IsA Dictionary Then
 		      Return Dictionary(storage.ObjectValue).Count
-		    ElseIf storage.ObjectValue IsA Collection Then
-		      Return Collection(storage.ObjectValue).Count
 		    End If
+		  ElseIf storage.IsArray Then
+		    dim t as Integer = storage.ArrayElementType
+		    if t = Variant.TypeString then
+		      dim a() as String = storage
+		      return a.Ubound+1
+		    elseif t = Variant.TypeInteger then
+		      dim a() as Integer = storage
+		      return a.Ubound+1
+		    elseif t = Variant.TypeBoolean then
+		      dim a() as Boolean = storage
+		      return a.Ubound+1
+		    elseif t = Variant.TypeDouble then
+		      dim a() as Double = storage
+		      return a.Ubound+1
+		    elseif t = Variant.TypeSingle then
+		      dim a() as Single = storage
+		      return a.Ubound+1
+		    elseif t = Variant.TypeDate then
+		      dim a() as Date = storage
+		      return a.Ubound+1
+		    elseif t = Variant.TypeLong then
+		      dim a() as Int64 = storage
+		      return a.Ubound+1
+		    elseif t = Variant.TypeObject then
+		      dim a() as Object = storage
+		      return a.Ubound+1
+		    end
+		    
+		    // fallback for unknown types - if this gets a TypeMismatchException, add the missing type to another elseif/dim/return above
+		    dim a() as Variant = storage
+		    return a.Ubound+1
+		    
 		  End If
-		  Return 0
 		End Function
 	#tag EndMethod
 
@@ -442,31 +527,112 @@ Protected Module XMLDictionary
 		Private Function StorageValue(storage As Variant, index As Integer) As Variant
 		  If storage.Type = 9 Then
 		    If storage.ObjectValue IsA Dictionary Then
-		      Return Dictionary(storage.ObjectValue).Value(Dictionary(storage.ObjectValue).Key(index))
-		    ElseIf storage.ObjectValue IsA Collection Then
-		      Return Collection(storage.ObjectValue).Item(index+1)
+		      dim key as Variant = Dictionary(storage.ObjectValue).Key(index)
+		      Return Dictionary(storage.ObjectValue).Value(key)
 		    End If
+		  ElseIf storage.IsArray Then
+		    dim t as Integer = storage.ArrayElementType
+		    if t = Variant.TypeString then
+		      dim a() as String = storage
+		      return a(index)
+		    elseif t = Variant.TypeInteger then
+		      dim a() as Integer = storage
+		      return a(index)
+		    elseif t = Variant.TypeBoolean then
+		      dim a() as Boolean = storage
+		      return a(index)
+		    elseif t = Variant.TypeDouble then
+		      dim a() as Double = storage
+		      return a(index)
+		    elseif t = Variant.TypeSingle then
+		      dim a() as Single = storage
+		      return a(index)
+		    elseif t = Variant.TypeDate then
+		      dim a() as Date = storage
+		      return a(index)
+		    elseif t = Variant.TypeLong then
+		      dim a() as Int64 = storage
+		      return a(index)
+		    elseif t = Variant.TypeObject then
+		      dim a() as Object = storage
+		      return a(index)
+		    end
+		    
+		    // fallback for unknown types - if this gets a TypeMismatchException, add the missing type to another elseif/dim/return above
+		    dim a() as Variant = storage
+		    return a(index)
+		    
 		  End If
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub StoreValue(key As Variant, value As Variant, storage As Variant)
-		  If storage.Type = 9 Then
+		  If storage.IsArray Then
+		    dim t as Integer = storage.ArrayElementType
+		    if t = Variant.TypeString then
+		      dim a() as String = storage
+		      a.Append value
+		      return
+		    elseif t = Variant.TypeInteger then
+		      dim a() as Integer = storage
+		      a.Append value
+		      return
+		    elseif t = Variant.TypeBoolean then
+		      dim a() as Boolean = storage
+		      a.Append value
+		      return
+		    elseif t = Variant.TypeDouble then
+		      dim a() as Double = storage
+		      a.Append value
+		      return
+		    elseif t = Variant.TypeSingle then
+		      dim a() as Single = storage
+		      a.Append value
+		      return
+		    elseif t = Variant.TypeDate then
+		      dim a() as Date = storage
+		      a.Append value
+		      return
+		    elseif t = Variant.TypeLong then
+		      dim a() as Int64 = storage
+		      a.Append value
+		      return
+		    elseif t = Variant.TypeObject then
+		      dim a() as Object = storage
+		      a.Append value
+		      return
+		    end
+		    
+		    // fallback for unknown types - if this gets a TypeMismatchException, add the missing type to another elseif/dim/Append/return above
+		    dim a() as Variant = storage
+		    a.Append value
+		    
+		  ElseIf storage.Type = 9 Then
 		    If storage.ObjectValue IsA Dictionary And key <> nil Then
 		      Dictionary(storage.ObjectValue).Value(key) = value
-		    ElseIf storage.ObjectValue IsA Collection Then
-		      Collection(storage.ObjectValue).Add value
 		    End If
 		  End If
 		End Sub
 	#tag EndMethod
 
 
+	#tag Note, Name = About
+		This is now part of the open source "MacOSLib"
+		
+		Original sources are located here:  https://github.com/macoslib/macoslib
+	#tag EndNote
+
 	#tag Note, Name = Version History
 		Kevin Ballard
 		kevin@sb.org
-		http://www.tildesoft.com
+		http://www.tildesoft.com/
+		
+		v1.2.8:
+		- (by Thomas Tempelmann, tempelmann@gmail.com): Got rid of Collection in favor of using real arrays
+		
+		v1.2.7:
+		- (by Thomas Tempelmann, tempelmann@gmail.com): Fixed the Date format for plists
 		
 		v1.2.6:
 		- Approximately tripled the speed of loading an XML file. Unfortunately, I can't do the same for saving because
@@ -537,7 +703,7 @@ Protected Module XMLDictionary
 			Name="Index"
 			Visible=true
 			Group="ID"
-			InitialValue="2147483648"
+			InitialValue="-2147483648"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
