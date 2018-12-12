@@ -30,15 +30,8 @@ Inherits Application
 		    removeAllCachedResponses( sharedURLCache( NSClassFromString( "NSURLCache" ) ) )
 		  #EndIf
 		  
-		  // WINDOWS DIES In HERE SOMETIMES
-		  pPreferences = new Dictionary()
-		  loadPreferences
+		  wndMain.show
 		  
-		  dim xPlanePath as String
-		  if (pPreferences.hasKey(App.kPreferenceXPlanePath)) then xPlanePath = pPreferences.value(App.kPreferenceXPlanePath)
-		  If (xPlanePath <> "") Then pXPlaneFolder = GetFolderItem(xPlanePath, FolderItem.PathTypeNative)
-		  
-		  wndMain.show()
 		End Sub
 	#tag EndEvent
 
@@ -95,14 +88,14 @@ Inherits Application
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub loadPreferences()
-		  dim prefsFile as FolderItem = SpecialFolder.Preferences.Child(App.kApplicationName + ".plist")
-		  if (prefsFile.exists()) then
-		    if (not pPreferences.loadXML(prefsFile)) then
-		      pPreferences = new Dictionary()
-		    end if
-		  end if
+	#tag Method, Flags = &h0
+		Sub loadPreferences()
+		  Dim prefsFile As FolderItem = SpecialFolder.Preferences.Child(App.kApplicationName + ".plist")
+		  If (prefsFile.exists) Then
+		    If (Not pPreferences.loadXML(prefsFile)) Then
+		      pPreferences = New Dictionary
+		    End If
+		  End If
 		  
 		End Sub
 	#tag EndMethod

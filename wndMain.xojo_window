@@ -2034,22 +2034,29 @@ End
 		  sockFile.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
 		  sockVersion.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
 		  
-		  if (App.StageCode = 3) then
-		    lblPreRelease.visible = false
-		  else
+		  If (App.StageCode = 3) Then
+		    lblPreRelease.visible = False
+		  Else
 		    lblPreRelease.visible = True
-		  end if
+		  End If
 		  
 		  // Set up the panel completed booleans
-		  dim i as integer = 0
-		  while ovlStage(i) <> nil
-		    pPanelCompleted.append(false)
+		  Dim i As Integer = 0
+		  While ovlStage(i) <> Nil
+		    pPanelCompleted.append(False)
 		    i = i + 1
-		  wend
+		  Wend
 		  
 		  setPanelCompleted(0)
 		  selectPanel(0)
 		  
+		  // Windows occasionally crashes quietly if this code is in App.Open
+		  App.pPreferences = New Dictionary
+		  App.loadPreferences
+		  
+		  Dim xPlanePath As String
+		  If (App.pPreferences.hasKey(App.kPreferenceXPlanePath)) Then xPlanePath = App.pPreferences.value(App.kPreferenceXPlanePath)
+		  If (xPlanePath <> "") Then App.pXPlaneFolder = GetFolderItem(xPlanePath, FolderItem.PathTypeNative)
 		  
 		End Sub
 	#tag EndEvent
