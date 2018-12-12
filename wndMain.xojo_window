@@ -1184,17 +1184,17 @@ Begin Window wndMain
          Width           =   348
       End
       Begin Label lblPreRelease
-         AutoDeactivate  =   True
+         AutoDeactivate  =   False
          Bold            =   True
          DataField       =   ""
          DataSource      =   ""
-         Enabled         =   False
+         Enabled         =   True
          Height          =   20
          HelpTag         =   ""
          Index           =   -2147483648
          InitialParent   =   "cnvHeaderBG"
          Italic          =   False
-         Left            =   262
+         Left            =   20
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -1207,16 +1207,16 @@ Begin Window wndMain
          TabPanelIndex   =   0
          TabStop         =   True
          Text            =   "PRE-RELEASE TEST VERSION, DO NOT RE-DISTRIBUTE!"
-         TextAlign       =   0
+         TextAlign       =   1
          TextColor       =   &cFF000000
          TextFont        =   "System"
          TextSize        =   16.0
          TextUnit        =   0
          Top             =   27
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Visible         =   False
-         Width           =   522
+         Width           =   744
       End
    End
    Begin Label txtStage
