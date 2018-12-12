@@ -435,10 +435,10 @@ Inherits Application
 	#tag Constant, Name = kSteamWindowsDefaultPaths, Type = String, Dynamic = False, Default = \"\\steamapps\\common\\X-plane 11\n\\steamapps\\common\\X-plane 10", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifest.xml.zip", Scope = Public
+	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/manifest.xml.zip", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository", Scope = Public
+	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/repository", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
