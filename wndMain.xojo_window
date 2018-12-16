@@ -2134,6 +2134,8 @@ End
 		    pOsxFolderItem.Child("opensceneryx").createAsFolder()
 		  end if
 		  
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.agp").delete
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.dcl").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.fac").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.for").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.lin").delete
@@ -2144,6 +2146,8 @@ End
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.str").delete
 		  
 		  if (not App.pPreferences.hasKey(App.kPreferenceBackupLibraries) or App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesVisible) then
+		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.agp").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
+		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.dcl").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.fac").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.for").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.lin").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
@@ -2153,6 +2157,8 @@ End
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.net").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.str").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		  else
+		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.agp").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
+		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.dcl").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.fac").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.for").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.lin").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
