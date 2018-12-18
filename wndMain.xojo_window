@@ -3442,7 +3442,7 @@ End
 	#tag Event
 		Sub Error(err as RuntimeException)
 		  prgwLocalScan2.visible = False
-		  showMessage(txtLocalScanBodyText2, kGivingUp)
+		  showMessage(txtLocalScanBodyText2, kError, Array(str(err.Reason)))
 		End Sub
 	#tag EndEvent
 	#tag Event
