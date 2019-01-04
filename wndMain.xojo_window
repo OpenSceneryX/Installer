@@ -2134,6 +2134,7 @@ End
 		    pOsxFolderItem.Child("opensceneryx").createAsFolder()
 		  end if
 		  
+		  pOsxFolderItem.Child("opensceneryx").Child("placeholder_decal.png").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.agp").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.dcl").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.fac").delete
@@ -2146,6 +2147,7 @@ End
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.str").delete
 		  
 		  if (not App.pPreferences.hasKey(App.kPreferenceBackupLibraries) or App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesVisible) then
+		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder_decal.png").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.agp").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.dcl").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.fac").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
