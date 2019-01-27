@@ -2231,7 +2231,7 @@ End
 
 	#tag Method, Flags = &h0
 		Sub copyPlaceholders()
-		  ' Placeholder objects are stored in a subfolder called 'opensceneryx'.  Makes it easier to drop in the backup library as thats what it uses
+		  // Placeholder objects are stored in a subfolder called 'opensceneryx'.  Makes it easier to drop in the backup library as thats what it uses
 		  if (not pOsxFolderItem.Child("opensceneryx").exists()) then
 		    pOsxFolderItem.Child("opensceneryx").createAsFolder()
 		  end if
@@ -2248,7 +2248,7 @@ End
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.net").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.str").delete
 		  
-		  if (not App.pPreferences.hasKey(App.kPreferenceBackupLibraries) or App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesVisible) then
+		  If (Not App.pPreferences.hasKey(App.kPreferenceBackupLibraries) Or App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesVisible) Then
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder_decal.png").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.agp").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.dcl").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
@@ -2260,7 +2260,8 @@ End
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.pol").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.net").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.str").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
-		  else
+		  Else
+		    // Invisible placeholders If the user has chosen invisible Of If the backup library Is disabled completely
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.agp").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.dcl").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.fac").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
@@ -2354,6 +2355,45 @@ End
 		    Return 1
 		  #Endif
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub handleOptional()
+		  // This function should only ever be called once, right at the end of the install.
+		  // This ensures that the library.txt file is in its vanilla state with no additions included.
+		  
+		  If pOptionalInstallDone Then Return
+		  pOptionalInstallDone = True
+		  
+		  // Handle the Backup Library
+		  
+		  // First copy in the correct visible / invisible placeholders
+		  copyPlaceholders
+		  
+		  // Next append the backup library to the main library if user requests it
+		  If (App.pPreferences.hasKey(App.kPreferenceBackupLibraries) And App.pPreferences.value(App.kPreferenceBackupLibraries) <> App.kPreferenceBackupLibrariesDisabled) Then
+		    // Backup library is not disabled, append it
+		    
+		    Dim libraryFolderItem As FolderItem = pOsxFolderItem.Child("library.txt")
+		    Dim backupLibraryFolderItem As FolderItem = pOsxFolderItem.Child("optional").Child("backup_library.txt")
+		    Dim backupLibraryContents As String = ""
+		    
+		    Try
+		      If backupLibraryFolderItem <> Nil And backupLibraryFolderItem.Exists And libraryFolderItem <> Nil And libraryFolderItem.Exists Then
+		        Dim tis As TextInputStream = TextInputStream.Open(backupLibraryFolderItem)
+		        backupLibraryContents = tis.ReadAll(Encodings.UTF8)
+		        tis.Close
+		        
+		        Dim tos As TextOutputStream = TextOutputStream.Append(libraryFolderItem)
+		        tos.Write(backupLibraryContents)
+		        tos.Close
+		      End If
+		    Catch e As IOException
+		      // Something bad happened trying to work with the files
+		    End Try
+		  End If
+		  
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -2520,7 +2560,7 @@ End
 		      thrUpdateFolderStructure.run()
 		      
 		    case kStageSummary
-		      copyPlaceholders()
+		      handleOptional
 		      
 		    else
 		      enableBack()
@@ -2604,6 +2644,10 @@ End
 		pLocalManifest As FolderManifest
 	#tag EndProperty
 
+	#tag Property, Flags = &h21
+		Private pOptionalInstallDone As Boolean = False
+	#tag EndProperty
+
 	#tag Property, Flags = &h0
 		pOsxFolderItem As FolderItem
 	#tag EndProperty
@@ -2642,25 +2686,25 @@ End
 	#tag Constant, Name = kBackupLibraryDescription, Type = String, Dynamic = True, Default = \"OpenSceneryX includes a backup library for many other popular third party libraries\x2C in case you don\'t have those libraries installed.", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kBackupLibraryDisable, Type = String, Dynamic = True, Default = \"Disable backup library", Scope = Private
+	#tag Constant, Name = kBackupLibraryDisable, Type = String, Dynamic = True, Default = \"Disable the Backup Library", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryDisableHelp, Type = String, Dynamic = True, Default = \"OpenSceneryX includes a backup library for many other popular third party libraries\x2C in case you haven\xE2\x80\x99t installed those libraries.  If you want to disable this feature completely\x2C select this option", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kBackupLibraryInvisible, Type = String, Dynamic = True, Default = \"Show invisible placeholders for missing objects", Scope = Private
+	#tag Constant, Name = kBackupLibraryInvisible, Type = String, Dynamic = True, Default = \"Show invisible placeholders", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kBackupLibraryInvisibleHelp, Type = String, Dynamic = True, Default = \"OpenSceneryX includes a backup library for many other popular third party libraries\x2C in case you haven\xE2\x80\x99t installed those libraries.  If you want these objects hidden in X-Plane\x2C select this option.", Scope = Private
+	#tag Constant, Name = kBackupLibraryInvisibleHelp, Type = String, Dynamic = True, Default = \"If you don\'t want to see the Backup Library placeholders\x2C select this option.", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryMoreInfoLink, Type = String, Dynamic = True, Default = \"Click here for more info", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kBackupLibraryVisible, Type = String, Dynamic = True, Default = \"Show visible placeholders for missing objects", Scope = Private
+	#tag Constant, Name = kBackupLibraryVisible, Type = String, Dynamic = True, Default = \"Show bright red visible placeholders", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kBackupLibraryVisibleHelp, Type = String, Dynamic = True, Default = \"OpenSceneryX includes a backup library for many other popular third party libraries\x2C in case you haven\xE2\x80\x99t installed those libraries.  If you want these objects shown bright red in X-Plane\x2C select this option.", Scope = Private
+	#tag Constant, Name = kBackupLibraryVisibleHelp, Type = String, Dynamic = True, Default = \"If you do want to see the bright red Backup Library placeholders\x2C select this option.", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kChangeXplaneFolder, Type = String, Dynamic = True, Default = \"Change X-Plane\xC2\xAE Folder", Scope = Public
