@@ -402,6 +402,9 @@ Inherits Application
 	#tag Constant, Name = kPreferenceBackupLibraries, Type = String, Dynamic = False, Default = \"BackupLibraries", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPreferenceBackupLibrariesDisabled, Type = String, Dynamic = False, Default = \"disabled", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPreferenceBackupLibrariesInvisible, Type = String, Dynamic = False, Default = \"invisible", Scope = Public
 	#tag EndConstant
 
@@ -433,6 +436,9 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kSteamWindowsDefaultPaths, Type = String, Dynamic = False, Default = \"\\steamapps\\common\\X-plane 11\n\\steamapps\\common\\X-plane 10", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kURLBackupLibrary, Type = Text, Dynamic = False, Default = \"https://forums.x-plane.org/index.php\?/files/file/25033-backup-scenery-library/", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/manifest.xml.zip", Scope = Public
