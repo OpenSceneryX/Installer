@@ -248,7 +248,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		  ShowURL("http://www.opensceneryx.com")
+		  ShowURL("https://www.opensceneryx.com")
 		  
 		End Function
 	#tag EndEvent
