@@ -914,7 +914,7 @@ Begin Window wndMain
             Bold            =   False
             Caption         =   "#kXPlaneFolder"
             Enabled         =   True
-            Height          =   132
+            Height          =   114
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
@@ -998,7 +998,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   232
+               Top             =   219
                Transparent     =   True
                Underline       =   False
                Visible         =   True
@@ -1017,7 +1017,7 @@ Begin Window wndMain
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
                Italic          =   False
-               Left            =   309
+               Left            =   305
                LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   False
@@ -1030,7 +1030,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   232
+               Top             =   219
                Transparent     =   True
                Underline       =   False
                Visible         =   True
@@ -1042,7 +1042,7 @@ Begin Window wndMain
             Bold            =   False
             Caption         =   "#kBackupLibrary"
             Enabled         =   True
-            Height          =   110
+            Height          =   211
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
@@ -1060,7 +1060,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   289
+            Top             =   271
             Transparent     =   False
             Underline       =   False
             Visible         =   True
@@ -1088,7 +1088,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   357
+               Top             =   410
                Transparent     =   True
                Underline       =   False
                Value           =   False
@@ -1118,12 +1118,112 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   325
+               Top             =   378
                Transparent     =   True
                Underline       =   False
                Value           =   True
                Visible         =   True
                Width           =   419
+            End
+            Begin RadioButton rdoBackupLibraryDisable
+               AutoDeactivate  =   True
+               Bold            =   False
+               Caption         =   "#kBackupLibraryDisable"
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   "#kBackupLibraryDisableHelp"
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox3"
+               Italic          =   False
+               Left            =   309
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   True
+               LockTop         =   True
+               Scope           =   0
+               TabIndex        =   2
+               TabPanelIndex   =   4
+               TabStop         =   True
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   442
+               Transparent     =   True
+               Underline       =   False
+               Value           =   False
+               Visible         =   True
+               Width           =   419
+            End
+            Begin Label Label1
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   59
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox3"
+               Italic          =   False
+               Left            =   309
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               Multiline       =   True
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   3
+               TabPanelIndex   =   4
+               TabStop         =   True
+               Text            =   "#kBackupLibraryDescription"
+               TextAlign       =   0
+               TextColor       =   &c00000000
+               TextFont        =   "System"
+               TextSize        =   10.0
+               TextUnit        =   0
+               Top             =   307
+               Transparent     =   False
+               Underline       =   False
+               Visible         =   True
+               Width           =   419
+               Begin Label txtBackupLibraryMoreInfoLink
+                  AutoDeactivate  =   True
+                  Bold            =   False
+                  DataField       =   ""
+                  DataSource      =   ""
+                  Enabled         =   True
+                  Height          =   20
+                  HelpTag         =   ""
+                  Index           =   -2147483648
+                  InitialParent   =   "Label1"
+                  Italic          =   False
+                  Left            =   309
+                  LockBottom      =   False
+                  LockedInPosition=   False
+                  LockLeft        =   False
+                  LockRight       =   False
+                  LockTop         =   False
+                  Multiline       =   False
+                  Scope           =   0
+                  Selectable      =   False
+                  TabIndex        =   0
+                  TabPanelIndex   =   4
+                  TabStop         =   True
+                  Text            =   "#kBackupLibraryMoreInfoLink"
+                  TextAlign       =   0
+                  TextColor       =   &c0000FE00
+                  TextFont        =   "System"
+                  TextSize        =   0.0
+                  TextUnit        =   0
+                  Top             =   343
+                  Transparent     =   False
+                  Underline       =   True
+                  Visible         =   True
+                  Width           =   236
+               End
             End
          End
       End
@@ -2070,11 +2170,13 @@ End
 
 	#tag Method, Flags = &h0
 		Sub backupLibraryChanged()
-		  if (rdoBackupLibraryVisible.value = true) then
+		  If (rdoBackupLibraryVisible.value = True) Then
 		    App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesVisible
-		  else
+		  Elseif (rdoBackupLibraryInvisible.Value = True) Then
 		    App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesInvisible
-		  end if
+		  Else
+		    App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesDisabled
+		  End If
 		  
 		End Sub
 	#tag EndMethod
@@ -2365,9 +2467,17 @@ End
 		      if (App.pPreferences.hasKey(App.kPreferenceDeleteUnused)) then chkDeleteUnused.value = App.pPreferences.value(App.kPreferenceDeleteUnused)
 		      if (App.pPreferences.hasKey(App.kPreferenceScanDisabled)) then chkScanDisabled.value = App.pPreferences.value(App.kPreferenceScanDisabled)
 		      
-		      if (App.pPreferences.hasKey(App.kPreferenceBackupLibraries) and App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesInvisible) then rdoBackupLibraryInvisible.value = true
+		      If App.pPreferences.hasKey(App.kPreferenceBackupLibraries) Then
+		        If App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesInvisible Then
+		          rdoBackupLibraryInvisible.value = True
+		        Elseif App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesVisible Then
+		          rdoBackupLibraryVisible.value = True
+		        Elseif App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesDisabled Then
+		          rdoBackupLibraryDisable.value = True
+		        End If
+		      End If
 		      
-		      enableContinue()
+		      enableContinue
 		      enableBack()
 		      
 		    case kStageLocalScan
@@ -2529,10 +2639,22 @@ End
 	#tag Constant, Name = kBackupLibrary, Type = String, Dynamic = True, Default = \"Backup Library", Scope = Private
 	#tag EndConstant
 
+	#tag Constant, Name = kBackupLibraryDescription, Type = String, Dynamic = True, Default = \"OpenSceneryX includes a backup library for many other popular third party libraries\x2C in case you don\'t have those libraries installed.", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kBackupLibraryDisable, Type = String, Dynamic = True, Default = \"Disable backup library", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kBackupLibraryDisableHelp, Type = String, Dynamic = True, Default = \"OpenSceneryX includes a backup library for many other popular third party libraries\x2C in case you haven\xE2\x80\x99t installed those libraries.  If you want to disable this feature completely\x2C select this option", Scope = Private
+	#tag EndConstant
+
 	#tag Constant, Name = kBackupLibraryInvisible, Type = String, Dynamic = True, Default = \"Show invisible placeholders for missing objects", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryInvisibleHelp, Type = String, Dynamic = True, Default = \"OpenSceneryX includes a backup library for many other popular third party libraries\x2C in case you haven\xE2\x80\x99t installed those libraries.  If you want these objects hidden in X-Plane\x2C select this option.", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kBackupLibraryMoreInfoLink, Type = String, Dynamic = True, Default = \"Click here for more info", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryVisible, Type = String, Dynamic = True, Default = \"Show visible placeholders for missing objects", Scope = Private
@@ -3284,6 +3406,26 @@ End
 		Sub Action()
 		  backupLibraryChanged()
 		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events rdoBackupLibraryDisable
+	#tag Event
+		Sub Action()
+		  backupLibraryChanged()
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events txtBackupLibraryMoreInfoLink
+	#tag Event
+		Sub Open()
+		  me.mousecursor = system.cursors.FingerPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  ShowURL(App.kURLBackupLibrary)
+		  
+		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag Events cnvHeaderBG
