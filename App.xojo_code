@@ -426,6 +426,9 @@ Inherits Application
 	#tag Constant, Name = kPreferenceScanDisabled, Type = String, Dynamic = False, Default = \"ScanDisabled", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPreferenceStaticAircraft, Type = String, Dynamic = False, Default = \"StaticAircraft", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPreferenceXPlanePath, Type = String, Dynamic = False, Default = \"XPlanePath", Scope = Public
 	#tag EndConstant
 

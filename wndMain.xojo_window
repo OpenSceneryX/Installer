@@ -9,7 +9,7 @@ Begin Window wndMain
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   565
+   Height          =   695
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -18,7 +18,7 @@ Begin Window wndMain
    MaxWidth        =   32000
    MenuBar         =   341440760
    MenuBarVisible  =   True
-   MinHeight       =   565
+   MinHeight       =   695
    MinimizeButton  =   True
    MinWidth        =   784
    Placement       =   0
@@ -34,7 +34,7 @@ Begin Window wndMain
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
-      Height          =   391
+      Height          =   521
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -56,7 +56,7 @@ Begin Window wndMain
       Begin PagePanel ppnlMain
          AutoDeactivate  =   True
          Enabled         =   True
-         Height          =   377
+         Height          =   507
          HelpTag         =   ""
          Index           =   -2147483648
          InitialParent   =   "cnvBG"
@@ -82,7 +82,7 @@ Begin Window wndMain
             DataField       =   ""
             DataSource      =   ""
             Enabled         =   True
-            Height          =   335
+            Height          =   465
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
@@ -599,6 +599,103 @@ Begin Window wndMain
             Visible         =   True
             Width           =   430
          End
+         Begin GroupBox GroupBox4
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "#kStaticAircraft"
+            Enabled         =   True
+            Height          =   115
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "ppnlMain"
+            Italic          =   False
+            Left            =   289
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   True
+            LockRight       =   True
+            LockTop         =   True
+            Scope           =   0
+            TabIndex        =   3
+            TabPanelIndex   =   4
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   497
+            Transparent     =   False
+            Underline       =   False
+            Visible         =   True
+            Width           =   459
+            Begin Label Label2
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   33
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox4"
+               Italic          =   False
+               Left            =   309
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               Multiline       =   True
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   0
+               TabPanelIndex   =   4
+               TabStop         =   True
+               Text            =   "#kStaticAircraftDescription"
+               TextAlign       =   0
+               TextColor       =   &c00000000
+               TextFont        =   "System"
+               TextSize        =   10.0
+               TextUnit        =   0
+               Top             =   533
+               Transparent     =   False
+               Underline       =   False
+               Visible         =   True
+               Width           =   419
+            End
+            Begin CheckBox chkStaticAircraft
+               AutoDeactivate  =   True
+               Bold            =   False
+               Caption         =   "#kStaticAircraftEnable"
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox4"
+               Italic          =   False
+               Left            =   309
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   True
+               LockTop         =   True
+               Scope           =   0
+               State           =   0
+               TabIndex        =   1
+               TabPanelIndex   =   4
+               TabStop         =   True
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   572
+               Transparent     =   False
+               Underline       =   False
+               Value           =   False
+               Visible         =   True
+               Width           =   419
+            End
+         End
          Begin ProgressWheel prgwInstall2
             AutoDeactivate  =   True
             Enabled         =   True
@@ -708,7 +805,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   6
-            Top             =   466
+            Top             =   596
             Transparent     =   True
             Value           =   0
             Visible         =   False
@@ -763,7 +860,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   6
-            Top             =   432
+            Top             =   562
             Transparent     =   True
             Value           =   0
             Visible         =   False
@@ -798,7 +895,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   432
+            Top             =   562
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -833,7 +930,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   464
+            Top             =   594
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -868,7 +965,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   432
+            Top             =   562
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -903,7 +1000,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   466
+            Top             =   596
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -1082,7 +1179,7 @@ Begin Window wndMain
                LockRight       =   True
                LockTop         =   True
                Scope           =   0
-               TabIndex        =   0
+               TabIndex        =   2
                TabPanelIndex   =   4
                TabStop         =   True
                TextFont        =   "System"
@@ -1142,7 +1239,7 @@ Begin Window wndMain
                LockRight       =   True
                LockTop         =   True
                Scope           =   0
-               TabIndex        =   2
+               TabIndex        =   3
                TabPanelIndex   =   4
                TabStop         =   True
                TextFont        =   "System"
@@ -1175,7 +1272,7 @@ Begin Window wndMain
                Multiline       =   True
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   3
+               TabIndex        =   0
                TabPanelIndex   =   4
                TabStop         =   True
                Text            =   "#kBackupLibraryDescription"
@@ -1485,7 +1582,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   525
+      Top             =   655
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -1517,7 +1614,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   525
+      Top             =   655
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -2079,7 +2176,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   439
+      Top             =   569
       Transparent     =   True
       Underline       =   False
       Value           =   False
@@ -2115,7 +2212,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   364
+      Top             =   494
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -2161,6 +2258,28 @@ End
 		End Sub
 	#tag EndEvent
 
+
+	#tag Method, Flags = &h0
+		Sub appendOptionalToLibrary(optionalFileName as String)
+		  Dim libraryFolderItem As FolderItem = pOsxFolderItem.Child("library.txt")
+		  Dim optionalFolderItem As FolderItem = pOsxFolderItem.Child("optional").Child(optionalFileName)
+		  Dim optionalContents As String = ""
+		  
+		  Try
+		    If optionalFolderItem <> Nil And optionalFolderItem.Exists And libraryFolderItem <> Nil And libraryFolderItem.Exists Then
+		      Dim tis As TextInputStream = TextInputStream.Open(optionalFolderItem)
+		      optionalContents = tis.ReadAll(Encodings.UTF8)
+		      tis.Close
+		      
+		      Dim tos As TextOutputStream = TextOutputStream.Append(libraryFolderItem)
+		      tos.Write(optionalContents)
+		      tos.Close
+		    End If
+		  Catch e As IOException
+		    // Something bad happened trying to work with the files
+		  End Try
+		End Sub
+	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub backClicked()
@@ -2360,37 +2479,22 @@ End
 	#tag Method, Flags = &h0
 		Sub handleOptional()
 		  // This function should only ever be called once, right at the end of the install.
-		  // This ensures that the library.txt file is in its vanilla state with no additions included.
+		  // This ensures that the library.txt file starts in its vanilla state with no optional additions included.
 		  
 		  If pOptionalInstallDone Then Return
 		  pOptionalInstallDone = True
 		  
-		  // Handle the Backup Library
-		  
-		  // First copy in the correct visible / invisible placeholders
+		  // Copy in the correct visible / invisible placeholders for the Backup Library
 		  copyPlaceholders
 		  
-		  // Next append the backup library to the main library if user requests it
+		  // Append the backup library to the main library if user requests it
 		  If (App.pPreferences.hasKey(App.kPreferenceBackupLibraries) And App.pPreferences.value(App.kPreferenceBackupLibraries) <> App.kPreferenceBackupLibrariesDisabled) Then
-		    // Backup library is not disabled, append it
-		    
-		    Dim libraryFolderItem As FolderItem = pOsxFolderItem.Child("library.txt")
-		    Dim backupLibraryFolderItem As FolderItem = pOsxFolderItem.Child("optional").Child("backup_library.txt")
-		    Dim backupLibraryContents As String = ""
-		    
-		    Try
-		      If backupLibraryFolderItem <> Nil And backupLibraryFolderItem.Exists And libraryFolderItem <> Nil And libraryFolderItem.Exists Then
-		        Dim tis As TextInputStream = TextInputStream.Open(backupLibraryFolderItem)
-		        backupLibraryContents = tis.ReadAll(Encodings.UTF8)
-		        tis.Close
-		        
-		        Dim tos As TextOutputStream = TextOutputStream.Append(libraryFolderItem)
-		        tos.Write(backupLibraryContents)
-		        tos.Close
-		      End If
-		    Catch e As IOException
-		      // Something bad happened trying to work with the files
-		    End Try
+		    appendOptionalToLibrary("backup_library.txt")
+		  End If
+		  
+		  // Append the static aircraft exports to the main library if user requests it
+		  If (App.pPreferences.hasKey(App.kPreferenceStaticAircraft) And App.pPreferences.value(App.kPreferenceStaticAircraft) = True) Then
+		    appendOptionalToLibrary("static_aircraft_extend.txt")
 		  End If
 		  
 		End Sub
@@ -2517,6 +2621,10 @@ End
 		        End If
 		      End If
 		      
+		      If App.pPreferences.HasKey(App.kPreferenceStaticAircraft) Then
+		        chkStaticAircraft.value = App.pPreferences.value(App.kPreferenceStaticAircraft)
+		      End If
+		      
 		      enableContinue
 		      enableBack()
 		      
@@ -2628,6 +2736,13 @@ End
 		Sub showMessage(textField as Label, message as String, optional parameters() as String)
 		  message = App.processParameterizedString(message, parameters)
 		  textField.text = message
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub staticAircraftChanged()
+		  App.pPreferences.value(App.kPreferenceStaticAircraft) = chkStaticAircraft.value
+		  
 		End Sub
 	#tag EndMethod
 
@@ -3299,6 +3414,15 @@ End
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Resumen"
 	#tag EndConstant
 
+	#tag Constant, Name = kStaticAircraft, Type = String, Dynamic = True, Default = \"Static Aircraft", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kStaticAircraftDescription, Type = String, Dynamic = True, Default = \"OpenSceneryX can incorporate its aircraft into the X-Plane static aircraft placement system.", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kStaticAircraftEnable, Type = String, Dynamic = True, Default = \"Enable inclusion of aircraft in X-Plane", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kTypeOfInstall, Type = String, Dynamic = True, Default = \"Type of Install", Scope = Public
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Art der Installation"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Type d\'installation"
@@ -3347,6 +3471,14 @@ End
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
 		  // Draw the image into the middle of the canvas
 		  g.drawPicture(imgGreenTick, me.width / 2 - imgGreenTick.width / 2, me.height / 2 - imgGreenTick.height / 2, imgGreenTick.width, imgGreenTick.height)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events chkStaticAircraft
+	#tag Event
+		Sub Action()
+		  staticAircraftChanged
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
