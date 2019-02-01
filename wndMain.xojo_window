@@ -3417,10 +3417,10 @@ End
 	#tag Constant, Name = kStaticAircraft, Type = String, Dynamic = True, Default = \"Static Aircraft", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kStaticAircraftDescription, Type = String, Dynamic = True, Default = \"OpenSceneryX can incorporate its aircraft into the X-Plane static aircraft placement system.", Scope = Public
+	#tag Constant, Name = kStaticAircraftDescription, Type = String, Dynamic = True, Default = \"OpenSceneryX can incorporate its aircraft into the X-Plane core static aircraft placement system.", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kStaticAircraftEnable, Type = String, Dynamic = True, Default = \"Enable inclusion of aircraft in X-Plane", Scope = Public
+	#tag Constant, Name = kStaticAircraftEnable, Type = String, Dynamic = True, Default = \"Incorporate static aircraft into X-Plane", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kTypeOfInstall, Type = String, Dynamic = True, Default = \"Type of Install", Scope = Public
