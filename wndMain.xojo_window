@@ -2494,7 +2494,7 @@ End
 		  
 		  // Append the static aircraft exports to the main library if user requests it
 		  If (App.pPreferences.hasKey(App.kPreferenceStaticAircraft) And App.pPreferences.value(App.kPreferenceStaticAircraft) = True) Then
-		    appendOptionalToLibrary("static_aircraft_extend.txt")
+		    appendOptionalToLibrary("extend_static_aircraft.txt")
 		  End If
 		  
 		End Sub
