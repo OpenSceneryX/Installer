@@ -9,7 +9,7 @@ Begin Window wndMain
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   695
+   Height          =   730
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -18,14 +18,14 @@ Begin Window wndMain
    MaxWidth        =   32000
    MenuBar         =   341440760
    MenuBarVisible  =   True
-   MinHeight       =   695
+   MinHeight       =   730
    MinimizeButton  =   True
-   MinWidth        =   784
+   MinWidth        =   900
    Placement       =   0
    Resizeable      =   True
    Title           =   "#App.kApplicationName"
    Visible         =   False
-   Width           =   784
+   Width           =   900
    Begin Canvas cnvBG
       AcceptFocus     =   False
       AcceptTabs      =   False
@@ -34,7 +34,7 @@ Begin Window wndMain
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
-      Height          =   521
+      Height          =   556
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -52,11 +52,11 @@ Begin Window wndMain
       Transparent     =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   508
+      Width           =   624
       Begin PagePanel ppnlMain
          AutoDeactivate  =   True
          Enabled         =   True
-         Height          =   507
+         Height          =   542
          HelpTag         =   ""
          Index           =   -2147483648
          InitialParent   =   "cnvBG"
@@ -75,14 +75,14 @@ Begin Window wndMain
          Transparent     =   True
          Value           =   3
          Visible         =   True
-         Width           =   495
+         Width           =   611
          Begin Label StaticText2
             AutoDeactivate  =   True
             Bold            =   False
             DataField       =   ""
             DataSource      =   ""
             Enabled         =   True
-            Height          =   465
+            Height          =   500
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
@@ -109,7 +109,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   469
+            Width           =   585
          End
          Begin Label StaticText3
             AutoDeactivate  =   True
@@ -144,7 +144,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   469
+            Width           =   585
          End
          Begin Label txtInstallerVersionBodyText1
             AutoDeactivate  =   True
@@ -179,7 +179,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   428
+            Width           =   544
          End
          Begin Label txtLocalScanBodyText1
             AutoDeactivate  =   True
@@ -214,7 +214,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   430
+            Width           =   546
          End
          Begin ProgressWheel prgwLocalScan1
             AutoDeactivate  =   True
@@ -223,7 +223,7 @@ Begin Window wndMain
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
-            Left            =   724
+            Left            =   840
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -271,7 +271,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   430
+            Width           =   546
          End
          Begin ProgressWheel prgwLocalScan2
             AutoDeactivate  =   True
@@ -280,7 +280,7 @@ Begin Window wndMain
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
-            Left            =   724
+            Left            =   840
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -328,7 +328,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   430
+            Width           =   546
          End
          Begin ProgressWheel prgwLocalScan3
             AutoDeactivate  =   True
@@ -337,7 +337,7 @@ Begin Window wndMain
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
-            Left            =   724
+            Left            =   840
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -385,7 +385,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   458
+            Width           =   574
          End
          Begin Label StaticText5
             AutoDeactivate  =   True
@@ -420,7 +420,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   469
+            Width           =   585
          End
          Begin ProgressWheel prgwCheckInstaller
             AutoDeactivate  =   True
@@ -429,7 +429,7 @@ Begin Window wndMain
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
-            Left            =   724
+            Left            =   840
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -477,7 +477,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   428
+            Width           =   544
          End
          Begin Canvas cnvComplete
             AcceptFocus     =   False
@@ -505,7 +505,7 @@ Begin Window wndMain
             Transparent     =   True
             UseFocusRing    =   True
             Visible         =   True
-            Width           =   232
+            Width           =   348
          End
          Begin Label txtInstallBodyText1
             AutoDeactivate  =   True
@@ -540,7 +540,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   430
+            Width           =   546
          End
          Begin ProgressWheel prgwInstall1
             AutoDeactivate  =   True
@@ -549,7 +549,7 @@ Begin Window wndMain
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
-            Left            =   724
+            Left            =   840
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -597,7 +597,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   430
+            Width           =   546
          End
          Begin GroupBox GroupBox4
             AutoDeactivate  =   True
@@ -622,11 +622,11 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   497
+            Top             =   529
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   459
+            Width           =   575
             Begin Label Label2
                AutoDeactivate  =   True
                Bold            =   False
@@ -656,7 +656,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   10.0
                TextUnit        =   0
-               Top             =   533
+               Top             =   565
                Transparent     =   False
                Underline       =   False
                Visible         =   True
@@ -688,12 +688,12 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   572
+               Top             =   604
                Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
-               Width           =   419
+               Width           =   535
             End
          End
          Begin ProgressWheel prgwInstall2
@@ -703,7 +703,7 @@ Begin Window wndMain
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
-            Left            =   724
+            Left            =   840
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -751,7 +751,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   430
+            Width           =   546
          End
          Begin Label txtInstallBodyText211
             AutoDeactivate  =   True
@@ -786,7 +786,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   430
+            Width           =   546
          End
          Begin ProgressBar prgBarOverall
             AutoDeactivate  =   True
@@ -805,11 +805,11 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   6
-            Top             =   596
+            Top             =   631
             Transparent     =   True
             Value           =   0
             Visible         =   False
-            Width           =   317
+            Width           =   433
          End
          Begin AutoHeightPushButton btnViewLicense
             AutoDeactivate  =   True
@@ -841,7 +841,7 @@ Begin Window wndMain
             Transparent     =   True
             Underline       =   False
             Visible         =   True
-            Width           =   413
+            Width           =   529
          End
          Begin ProgressBar prgBarFile
             AutoDeactivate  =   True
@@ -860,11 +860,11 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   6
-            Top             =   562
+            Top             =   597
             Transparent     =   True
             Value           =   0
             Visible         =   False
-            Width           =   317
+            Width           =   433
          End
          Begin Label StaticText1
             AutoDeactivate  =   True
@@ -895,7 +895,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   562
+            Top             =   597
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -930,7 +930,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   594
+            Top             =   629
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -947,7 +947,7 @@ Begin Window wndMain
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
             Italic          =   False
-            Left            =   716
+            Left            =   832
             LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   False
@@ -965,7 +965,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   562
+            Top             =   597
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -982,7 +982,7 @@ Begin Window wndMain
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
             Italic          =   False
-            Left            =   716
+            Left            =   832
             LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   False
@@ -1000,7 +1000,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   596
+            Top             =   631
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -1033,14 +1033,14 @@ Begin Window wndMain
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   459
+            Width           =   575
             Begin Label txtXplaneFolder
                AutoDeactivate  =   True
                Bold            =   False
                DataField       =   ""
                DataSource      =   ""
                Enabled         =   True
-               Height          =   48
+               Height          =   39
                HelpTag         =   ""
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
@@ -1067,7 +1067,7 @@ Begin Window wndMain
                Transparent     =   True
                Underline       =   False
                Visible         =   True
-               Width           =   423
+               Width           =   539
             End
             Begin AutoHeightPushButton btnSetXPlaneFolder
                AutoDeactivate  =   True
@@ -1082,7 +1082,7 @@ Begin Window wndMain
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
                Italic          =   False
-               Left            =   538
+               Left            =   654
                LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   False
@@ -1114,7 +1114,7 @@ Begin Window wndMain
                Index           =   -2147483648
                InitialParent   =   "GroupBox1"
                Italic          =   False
-               Left            =   305
+               Left            =   474
                LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   False
@@ -1139,7 +1139,7 @@ Begin Window wndMain
             Bold            =   False
             Caption         =   "#kBackupLibrary"
             Enabled         =   True
-            Height          =   211
+            Height          =   239
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
@@ -1148,7 +1148,7 @@ Begin Window wndMain
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   True
-            LockRight       =   True
+            LockRight       =   False
             LockTop         =   True
             Scope           =   0
             TabIndex        =   2
@@ -1161,7 +1161,7 @@ Begin Window wndMain
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   459
+            Width           =   289
             Begin RadioButton rdoBackupLibraryInvisible
                AutoDeactivate  =   True
                Bold            =   False
@@ -1185,12 +1185,12 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   410
+               Top             =   438
                Transparent     =   True
                Underline       =   False
                Value           =   False
                Visible         =   True
-               Width           =   419
+               Width           =   249
             End
             Begin RadioButton rdoBackupLibraryVisible
                AutoDeactivate  =   True
@@ -1215,12 +1215,12 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   378
+               Top             =   406
                Transparent     =   True
                Underline       =   False
                Value           =   True
                Visible         =   True
-               Width           =   419
+               Width           =   249
             End
             Begin RadioButton rdoBackupLibraryDisable
                AutoDeactivate  =   True
@@ -1245,12 +1245,12 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   442
+               Top             =   470
                Transparent     =   True
                Underline       =   False
                Value           =   False
                Visible         =   True
-               Width           =   419
+               Width           =   249
             End
             Begin Label Label1
                AutoDeactivate  =   True
@@ -1285,42 +1285,226 @@ Begin Window wndMain
                Transparent     =   False
                Underline       =   False
                Visible         =   True
-               Width           =   419
-               Begin Label txtBackupLibraryMoreInfoLink
-                  AutoDeactivate  =   True
-                  Bold            =   False
-                  DataField       =   ""
-                  DataSource      =   ""
-                  Enabled         =   True
-                  Height          =   20
-                  HelpTag         =   ""
-                  Index           =   -2147483648
-                  InitialParent   =   "Label1"
-                  Italic          =   False
-                  Left            =   309
-                  LockBottom      =   False
-                  LockedInPosition=   False
-                  LockLeft        =   False
-                  LockRight       =   False
-                  LockTop         =   False
-                  Multiline       =   False
-                  Scope           =   0
-                  Selectable      =   False
-                  TabIndex        =   0
-                  TabPanelIndex   =   4
-                  TabStop         =   True
-                  Text            =   "#kBackupLibraryMoreInfoLink"
-                  TextAlign       =   0
-                  TextColor       =   &c0000FE00
-                  TextFont        =   "System"
-                  TextSize        =   0.0
-                  TextUnit        =   0
-                  Top             =   343
-                  Transparent     =   False
-                  Underline       =   True
-                  Visible         =   True
-                  Width           =   236
-               End
+               Width           =   241
+            End
+            Begin Label txtBackupLibraryMoreInfoLink
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox3"
+               Italic          =   False
+               Left            =   309
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   False
+               LockRight       =   False
+               LockTop         =   False
+               Multiline       =   False
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   4
+               TabPanelIndex   =   4
+               TabStop         =   True
+               Text            =   "#kBackupLibraryMoreInfoLink"
+               TextAlign       =   0
+               TextColor       =   &c0000FE00
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   363
+               Transparent     =   False
+               Underline       =   True
+               Visible         =   True
+               Width           =   236
+            End
+         End
+         Begin GroupBox GroupBox5
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "#kSeasons"
+            Enabled         =   True
+            Height          =   239
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "ppnlMain"
+            Italic          =   False
+            Left            =   590
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   True
+            LockRight       =   True
+            LockTop         =   True
+            Scope           =   0
+            TabIndex        =   4
+            TabPanelIndex   =   4
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   271
+            Transparent     =   False
+            Underline       =   False
+            Visible         =   True
+            Width           =   274
+            Begin Label Label3
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   59
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox5"
+               Italic          =   False
+               Left            =   610
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   True
+               LockTop         =   True
+               Multiline       =   True
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   0
+               TabPanelIndex   =   4
+               TabStop         =   True
+               Text            =   "#kSeasonsDescription"
+               TextAlign       =   0
+               TextColor       =   &c00000000
+               TextFont        =   "System"
+               TextSize        =   10.0
+               TextUnit        =   0
+               Top             =   307
+               Transparent     =   False
+               Underline       =   False
+               Visible         =   True
+               Width           =   234
+            End
+            Begin RadioButton rdoSeasonsDisable
+               AutoDeactivate  =   True
+               Bold            =   False
+               Caption         =   "#kSeasonsDisable"
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox5"
+               Italic          =   False
+               Left            =   610
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               Scope           =   0
+               TabIndex        =   4
+               TabPanelIndex   =   4
+               TabStop         =   True
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   474
+               Transparent     =   False
+               Underline       =   False
+               Value           =   False
+               Visible         =   True
+               Width           =   230
+            End
+            Begin RadioButton rdoSeasonsXPlane
+               AutoDeactivate  =   True
+               Bold            =   False
+               Caption         =   "#kSeasonsXPlane"
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox5"
+               Italic          =   False
+               Left            =   610
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               Scope           =   0
+               TabIndex        =   1
+               TabPanelIndex   =   4
+               TabStop         =   True
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   378
+               Transparent     =   False
+               Underline       =   False
+               Value           =   True
+               Visible         =   True
+               Width           =   230
+            End
+            Begin RadioButton rdoSeasonsFourSeasons
+               AutoDeactivate  =   True
+               Bold            =   False
+               Caption         =   "#kSeasonsFourSeasons"
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox5"
+               Italic          =   False
+               Left            =   610
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               Scope           =   0
+               TabIndex        =   2
+               TabPanelIndex   =   4
+               TabStop         =   True
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   410
+               Transparent     =   False
+               Underline       =   False
+               Value           =   False
+               Visible         =   True
+               Width           =   230
+            End
+            Begin RadioButton rdoSeasonsTerraMaxx
+               AutoDeactivate  =   True
+               Bold            =   False
+               Caption         =   "#kSeasonsTerraMaxx"
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox5"
+               Italic          =   False
+               Left            =   610
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               Scope           =   0
+               TabIndex        =   3
+               TabPanelIndex   =   4
+               TabStop         =   True
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   442
+               Transparent     =   False
+               Underline       =   False
+               Value           =   False
+               Visible         =   True
+               Width           =   230
             End
          End
       End
@@ -1351,7 +1535,7 @@ Begin Window wndMain
       Transparent     =   True
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   784
+      Width           =   900
       Begin Canvas cnvHeaderX
          AcceptFocus     =   False
          AcceptTabs      =   False
@@ -1364,7 +1548,7 @@ Begin Window wndMain
          HelpTag         =   ""
          Index           =   -2147483648
          InitialParent   =   "cnvHeaderBG"
-         Left            =   436
+         Left            =   552
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
@@ -1413,7 +1597,7 @@ Begin Window wndMain
          Transparent     =   True
          Underline       =   False
          Visible         =   False
-         Width           =   744
+         Width           =   860
       End
    End
    Begin Label txtStage
@@ -1569,7 +1753,7 @@ Begin Window wndMain
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   679
+      Left            =   795
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   False
@@ -1582,7 +1766,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   655
+      Top             =   690
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -1601,7 +1785,7 @@ Begin Window wndMain
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   576
+      Left            =   692
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   False
@@ -1614,7 +1798,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   655
+      Top             =   690
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -1787,7 +1971,7 @@ Begin Window wndMain
       Transparent     =   True
       Underline       =   False
       Visible         =   True
-      Width           =   459
+      Width           =   575
       Begin RadioButton rdoInstallTypeFull
          AutoDeactivate  =   False
          Bold            =   False
@@ -1846,7 +2030,7 @@ Begin Window wndMain
          Underline       =   False
          Value           =   False
          Visible         =   True
-         Width           =   300
+         Width           =   416
       End
       Begin CheckBox chkDeleteUnused
          AutoDeactivate  =   True
@@ -1879,7 +2063,7 @@ Begin Window wndMain
          Underline       =   False
          Value           =   False
          Visible         =   True
-         Width           =   283
+         Width           =   399
       End
       Begin CheckBox chkScanDisabled
          AutoDeactivate  =   True
@@ -1912,7 +2096,7 @@ Begin Window wndMain
          Underline       =   False
          Value           =   False
          Visible         =   True
-         Width           =   283
+         Width           =   399
       End
    End
    Begin Thread thrUpdateFolderStructure
@@ -2176,7 +2360,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   569
+      Top             =   604
       Transparent     =   True
       Underline       =   False
       Value           =   False
@@ -2212,7 +2396,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   494
+      Top             =   529
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -2487,16 +2671,22 @@ End
 		  // Copy in the correct visible / invisible placeholders for the Backup Library
 		  copyPlaceholders
 		  
-		  // Append the backup library to the main library if user requests it
-		  If (App.pPreferences.hasKey(App.kPreferenceBackupLibraries) And App.pPreferences.value(App.kPreferenceBackupLibraries) <> App.kPreferenceBackupLibrariesDisabled) Then
-		    appendOptionalToLibrary("backup_library.txt")
-		  End If
-		  
-		  // Append the static aircraft exports to the main library if user requests it
-		  If (App.pPreferences.hasKey(App.kPreferenceStaticAircraft) And App.pPreferences.value(App.kPreferenceStaticAircraft) = True) Then
-		    appendOptionalToLibrary("extend_static_aircraft.txt")
-		  End If
-		  
+		  // Prepend the appropriate seasons to the main library if user requests it
+		  If (App.pPreferences.hasKey(App.kPreferenceSeasons) Then
+		    If (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons) Then
+		      ' Do prepend here
+		    End If
+		    
+		    // Append the backup library to the main library if user requests it
+		    If (App.pPreferences.hasKey(App.kPreferenceBackupLibraries) And App.pPreferences.value(App.kPreferenceBackupLibraries) <> App.kPreferenceBackupLibrariesDisabled) Then
+		      appendOptionalToLibrary("backup_library.txt")
+		    End If
+		    
+		    // Append the static aircraft exports to the main library if user requests it
+		    If (App.pPreferences.hasKey(App.kPreferenceStaticAircraft) And App.pPreferences.value(App.kPreferenceStaticAircraft) = True) Then
+		      appendOptionalToLibrary("extend_static_aircraft.txt")
+		    End If
+		    
 		End Sub
 	#tag EndMethod
 
@@ -2549,6 +2739,21 @@ End
 	#tag Method, Flags = &h0
 		Sub scanDisabledChanged()
 		  App.pPreferences.value(App.kPreferenceScanDisabled) = chkScanDisabled.value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub seasonsChanged()
+		  If (rdoSeasonsXPlane.value = True) Then
+		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXPlane
+		  Elseif (rdoSeasonsFourSeasons.Value = True) Then
+		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons
+		  Elseif (rdoSeasonsTerraMaxx.Value = True) Then
+		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx
+		  Else
+		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled
+		  End If
+		  
 		End Sub
 	#tag EndMethod
 
@@ -2618,6 +2823,18 @@ End
 		          rdoBackupLibraryVisible.value = True
 		        Elseif App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesDisabled Then
 		          rdoBackupLibraryDisable.value = True
+		        End If
+		      End If
+		      
+		      If App.pPreferences.hasKey(App.kPreferenceSeasons) Then
+		        If App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXPlane Then
+		          rdoSeasonsXPlane.value = True
+		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons Then
+		          rdoSeasonsFourSeasons.value = True
+		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx Then
+		          rdoSeasonsTerraMaxx.value = True
+		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled Then
+		          rdoSeasonsDisable.value = True
 		        End If
 		      End If
 		      
@@ -2816,7 +3033,7 @@ End
 	#tag Constant, Name = kBackupLibraryMoreInfoLink, Type = String, Dynamic = True, Default = \"Click here for more info", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kBackupLibraryVisible, Type = String, Dynamic = True, Default = \"Show bright red visible placeholders", Scope = Private
+	#tag Constant, Name = kBackupLibraryVisible, Type = String, Dynamic = True, Default = \"Show bright red placeholders", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryVisibleHelp, Type = String, Dynamic = True, Default = \"If you do want to see the bright red Backup Library placeholders\x2C select this option.", Scope = Private
@@ -3330,6 +3547,24 @@ End
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Analizando sus carpetas \"Custom Scenery\" y \"Custom Scenery (desactivado)\"\x2C buscando paquetes que usan OpenSceneryX."
 	#tag EndConstant
 
+	#tag Constant, Name = kSeasons, Type = String, Dynamic = True, Default = \"Seasons", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kSeasonsDescription, Type = String, Dynamic = True, Default = \"Some OpenSceneryX items have seasonal variants. Choose which method should be used to select the season. Plugins must be separately installed.", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kSeasonsDisable, Type = String, Dynamic = True, Default = \"Disable OpenSceneryX Seasons", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kSeasonsFourSeasons, Type = String, Dynamic = True, Default = \"Four Seasons Plugin", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kSeasonsTerraMaxx, Type = String, Dynamic = True, Default = \"TerraMaxx Plugin", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kSeasonsXPlane, Type = String, Dynamic = True, Default = \"X-Plane Default", Scope = Private
+	#tag EndConstant
+
 	#tag Constant, Name = kSeparator, Type = String, Dynamic = False, Default = \"----", Scope = Public
 	#tag EndConstant
 
@@ -3602,6 +3837,38 @@ End
 		  ShowURL(App.kURLBackupLibrary)
 		  
 		End Function
+	#tag EndEvent
+#tag EndEvents
+#tag Events rdoSeasonsDisable
+	#tag Event
+		Sub Action()
+		  seasonsChanged
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events rdoSeasonsXPlane
+	#tag Event
+		Sub Action()
+		  seasonsChanged
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events rdoSeasonsFourSeasons
+	#tag Event
+		Sub Action()
+		  seasonsChanged
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events rdoSeasonsTerraMaxx
+	#tag Event
+		Sub Action()
+		  seasonsChanged
+		  
+		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events cnvHeaderBG

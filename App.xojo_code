@@ -426,6 +426,21 @@ Inherits Application
 	#tag Constant, Name = kPreferenceScanDisabled, Type = String, Dynamic = False, Default = \"ScanDisabled", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPreferenceSeasons, Type = String, Dynamic = False, Default = \"Seasons", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferenceSeasonsDisabled, Type = String, Dynamic = False, Default = \"disabled", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferenceSeasonsFourSeasons, Type = String, Dynamic = False, Default = \"fourseasons", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferenceSeasonsTerraMaxx, Type = String, Dynamic = False, Default = \"terramaxx", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferenceSeasonsXPlane, Type = String, Dynamic = False, Default = \"xplane", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPreferenceStaticAircraft, Type = String, Dynamic = False, Default = \"StaticAircraft", Scope = Public
 	#tag EndConstant
 
