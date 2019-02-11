@@ -9,7 +9,7 @@ Begin Window wndMain
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   730
+   Height          =   725
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -18,7 +18,7 @@ Begin Window wndMain
    MaxWidth        =   32000
    MenuBar         =   341440760
    MenuBarVisible  =   True
-   MinHeight       =   730
+   MinHeight       =   725
    MinimizeButton  =   True
    MinWidth        =   900
    Placement       =   0
@@ -34,7 +34,7 @@ Begin Window wndMain
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
-      Height          =   556
+      Height          =   551
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -56,7 +56,7 @@ Begin Window wndMain
       Begin PagePanel ppnlMain
          AutoDeactivate  =   True
          Enabled         =   True
-         Height          =   542
+         Height          =   537
          HelpTag         =   ""
          Index           =   -2147483648
          InitialParent   =   "cnvBG"
@@ -82,7 +82,7 @@ Begin Window wndMain
             DataField       =   ""
             DataSource      =   ""
             Enabled         =   True
-            Height          =   500
+            Height          =   495
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
@@ -602,9 +602,9 @@ Begin Window wndMain
          Begin GroupBox GroupBox4
             AutoDeactivate  =   True
             Bold            =   False
-            Caption         =   "#kStaticAircraft"
+            Caption         =   "#kCoreXPlaneIntegration"
             Enabled         =   True
-            Height          =   115
+            Height          =   110
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "ppnlMain"
@@ -650,7 +650,7 @@ Begin Window wndMain
                TabIndex        =   0
                TabPanelIndex   =   4
                TabStop         =   True
-               Text            =   "#kStaticAircraftDescription"
+               Text            =   "#kCoreIntegrationDescription"
                TextAlign       =   0
                TextColor       =   &c00000000
                TextFont        =   "System"
@@ -688,7 +688,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   604
+               Top             =   596
                Transparent     =   False
                Underline       =   False
                Value           =   False
@@ -805,7 +805,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   6
-            Top             =   631
+            Top             =   626
             Transparent     =   True
             Value           =   0
             Visible         =   False
@@ -860,7 +860,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   6
-            Top             =   597
+            Top             =   592
             Transparent     =   True
             Value           =   0
             Visible         =   False
@@ -895,7 +895,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   597
+            Top             =   592
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -930,7 +930,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   629
+            Top             =   624
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -965,7 +965,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   597
+            Top             =   592
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -1000,7 +1000,7 @@ Begin Window wndMain
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   631
+            Top             =   626
             Transparent     =   True
             Underline       =   False
             Visible         =   True
@@ -1766,7 +1766,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   690
+      Top             =   685
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -1798,7 +1798,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   690
+      Top             =   685
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -2360,7 +2360,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   604
+      Top             =   599
       Transparent     =   True
       Underline       =   False
       Value           =   False
@@ -2396,7 +2396,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   529
+      Top             =   524
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -3135,6 +3135,12 @@ End
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Continuar"
 	#tag EndConstant
 
+	#tag Constant, Name = kCoreIntegrationDescription, Type = String, Dynamic = True, Default = \"OpenSceneryX can incorporate elements into the X-Plane\xC2\xAE core autogen systems.", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kCoreXPlaneIntegration, Type = String, Dynamic = True, Default = \"Core X-Plane\xC2\xAE Integration", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kCouldntCheckInstallerVersion, Type = String, Dynamic = True, Default = \"The installer version couldn\'t be checked\x2C continuing anyway\xE2\x80\xA6", Scope = Public
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"De Installer versie kon niet worden gecontroleerd\x2C toch doorgaan..."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Die Version des Installationsprogramms konnte nicht \xC3\xBCberpr\xC3\xBCft werden\x2C trotzdem weiterfahren..."
@@ -3579,7 +3585,7 @@ End
 	#tag Constant, Name = kSeasonsTerraMaxx, Type = String, Dynamic = True, Default = \"TerraMaxx Plugin", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kSeasonsXPlane, Type = String, Dynamic = True, Default = \"X-Plane Default", Scope = Private
+	#tag Constant, Name = kSeasonsXPlane, Type = String, Dynamic = True, Default = \"X-Plane\xC2\xAE Default", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kSeparator, Type = String, Dynamic = False, Default = \"----", Scope = Public
@@ -3666,13 +3672,7 @@ End
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Resumen"
 	#tag EndConstant
 
-	#tag Constant, Name = kStaticAircraft, Type = String, Dynamic = True, Default = \"Static Aircraft", Scope = Public
-	#tag EndConstant
-
-	#tag Constant, Name = kStaticAircraftDescription, Type = String, Dynamic = True, Default = \"OpenSceneryX can incorporate its aircraft into the X-Plane core static aircraft placement system.", Scope = Public
-	#tag EndConstant
-
-	#tag Constant, Name = kStaticAircraftEnable, Type = String, Dynamic = True, Default = \"Incorporate static aircraft into X-Plane", Scope = Public
+	#tag Constant, Name = kStaticAircraftEnable, Type = String, Dynamic = True, Default = \"Incorporate static aircraft into X-Plane\xC2\xAE", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kTypeOfInstall, Type = String, Dynamic = True, Default = \"Type of Install", Scope = Public
