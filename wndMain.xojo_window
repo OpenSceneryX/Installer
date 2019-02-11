@@ -2444,28 +2444,6 @@ End
 
 
 	#tag Method, Flags = &h0
-		Sub appendOptionalToLibrary(optionalFileName as String)
-		  Dim libraryFolderItem As FolderItem = pOsxFolderItem.Child("library.txt")
-		  Dim optionalFolderItem As FolderItem = pOsxFolderItem.Child("optional").Child(optionalFileName)
-		  Dim optionalContents As String = ""
-		  
-		  Try
-		    If optionalFolderItem <> Nil And optionalFolderItem.Exists And libraryFolderItem <> Nil And libraryFolderItem.Exists Then
-		      Dim tis As TextInputStream = TextInputStream.Open(optionalFolderItem)
-		      optionalContents = tis.ReadAll(Encodings.UTF8)
-		      tis.Close
-		      
-		      Dim tos As TextOutputStream = TextOutputStream.Append(libraryFolderItem)
-		      tos.Write(optionalContents)
-		      tos.Close
-		    End If
-		  Catch e As IOException
-		    // Something bad happened trying to work with the files
-		  End Try
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub backClicked()
 		  selectPanel(ppnlMain.value - 1)
 		End Sub
@@ -2480,6 +2458,55 @@ End
 		  Else
 		    App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesDisabled
 		  End If
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub buildLibrary()
+		  // This function should only ever be called once, right at the end of the install.
+		  // It constructs the final library.txt file based on user preferences
+		  
+		  If pPartialsInstallDone Then Return
+		  pPartialsInstallDone = True
+		  
+		  // Copy in the correct visible / invisible placeholders for the Backup Library
+		  copyPlaceholders
+		  
+		  Dim libraryContents As String
+		  
+		  // Start with the header partial
+		  libraryContents = libraryContents + getPartial("header.txt")
+		  
+		  // Append the appropriate seasons if user requests it
+		  If App.pPreferences.hasKey(App.kPreferenceSeasons) Then
+		    If (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXPlane) Then
+		      libraryContents = libraryContents + getPartial("seasonal_xplane.txt")
+		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons) Then
+		      libraryContents = libraryContents + getPartial("seasonal_fourseasons.txt")
+		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx) Then
+		      libraryContents = libraryContents + getPartial("seasonal_terramaxx.txt")
+		    End If
+		  End If
+		  
+		  // Append the main library contents
+		  libraryContents = libraryContents + getPartial("library.txt")
+		  
+		  // Append the backup library if user requests it
+		  If (App.pPreferences.hasKey(App.kPreferenceBackupLibraries) And App.pPreferences.value(App.kPreferenceBackupLibraries) <> App.kPreferenceBackupLibrariesDisabled) Then
+		    libraryContents = libraryContents + getPartial("backup_library.txt")
+		  End If
+		  
+		  // Append the static aircraft exports if user requests it
+		  If (App.pPreferences.hasKey(App.kPreferenceStaticAircraft) And App.pPreferences.value(App.kPreferenceStaticAircraft) = True) Then
+		    libraryContents = libraryContents + getPartial("extend_static_aircraft.txt")
+		  End If
+		  
+		  // Write library.txt
+		  Dim libraryFolderItem As FolderItem = pOsxFolderItem.Child("library.txt")
+		  Dim tos As TextOutputStream = TextOutputStream.Create(libraryFolderItem)
+		  tos.Write(libraryContents)
+		  tos.Close
 		  
 		End Sub
 	#tag EndMethod
@@ -2649,6 +2676,26 @@ End
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function getPartial(partialFileName as String) As String
+		  Dim partialFolderItem As FolderItem = pOsxFolderItem.Child("partials").Child(partialFileName)
+		  Dim partialContents As String = ""
+		  
+		  Try
+		    If partialFolderItem <> Nil And partialFolderItem.Exists Then
+		      Dim tis As TextInputStream = TextInputStream.Open(partialFolderItem)
+		      partialContents = tis.ReadAll(Encodings.UTF8)
+		      tis.Close
+		    End If
+		  Catch e As IOException
+		    // Something bad happened trying to work with the file
+		  End Try
+		  
+		  Return partialContents
+		  
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Function getResolutionScalingFactor() As Single
 		  #If TargetCocoa Then
@@ -2658,36 +2705,6 @@ End
 		    Return 1
 		  #Endif
 		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub handleOptional()
-		  // This function should only ever be called once, right at the end of the install.
-		  // This ensures that the library.txt file starts in its vanilla state with no optional additions included.
-		  
-		  If pOptionalInstallDone Then Return
-		  pOptionalInstallDone = True
-		  
-		  // Copy in the correct visible / invisible placeholders for the Backup Library
-		  copyPlaceholders
-		  
-		  // Prepend the appropriate seasons to the main library if user requests it
-		  If (App.pPreferences.hasKey(App.kPreferenceSeasons) Then
-		    If (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons) Then
-		      ' Do prepend here
-		    End If
-		    
-		    // Append the backup library to the main library if user requests it
-		    If (App.pPreferences.hasKey(App.kPreferenceBackupLibraries) And App.pPreferences.value(App.kPreferenceBackupLibraries) <> App.kPreferenceBackupLibrariesDisabled) Then
-		      appendOptionalToLibrary("backup_library.txt")
-		    End If
-		    
-		    // Append the static aircraft exports to the main library if user requests it
-		    If (App.pPreferences.hasKey(App.kPreferenceStaticAircraft) And App.pPreferences.value(App.kPreferenceStaticAircraft) = True) Then
-		      appendOptionalToLibrary("extend_static_aircraft.txt")
-		    End If
-		    
-		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -2885,7 +2902,7 @@ End
 		      thrUpdateFolderStructure.run()
 		      
 		    case kStageSummary
-		      handleOptional
+		      buildLibrary
 		      
 		    else
 		      enableBack()
@@ -2976,16 +2993,16 @@ End
 		pLocalManifest As FolderManifest
 	#tag EndProperty
 
-	#tag Property, Flags = &h21
-		Private pOptionalInstallDone As Boolean = False
-	#tag EndProperty
-
 	#tag Property, Flags = &h0
 		pOsxFolderItem As FolderItem
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		pPanelCompleted() As Boolean
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private pPartialsInstallDone As Boolean = False
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
