@@ -1316,7 +1316,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   10.0
                TextUnit        =   0
-               Top             =   363
+               Top             =   364
                Transparent     =   False
                Underline       =   True
                Visible         =   True
@@ -1384,7 +1384,7 @@ Begin Window wndMain
                Transparent     =   False
                Underline       =   False
                Visible         =   True
-               Width           =   234
+               Width           =   236
             End
             Begin PopupMenu popSeasons
                AutoDeactivate  =   True
@@ -1416,7 +1416,7 @@ Begin Window wndMain
                Transparent     =   False
                Underline       =   False
                Visible         =   True
-               Width           =   234
+               Width           =   236
             End
             Begin Label txtSeasonsFourSeasonsMoreInfoLink
                AutoDeactivate  =   True
