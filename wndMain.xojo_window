@@ -2398,6 +2398,8 @@ End
 		      libraryContents = libraryContents + getPartial("seasonal_fourseasons.txt")
 		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx) Then
 		      libraryContents = libraryContents + getPartial("seasonal_terramaxx.txt")
+		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience) Then
+		      libraryContents = libraryContents + getPartial("seasonal_xambience.txt")
 		    End If
 		  End If
 		  
