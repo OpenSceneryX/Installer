@@ -1386,125 +1386,37 @@ Begin Window wndMain
                Visible         =   True
                Width           =   234
             End
-            Begin RadioButton rdoSeasonsDisable
+            Begin PopupMenu popSeasons
                AutoDeactivate  =   True
                Bold            =   False
-               Caption         =   "#kSeasonsDisable"
+               DataField       =   ""
+               DataSource      =   ""
                Enabled         =   True
                Height          =   20
                HelpTag         =   ""
                Index           =   -2147483648
                InitialParent   =   "GroupBox5"
+               InitialValue    =   "#kSeasonsXPlane\n#kSeasonsFourSeasons\n#kSeasonsTerraMaxx\n#kSeasonsXAmbience\n#kSeasonsDisable"
                Italic          =   False
                Left            =   610
+               ListIndex       =   0
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
-               LockRight       =   False
+               LockRight       =   True
                LockTop         =   True
                Scope           =   0
-               TabIndex        =   4
+               TabIndex        =   6
                TabPanelIndex   =   4
                TabStop         =   True
                TextFont        =   "System"
                TextSize        =   0.0
                TextUnit        =   0
-               Top             =   474
+               Top             =   470
                Transparent     =   False
                Underline       =   False
-               Value           =   False
                Visible         =   True
-               Width           =   230
-            End
-            Begin RadioButton rdoSeasonsXPlane
-               AutoDeactivate  =   True
-               Bold            =   False
-               Caption         =   "#kSeasonsXPlane"
-               Enabled         =   True
-               Height          =   20
-               HelpTag         =   ""
-               Index           =   -2147483648
-               InitialParent   =   "GroupBox5"
-               Italic          =   False
-               Left            =   610
-               LockBottom      =   False
-               LockedInPosition=   False
-               LockLeft        =   True
-               LockRight       =   False
-               LockTop         =   True
-               Scope           =   0
-               TabIndex        =   1
-               TabPanelIndex   =   4
-               TabStop         =   True
-               TextFont        =   "System"
-               TextSize        =   0.0
-               TextUnit        =   0
-               Top             =   378
-               Transparent     =   False
-               Underline       =   False
-               Value           =   True
-               Visible         =   True
-               Width           =   230
-            End
-            Begin RadioButton rdoSeasonsFourSeasons
-               AutoDeactivate  =   True
-               Bold            =   False
-               Caption         =   "#kSeasonsFourSeasons"
-               Enabled         =   True
-               Height          =   20
-               HelpTag         =   ""
-               Index           =   -2147483648
-               InitialParent   =   "GroupBox5"
-               Italic          =   False
-               Left            =   610
-               LockBottom      =   False
-               LockedInPosition=   False
-               LockLeft        =   True
-               LockRight       =   False
-               LockTop         =   True
-               Scope           =   0
-               TabIndex        =   2
-               TabPanelIndex   =   4
-               TabStop         =   True
-               TextFont        =   "System"
-               TextSize        =   0.0
-               TextUnit        =   0
-               Top             =   410
-               Transparent     =   False
-               Underline       =   False
-               Value           =   False
-               Visible         =   True
-               Width           =   230
-            End
-            Begin RadioButton rdoSeasonsTerraMaxx
-               AutoDeactivate  =   True
-               Bold            =   False
-               Caption         =   "#kSeasonsTerraMaxx"
-               Enabled         =   True
-               Height          =   20
-               HelpTag         =   ""
-               Index           =   -2147483648
-               InitialParent   =   "GroupBox5"
-               Italic          =   False
-               Left            =   610
-               LockBottom      =   False
-               LockedInPosition=   False
-               LockLeft        =   True
-               LockRight       =   False
-               LockTop         =   True
-               Scope           =   0
-               TabIndex        =   3
-               TabPanelIndex   =   4
-               TabStop         =   True
-               TextFont        =   "System"
-               TextSize        =   0.0
-               TextUnit        =   0
-               Top             =   442
-               Transparent     =   False
-               Underline       =   False
-               Value           =   False
-               Visible         =   True
-               Width           =   230
+               Width           =   234
             End
          End
       End
@@ -2486,6 +2398,8 @@ End
 		      libraryContents = libraryContents + getPartial("seasonal_fourseasons.txt")
 		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx) Then
 		      libraryContents = libraryContents + getPartial("seasonal_terramaxx.txt")
+		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience) Then
+		      libraryContents = libraryContents + getPartial("seasonal_xambience.txt")
 		    End If
 		  End If
 		  
@@ -2761,12 +2675,14 @@ End
 
 	#tag Method, Flags = &h0
 		Sub seasonsChanged()
-		  If (rdoSeasonsXPlane.value = True) Then
+		  If (popSeasons.List(popSeasons.ListIndex) = kSeasonsXPlane) Then
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXPlane
-		  Elseif (rdoSeasonsFourSeasons.Value = True) Then
+		  Elseif (popSeasons.List(popSeasons.ListIndex) = kSeasonsFourSeasons) Then
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons
-		  Elseif (rdoSeasonsTerraMaxx.Value = True) Then
+		  Elseif (popSeasons.List(popSeasons.ListIndex) = kSeasonsTerraMaxx) Then
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx
+		  Elseif (popSeasons.List(popSeasons.ListIndex) = kSeasonsXAmbience) Then
+		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience
 		  Else
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled
 		  End If
@@ -2845,13 +2761,15 @@ End
 		      
 		      If App.pPreferences.hasKey(App.kPreferenceSeasons) Then
 		        If App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXPlane Then
-		          rdoSeasonsXPlane.value = True
+		          popSeasons.SelectByText(kSeasonsXPlane)
 		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons Then
-		          rdoSeasonsFourSeasons.value = True
+		          popSeasons.SelectByText(kSeasonsFourSeasons)
 		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx Then
-		          rdoSeasonsTerraMaxx.value = True
+		          popSeasons.SelectByText(kSeasonsTerraMaxx)
+		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience Then
+		          popSeasons.SelectByText(kSeasonsXAmbience)
 		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled Then
-		          rdoSeasonsDisable.value = True
+		          popSeasons.SelectByText(kSeasonsDisable)
 		        End If
 		      End If
 		      
@@ -3585,6 +3503,9 @@ End
 	#tag Constant, Name = kSeasonsTerraMaxx, Type = String, Dynamic = True, Default = \"TerraMaxx Plugin", Scope = Private
 	#tag EndConstant
 
+	#tag Constant, Name = kSeasonsXAmbience, Type = String, Dynamic = True, Default = \"xAmbience Plugin", Scope = Private
+	#tag EndConstant
+
 	#tag Constant, Name = kSeasonsXPlane, Type = String, Dynamic = True, Default = \"X-Plane\xC2\xAE Default", Scope = Private
 	#tag EndConstant
 
@@ -3856,33 +3777,9 @@ End
 		End Function
 	#tag EndEvent
 #tag EndEvents
-#tag Events rdoSeasonsDisable
+#tag Events popSeasons
 	#tag Event
-		Sub Action()
-		  seasonsChanged
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events rdoSeasonsXPlane
-	#tag Event
-		Sub Action()
-		  seasonsChanged
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events rdoSeasonsFourSeasons
-	#tag Event
-		Sub Action()
-		  seasonsChanged
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events rdoSeasonsTerraMaxx
-	#tag Event
-		Sub Action()
+		Sub Change()
 		  seasonsChanged
 		  
 		End Sub

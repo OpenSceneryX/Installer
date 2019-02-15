@@ -438,6 +438,9 @@ Inherits Application
 	#tag Constant, Name = kPreferenceSeasonsTerraMaxx, Type = String, Dynamic = False, Default = \"terramaxx", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPreferenceSeasonsXAmbience, Type = String, Dynamic = False, Default = \"xambience", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPreferenceSeasonsXPlane, Type = String, Dynamic = False, Default = \"xplane", Scope = Public
 	#tag EndConstant
 
