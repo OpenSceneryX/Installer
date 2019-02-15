@@ -73,10 +73,10 @@ Begin Window wndMain
          TabPanelIndex   =   0
          Top             =   125
          Transparent     =   True
-         Value           =   3
+         Value           =   5
          Visible         =   True
          Width           =   611
-         Begin Label StaticText2
+         Begin Label txtWelcome
             AutoDeactivate  =   True
             Bold            =   False
             DataField       =   ""
@@ -111,7 +111,7 @@ Begin Window wndMain
             Visible         =   True
             Width           =   585
          End
-         Begin Label StaticText3
+         Begin Label txtLicenceIntro
             AutoDeactivate  =   True
             Bold            =   False
             DataField       =   ""
@@ -387,7 +387,7 @@ Begin Window wndMain
             Visible         =   True
             Width           =   574
          End
-         Begin Label StaticText5
+         Begin Label txtLicenseAddress
             AutoDeactivate  =   True
             Bold            =   False
             DataField       =   ""
@@ -599,7 +599,7 @@ Begin Window wndMain
             Visible         =   True
             Width           =   546
          End
-         Begin GroupBox GroupBox4
+         Begin GroupBox grpCoreXPlaneIntegration
             AutoDeactivate  =   True
             Bold            =   False
             Caption         =   "#kCoreXPlaneIntegration"
@@ -627,7 +627,7 @@ Begin Window wndMain
             Underline       =   False
             Visible         =   True
             Width           =   575
-            Begin Label Label2
+            Begin Label lblCoreIntegrationDescription
                AutoDeactivate  =   True
                Bold            =   False
                DataField       =   ""
@@ -636,7 +636,7 @@ Begin Window wndMain
                Height          =   33
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox4"
+               InitialParent   =   "grpCoreXPlaneIntegration"
                Italic          =   False
                Left            =   309
                LockBottom      =   False
@@ -672,7 +672,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox4"
+               InitialParent   =   "grpCoreXPlaneIntegration"
                Italic          =   False
                Left            =   309
                LockBottom      =   False
@@ -866,7 +866,7 @@ Begin Window wndMain
             Visible         =   False
             Width           =   433
          End
-         Begin Label StaticText1
+         Begin Label txtCurrentFileLabel
             AutoDeactivate  =   True
             Bold            =   False
             DataField       =   ""
@@ -901,7 +901,7 @@ Begin Window wndMain
             Visible         =   True
             Width           =   91
          End
-         Begin Label StaticText6
+         Begin Label txtAllFilesLabel
             AutoDeactivate  =   True
             Bold            =   False
             DataField       =   ""
@@ -1006,7 +1006,7 @@ Begin Window wndMain
             Visible         =   True
             Width           =   37
          End
-         Begin GroupBox GroupBox1
+         Begin GroupBox grpXPlaneFolder
             AutoDeactivate  =   True
             Bold            =   False
             Caption         =   "#kXPlaneFolder"
@@ -1043,7 +1043,7 @@ Begin Window wndMain
                Height          =   39
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox1"
+               InitialParent   =   "grpXPlaneFolder"
                Italic          =   False
                Left            =   305
                LockBottom      =   False
@@ -1080,7 +1080,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox1"
+               InitialParent   =   "grpXPlaneFolder"
                Italic          =   False
                Left            =   654
                LockBottom      =   True
@@ -1112,7 +1112,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox1"
+               InitialParent   =   "grpXPlaneFolder"
                Italic          =   False
                Left            =   474
                LockBottom      =   True
@@ -1134,7 +1134,7 @@ Begin Window wndMain
                Width           =   168
             End
          End
-         Begin GroupBox GroupBox3
+         Begin GroupBox grpBackupLibrary
             AutoDeactivate  =   True
             Bold            =   False
             Caption         =   "#kBackupLibrary"
@@ -1170,7 +1170,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   "#kBackupLibraryInvisibleHelp"
                Index           =   -2147483648
-               InitialParent   =   "GroupBox3"
+               InitialParent   =   "grpBackupLibrary"
                Italic          =   False
                Left            =   309
                LockBottom      =   False
@@ -1200,7 +1200,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   "#kBackupLibraryVisibleHelp"
                Index           =   -2147483648
-               InitialParent   =   "GroupBox3"
+               InitialParent   =   "grpBackupLibrary"
                Italic          =   False
                Left            =   309
                LockBottom      =   False
@@ -1230,7 +1230,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   "#kBackupLibraryDisableHelp"
                Index           =   -2147483648
-               InitialParent   =   "GroupBox3"
+               InitialParent   =   "grpBackupLibrary"
                Italic          =   False
                Left            =   309
                LockBottom      =   False
@@ -1252,7 +1252,7 @@ Begin Window wndMain
                Visible         =   True
                Width           =   249
             End
-            Begin Label Label1
+            Begin Label lblBackupLibraryDescription
                AutoDeactivate  =   True
                Bold            =   False
                DataField       =   ""
@@ -1261,7 +1261,7 @@ Begin Window wndMain
                Height          =   59
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox3"
+               InitialParent   =   "grpBackupLibrary"
                Italic          =   False
                Left            =   309
                LockBottom      =   False
@@ -1296,7 +1296,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox3"
+               InitialParent   =   "grpBackupLibrary"
                Italic          =   False
                Left            =   309
                LockBottom      =   False
@@ -1323,7 +1323,7 @@ Begin Window wndMain
                Width           =   236
             End
          End
-         Begin GroupBox GroupBox5
+         Begin GroupBox grpSeasons
             AutoDeactivate  =   True
             Bold            =   False
             Caption         =   "#kSeasons"
@@ -1351,7 +1351,7 @@ Begin Window wndMain
             Underline       =   False
             Visible         =   True
             Width           =   274
-            Begin Label Label3
+            Begin Label lblSeasonsDescription
                AutoDeactivate  =   True
                Bold            =   False
                DataField       =   ""
@@ -1360,7 +1360,7 @@ Begin Window wndMain
                Height          =   59
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox5"
+               InitialParent   =   "grpSeasons"
                Italic          =   False
                Left            =   610
                LockBottom      =   False
@@ -1395,7 +1395,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox5"
+               InitialParent   =   "grpSeasons"
                InitialValue    =   "#kSeasonsXPlane\n#kSeasonsFourSeasons\n#kSeasonsTerraMaxx\n#kSeasonsXAmbience\n#kSeasonsDisable"
                Italic          =   False
                Left            =   610
@@ -1427,7 +1427,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox5"
+               InitialParent   =   "grpSeasons"
                Italic          =   False
                Left            =   610
                LockBottom      =   False
@@ -1462,7 +1462,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox5"
+               InitialParent   =   "grpSeasons"
                Italic          =   False
                Left            =   610
                LockBottom      =   False
@@ -1497,7 +1497,7 @@ Begin Window wndMain
                Height          =   20
                HelpTag         =   ""
                Index           =   -2147483648
-               InitialParent   =   "GroupBox5"
+               InitialParent   =   "grpSeasons"
                Italic          =   False
                Left            =   610
                LockBottom      =   False
@@ -1961,7 +1961,7 @@ Begin Window wndMain
       Visible         =   True
       Width           =   204
    End
-   Begin GroupBox GroupBox2
+   Begin GroupBox grpInstallType
       AutoDeactivate  =   True
       Bold            =   False
       Caption         =   "#kTypeOfInstall"
@@ -1997,7 +1997,7 @@ Begin Window wndMain
          Height          =   24
          HelpTag         =   "#kInstallTypeFullHelp"
          Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
+         InitialParent   =   "grpInstallType"
          Italic          =   False
          Left            =   16
          LockBottom      =   False
@@ -2027,7 +2027,7 @@ Begin Window wndMain
          Height          =   24
          HelpTag         =   "#kInstallTypeMinimalHelp"
          Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
+         InitialParent   =   "grpInstallType"
          Italic          =   False
          Left            =   147
          LockBottom      =   False
@@ -2059,7 +2059,7 @@ Begin Window wndMain
          Height          =   20
          HelpTag         =   "#kDeleteUnusedFilesHelp"
          Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
+         InitialParent   =   "grpInstallType"
          Italic          =   False
          Left            =   164
          LockBottom      =   False
@@ -2092,7 +2092,7 @@ Begin Window wndMain
          Height          =   32
          HelpTag         =   "#kScanDisabledHelp"
          Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
+         InitialParent   =   "grpInstallType"
          Italic          =   False
          Left            =   164
          LockBottom      =   False
@@ -2839,8 +2839,6 @@ End
 		      enableBack
 		      
 		    Case kStageSettings
-		      GroupBox1.Height = GroupBox1.Height + 1
-		      
 		      if (App.pXPlaneFolder = nil or not App.pXPlaneFolder.exists() or not App.pXPlaneFolder.directory or not App.pXPlaneFolder.child("Custom Scenery").exists()) then
 		        txtXplaneFolder.text = "[Not Set]"
 		        enableContinue(0)
