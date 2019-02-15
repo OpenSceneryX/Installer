@@ -10,6 +10,7 @@ MenuBar=MenuBar1;MenuBar1.xojo_menu;&h000000001459F8F8;&h0000000000000000;false
 Folder=Classes;Classes;&h0000000023186DD5;&h0000000000000000;false
 Class=FolderManifest;Classes/FolderManifest.xojo_code;&h000000001EE8ADDE;&h0000000023186DD5;false
 Folder=Modules;Modules;&h000000004863AD30;&h0000000000000000;false
+Module=ClassExtensions;Modules/ClassExtensions.xojo_code;&h00000000115AFFFF;&h000000004863AD30;false
 Module=Utilities;Modules/Utilities.xojo_code;&h000000003E475564;&h000000004863AD30;false
 Module=XMLDictionary;Modules/XMLDictionary.xojo_code;&hFFFFFFFFBC36C4A8;&h000000004863AD30;false
 Folder=Images;images;&h00000000418A0E08;&h0000000000000000;false
