@@ -1314,7 +1314,7 @@ Begin Window wndMain
                TextAlign       =   0
                TextColor       =   &c0000FE00
                TextFont        =   "System"
-               TextSize        =   0.0
+               TextSize        =   10.0
                TextUnit        =   0
                Top             =   363
                Transparent     =   False
@@ -1417,6 +1417,111 @@ Begin Window wndMain
                Underline       =   False
                Visible         =   True
                Width           =   234
+            End
+            Begin Label txtSeasonsFourSeasonsMoreInfoLink
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox5"
+               Italic          =   False
+               Left            =   610
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   False
+               LockRight       =   False
+               LockTop         =   False
+               Multiline       =   False
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   7
+               TabPanelIndex   =   4
+               TabStop         =   True
+               Text            =   "#kSeasonsFourSeasonsMoreInfoLink"
+               TextAlign       =   0
+               TextColor       =   &c0000FE00
+               TextFont        =   "System"
+               TextSize        =   10.0
+               TextUnit        =   0
+               Top             =   378
+               Transparent     =   False
+               Underline       =   True
+               Visible         =   True
+               Width           =   236
+            End
+            Begin Label txtSeasonsTerraMaxxMoreInfoLink
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox5"
+               Italic          =   False
+               Left            =   610
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   False
+               LockRight       =   False
+               LockTop         =   False
+               Multiline       =   False
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   8
+               TabPanelIndex   =   4
+               TabStop         =   True
+               Text            =   "#kSeasonsTerraMaxxMoreInfoLink"
+               TextAlign       =   0
+               TextColor       =   &c0000FE00
+               TextFont        =   "System"
+               TextSize        =   10.0
+               TextUnit        =   0
+               Top             =   401
+               Transparent     =   False
+               Underline       =   True
+               Visible         =   True
+               Width           =   236
+            End
+            Begin Label txtSeasonsXAmbienceMoreInfoLink
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox5"
+               Italic          =   False
+               Left            =   610
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   False
+               LockRight       =   False
+               LockTop         =   False
+               Multiline       =   False
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   9
+               TabPanelIndex   =   4
+               TabStop         =   True
+               Text            =   "#kSeasonsXAmbienceMoreInfoLink"
+               TextAlign       =   0
+               TextColor       =   &c0000FE00
+               TextFont        =   "System"
+               TextSize        =   10.0
+               TextUnit        =   0
+               Top             =   424
+               Transparent     =   False
+               Underline       =   True
+               Visible         =   True
+               Width           =   236
             End
          End
       End
@@ -2965,7 +3070,7 @@ End
 	#tag Constant, Name = kBackupLibraryInvisibleHelp, Type = String, Dynamic = True, Default = \"If you don\'t want to see the Backup Library placeholders\x2C select this option.", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kBackupLibraryMoreInfoLink, Type = String, Dynamic = True, Default = \"Click here for more info", Scope = Private
+	#tag Constant, Name = kBackupLibraryMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the Backup Library", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryVisible, Type = String, Dynamic = True, Default = \"Show bright red placeholders", Scope = Private
@@ -3500,10 +3605,19 @@ End
 	#tag Constant, Name = kSeasonsFourSeasons, Type = String, Dynamic = True, Default = \"Four Seasons Plugin", Scope = Private
 	#tag EndConstant
 
+	#tag Constant, Name = kSeasonsFourSeasonsMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the Four Seasons Plugin", Scope = Private
+	#tag EndConstant
+
 	#tag Constant, Name = kSeasonsTerraMaxx, Type = String, Dynamic = True, Default = \"TerraMaxx Plugin", Scope = Private
 	#tag EndConstant
 
+	#tag Constant, Name = kSeasonsTerraMaxxMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the TerraMaxx Plugin", Scope = Private
+	#tag EndConstant
+
 	#tag Constant, Name = kSeasonsXAmbience, Type = String, Dynamic = True, Default = \"xAmbience Plugin", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kSeasonsXAmbienceMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the xAmbience Plugin", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsXPlane, Type = String, Dynamic = True, Default = \"X-Plane\xC2\xAE Default", Scope = Private
@@ -3783,6 +3897,45 @@ End
 		  seasonsChanged
 		  
 		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events txtSeasonsFourSeasonsMoreInfoLink
+	#tag Event
+		Sub Open()
+		  me.mousecursor = system.cursors.FingerPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  ShowURL(App.kURLSeasonsFourSeasons)
+		  
+		End Function
+	#tag EndEvent
+#tag EndEvents
+#tag Events txtSeasonsTerraMaxxMoreInfoLink
+	#tag Event
+		Sub Open()
+		  me.mousecursor = system.cursors.FingerPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  ShowURL(App.kURLSeasonsTerramaxx)
+		  
+		End Function
+	#tag EndEvent
+#tag EndEvents
+#tag Events txtSeasonsXAmbienceMoreInfoLink
+	#tag Event
+		Sub Open()
+		  me.mousecursor = system.cursors.FingerPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  ShowURL(App.kURLSeasonsXAmbience)
+		  
+		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag Events cnvHeaderBG
