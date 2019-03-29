@@ -36,7 +36,7 @@ Building
 
 * Notarize Mac `.dmg` - see separate [notarizing instructions](notarizing.md)
 
-* Upload all installers to the AWS S3 bucket, replacing existing versions.
+* Upload all installers to the AWS S3 bucket.
 
 * In AWS S3 console, select new uploads and choose _Actions -> Make Public_
 
