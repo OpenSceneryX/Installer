@@ -1,4 +1,5 @@
 Upgrading Thomas Tempelmann's Zip package
+=========================================
 
 To do this, open his project separately in Xojo, then select 'Export' on the ZipPackage folder, and replace the previous ZipPackage folder with the exported version.
 
