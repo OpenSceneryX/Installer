@@ -30,15 +30,8 @@ Inherits Application
 		    removeAllCachedResponses( sharedURLCache( NSClassFromString( "NSURLCache" ) ) )
 		  #EndIf
 		  
-		  // WINDOWS DIES In HERE SOMETIMES
-		  pPreferences = new Dictionary()
-		  loadPreferences
+		  wndMain.show
 		  
-		  dim xPlanePath as String
-		  if (pPreferences.hasKey(App.kPreferenceXPlanePath)) then xPlanePath = pPreferences.value(App.kPreferenceXPlanePath)
-		  If (xPlanePath <> "") Then pXPlaneFolder = GetFolderItem(xPlanePath, FolderItem.PathTypeNative)
-		  
-		  wndMain.show()
 		End Sub
 	#tag EndEvent
 
@@ -95,14 +88,14 @@ Inherits Application
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub loadPreferences()
-		  dim prefsFile as FolderItem = SpecialFolder.Preferences.Child(App.kApplicationName + ".plist")
-		  if (prefsFile.exists()) then
-		    if (not pPreferences.loadXML(prefsFile)) then
-		      pPreferences = new Dictionary()
-		    end if
-		  end if
+	#tag Method, Flags = &h0
+		Sub loadPreferences()
+		  Dim prefsFile As FolderItem = SpecialFolder.Preferences.Child(App.kApplicationName + ".plist")
+		  If (prefsFile.exists) Then
+		    If (Not pPreferences.loadXML(prefsFile)) Then
+		      pPreferences = New Dictionary
+		    End If
+		  End If
 		  
 		End Sub
 	#tag EndMethod
@@ -409,6 +402,9 @@ Inherits Application
 	#tag Constant, Name = kPreferenceBackupLibraries, Type = String, Dynamic = False, Default = \"BackupLibraries", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPreferenceBackupLibrariesDisabled, Type = String, Dynamic = False, Default = \"disabled", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPreferenceBackupLibrariesInvisible, Type = String, Dynamic = False, Default = \"invisible", Scope = Public
 	#tag EndConstant
 
@@ -430,6 +426,27 @@ Inherits Application
 	#tag Constant, Name = kPreferenceScanDisabled, Type = String, Dynamic = False, Default = \"ScanDisabled", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPreferenceSeasons, Type = String, Dynamic = False, Default = \"Seasons", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferenceSeasonsDisabled, Type = String, Dynamic = False, Default = \"disabled", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferenceSeasonsFourSeasons, Type = String, Dynamic = False, Default = \"fourseasons", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferenceSeasonsTerraMaxx, Type = String, Dynamic = False, Default = \"terramaxx", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferenceSeasonsXAmbience, Type = String, Dynamic = False, Default = \"xambience", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferenceSeasonsXPlane, Type = String, Dynamic = False, Default = \"xplane", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferenceStaticAircraft, Type = String, Dynamic = False, Default = \"StaticAircraft", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPreferenceXPlanePath, Type = String, Dynamic = False, Default = \"XPlanePath", Scope = Public
 	#tag EndConstant
 
@@ -442,10 +459,13 @@ Inherits Application
 	#tag Constant, Name = kSteamWindowsDefaultPaths, Type = String, Dynamic = False, Default = \"\\steamapps\\common\\X-plane 11\n\\steamapps\\common\\X-plane 10", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/manifest.xml.zip", Scope = Public
+	#tag Constant, Name = kURLBackupLibrary, Type = Text, Dynamic = False, Default = \"https://forums.x-plane.org/index.php\?/files/file/25033-backup-scenery-library/", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/repository", Scope = Public
+	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/manifest-beta.xml.zip", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/repository-beta", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
@@ -458,6 +478,15 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kURLRepository, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/repository", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kURLSeasonsFourSeasons, Type = Text, Dynamic = False, Default = \"https://forums.x-plane.org/index.php\?/files/file/44351-four-seasons/", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kURLSeasonsTerramaxx, Type = Text, Dynamic = False, Default = \"http://maxx-xp.com/terramaxx", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kURLSeasonsXAmbience, Type = Text, Dynamic = False, Default = \"https://forums.x-plane.org/index.php\?/forums/topic/168048-xambience-arrives/", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerversion.txt", Scope = Public
