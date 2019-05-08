@@ -73,7 +73,7 @@ Begin Window wndMain
          TabPanelIndex   =   0
          Top             =   125
          Transparent     =   True
-         Value           =   5
+         Value           =   3
          Visible         =   True
          Width           =   611
          Begin Label txtWelcome
@@ -602,7 +602,7 @@ Begin Window wndMain
          Begin GroupBox grpCoreXPlaneIntegration
             AutoDeactivate  =   True
             Bold            =   False
-            Caption         =   "#kCoreXPlaneIntegration"
+            Caption         =   "#kCoreIntegration"
             Enabled         =   True
             Height          =   110
             HelpTag         =   ""
@@ -665,7 +665,7 @@ Begin Window wndMain
             Begin CheckBox chkStaticAircraft
                AutoDeactivate  =   True
                Bold            =   False
-               Caption         =   "#kStaticAircraftEnable"
+               Caption         =   "#kCoreIntegrationSAEnable"
                DataField       =   ""
                DataSource      =   ""
                Enabled         =   True
@@ -693,7 +693,40 @@ Begin Window wndMain
                Underline       =   False
                Value           =   False
                Visible         =   True
-               Width           =   535
+               Width           =   257
+            End
+            Begin CheckBox chkHDForests
+               AutoDeactivate  =   True
+               Bold            =   False
+               Caption         =   "#kCoreIntegrationForestEnable"
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "grpCoreXPlaneIntegration"
+               Italic          =   False
+               Left            =   607
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   True
+               LockTop         =   True
+               Scope           =   0
+               State           =   0
+               TabIndex        =   2
+               TabPanelIndex   =   4
+               TabStop         =   True
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   596
+               Transparent     =   False
+               Underline       =   False
+               Value           =   False
+               Visible         =   True
+               Width           =   257
             End
          End
          Begin ProgressWheel prgwInstall2
@@ -2521,6 +2554,11 @@ End
 		    libraryContents = libraryContents + getPartial("extend_static_aircraft.txt")
 		  End If
 		  
+		  // Append the HD forest exports if user requests it
+		  If (App.pPreferences.hasKey(App.kPreferenceHDForests) And App.pPreferences.value(App.kPreferenceHDForests) = True) Then
+		    libraryContents = libraryContents + getPartial("extend_forests.txt")
+		  End If
+		  
 		  // Write library.txt
 		  Dim libraryFolderItem As FolderItem = pOsxFolderItem.Child("library.txt")
 		  Dim tos As TextOutputStream = TextOutputStream.Create(libraryFolderItem)
@@ -2622,6 +2660,20 @@ End
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.net").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("invisible").Child("placeholder.str").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub coreHDForestsChanged()
+		  App.pPreferences.value(App.kPreferenceHDForests) = chkHDForests.value
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub coreStaticAircraftChanged()
+		  App.pPreferences.value(App.kPreferenceStaticAircraft) = chkStaticAircraft.value
+		  
 		End Sub
 	#tag EndMethod
 
@@ -2880,6 +2932,10 @@ End
 		        chkStaticAircraft.value = App.pPreferences.value(App.kPreferenceStaticAircraft)
 		      End If
 		      
+		      If App.pPreferences.HasKey(App.kPreferenceHDForests) Then
+		        chkHDForests.value = App.pPreferences.value(App.kPreferenceHDForests)
+		      End If
+		      
 		      enableContinue
 		      enableBack()
 		      
@@ -2991,13 +3047,6 @@ End
 		Sub showMessage(textField as Label, message as String, optional parameters() as String)
 		  message = App.processParameterizedString(message, parameters)
 		  textField.text = message
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub staticAircraftChanged()
-		  App.pPreferences.value(App.kPreferenceStaticAircraft) = chkStaticAircraft.value
-		  
 		End Sub
 	#tag EndMethod
 
@@ -3156,10 +3205,16 @@ End
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Continuar"
 	#tag EndConstant
 
+	#tag Constant, Name = kCoreIntegration, Type = String, Dynamic = True, Default = \"Core X-Plane\xC2\xAE Integration", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kCoreIntegrationDescription, Type = String, Dynamic = True, Default = \"OpenSceneryX can incorporate elements into the X-Plane\xC2\xAE core autogen systems.", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kCoreXPlaneIntegration, Type = String, Dynamic = True, Default = \"Core X-Plane\xC2\xAE Integration", Scope = Public
+	#tag Constant, Name = kCoreIntegrationForestEnable, Type = String, Dynamic = True, Default = \"Incorporate HD forests", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kCoreIntegrationSAEnable, Type = String, Dynamic = True, Default = \"Incorporate static aircraft", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kCouldntCheckInstallerVersion, Type = String, Dynamic = True, Default = \"The installer version couldn\'t be checked\x2C continuing anyway\xE2\x80\xA6", Scope = Public
@@ -3705,9 +3760,6 @@ End
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Resumen"
 	#tag EndConstant
 
-	#tag Constant, Name = kStaticAircraftEnable, Type = String, Dynamic = True, Default = \"Incorporate static aircraft into X-Plane\xC2\xAE", Scope = Public
-	#tag EndConstant
-
 	#tag Constant, Name = kTypeOfInstall, Type = String, Dynamic = True, Default = \"Type of Install", Scope = Public
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Art der Installation"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Type d\'installation"
@@ -3762,7 +3814,17 @@ End
 #tag Events chkStaticAircraft
 	#tag Event
 		Sub Action()
-		  staticAircraftChanged
+		  coreStaticAircraftChanged
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events chkHDForests
+	#tag Event
+		Sub Action()
+		  coreHDForestsChanged
+		  
 		  
 		End Sub
 	#tag EndEvent

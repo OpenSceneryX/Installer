@@ -414,6 +414,9 @@ Inherits Application
 	#tag Constant, Name = kPreferenceDeleteUnused, Type = String, Dynamic = False, Default = \"DeleteUnused", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPreferenceHDForests, Type = String, Dynamic = False, Default = \"HDForests", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPreferenceInstallType, Type = String, Dynamic = False, Default = \"InstallType", Scope = Public
 	#tag EndConstant
 
