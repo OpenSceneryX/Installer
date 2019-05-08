@@ -73,7 +73,7 @@ Begin Window wndMain
          TabPanelIndex   =   0
          Top             =   125
          Transparent     =   True
-         Value           =   3
+         Value           =   2
          Visible         =   True
          Width           =   611
          Begin Label txtWelcome
@@ -3792,13 +3792,15 @@ End
 #tag Events cnvBG
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
-		  If IsDarkMode Then
-		    g.ForeColor = &c000000
-		  Else
-		    g.ForeColor = &cFFFFFF
-		  End If
-		  
-		  g.FillRect(0, 0, g.Width, g.Height)
+		  #If TargetMacOS Then
+		    If IsDarkMode Then
+		      g.ForeColor = &c000000
+		    Else
+		      g.ForeColor = &cFFFFFF
+		    End If
+		    
+		    g.FillRect(0, 0, g.Width, g.Height)
+		  #EndIf
 		  
 		End Sub
 	#tag EndEvent
