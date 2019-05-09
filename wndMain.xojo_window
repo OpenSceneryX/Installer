@@ -4161,6 +4161,7 @@ End
 #tag Events sockFile
 	#tag Event
 		Sub Error(err as RuntimeException)
+		  pSockFileWorking = False
 
 		End Sub
 	#tag EndEvent
