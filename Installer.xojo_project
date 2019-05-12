@@ -61,6 +61,7 @@ Class=ZLibInflator;ZipPackage/ZLibClasses/ZLibInflator.xojo_code;&h00000000597C2
 Class=ZLibStream;ZipPackage/ZLibClasses/ZLibStream.xojo_code;&h000000006635E1F3;&h000000006FCD0FFF;false
 Class=ZLibStreamException;ZipPackage/ZLibClasses/ZLibStreamException.xojo_code;&h0000000064A4D26B;&h000000006FCD0FFF;false
 MultiImage=imgPaypalDonate;images/imgPaypalDonate.xojo_image;&h000000003895C7FF;&h00000000418A0E08;false
+Class=LooseVersion;Classes/LooseVersion.xojo_code;&h00000000008367FF;&h0000000023186DD5;false
 DefaultWindow=wndMain
 AppMenuBar=MenuBar1
 MajorVersion=2

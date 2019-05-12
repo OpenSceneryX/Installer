@@ -4134,7 +4134,10 @@ End
 		  showMessage(txtInstallerVersionBodyText1, kCheckingInstallerVersion + " " + kDone)
 		  
 		  If (HTTPStatus = 200) Then
-		    If (Not startsWith(App.mbToString(Content), App.shortVersion)) Then
+		    Dim serverVersion As New LooseVersion(App.mbToString(Content))
+		    Dim appVersion As New LooseVersion(App.shortVersion)
+		    
+		    If appVersion < serverVersion Then
 		      showMessage(txtInstallerVersionBodyText2, kNewInstallerAvailable)
 		    Else
 		      showMessage(txtInstallerVersionBodyText2, kInstallerVersionUpToDate)
