@@ -73,7 +73,7 @@ Begin Window wndMain
          TabPanelIndex   =   0
          Top             =   125
          Transparent     =   True
-         Value           =   5
+         Value           =   2
          Visible         =   True
          Width           =   611
          Begin Label txtWelcome
@@ -3740,14 +3740,22 @@ End
 #tag Events cnvBG
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
-		  If IsDarkMode Then
-		    g.ForeColor = &c000000
-		  Else
+		  #If TargetMacOS Then
+		    // Dark mode is detected properly on macOS
+		    If IsDarkMode Then
+		      g.ForeColor = &c000000
+		    Else
+		      g.ForeColor = &cFFFFFF
+		    End If
+		  #ElseIf TargetLinux
+		    // White with 50% opacity to handle both dark and light themes
+		    g.ForeColor = &cFFFFFF88
+		  #Else
+		    // White with 100% opacity for the moment on Windows
 		    g.ForeColor = &cFFFFFF
-		  End If
+		  #EndIf
 		  
 		  g.FillRect(0, 0, g.Width, g.Height)
-		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -4070,7 +4078,10 @@ End
 		  showMessage(txtInstallerVersionBodyText1, kCheckingInstallerVersion + " " + kDone)
 		  
 		  If (HTTPStatus = 200) Then
-		    If (Not startsWith(App.mbToString(Content), App.shortVersion)) Then
+		    Dim serverVersion As New LooseVersion(App.mbToString(Content))
+		    Dim appVersion As New LooseVersion(App.shortVersion)
+		    
+		    If appVersion < serverVersion Then
 		      showMessage(txtInstallerVersionBodyText2, kNewInstallerAvailable)
 		    Else
 		      showMessage(txtInstallerVersionBodyText2, kInstallerVersionUpToDate)
@@ -4159,6 +4170,7 @@ End
 #tag Events sockFile
 	#tag Event
 		Sub Error(err as RuntimeException)
+		  pSockFileWorking = False
 		  
 		End Sub
 	#tag EndEvent
