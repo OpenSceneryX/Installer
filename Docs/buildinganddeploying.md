@@ -36,31 +36,22 @@ Building
 
 * Notarize Mac `.dmg` - see separate [notarizing instructions](notarizing.md)
 
+* Edit names of zips and dmg to insert version number at end, before extension. The Mac one also needs `Mac-` inserted, all this ought to be automated…
+
 * Upload all installers to the AWS S3 bucket.
 
 * In AWS S3 console, select new uploads and choose _Actions -> Make Public_
 
 * Upload `versioninfo/installerversion.txt` and `versioninfo/installerreleasenotes.html` to hosting servers, replacing existing versions.
 
-* In AWS Cloudfront console, create invalidatation in `downloads.opensceneryx.com` distribution for the following paths:
-    ```
-    /OpenSceneryX-Installer-Mac.dmg
-    /OpenSceneryX-Installer-Windows.zip
-    /OpenSceneryX-Installer-Linux-x86-64.zip
-    /OpenSceneryX-Installer-Linux-x86-32.zip
-    /OpenSceneryX-Installer-Linux-ARM-32.zip
-    ```
 * Clear Cloudflare cache for the following URLs:
 
     ```
-    https://downloads.opensceneryx.com/OpenSceneryX-Installer.dmg
-    https://downloads.opensceneryx.com/OpenSceneryX-Installer-Windows.zip
-    https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-x86-64.zip
-    https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-x86-32.zip
-    https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-ARM-32.zip
     https://www.opensceneryx.com/versioninfo/installerreleasenotes.html
     https://www.opensceneryx.com/versioninfo/installerversion.txt
     ```
+
+* Edit the website homepage to update the version number on all downloads. As the Gutenberg visual editor can't (yet) cope with the download block, currently do this by searching and replacing directly in the database.
 
 * Promotion:
 
