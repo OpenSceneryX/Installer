@@ -56,6 +56,7 @@ Building
 * Promotion:
 
     - Post a new reply to the [x-plane.org main OpenSceneryX thread](https://forums.x-plane.org/index.php?/forums/topic/25174-opensceneryx-v320-released/&do=findComment&comment=277394)
+    - Post a new topic in the [ThresholdX OpenSceneryX Announcements Forum](https://forum.thresholdx.net/forum/157-announcements/)
 	- Post an article on the site
 	- Tweet
     - Reddit [r/Xplane](https://www.reddit.com/r/Xplane/)
