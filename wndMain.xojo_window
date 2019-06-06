@@ -2458,37 +2458,37 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  sockManifest.RequestHeader("User-Agent") = App.stringToText(App.kApplicationName + " " + App.shortVersion)
-		  sockFile.RequestHeader("User-Agent") = App.stringToText(App.kApplicationName + " " + App.shortVersion)
-		  sockVersion.RequestHeader("User-Agent") = App.stringToText(App.kApplicationName + " " + App.shortVersion)
+		  sockManifest.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion)
+		  sockFile.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion)
+		  sockVersion.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion)
 		  sockManifest.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
 		  sockFile.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
 		  sockVersion.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
-
+		  
 		  If (App.StageCode = 3) Then
 		    lblPreRelease.visible = False
 		  Else
 		    lblPreRelease.visible = True
 		  End If
-
+		  
 		  // Set up the panel completed booleans
 		  Dim i As Integer = 0
 		  While ovlStage(i) <> Nil
 		    pPanelCompleted.append(False)
 		    i = i + 1
 		  Wend
-
+		  
 		  setPanelCompleted(0)
 		  selectPanel(0)
-
+		  
 		  // Windows occasionally crashes quietly if this code is in App.Open
 		  App.pPreferences = New Dictionary
 		  App.loadPreferences
-
+		  
 		  Dim xPlanePath As String
 		  If (App.pPreferences.hasKey(App.kPreferenceXPlanePath)) Then xPlanePath = App.pPreferences.value(App.kPreferenceXPlanePath)
 		  If (xPlanePath <> "") Then App.pXPlaneFolder = GetFolderItem(xPlanePath, FolderItem.PathTypeNative)
-
+		  
 		End Sub
 	#tag EndEvent
 
@@ -2508,7 +2508,7 @@ End
 		  Else
 		    App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesDisabled
 		  End If
-
+		  
 		End Sub
 	#tag EndMethod
 
@@ -2516,18 +2516,18 @@ End
 		Sub buildLibrary()
 		  // This function should only ever be called once, right at the end of the install.
 		  // It constructs the final library.txt file based on user preferences
-
+		  
 		  If pPartialsInstallDone Then Return
 		  pPartialsInstallDone = True
-
+		  
 		  // Copy in the correct visible / invisible placeholders for the Backup Library
 		  copyPlaceholders
-
+		  
 		  Dim libraryContents As String
-
+		  
 		  // Start with the header partial
 		  libraryContents = libraryContents + getPartial("header.txt")
-
+		  
 		  // Append the appropriate seasons if user requests it
 		  If App.pPreferences.hasKey(App.kPreferenceSeasons) Then
 		    If (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXPlane) Then
@@ -2540,31 +2540,31 @@ End
 		      libraryContents = libraryContents + getPartial("seasonal_xambience.txt")
 		    End If
 		  End If
-
+		  
 		  // Append the main library contents
 		  libraryContents = libraryContents + getPartial("library.txt")
-
+		  
 		  // Append the backup library if user requests it
 		  If (App.pPreferences.hasKey(App.kPreferenceBackupLibraries) And App.pPreferences.value(App.kPreferenceBackupLibraries) <> App.kPreferenceBackupLibrariesDisabled) Then
 		    libraryContents = libraryContents + getPartial("backup_library.txt")
 		  End If
-
+		  
 		  // Append the static aircraft exports if user requests it
 		  If (App.pPreferences.hasKey(App.kPreferenceStaticAircraft) And App.pPreferences.value(App.kPreferenceStaticAircraft) = True) Then
 		    libraryContents = libraryContents + getPartial("extend_static_aircraft.txt")
 		  End If
-
+		  
 		  // Append the HD forest exports if user requests it
 		  If (App.pPreferences.hasKey(App.kPreferenceHDForests) And App.pPreferences.value(App.kPreferenceHDForests) = True) Then
 		    libraryContents = libraryContents + getPartial("extend_forests.txt")
 		  End If
-
+		  
 		  // Write library.txt
 		  Dim libraryFolderItem As FolderItem = pOsxFolderItem.Child("library.txt")
 		  Dim tos As TextOutputStream = TextOutputStream.Create(libraryFolderItem)
 		  tos.Write(libraryContents)
 		  tos.Close
-
+		  
 		End Sub
 	#tag EndMethod
 
@@ -2573,21 +2573,21 @@ End
 		  // Start checking folder structure
 		  prgwLocalScan3.visible = true
 		  showMessage(txtLocalScanBodyText3, kComparingLocalToRemote)
-
+		  
 		  pPendingFiles = new Collection()
 		  pDeletedFiles = new Collection()
-
+		  
 		  // Reduce the server files to just those in DSFs (if option selected)
 		  if (rdoInstallTypeMinimal.value = true) then
 		    pServerManifest.intersect(pDSFManifest)
 		  end if
-
+		  
 		  pLocalManifest.getDifferences(pServerManifest, pPendingFiles, pDeletedFiles)
-
+		  
 		  // Finished checking folder structure
 		  prgwLocalScan3.visible = false
 		  showMessage(txtLocalScanBodyText3, kComparingLocalToRemote + " " + kDone)
-
+		  
 		  if (pPendingFiles.count = 0 and pDeletedFiles.count = 0) then
 		    // Install is fully up to date, progress straight to summary
 		    showMessage(txtLocalScanBodyText4, kInstallUpToDate)
@@ -2622,7 +2622,7 @@ End
 		  if (not pOsxFolderItem.Child("opensceneryx").exists()) then
 		    pOsxFolderItem.Child("opensceneryx").createAsFolder()
 		  end if
-
+		  
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder_decal.png").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.agp").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.dcl").delete
@@ -2634,7 +2634,7 @@ End
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.pol").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.net").delete
 		  pOsxFolderItem.Child("opensceneryx").Child("placeholder.str").delete
-
+		  
 		  If (Not App.pPreferences.hasKey(App.kPreferenceBackupLibraries) Or App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesVisible) Then
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder_decal.png").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
 		    pOsxFolderItem.Child("placeholders").Child("visible").Child("placeholder.agp").copyFileTo(pOsxFolderItem.Child("opensceneryx"))
@@ -2666,14 +2666,14 @@ End
 	#tag Method, Flags = &h0
 		Sub coreHDForestsChanged()
 		  App.pPreferences.value(App.kPreferenceHDForests) = chkHDForests.value
-
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub coreStaticAircraftChanged()
 		  App.pPreferences.value(App.kPreferenceStaticAircraft) = chkStaticAircraft.value
-
+		  
 		End Sub
 	#tag EndMethod
 
@@ -2688,30 +2688,30 @@ End
 		  dim filePath as String = normaliseFilePath(pPendingFiles.item(1))
 		  dim i as Integer
 		  dim parts() as String = filePath.split("/")
-
+		  
 		  ' Can't use getTemporaryFolderItem here because there's a bug in it where the file handle is left open on Linux.
 		  ' So instead we create our own randomly-named file inside the system temporary folder
 		  dim r as Random = new Random
 		  Dim destinationFolderItem As FolderItem = SpecialFolder.Temporary.child(Str(r.InRange(10000000, 99999999)))
 		  Dim destinationFile As New Xojo.IO.FolderItem(destinationFolderItem.NativePath.ToText)
-
+		  
 		  Dim url As Text
-
+		  
 		  if (App.StageCode = 3) then
 		    url = App.kURLRepository
 		  else
 		    url = App.kURLDevRepository
 		  end if
-
+		  
 		  for i = 0 to ubound(parts)
 		    if (parts(i) <> "") then url = url + "/"
 		    url = url + App.StringToText(encodeURLComponent(parts(i)))
 		  next
-
+		  
 		  url = url + ".zip"
-
+		  
 		  sockFile.send("GET", url, destinationFile)
-
+		  
 		  pSockFileWorking = true
 		End Sub
 	#tag EndMethod
@@ -2738,7 +2738,7 @@ End
 		  else
 		    btnContinue.caption = kContinue
 		  end if
-
+		  
 		  if (override > -1) then
 		    btnContinue.enabled = (override = 1)
 		  else
@@ -2751,7 +2751,7 @@ End
 		Function getPartial(partialFileName as String) As String
 		  Dim partialFolderItem As FolderItem = pOsxFolderItem.Child("partials").Child(partialFileName)
 		  Dim partialContents As String = ""
-
+		  
 		  Try
 		    If partialFolderItem <> Nil And partialFolderItem.Exists Then
 		      Dim tis As TextInputStream = TextInputStream.Open(partialFolderItem)
@@ -2761,9 +2761,9 @@ End
 		  Catch e As IOException
 		    // Something bad happened trying to work with the file
 		  End Try
-
+		  
 		  Return partialContents
-
+		  
 		End Function
 	#tag EndMethod
 
@@ -2782,13 +2782,13 @@ End
 		Sub installTypeChanged()
 		  chkDeleteUnused.enabled = rdoInstallTypeMinimal.value
 		  chkScanDisabled.enabled = rdoInstallTypeMinimal.value
-
+		  
 		  if (rdoInstallTypeMinimal.value = true) then
 		    App.pPreferences.value(App.kPreferenceInstallType) = App.kPreferenceInstallTypeMinimal
 		  else
 		    App.pPreferences.value(App.kPreferenceInstallType) = App.kPreferenceInstallTypeFull
 		  end if
-
+		  
 		End Sub
 	#tag EndMethod
 
@@ -2802,23 +2802,23 @@ End
 	#tag Method, Flags = &h0
 		Sub preProcessLocalFolderItem(osxFolderItem as FolderItem)
 		  // Fix any one-off issues here, usually caused by case changes
-
+		  
 		  // Problem with b767-300ER changing to b767-300er
 		  dim b767FolderItem as FolderItem = osxFolderItem.child("objects").child("aircraft").child("jets").child("heavy").child("b767-300ER")
 		  if (b767FolderItem.exists()) then
 		    b767FolderItem.name = "b767-300er"
 		  end if
-
+		  
 		  dim b747EasyJetFolderItem as FolderItem = osxFolderItem.child("doc").child("B737-800 Easyjet.html")
 		  if (b747EasyJetFolderItem.exists()) then
 		    b747EasyJetFolderItem.name = "B737-800 easyJet.html"
 		  end if
-
+		  
 		  dim a320EasyJetFolderItem as FolderItem = osxFolderItem.child("doc").child("A320 Easyjet.html")
 		  if (a320EasyJetFolderItem.exists()) then
 		    a320EasyJetFolderItem.name = "A320 easyJet.html"
 		  end if
-
+		  
 		  Exception err as NilObjectException
 		    // Catch this in case any folder item doesn't exist (new install)
 		End Sub
@@ -2843,17 +2843,17 @@ End
 		  Else
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled
 		  End If
-
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub selectPanel(panelIndex as integer)
 		  Dim i As Integer = 0
-
+		  
 		  // Set the page panel index
 		  ppnlMain.value = panelIndex
-
+		  
 		  // Set the blob colours
 		  while ovlStage(i) <> nil
 		    if (i = panelIndex) then
@@ -2863,33 +2863,33 @@ End
 		    else
 		      ovlStage(i).FillColor = App.kColourLightBlue
 		    end if
-
+		    
 		    i = i + 1
 		  wend
-
+		  
 		  i = i - 1
-
+		  
 		  if (not pPanelCompleted(panelIndex)) then
 		    // Panel not completed, begin any processing relevant to the panel
 		    select case txtStage(ppnlMain.value).text
-
+		      
 		    case kStageInstallerVersion
 		      enableBack(0)
 		      enableContinue(0)
 		      prgwCheckInstaller.visible = true
 		      showMessage(txtInstallerVersionBodyText1, kCheckingInstallerVersion)
 		      showMessage(txtInstallerVersionBodyText2, "")
-
+		      
 		      if (App.StageCode = 3) then
 		        sockVersion.send("GET", App.kURLVersion)
 		      else
 		        sockVersion.send("GET", App.kURLDevVersion)
 		      End If
-
+		      
 		      // Synchronous content checking was here with old Socket.  Now done in Socket methods
-
+		      
 		      enableBack
-
+		      
 		    Case kStageSettings
 		      if (App.pXPlaneFolder = nil or not App.pXPlaneFolder.exists() or not App.pXPlaneFolder.directory or not App.pXPlaneFolder.child("Custom Scenery").exists()) then
 		        txtXplaneFolder.text = "[Not Set]"
@@ -2899,11 +2899,11 @@ End
 		        txtXplaneFolder.text = App.pXPlaneFolder.nativePath
 		        setPanelCompleted(panelIndex)
 		      end if
-
+		      
 		      If (App.pPreferences.hasKey(App.kPreferenceInstallType) And App.pPreferences.value(App.kPreferenceInstallType) = App.kPreferenceInstallTypeMinimal) Then rdoInstallTypeMinimal.value = True
 		      if (App.pPreferences.hasKey(App.kPreferenceDeleteUnused)) then chkDeleteUnused.value = App.pPreferences.value(App.kPreferenceDeleteUnused)
 		      if (App.pPreferences.hasKey(App.kPreferenceScanDisabled)) then chkScanDisabled.value = App.pPreferences.value(App.kPreferenceScanDisabled)
-
+		      
 		      If App.pPreferences.hasKey(App.kPreferenceBackupLibraries) Then
 		        If App.pPreferences.value(App.kPreferenceBackupLibraries) = App.kPreferenceBackupLibrariesInvisible Then
 		          rdoBackupLibraryInvisible.value = True
@@ -2913,7 +2913,7 @@ End
 		          rdoBackupLibraryDisable.value = True
 		        End If
 		      End If
-
+		      
 		      If App.pPreferences.hasKey(App.kPreferenceSeasons) Then
 		        If App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXPlane Then
 		          popSeasons.SelectByText(kSeasonsXPlane)
@@ -2927,22 +2927,22 @@ End
 		          popSeasons.SelectByText(kSeasonsDisable)
 		        End If
 		      End If
-
+		      
 		      If App.pPreferences.HasKey(App.kPreferenceStaticAircraft) Then
 		        chkStaticAircraft.value = App.pPreferences.value(App.kPreferenceStaticAircraft)
 		      End If
-
+		      
 		      If App.pPreferences.HasKey(App.kPreferenceHDForests) Then
 		        chkHDForests.value = App.pPreferences.value(App.kPreferenceHDForests)
 		      End If
-
+		      
 		      enableContinue
 		      enableBack()
-
+		      
 		    case kStageLocalScan
 		      pLocalManifest = new FolderManifest()
 		      pDSFManifest = new FolderManifest()
-
+		      
 		      // Starting Local Scan
 		      enableBack(0)
 		      enableContinue(0)
@@ -2951,18 +2951,18 @@ End
 		      showMessage(txtLocalScanBodyText2, "")
 		      showMessage(txtLocalScanBodyText3, "")
 		      showMessage(txtLocalScanBodyText4, "")
-
+		      
 		      thrLocalScan.run
-
+		      
 		    case kStageInstall
 		      dim j as Integer
-
+		      
 		      // Starting Install
 		      enableBack(0)
 		      enableContinue(0)
 		      showMessage(txtInstallBodyText2, "")
 		      prgBarOverall.maximum = pPendingFiles.count
-
+		      
 		      // Possibly wrap this in a thread…
 		      if (pDeletedFiles.count > 0) then
 		        prgwInstall1.visible = true
@@ -2970,17 +2970,17 @@ End
 		          showMessage(txtInstallBodyText1, kDeletingFiles, Array(pDeletedFiles.item(j), str(j), str(pDeletedFiles.count)))
 		          pLocalManifest.getLocalFolderItem(pDeletedFiles.item(j)).delete
 		        next
-
+		        
 		        showMessage(txtInstallBodyText1, kDeletedFiles + " " + kDone, Array(str(pDeletedFiles.count)))
 		      else
 		        showMessage(txtInstallBodyText1, kNoFilesToDelete)
 		      end if
-
+		      
 		      thrUpdateFolderStructure.run()
-
+		      
 		    case kStageSummary
 		      buildLibrary
-
+		      
 		    else
 		      enableBack()
 		      enableContinue()
@@ -2990,9 +2990,9 @@ End
 		    enableBack()
 		    enableContinue()
 		  end if
-
-
-
+		  
+		  
+		  
 		End Sub
 	#tag EndMethod
 
@@ -3000,7 +3000,7 @@ End
 		Sub setPanelCompleted(panelIndex as integer, completed as Boolean = true)
 		  // Set this panel as being completed
 		  pPanelCompleted(panelIndex) = completed
-
+		  
 		End Sub
 	#tag EndMethod
 
@@ -3013,7 +3013,7 @@ End
 		  if (pOsxFolderItem.exists()) then
 		    foundPrevious = true
 		  end if
-
+		  
 		  tempFolderItem = App.pXPlaneFolder.child("Custom Scenery").child("OpenSceneryX-1.1.0")
 		  if (tempFolderItem.exists) then
 		    if (foundPrevious) then
@@ -3024,7 +3024,7 @@ End
 		      foundPrevious = true
 		    end if
 		  end if
-
+		  
 		  tempFolderItem = App.pXPlaneFolder.child("Custom Scenery").child("OpenSceneryX-1.0.0")
 		  if (tempFolderItem.exists) then
 		    if (foundPrevious) then
@@ -3035,11 +3035,11 @@ End
 		      foundPrevious = true
 		    end if
 		  end if
-
+		  
 		  if (not foundPrevious) then
 		    pOsxFolderItem.createAsFolder()
 		  end if
-
+		  
 		End Sub
 	#tag EndMethod
 
@@ -3806,7 +3806,7 @@ End
 		    // White with 100% opacity for the moment on Windows
 		    g.ForeColor = &cFFFFFF
 		  #EndIf
-
+		  
 		  g.FillRect(0, 0, g.Width, g.Height)
 		End Sub
 	#tag EndEvent
@@ -3823,8 +3823,8 @@ End
 	#tag Event
 		Sub Action()
 		  coreStaticAircraftChanged
-
-
+		  
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -3832,8 +3832,8 @@ End
 	#tag Event
 		Sub Action()
 		  coreHDForestsChanged
-
-
+		  
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -3848,18 +3848,18 @@ End
 	#tag Event
 		Sub Action()
 		  dim i as integer
-
+		  
 		  if (App.getXPlaneFolder(false)) then
 		    setupOSXFolder()
-
+		    
 		    // Set the current panel as having been completed
 		    setPanelCompleted(ppnlMain.value)
-
+		    
 		    // Set all subsequent panels as not being completed
 		    for i = ppnlMain.value + 1 to ppnlMain.PanelCount - 1
 		      setPanelCompleted(i, false)
 		    next
-
+		    
 		    txtXplaneFolder.text = App.pXPlaneFolder.nativePath
 		    enableContinue()
 		  end if
@@ -3870,7 +3870,7 @@ End
 	#tag Event
 		Sub Action()
 		  Dim i As Integer
-
+		  
 		  #If TargetMacOS
 		    ' Mac Steam location is in the ApplicationData path
 		    Dim appDataPath As String = SpecialFolder.ApplicationData.nativePath
@@ -3885,40 +3885,40 @@ End
 		    Dim appDataPath As String = "~/.steam"
 		    Dim steamPaths() As String = App.kSteamLinuxDefaultPaths.Split(EndOfLine.OSX)
 		  #EndIf
-
+		  
 		  Dim pathCount As Integer = steamPaths.Ubound
 		  For i  = 0 To pathCount
 		    steamPaths(i) = appDataPath + steamPaths(i)
 		    Dim folder As FolderItem = New FolderItem(steamPaths(i), FolderItem.PathTypeShell)
-
+		    
 		    If (folder.exists And folder.Child("Custom Scenery").exists) Then
 		      App.pXPlaneFolder = folder
 		      App.pPreferences.value(App.kPreferenceXPlanePath) = App.pXPlaneFolder.nativePath
-
+		      
 		      setupOSXFolder
-
+		      
 		      // Set the current panel as having been completed
 		      setPanelCompleted(ppnlMain.value)
-
+		      
 		      // Set all subsequent panels as not being completed
 		      for i = ppnlMain.value + 1 to ppnlMain.PanelCount - 1
 		        setPanelCompleted(i, false)
 		      Next
-
+		      
 		      txtXplaneFolder.text = App.pXPlaneFolder.nativePath
 		      enableContinue(1)
-
+		      
 		      Return
 		    End If
 		  Next
-
+		  
 		  ' If we get here then none of the possible Steam X-Plane paths exist
 		  MsgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, Array(Join(steamPaths, ", "))))
-
+		  
 		  Exception err As RegistryAccessErrorException
 		    ' The registry item (Windows) was not found - i.e. Steam not installed
 		    MsgBox(App.kErrorSteamNotFound)
-
+		    
 		  Exception err As UnsupportedFormatException
 		    ' Thrown if the path passed to the FolderItem is invalid
 		    MsgBox(App.processParameterizedString(App.kErrorXPlaneSteamFolderNotFound, Array(Join(steamPaths, ", "))))
@@ -3955,7 +3955,7 @@ End
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
 		  ShowURL(App.kURLBackupLibrary)
-
+		  
 		End Function
 	#tag EndEvent
 #tag EndEvents
@@ -3963,7 +3963,7 @@ End
 	#tag Event
 		Sub Change()
 		  seasonsChanged
-
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -3976,7 +3976,7 @@ End
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
 		  ShowURL(App.kURLSeasonsFourSeasons)
-
+		  
 		End Function
 	#tag EndEvent
 #tag EndEvents
@@ -3989,7 +3989,7 @@ End
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
 		  ShowURL(App.kURLSeasonsTerramaxx)
-
+		  
 		End Function
 	#tag EndEvent
 #tag EndEvents
@@ -4002,7 +4002,7 @@ End
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
 		  ShowURL(App.kURLSeasonsXAmbience)
-
+		  
 		End Function
 	#tag EndEvent
 #tag EndEvents
@@ -4021,7 +4021,7 @@ End
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
 		  'Need to draw dynamically so that the image is scaled to the on screen region.  Caters for Retina and normal displays.
 		  g.DrawPicture(imgBannerBG, 0, 0, g.Width, g.Height, 0, 0, imgBannerBG.Width, imgBannerBG.Height)
-
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -4040,7 +4040,7 @@ End
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
 		  'Need to draw dynamically so that the image is scaled to the on screen region.  Caters for Retina and normal displays.
 		  g.DrawPicture(imgBannerX, 0, 0, g.Width, g.Height, 0, 0, imgBannerX.Width, imgBannerX.Height)
-
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -4090,14 +4090,14 @@ End
 	#tag Event
 		Sub Run()
 		  tmrUpdateFolderStructure.Mode = Timer.ModeMultiple
-
+		  
 		  While (pPendingFiles.Count > 0)
 		    App.YieldToNextThread
 		    If Not pSockFileWorking and pPendingFiles.Count > 0 Then
 		      downloadNextFile
 		    end if
 		  wend
-
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -4107,9 +4107,9 @@ End
 		  If (thrUpdateFolderStructure.State = Thread.Running And pPendingFiles.Count > 0) Then
 		    dim currentFile as integer = prgBarOverall.maximum - pPendingFiles.count
 		    dim filePath as String = pPendingFiles.item(1)
-
+		    
 		    showMessage(txtInstallBodyText2, kDownloadingFiles + " ", Array(filePath, str(currentFile + 1), str(prgBarOverall.maximum)))
-
+		    
 		    prgBarOverall.value = currentFile
 		    prgBarOverall.visible = true
 		    txtOverallPercent.text = str(round((prgBarOverall.maximum - pPendingFiles.count) * 100 / prgBarOverall.maximum)) + "%"
@@ -4126,7 +4126,7 @@ End
 		    selectPanel(6)
 		    enableContinue(1)
 		    enableBack(0)
-
+		    
 		    me.Mode = Timer.ModeOff
 		  end if
 		End Sub
@@ -4138,11 +4138,11 @@ End
 		  // Finished connection with server
 		  prgwCheckInstaller.visible = False
 		  showMessage(txtInstallerVersionBodyText1, kCheckingInstallerVersion + " " + kDone)
-
+		  
 		  If (HTTPStatus = 200) Then
 		    Dim serverVersion As New LooseVersion(App.mbToString(Content))
 		    Dim appVersion As New LooseVersion(App.shortVersion)
-
+		    
 		    If appVersion < serverVersion Then
 		      showMessage(txtInstallerVersionBodyText2, kNewInstallerAvailable)
 		    Else
@@ -4156,8 +4156,8 @@ End
 		    setPanelCompleted(ppnlMain.value)
 		    enableContinue
 		  End If
-
-
+		  
+		  
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -4165,7 +4165,7 @@ End
 		  showMessage(txtInstallerVersionBodyText2, kCouldntCheckInstallerVersion)
 		  setPanelCompleted(ppnlMain.value)
 		  enableContinue
-
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -4182,38 +4182,38 @@ End
 		    Dim zar As ZipArchive = New ZipArchive
 		    Dim f As FolderItem, e As ZipEntry
 		    Dim classicFile As New FolderItem(File.Path, FolderItem.PathTypeNative)
-
+		    
 		    If Not zar.Open(classicFile, False) Then
 		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (0)")
 		      prgwLocalScan2.visible = False
 		      Return
 		    End
-
+		    
 		    e = zar.Entry(1)
 		    f = e.MakeDestination(GetTemporaryFolderItem.parent, False)
-
+		    
 		    If Not e.Extract(f) Then
 		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (1) " + e.ErrorMessage)
 		      prgwLocalScan2.visible = False
 		      Return
 		    End
-
+		    
 		    If Not zar.Close Then
 		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (2)")
 		      prgwLocalScan2.visible = False
 		      Return
 		    End
-
+		    
 		    File.delete
-
+		    
 		    prgwLocalScan2.visible = False
-
+		    
 		    '!!!! Remove these lines
 		    'dim g as FolderItem = new FolderItem("/Users/austin/Desktop/testmanifest.xml", FolderItem.PathTypeShell)
 		    'dim tis as TextInputStream = g.openAsTextFile
 		    '!!!
 		    Dim tis As TextInputStream = f.openAsTextFile
-
+		    
 		    If pServerManifest.gatherManifestFromXMLString(tis.readAll) Then
 		      f.delete
 		      showMessage(txtLocalScanBodyText2, kDownloadingManifest + " " + kDone)
@@ -4221,7 +4221,7 @@ End
 		    Else
 		      showMessage(txtLocalScanBodyText2, kErrorManifest + " (3)")
 		    End If
-
+		    
 		  Else
 		    showMessage(txtLocalScanBodyText2, kErrorManifest + " (4)")
 		    prgwLocalScan2.visible = False
@@ -4233,7 +4233,7 @@ End
 	#tag Event
 		Sub Error(err as RuntimeException)
 		  pSockFileWorking = False
-
+		  
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -4244,48 +4244,48 @@ End
 		    Dim f As FolderItem
 		    Dim e As ZipEntry
 		    Dim classicFile As New FolderItem(File.Path, FolderItem.PathTypeNative)
-
+		    
 		    pPendingFiles.remove(1)
-
+		    
 		    Dim destinationFolderItem As FolderItem = pLocalManifest.getLocalFolderItem(filePath)
 		    If (destinationFolderItem.exists) Then destinationFolderItem.delete
-
+		    
 		    If Not zar.Open(classicFile, False) Then
 		      showMessage(txtInstallBodyText2, kError, Array(zar.ErrorMessage))
 		      Return
 		    End
-
+		    
 		    e = zar.Entry(1)
-
+		    
 		    f = e.MakeDestination(classicFile.parent, False)
-
+		    
 		    If Not e.Extract(f) Then
 		      showMessage(txtInstallBodyText2, kExtractionFailed, Array(e.RawPath, e.ErrorMessage))
 		      Return
 		    End
-
+		    
 		    If Not zar.Close Then
 		      showMessage(txtInstallBodyText2, kError, Array(zar.ErrorMessage))
 		      Return
 		    End
-
+		    
 		    f.copyFileTo(destinationFolderItem)
 		    f.delete
 		    classicFile.delete
-
+		    
 		  Else
 		    showMessage(txtInstallBodyText2, kErrorHTTP, Array(Str(httpStatus)))
 		    'prgBarFile.visible = false
 		    'txtProgress.visible = false
 		  End If
-
+		  
 		  pSockFileWorking = False
-
+		  
 		  Exception err As NilObjectException
 		    // Will throw exception if we weren't able to create the folder structure
 		    tmrUpdateFolderStructure.Enabled = False
 		    showMessage(txtInstallBodyText2, kErrorWritingFile)
-
+		    
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -4300,18 +4300,18 @@ End
 	#tag Event
 		Sub Run()
 		  tmrLocalScan.Mode = Timer.ModeMultiple
-
+		  
 		  // Tidy up previous problems
 		  preProcessLocalFolderItem(pOsxFolderItem)
-
+		  
 		  // Scan local files
 		  pLocalManifest.gatherManifestFromLocalFolderItem(pOsxFolderItem)
-
+		  
 		  // Scan DSFs (if option selected)
 		  If (App.pPreferences.hasKey(App.kPreferenceInstallType) And App.pPreferences.value(App.kPreferenceInstallType) = App.kPreferenceInstallTypeMinimal) Then
 		    pDSFManifest.gatherManifestFromDSFFiles(App.pXPlaneFolder, chkScanDisabled.value)
 		  End If
-
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -4320,22 +4320,22 @@ End
 		Sub Action()
 		  If (thrLocalScan.State <> Thread.Running) Then
 		    Me.Mode = Timer.ModeOff
-
+		    
 		    // Local Scan Done
 		    prgwLocalScan1.visible = False
 		    showMessage(txtLocalScanBodyText1, kCollectingLocalFileInformation + " " + kDone)
-
+		    
 		    // Starting Download Manifest
 		    prgwLocalScan2.visible = True
 		    showMessage(txtLocalScanBodyText2, kDownloadingManifest)
-
+		    
 		    // Really the next stuff should go into another thread
 		    If pServerManifest = Nil Then
 		      // Download the server manifest
 		      pServerManifest = New FolderManifest
-
+		      
 		      Dim temporaryFile As FolderItem = GetTemporaryFolderItem
-
+		      
 		      If (App.StageCode = 3) Then
 		        sockManifest.send("GET", App.kURLManifest, New Xojo.IO.FolderItem(temporaryFile.NativePath.ToText))
 		      Else
@@ -4345,7 +4345,7 @@ End
 		      // We had already downloaded the server manifest
 		      prgwLocalScan2.visible = False
 		      showMessage(txtLocalScanBodyText2, kDownloadingManifest + " " + kDone)
-
+		      
 		      // Starting checking folder structure
 		      checkFolderStructure
 		    End If
@@ -4357,18 +4357,18 @@ End
 	#tag Event
 		Sub Action()
 		  Dim url As String = ""
-
+		  
 		  Dim business As String = "austin@opensceneryx.com"
 		  Dim country As String = "GB"
 		  Dim curr As String = "GBP"
-
+		  
 		  url = "https://www.paypal.com/cgi-bin/webscr" + _
 		  "?cmd=" + "_donations" + _
 		  "&business=" + business + _
 		  "&lc=" + country + _
 		  "&currency_code=" + curr + _
 		  "&bn=" + "PP%2dDonationsBF"
-
+		  
 		  ShowURL(url)
 		End Sub
 	#tag EndEvent

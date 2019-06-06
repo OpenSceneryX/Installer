@@ -159,6 +159,9 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD0\xB0 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8 OpenSceneryX"
 	#tag EndConstant
 
+	#tag Constant, Name = kApplicationNameASCII, Type = String, Dynamic = False, Default = \"OpenSceneryX Installer", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kColourDarkBlue, Type = Color, Dynamic = False, Default = \"&c3634a3", Scope = Public
 	#tag EndConstant
 
