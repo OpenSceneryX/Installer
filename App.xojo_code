@@ -30,6 +30,16 @@ Inherits Application
 		    removeAllCachedResponses( sharedURLCache( NSClassFromString( "NSURLCache" ) ) )
 		  #EndIf
 		  
+		  #If TargetMacOS Then
+		    App.pPlatform = "macOS"
+		  #ElseIf TargetLinux Then
+		    App.pPlatform = "Linux"
+		  #ElseIf TargetWindows Then
+		    App.pPlatform = "Windows"
+		  #Else
+		    App.pPlatform = "Unknown"
+		  #EndIf
+		  
 		  wndMain.show
 		  
 		End Sub
@@ -137,6 +147,10 @@ Inherits Application
 		End Function
 	#tag EndMethod
 
+
+	#tag Property, Flags = &h0
+		pPlatform As String
+	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		pPreferences As Dictionary

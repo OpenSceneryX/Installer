@@ -2458,9 +2458,9 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  sockManifest.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion)
-		  sockFile.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion)
-		  sockVersion.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion)
+		  sockManifest.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion + " " + App.pPlatform)
+		  sockFile.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion + " " + App.pPlatform)
+		  sockVersion.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion + " " + App.pPlatform)
 		  sockManifest.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
 		  sockFile.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
 		  sockVersion.RequestHeader("Authorization") = App.stringToText("Basic " + EncodeBase64(App.kHTTPLogin + ":" + App.kHTTPPassword))
