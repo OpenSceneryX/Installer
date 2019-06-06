@@ -100,7 +100,7 @@ Inherits Application
 
 	#tag Method, Flags = &h0
 		Sub loadPreferences()
-		  Dim prefsFile As FolderItem = SpecialFolder.Preferences.Child(App.kApplicationName + ".plist")
+		  Dim prefsFile As FolderItem = SpecialFolder.Preferences.Child(App.kApplicationNameASCII + ".plist")
 		  If (prefsFile.exists) Then
 		    If (Not pPreferences.loadXML(prefsFile)) Then
 		      pPreferences = New Dictionary
@@ -136,7 +136,7 @@ Inherits Application
 
 	#tag Method, Flags = &h21
 		Private Sub savePreferences()
-		  dim prefsFile as FolderItem = SpecialFolder.Preferences().Child(App.kApplicationName + ".plist")
+		  dim prefsFile as FolderItem = SpecialFolder.Preferences().Child(App.kApplicationNameASCII + ".plist")
 		  dim result as Boolean = pPreferences.saveXML(prefsFile, true)
 		End Sub
 	#tag EndMethod
