@@ -4,6 +4,14 @@ Building and Deploying the Installer
 Prerequisites and Notes
 -----------------------
 
+* To test running the installer in a different language, on the Mac you can pass arguments to the debugger.  For example, to run in Hebrew, in _Shared_ -> _Debug_ -> _Command Line Arguments_:
+
+    ```
+    --args -AppleLanguages "(he)" -AppleLocale he
+    ```
+
+    In Windows, it seems the only way is to switch the System language to the language to be tested.
+
 * The Windows version of the installer needs the `zlib1` DLL to be included at the same level as the executable.  This is done by a Windows build step, but the DLL must be downloaded and present at `Libraries/zlib1-64/zlib1.dll`
 
 * The Windows version needs to run as an administrator.  This is done by a Windows build step, but the Windows VM (or machine) must have [rcedit](https://github.com/electron/rcedit) installed.
