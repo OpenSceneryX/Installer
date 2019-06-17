@@ -304,7 +304,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Este instalador no puede operar sin saber donde est\xC3\xA1 ubicada su carpeta de X-Plane\xC2\xAE y dejar\xC3\xA1 de ejecutarse."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"L\'installeur ne peut pas fonctionner sans X-Plane\xC2\xAE et va maintenant \xC3\xAAtre ferm\xC3\xA9."
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Aquest instal\xC2\xB7lador no pot continuar sense saber on \xC3\xA9s la vostra carpeta de l\'X-Plane\xC2\xAE i ara es tancar\xC3\xA0."
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"Questo installatore non pu\xC3\xB2 continuare senza aver specificato la posizione della cartella di X-Plane\xC2\xAE e verr\xC3\xA0 terminato."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Questo installatore non pu\xC3\xB2 lavorare senza aver specificato la posizione della cartella di X-Plane\xC2\xAE e quindi verr\xC3\xA0 chiuso."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Dieses Installationsprogramm funktioniert nicht\x2C solange der X-Plane\xC2\xAE Ordner nicht lokalisiert ist. Das Programm wird nun beendet."
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Deze installer werkt niet als hij niet weet waar je X-Plane\xC2\xAE map is en wordt nu afgesloten."
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x94\xD7\x9E\xD7\xAA\xD7\xA7\xD7\x99\xD7\x9F \xD7\x94\xD7\x96\xD7\x94 \xD7\x9C\xD7\x90 \xD7\x99\xD7\x9B\xD7\x95\xD7\x9C \xD7\x9C\xD7\xA2\xD7\x91\xD7\x95\xD7\x93 \xD7\x9E\xD7\x91\xD7\x9C\xD7\x99 \xD7\x9C\xD7\x93\xD7\xA2\xD7\xAA \xD7\x94\xD7\x99\xD7\x9B\xD7\x9F \xD7\xAA\xD7\x99\xD7\xA7\xD7\x99\xD7\xAA \xD7\x94\xD7\x90\xD7\xA7\xD7\xA1-\xD7\xA4\xD7\x9C\xD7\x9F\xC2\xAE \xD7\xA9\xD7\x9C\xD7\x9A \xD7\xA0\xD7\x9E\xD7\xA6\xD7\x90\xD7\xAA \xD7\x95\xD7\x9B\xD7\xA2\xD7\xAA \xD7\x99\xD7\x99\xD7\xA1\xD7\x92\xD7\xA8."
@@ -372,7 +372,7 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kHelp, Type = String, Dynamic = True, Default = \"&Help", Scope = Public
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"Aiut&o"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Aiuto"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"&Hilfe"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"&Help"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"&Aide"
@@ -525,6 +525,7 @@ Inherits Application
 			Name="pPlatform"
 			Group="Behavior"
 			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
