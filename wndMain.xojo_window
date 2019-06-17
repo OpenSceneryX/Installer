@@ -71,6 +71,7 @@ Begin Window wndMain
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
+         TabStop         =   True
          Top             =   125
          Transparent     =   True
          Value           =   2
@@ -838,6 +839,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   6
+            TabStop         =   True
             Top             =   626
             Transparent     =   True
             Value           =   0
@@ -893,6 +895,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   6
+            TabStop         =   True
             Top             =   592
             Transparent     =   True
             Value           =   0
@@ -2150,6 +2153,7 @@ Begin Window wndMain
       End
    End
    Begin Thread thrUpdateFolderStructure
+      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -2159,6 +2163,7 @@ Begin Window wndMain
       TabPanelIndex   =   0
    End
    Begin Timer tmrUpdateFolderStructure
+      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -2186,6 +2191,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   39
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   124
       Transparent     =   True
       Visible         =   True
@@ -2210,6 +2216,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   40
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   156
       Transparent     =   True
       Visible         =   True
@@ -2234,6 +2241,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   41
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   188
       Transparent     =   True
       Visible         =   True
@@ -2258,6 +2266,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   42
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   220
       Transparent     =   True
       Visible         =   True
@@ -2282,6 +2291,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   43
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   252
       Transparent     =   True
       Visible         =   True
@@ -2306,6 +2316,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   44
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   284
       Transparent     =   True
       Visible         =   True
@@ -2330,12 +2341,14 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   45
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   316
       Transparent     =   True
       Visible         =   True
       Width           =   10
    End
    Begin Xojo.Net.HTTPSocket sockVersion
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2343,6 +2356,7 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Xojo.Net.HTTPSocket sockManifest
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2350,6 +2364,7 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Xojo.Net.HTTPSocket sockFile
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2357,6 +2372,7 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Thread thrLocalScan
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Priority        =   5
@@ -2365,6 +2381,7 @@ Begin Window wndMain
       TabPanelIndex   =   0
    End
    Begin Timer tmrLocalScan
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Mode            =   0
@@ -3097,33 +3114,43 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Wszystkie pliki:"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x92\xD1\x81\xD0\xB5 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD1\x8B:"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Instl. Total:"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Tutti i File:"
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibrary, Type = String, Dynamic = True, Default = \"Backup Library", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Backup Libreria"
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryDescription, Type = String, Dynamic = True, Default = \"OpenSceneryX includes a backup library for many other popular third party libraries\x2C in case you don\'t have those libraries installed.", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"OpenSceneryX include una libreria di Backup per molte altre popolari librerie di terze parti\x2C in caso tu non abbia queste librerie installate. "
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryDisable, Type = String, Dynamic = True, Default = \"Disable the Backup Library", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Disabilit\xC3\xA0 il Backup della Libreria"
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryDisableHelp, Type = String, Dynamic = True, Default = \"OpenSceneryX includes a backup library for many other popular third party libraries\x2C in case you haven\xE2\x80\x99t installed those libraries.  If you want to disable this feature completely\x2C select this option", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"OpenSceneryX include una libreria di Backup per molte altre popolari librerie di terze parti\x2C nel caso tu non le abbia installate. Se vuoi disabilitare questa funzione completamente\x2C seleziona quest\xE2\x80\x99opzione"
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryInvisible, Type = String, Dynamic = True, Default = \"Show invisible placeholders", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Mostra i segnaposto invisibili"
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryInvisibleHelp, Type = String, Dynamic = True, Default = \"If you don\'t want to see the Backup Library placeholders\x2C select this option.", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Se non vuoi vedere i luoghi del Backup della Libreria\x2C selezione quest\xE2\x80\x99opzione. "
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the Backup Library", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Di pi\xC3\xB9 sul Backup della Libreria "
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryVisible, Type = String, Dynamic = True, Default = \"Show bright red placeholders", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Mostra i segnaposto in rosso acceso "
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryVisibleHelp, Type = String, Dynamic = True, Default = \"If you do want to see the bright red Backup Library placeholders\x2C select this option.", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Se vuoi vedere i segnaposto del Backup della Libreria in rosso acceso\x2C seleziona quest\xE2\x80\x99opzione. "
 	#tag EndConstant
 
 	#tag Constant, Name = kChangeXplaneFolder, Type = String, Dynamic = True, Default = \"Change X-Plane\xC2\xAE Folder", Scope = Public
@@ -3135,6 +3162,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Zmie\xC5\x84 katalog X-Plane\xC2\xAE"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA1\xD0\xBC\xD0\xB5\xD0\xBD\xD0\xB8\xD1\x82\xD1\x8C \xD0\xBF\xD0\xB0\xD0\xBF\xD0\xBA\xD1\x83 X-Plane\xC2\xAE"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Cambie la carpeta X-Plane\xC2\xAE"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Cambia Cartella X-Plane\xC2\xAE"
 	#tag EndConstant
 
 	#tag Constant, Name = kCheckingInstallerVersion, Type = String, Dynamic = True, Default = \"Checking installer version\xE2\x80\xA6", Scope = Public
@@ -3146,6 +3174,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Sprawdzanie wersji Instalatora..."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB5\xD1\x80\xD1\x8F\xD0\xB5\xD1\x82\xD1\x81\xD1\x8F \xD0\xB2\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x8B \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8..."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Verificando la versi\xC3\xB3n del instalador..."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Controllando la versione dell\xE2\x80\x99installatore\xE2\x80\xA6"
 	#tag EndConstant
 
 	#tag Constant, Name = kClose, Type = String, Dynamic = True, Default = \"Close", Scope = Private
@@ -3157,6 +3186,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Zamknij"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x97\xD0\xB0\xD0\xBA\xD1\x80\xD1\x8B\xD1\x82\xD1\x8C"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Cerrar"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Chiudi"
 	#tag EndConstant
 
 	#tag Constant, Name = kCollectingLocalFileInformation, Type = String, Dynamic = True, Default = \"Collecting local file information\xE2\x80\xA6", Scope = Public
@@ -3180,6 +3210,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Por\xC3\xB3wnuj\xC4\x99 lokalne pliki ze zdalnymi..."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA1\xD1\x80\xD0\xB0\xD0\xB2\xD0\xBD\xD0\xB5\xD0\xBD\xD0\xB8\xD0\xB5 \xD0\xBB\xD0\xBE\xD0\xBA\xD0\xB0\xD0\xBB\xD1\x8C\xD0\xBD\xD1\x8B\xD1\x85 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xBE\xD0\xB2 \xD1\x81 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xB0\xD0\xBC\xD0\xB8 \xD0\xBD\xD0\xB0 \xD1\x81\xD0\xB5\xD1\x80\xD0\xB2\xD0\xB5\xD1\x80\xD0\xB5..."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Comparando los archivos locales con los remotos..."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Comparando i file locali con quelli remoti\xE2\x80\xA6"
 	#tag EndConstant
 
 	#tag Constant, Name = kComplete, Type = String, Dynamic = True, Default = \"Complete.", Scope = Public
@@ -3203,18 +3234,23 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Dalej"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB4\xD0\xBE\xD0\xBB\xD0\xB6\xD0\xB8\xD1\x82\xD1\x8C"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Continuar"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Continua"
 	#tag EndConstant
 
 	#tag Constant, Name = kCoreIntegration, Type = String, Dynamic = True, Default = \"Core X-Plane\xC2\xAE Integration", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Integrazione del cuore di X-Plane\xC2\xAE"
 	#tag EndConstant
 
 	#tag Constant, Name = kCoreIntegrationDescription, Type = String, Dynamic = True, Default = \"OpenSceneryX can incorporate elements into the X-Plane\xC2\xAE core autogen systems.", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"OpenSceneryX pu\xC3\xB2 incorporare elementi nel cuore del sistema di autogenerazione di X-Plane\xC2\xAE."
 	#tag EndConstant
 
 	#tag Constant, Name = kCoreIntegrationForestEnable, Type = String, Dynamic = True, Default = \"Incorporate HD forests", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Incorpora le foreste HD"
 	#tag EndConstant
 
 	#tag Constant, Name = kCoreIntegrationSAEnable, Type = String, Dynamic = True, Default = \"Incorporate static aircraft", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Incorpora aerei statici"
 	#tag EndConstant
 
 	#tag Constant, Name = kCouldntCheckInstallerVersion, Type = String, Dynamic = True, Default = \"The installer version couldn\'t be checked\x2C continuing anyway\xE2\x80\xA6", Scope = Public
@@ -3226,6 +3262,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Wersja Instalatora nie mog\xC5\x82a zosta\xC4\x87 sprawdzona\x2C kontynuuje mimo tego..."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9D\xD0\xB5 \xD1\x83\xD0\xB4\xD0\xB0\xD0\xB5\xD1\x82\xD1\x81\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB5\xD1\x80\xD0\xB8\xD1\x82\xD1\x8C \xD0\xB2\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD1\x8E \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x8B \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8\x2C \xD0\xB2\xD1\x81\xD0\xB5 \xD1\x80\xD0\xB0\xD0\xB2\xD0\xBD\xD0\xBE \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB4\xD0\xBE\xD0\xBB\xD0\xB6\xD0\xB8\xD1\x82\xD1\x8C..."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"La versi\xC3\xB3n del instalador no pudo ser verificada\x2C continuando de todas maneras..."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"La versione dell\xE2\x80\x99installatore non pu\xC3\xB2 essere controllata\x2C continuando comunque\xE2\x80\xA6"
 	#tag EndConstant
 
 	#tag Constant, Name = kCurrentFile, Type = String, Dynamic = True, Default = \"Current File:", Scope = Private
@@ -3237,6 +3274,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Bie\xC5\xBC\xC4\x85cy plik:"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA2\xD0\xB5\xD0\xBA\xD1\x83\xD1\x89\xD0\xB8\xD0\xB9 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB:"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Archivo Actual:"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"File Corrente:"
 	#tag EndConstant
 
 	#tag Constant, Name = kDeletedFiles, Type = String, Dynamic = True, Default = \"Deleted ${1} files.", Scope = Private
@@ -3248,6 +3286,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Skasowano ${1} plik\xC3\xB3w."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xB8\xD1\x82\xD1\x8C ${1} \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xBE\xD0\xB2"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Borrados ${1} archivos."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Cancellati ${1} file."
 	#tag EndConstant
 
 	#tag Constant, Name = kDeleteUnusedFiles, Type = String, Dynamic = True, Default = \"Delete Unused Files", Scope = Public
@@ -3259,6 +3298,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Skasuj nieu\xC5\xBCywane pliki"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xB8\xD1\x82\xD1\x8C \xD0\xBD\xD0\xB5\xD0\xB8\xD1\x81\xD0\xBF\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xB7\xD1\x83\xD0\xB5\xD0\xBC\xD1\x8B\xD0\xB5 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD1\x8B"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Borrar archivos no usados"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Cancella File non Usati"
 	#tag EndConstant
 
 	#tag Constant, Name = kDeleteUnusedFilesHelp, Type = String, Dynamic = True, Default = \"Delete all OpenSceneryX files from your system that are not used in your installed scenery packages.", Scope = Public
@@ -3270,6 +3310,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Skasuj wszystkie pliki OpenSceneryX w swoim systemie\x2C kt\xC3\xB3re nie s\xC4\x85 u\xC5\xBCywane przez zainstalowane pakiety scenerii."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xB8\xD1\x82\xD1\x8C \xD0\xB2\xD1\x81\xD0\xB5 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD1\x8B OpenSceneryX\x2C  \xD0\xBA\xD0\xBE\xD1\x82\xD0\xBE\xD1\x80\xD1\x8B\xD0\xB5 \xD0\xBD\xD0\xB5 \xD0\xB8\xD1\x81\xD0\xBF\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xB7\xD1\x83\xD1\x8E\xD1\x82\xD1\x81\xD1\x8F \xD0\xB2 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBB\xD0\xB5\xD0\xBD\xD0\xBD\xD1\x8B\xD1\x85 \xD0\xBF\xD0\xB0\xD0\xBA\xD0\xB5\xD1\x82\xD0\xB0\xD1\x85 \xD1\x81\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB0\xD1\x80\xD0\xB8\xD0\xB5\xD0\xB2."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Borrar todos los archvos de OpenSceneryX de su sistema que no est\xC3\xA1n siendo usados en sus paquetes de escenarios instalados."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Cancella tutti i file OpenSceneryX dal tuo sistema che non sono usati nei pacchetti dello scenario installato."
 	#tag EndConstant
 
 	#tag Constant, Name = kDeletingFiles, Type = String, Dynamic = True, Default = \"Deleting file ${1} (${2} of ${3})\xE2\x80\xA6", Scope = Private
@@ -3281,6 +3322,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Kasuj\xC4\x99 plik ${1} (${2} z ${3})\xE2\x80\xA6"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD0\xB4\xD0\xB0\xD0\xBB\xD1\x8F\xD0\xB5\xD1\x82\xD1\x81\xD1\x8F \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB ${1} (${2} \xD0\xB8\xD0\xB7 ${3})\xE2\x80\xA6"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Borrando archivo  ${1} (${2} de ${3})\xE2\x80\xA6"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Cancellando file ${1} (${2} of ${3})\xE2\x80\xA6"
 	#tag EndConstant
 
 	#tag Constant, Name = kDone, Type = String, Dynamic = True, Default = \"Done", Scope = Private
@@ -3292,6 +3334,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Zrobione"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x93\xD0\xBE\xD1\x82\xD0\xBE\xD0\xB2\xD0\xBE"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Hecho"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Svolto"
 	#tag EndConstant
 
 	#tag Constant, Name = kDownloadedFiles, Type = String, Dynamic = True, Default = \"Downloaded ${1} files.", Scope = Private
@@ -3303,6 +3346,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Pobieram ${1} plik\xC3\xB3w."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x97\xD0\xB0\xD0\xB3\xD1\x80\xD1\x83\xD0\xB6\xD0\xB5\xD0\xBD\xD0\xBE ${1} \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xBE\xD0\xB2."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Descargados ${1} archivos."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Scaricati ${1} file."
 	#tag EndConstant
 
 	#tag Constant, Name = kDownloadingFiles, Type = String, Dynamic = True, Default = \"Downloading file ${2} of ${3}:\n${1}\xE2\x80\xA6", Scope = Private
@@ -3314,6 +3358,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Pobieram plik ${2} z ${3}:\n${1}\xE2\x80\xA6"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x97\xD0\xB0\xD0\xB3\xD1\x80\xD1\x83\xD0\xB6\xD0\xB0\xD0\xB5\xD1\x82\xD1\x81\xD1\x8F \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB ${2} \xD0\xB8\xD0\xB7 ${3}:\n${1}\xE2\x80\xA6"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Descargando archivo: ${2} de ${3}:\n${1}\xE2\x80\xA6"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Scaricando file ${2} of ${3}:\n${1}\xE2\x80\xA6"
 	#tag EndConstant
 
 	#tag Constant, Name = kDownloadingManifest, Type = String, Dynamic = True, Default = \"Connecting to the server and downloading the list of available files\xE2\x80\xA6", Scope = Public
@@ -3389,6 +3434,7 @@ End
 	#tag EndConstant
 
 	#tag Constant, Name = kErrorWritingFile, Type = String, Dynamic = True, Default = \"There was an error creating the local file\x2C do you have permission to write to the X-Plane folder structure\?", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"C\xE2\x80\x99\xC3\xA8 stato un errore creando il file locale\x2C hai il permesso di scrivere la struttura della cartella X-Plane\?"
 	#tag EndConstant
 
 	#tag Constant, Name = kExtractionFailed, Type = String, Dynamic = True, Default = \"Extraction of \"${1}\" failed: \"${2}\"", Scope = Public
@@ -3436,6 +3482,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Wr\xC3\xB3\xC4\x87"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x92\xD0\xB5\xD1\x80\xD0\xBD\xD1\x83\xD1\x82\xD1\x8C\xD1\x81\xD1\x8F"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Regresar"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Torna Indietro"
 	#tag EndConstant
 
 	#tag Constant, Name = kInstall, Type = String, Dynamic = True, Default = \"Install", Scope = Public
@@ -3447,6 +3494,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Instaluj"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xB8\xD1\x82\xD1\x8C"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Instalar"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Installa"
 	#tag EndConstant
 
 	#tag Constant, Name = kInstallComplete1, Type = String, Dynamic = True, Default = \"Installation Complete", Scope = Public
@@ -3458,6 +3506,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Instalacja zako\xC5\x84czona"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB0 \xD0\xB7\xD0\xB0\xD0\xB2\xD0\xB5\xD1\x80\xD1\x88\xD0\xB5\xD0\xBD\xD0\xB0"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Instalaci\xC3\xB3n Completada"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Installazione Completata"
 	#tag EndConstant
 
 	#tag Constant, Name = kInstallComplete2, Type = String, Dynamic = True, Default = \"Your OpenSceneryX installation is fully up to date and you may now quit this installer.", Scope = Public
@@ -3469,6 +3518,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Twoja instalacja OpenSceneryX jest w pe\xC5\x82ni aktualna\x2C mo\xC5\xBCesz zako\xC5\x84czy\xC4\x87 Instalator."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB0 OpenSceneryX \xD0\xBF\xD0\xBE\xD0\xBB\xD0\xBD\xD0\xBE\xD1\x81\xD1\x82\xD1\x8C\xD1\x8E \xD0\xBE\xD0\xB1\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBB\xD0\xB5\xD0\xBD\xD0\xB0\x2C \xD0\xBC\xD0\xBE\xD0\xB6\xD0\xBD\xD0\xBE \xD0\xB2\xD1\x8B\xD0\xB9\xD1\x82\xD0\xB8 \xD0\xB8\xD0\xB7 \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x8B \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Su instalaci\xC3\xB3n de OpenSceneryX est\xC3\xA1 totalmente actualizada. Ahora puede cerrar el instalador."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"La installazione di OpenSceneryX \xC3\xA8 pienamente aggiornata e adesso puoi uscire dall\xE2\x80\x99installatore. "
 	#tag EndConstant
 
 	#tag Constant, Name = kInstallerVersionUpToDate, Type = String, Dynamic = True, Default = \"The installer is the most up to date version\x2C please click Continue to proceed.", Scope = Public
@@ -3480,6 +3530,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Instalator jest w najnowszej dost\xC4\x99pnej wersji\x2C naci\xC5\x9Bnij Dalej by kontynuowa\xC4\x87."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x98\xD1\x81\xD0\xBF\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xB7\xD1\x83\xD0\xB5\xD0\xBC\xD0\xB0\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD0\xB0 \xD0\xBF\xD0\xBE\xD1\x81\xD0\xBB\xD0\xB5\xD0\xB4\xD0\xBD\xD0\xB5\xD0\xB9 \xD0\xB2\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD0\xB8\x2C \xD0\xBD\xD0\xB0\xD0\xB6\xD0\xBC\xD0\xB8\xD1\x82\xD0\xB5 \xD0\x9F\xD1\x80\xD0\xBE\xD0\xB4\xD0\xBE\xD0\xBB\xD0\xB6\xD0\xB8\xD1\x82\xD1\x8C."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"El instalador es la versi\xC3\xB3n m\xC3\xA1s actualizada\x2C por favor pulse Continuar para proceder."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"L\xE2\x80\x99installatore \xC3\xA8 la versione pi\xC3\xB9 aggiornata\x2C per favore premi \xE2\x80\x9CContinua\xE2\x80\x9D per procedere."
 	#tag EndConstant
 
 	#tag Constant, Name = kInstallOutOfDate, Type = String, Dynamic = True, Default = \"Your OpenSceneryX install is out of date\x2C ${1} files need to be deleted and ${2} files need to be downloaded\x2C click Install to begin the process.", Scope = Public
@@ -3491,6 +3542,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Twoja instalacja OpenSceneryX jest nieaktualna\x2C ${1} plik\xC3\xB3w zostanie skasowanych i ${2} plik\xC3\xB3w zostanie pobranych. Naci\xC5\x9Bnij Instaluj by rozpocz\xC4\x85\xC4\x87 proces."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD0\xB0 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8 OpenScenery \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD1\x80\xD0\xB5\xD0\xBB\xD0\xB0\x2C ${1} \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xBE\xD0\xB2 \xD0\xBD\xD0\xB5\xD0\xBE\xD0\xB1\xD1\x85\xD0\xBE\xD0\xB4\xD0\xB8\xD0\xBC\xD0\xBE \xD1\x83\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xB8\xD1\x82\xD1\x8C \xD0\xB8 ${2} \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xBE\xD0\xB2 \xD0\xB7\xD0\xB0\xD0\xB3\xD1\x80\xD1\x83\xD0\xB7\xD0\xB8\xD1\x82\xD1\x8C\x2C \xD0\xBD\xD0\xB0\xD0\xB6\xD0\xBC\xD0\xB8\xD1\x82\xD0\xB5 \xD0\xA3\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xB8\xD1\x82\xD1\x8C \xD0\xB4\xD0\xBB\xD1\x8F \xD0\xB7\xD0\xB0\xD0\xBF\xD1\x83\xD1\x81\xD0\xBA\xD0\xB0."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Su instalaci\xC3\xB3n de OpenSceneryX no est\xC3\xA1 actualizada\x2C ${1} archivos necesitan ser borrados y ${2} archivos necesitan ser descargados\x2C pulse Instalar para iniciar el proceso."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Il tuo OpenSceneryX \xC3\xA8 scaduto\x2C ${1} deve essere cancellato e ${2} deve essere scaricato\x2C premi installa per far iniziare il processo."
 	#tag EndConstant
 
 	#tag Constant, Name = kInstallTypeFull, Type = String, Dynamic = True, Default = \"Full", Scope = Public
@@ -3502,6 +3554,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Pe\xC5\x82na"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x97\xD0\xB0\xD0\xBF\xD0\xBE\xD0\xBB\xD0\xBD\xD0\xB5\xD0\xBD\xD0\xBE"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Completa"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Pieno"
 	#tag EndConstant
 
 	#tag Constant, Name = kInstallTypeFullHelp, Type = String, Dynamic = True, Default = \"Installs the complete OpenSceneryX library\x2C for those who want all files.", Scope = Public
@@ -3513,6 +3566,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Instaluje kompletn\xC4\x85 bibliotek\xC4\x99 OpenSceneryX\x2C dla tych kt\xC3\xB3rzy potrzebuj\xC4\x85 wszystkich plik\xC3\xB3w."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xB0\xD0\xB2\xD0\xBB\xD0\xB8\xD0\xB2\xD0\xB0\xD0\xB5\xD1\x82 \xD0\xBF\xD0\xBE\xD0\xBB\xD0\xBD\xD1\x83\xD1\x8E \xD0\xB1\xD0\xB8\xD0\xB1\xD0\xBB\xD0\xB8\xD0\xBE\xD1\x82\xD0\xB5\xD0\xBA\xD1\x83 OpenSceneryX\x2C \xD0\xB4\xD0\xBB\xD1\x8F \xD1\x82\xD0\xB5\xD1\x85\x2C \xD0\xBA\xD1\x82\xD0\xBE \xD1\x85\xD0\xBE\xD1\x87\xD0\xB5\xD1\x82 \xD0\xB8\xD0\xBC\xD0\xB5\xD1\x82\xD1\x8C \xD0\xB2\xD1\x81\xD0\xB5 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD1\x8B."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Instala la librer\xC3\xADa completa de OpenSceneryX\x2C para aquellos que desean todos los archivos."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Installa la libreria completa di OpenSceneryX\x2C per quelli che vogliono tutti i file."
 	#tag EndConstant
 
 	#tag Constant, Name = kInstallTypeMinimal, Type = String, Dynamic = True, Default = \"Minimal", Scope = Public
@@ -3524,6 +3578,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Minimalna"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9C\xD0\xB8\xD0\xBD\xD0\xB8\xD0\xBC\xD0\xB0\xD0\xBB\xD1\x8C\xD0\xBD\xD1\x8B\xD0\xB9"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"M\xC3\xADnima"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Minimale"
 	#tag EndConstant
 
 	#tag Constant, Name = kInstallTypeMinimalHelp, Type = String, Dynamic = True, Default = \"Scans your installed scenery packages and only installs the necessary files from OpenSceneryX.", Scope = Public
@@ -3535,6 +3590,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Skanuje zainstalowane pakiety scenerii i instaluje z OpenSceneryX pliki potrzebne tylko do nich."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBA\xD0\xB0 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBB\xD0\xB5\xD0\xBD\xD0\xBD\xD1\x8B\xD1\x85 \xD1\x81\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB0\xD1\x80\xD0\xBD\xD1\x8B\xD1\x85 \xD0\xBF\xD0\xB0\xD0\xBA\xD0\xB5\xD1\x82\xD0\xBE\xD0\xB2 \xD0\xB8 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB0 \xD1\x82\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xBA\xD0\xBE \xD0\xBD\xD0\xB5\xD0\xBE\xD0\xB1\xD1\x85\xD0\xBE\xD0\xB4\xD0\xB8\xD0\xBC\xD1\x8B\xD1\x85 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xBE\xD0\xB2 \xD0\xB8\xD0\xB7 OpenSceneryX."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Analiza sus paquetes de escenario instalados y \xC3\xBAnicamente instala los archivos necesarios de OpenSceneryX."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Scansione i tuoi pacchetti di scenario installati e installa soltanto i file necessari da OpenSceneryX."
 	#tag EndConstant
 
 	#tag Constant, Name = kInstallUpToDate, Type = String, Dynamic = True, Default = \"Your OpenSceneryX install is completely up to date\x2C you may now quit this installer.", Scope = Public
@@ -3558,6 +3614,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Witamy w Instalatorze OpenSceneryX.\r\rInstalator automatycznie pobierze najnowsz\xC4\x85 wersj\xC4\x99 biblioteki OpenSceneryX dla X-Plane\xC2\xAE na Tw\xC3\xB3j twardy dysk.\r\rBiblioteka jest bardzo du\xC5\xBCa i zale\xC5\xBCnie od po\xC5\x82\xC4\x85czenia internetowego mo\xC5\xBCe si\xC4\x99 pobiera\xC4\x87 troch\xC4\x99 czasu. Je\xC5\x9Bli posiadasz zainstalowan\xC4\x85 wcze\xC5\x9Bniejsz\xC4\x85 wersj\xC4\x99 OpenSceneryX\x2C Instalator wykryje to i pobierze tylko nowe i uaktualnione pliki."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x94\xD0\xBE\xD0\xB1\xD1\x80\xD0\xBE \xD0\xBF\xD0\xBE\xD0\xB6\xD0\xB0\xD0\xBB\xD0\xBE\xD0\xB2\xD0\xB0\xD1\x82\xD1\x8C \xD0\xB2 \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x83 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8 OpenSceneryX.\r\r\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD0\xB0 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8 \xD0\xB0\xD0\xB2\xD1\x82\xD0\xBE\xD0\xBC\xD0\xB0\xD1\x82\xD0\xB8\xD1\x87\xD0\xB5\xD1\x81\xD0\xBA\xD0\xB8 \xD0\xB7\xD0\xB0\xD0\xB3\xD1\x80\xD1\x83\xD0\xB7\xD0\xB8\xD1\x82 \xD0\xBF\xD0\xBE\xD1\x81\xD0\xBB\xD0\xB5\xD0\xB4\xD0\xBD\xD1\x8E\xD1\x8E \xD0\xB2\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD1\x8E \xD0\xB1\xD0\xB8\xD0\xB1\xD0\xBB\xD0\xB8\xD0\xBE\xD1\x82\xD0\xB5\xD0\xBA OpenSceneryX \xD0\xB4\xD0\xBB\xD1\x8F X-Plane\xC2\xAE \xD0\xBD\xD0\xB0 \xD0\xB2\xD0\xB0\xD1\x88 \xD0\xB6\xD0\xB5\xD1\x81\xD1\x82\xD0\xBA\xD0\xB8\xD0\xB9 \xD0\xB4\xD0\xB8\xD1\x81\xD0\xBA.\r\r\xD0\xA0\xD0\xB0\xD0\xB7\xD0\xBC\xD0\xB5\xD1\x80 \xD0\xB1\xD0\xB8\xD0\xB1\xD0\xBB\xD0\xB8\xD0\xBE\xD1\x82\xD0\xB5\xD0\xBA\xD0\xB8 \xD0\xB1\xD0\xBE\xD0\xBB\xD1\x8C\xD1\x88\xD0\xBE\xD0\xB9\x2C \xD0\xB8 \xD1\x81\xD0\xBA\xD0\xBE\xD1\x80\xD0\xBE\xD1\x81\xD1\x82\xD1\x8C \xD0\xB7\xD0\xB0\xD0\xB3\xD1\x80\xD1\x83\xD0\xB7\xD0\xBA\xD0\xB8 \xD0\xB7\xD0\xB0\xD0\xB2\xD0\xB8\xD1\x81\xD0\xB8\xD1\x82 \xD0\xBE\xD1\x82 \xD0\xB2\xD0\xB0\xD1\x88\xD0\xB5\xD0\xB3\xD0\xBE \xD0\x98\xD0\xBD\xD1\x82\xD0\xB5\xD1\x80\xD0\xBD\xD0\xB5\xD1\x82-\xD1\x81\xD0\xBE\xD0\xB5\xD0\xB4\xD0\xB8\xD0\xBD\xD0\xB5\xD0\xBD\xD0\xB8\xD1\x8F. \xD0\x9D\xD0\xBE \xD0\xB5\xD1\x81\xD0\xBB\xD0\xB8 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBB\xD0\xB5\xD0\xBD\xD0\xB0 \xD0\xB1\xD0\xBE\xD0\xBB\xD0\xB5\xD0\xB5 \xD1\x80\xD0\xB0\xD0\xBD\xD0\xBD\xD1\x8F\xD1\x8F \xD0\xB2\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD1\x8F OpenSceneryX\x2C \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD0\xB0 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8 \xD0\xBE\xD0\xBF\xD1\x80\xD0\xB5\xD0\xB4\xD0\xB5\xD0\xBB\xD0\xB8\xD1\x82 \xD0\xB8 \xD0\xB7\xD0\xB0\xD0\xB3\xD1\x80\xD1\x83\xD0\xB7\xD0\xB8\xD1\x82 \xD1\x82\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xBA\xD0\xBE \xD0\xBD\xD0\xBE\xD0\xB2\xD1\x8B\xD0\xB5 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD1\x8B."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Bienvenido al instalador de OpenSceneryX.\r\rEste instalador descargar\xC3\xA1 autom\xC3\xA1ticamente a su disco duro la versi\xC3\xB3n m\xC3\xA1s reciente de la librer\xC3\xADa de OpenSceneryX para X-Plane\xC2\xAE.\r\rLa librer\xC3\xADa es grande por lo que la descarga puede tomar alg\xC3\xBAn tiempo\x2C \xC3\xA9sto depender\xC3\xA1 de la velocidad de su conexi\xC3\xB3n a Internet. Sin embargo\x2C si usted cuenta con una versi\xC3\xB3n anterior de OpenSceneryX ya instalada\x2C el instalador la detectar\xC3\xA1 y \xC3\xBAnicamente descargar\xC3\xA1 los archivos nuevos o aquellos que hayan cambiado.\r"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Benvenuto nell\xE2\x80\x99Installatore di OpenSceneryX.\n\nQuesto installatore scaricher\xC3\xA0 automaticamente la versione pi\xC3\xB9 recente di OpenSceneryX per X-Plane\xC2\xAE nel tuo hard disk.\n\nLa libreria \xC3\xA8 larga e il tempo per scaricare varia in base alla tua connessione Internet. Comunque\x2C se hai gi\xC3\xA0 una versione passata di OpenSceneryX installata\x2C l\xE2\x80\x99installatore la trover\xC3\xA0 e scaricher\xC3\xA0 i file nuovi e quelli che sono cambiati."
 	#tag EndConstant
 
 	#tag Constant, Name = kLicenseText1, Type = String, Dynamic = True, Default = \"This work is licensed under the Creative Commons Attribution-Noncommercial-No Derivative Works 2.0 UK: England and Wales License.", Scope = Public
@@ -3568,6 +3625,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Praca ta jest licencjonowana za pomoc\xC4\x85 licencji Creative Commons Attribution-Noncommercial-No Derivative Works 2.0 UK: England and Wales."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9B\xD0\xB8\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB7\xD0\xB8\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB0\xD0\xBD\xD0\xB8\xD0\xB5 \xD0\xBD\xD0\xB0 \xD1\x83\xD1\x81\xD0\xBB\xD0\xBE\xD0\xB2\xD0\xB8\xD1\x8F\xD1\x85 Creative Commons Attribution-Noncommercial-No Derivative Works 2.0 UK: England and Wales License."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Este trabajo se encuentra bajo una Licencia CreativeCommons Reconocimiento-NoComercial-SinObraDerivada 3.0 Unported."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Questo lavoro \xC3\xA8 licenziato sotto la Creative Commons Attribution-Noncommercial-No Derivative Works 2.0 UK: Licenza Inghilterra e Galles"
 	#tag EndConstant
 
 	#tag Constant, Name = kLicenseText2, Type = String, Dynamic = True, Default = \"To view a copy of this license\x2C click here", Scope = Public
@@ -3578,6 +3636,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Aby przeczyta\xC4\x87 kopi\xC4\x99 licencji\x2C kliknij tutaj"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x94\xD0\xBB\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD1\x81\xD0\xBC\xD0\xBE\xD1\x82\xD1\x80\xD0\xB0 \xD0\xBA\xD0\xBE\xD0\xBF\xD0\xB8\xD0\xB8 \xD0\x9B\xD0\xB8\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB7\xD0\xB8\xD0\xB8\x2C \xD0\xBD\xD0\xB0\xD0\xB6\xD0\xBC\xD0\xB8\xD1\x82\xD0\xB5 \xD0\xB7\xD0\xB4\xD0\xB5\xD1\x81\xD1\x8C"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Para ver una copia de esta licencia\x2C pulse aqu\xC3\xAD"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Per vedere una copia della licenza\x2C premi qui"
 	#tag EndConstant
 
 	#tag Constant, Name = kLicenseText3, Type = String, Dynamic = True, Default = \"Alternatively\x2C send a letter to Creative Commons\x2C 171 Second Street\x2C Suite 300\x2C San Francisco\x2C California\x2C 94105\x2C USA.", Scope = Public
@@ -3588,6 +3647,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Alternatywnie\x2C wy\xC5\x9Blij list do:\rCreative Commons\x2C 171 Second Street\x2C Suite 300\x2C San Francisco\x2C California\x2C 94105\x2C USA."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x98\xD0\xBB\xD0\xB8 \xD0\xBF\xD0\xB8\xD1\x81\xD1\x8C\xD0\xBC\xD0\xB5\xD0\xBD\xD0\xBD\xD0\xBE \xD0\xBE\xD0\xB1\xD1\x80\xD0\xB0\xD1\x82\xD0\xB8\xD1\x82\xD0\xB5\xD1\x81\xD1\x8C \xD0\xBF\xD0\xBE \xD0\xB0\xD0\xB4\xD1\x80\xD0\xB5\xD1\x81\xD1\x83: Creative Commons\x2C 171 Second Street\x2C Suite 300\x2C San Francisco\x2C California\x2C 94105\x2C USA."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Alternativamente\x2C env\xC3\xADe una carta a Creative Commons\x2C 444 Castro Street\x2C Suite 900\x2C Mountain View California\x2C 94041\x2C USA."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Alternativamente\x2C manda una lettera a \xE2\x80\x9CCreative Commons\x2C 171 Second Street\x2C Suite 300\x2C San Francisco\x2C California\x2C 94105\x2C USA\xE2\x80\x9D."
 	#tag EndConstant
 
 	#tag Constant, Name = kManifestDownloaded, Type = String, Dynamic = True, Default = \"The download of the list of files is complete.", Scope = Public
@@ -3611,6 +3671,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Nowa wersja Instalatora jest dost\xC4\x99pna\x2C pobierz j\xC4\x85 ze strony OpenSceneryX klikaj\xC4\x85c na logo u g\xC3\xB3ry tego okna."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x94\xD0\xBE\xD1\x81\xD1\x82\xD1\x83\xD0\xBF\xD0\xBD\xD0\xB0 \xD0\xBD\xD0\xBE\xD0\xB2\xD0\xB0\xD1\x8F \xD0\xB2\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x8B \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8\x2C \xD0\xB4\xD0\xBB\xD1\x8F \xD0\xB7\xD0\xB0\xD0\xB3\xD1\x80\xD1\x83\xD0\xB7\xD0\xBA\xD0\xB8 \xD1\x81 \xD0\xB2\xD0\xB5\xD0\xB1-\xD1\x81\xD0\xB0\xD0\xB9\xD1\x82\xD0\xB0 OpenSceneryX  \xD0\xBD\xD0\xB0\xD0\xB6\xD0\xBC\xD0\xB8\xD1\x82\xD0\xB5 \xD0\xBB\xD0\xBE\xD0\xB3\xD0\xBE\xD1\x82\xD0\xB8\xD0\xBF \xD0\xB2\xD0\xB2\xD0\xB5\xD1\x80\xD1\x85\xD1\x83 \xD0\xBE\xD0\xBA\xD0\xBD\xD0\xB0."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Hay una versi\xC3\xB3n nueva del instalador\x2C por favor desc\xC3\xA1rguela del sitio web de OpenSceneryX pulsando en el logotipo que aparece en la parte superior de esta pantalla."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"C\xE2\x80\x99\xC3\xA8 una nuova versione dell\xE2\x80\x99installatore disponibile\x2C per favore scaricala dal sito di OpenSceneryX premendo sul logo in cima a questa finestra."
 	#tag EndConstant
 
 	#tag Constant, Name = kNoFilesToDelete, Type = String, Dynamic = True, Default = \"No files need to be deleted.", Scope = Public
@@ -3622,6 +3683,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"\xC5\xBBadne pliki nie zostan\xC4\x85 skasowane."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xB5\xD0\xBD\xD0\xB8\xD0\xB5 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xBE\xD0\xB2 \xD0\xBD\xD0\xB5 \xD1\x82\xD1\x80\xD0\xB5\xD0\xB1\xD1\x83\xD0\xB5\xD1\x82\xD1\x81\xD1\x8F"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Ning\xC3\xBAn archivo necesita ser borrado."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Nessun file deve essere cancellato."
 	#tag EndConstant
 
 	#tag Constant, Name = kScanDisabled, Type = String, Dynamic = True, Default = \"Scan Disabled Packages", Scope = Public
@@ -3633,6 +3695,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Skanuj wy\xC5\x82\xC4\x85czone pakiety"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBA\xD0\xB0 \xD0\xBE\xD1\x82\xD0\xBA\xD0\xBB\xD1\x8E\xD1\x87\xD0\xB5\xD0\xBD\xD0\xBD\xD1\x8B\xD1\x85 \xD0\xBF\xD0\xB0\xD0\xBA\xD0\xB5\xD1\x82\xD0\xBE\xD0\xB2"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Analizar Paquetes Desactivados."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Scansione dei Pacchetti Disabilitati"
 	#tag EndConstant
 
 	#tag Constant, Name = kScanDisabledHelp, Type = String, Dynamic = True, Default = \"Scan both your \'Custom Scenery\' and \'Custom Scenery (disabled)\' folders\x2C searching for packages that use OpenSceneryX.", Scope = Public
@@ -3644,36 +3707,47 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Skanuj katalogi \'Custom Scenery\' oraz \'Custom Scenery(wy\xC5\x82\xC4\x85czone)\'\x2C szukaj\xC4\x85c pakiet\xC3\xB3w u\xC5\xBCywajacych OpenSceneryX."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB5\xD1\x80\xD0\xB8\xD1\x82\xD1\x8C \xD0\xBE\xD0\xB1\xD0\xB5 \xD0\xBF\xD0\xB0\xD0\xBF\xD0\xBA\xD0\xB8 \'Custom Scenery\' \xD0\xB8 \'Custom Scenery (disabled)\'\x2C \xD0\xB4\xD0\xBB\xD1\x8F \xD0\xBF\xD0\xBE\xD0\xB8\xD1\x81\xD0\xBA\xD0\xB0 \xD0\xBF\xD0\xB0\xD0\xBA\xD0\xB5\xD1\x82\xD0\xBE\xD0\xB2\x2C \xD0\xB8\xD1\x81\xD0\xBF\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xB7\xD1\x83\xD1\x8E\xD1\x89\xD0\xB8\xD1\x85 OpenSceneryX."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Analizando sus carpetas \"Custom Scenery\" y \"Custom Scenery (desactivado)\"\x2C buscando paquetes que usan OpenSceneryX."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Scansione di entrambe le tue cartelle \'Custom Scenery\xE2\x80\x99 e \xE2\x80\x98Custom Scenery (disabilitati)\xE2\x80\x99\x2C cercando per i pacchetti che usa OpenSceneryX."
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasons, Type = String, Dynamic = True, Default = \"Seasons", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Stagioni"
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsDescription, Type = String, Dynamic = True, Default = \"Some OpenSceneryX items have seasonal variants. Choose which method should be used to select the season. Plugins must be separately installed.", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Alcuni oggetti OpenSceneryX hanno varianti stagionali. Scegli quale metodo deve essere usato per selezionare la stagione. Il Plugins deve essere installato separatamente. "
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsDisable, Type = String, Dynamic = True, Default = \"Disable OpenSceneryX Seasons", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Disabilita Stagioni OpenSceneryX "
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsFourSeasons, Type = String, Dynamic = True, Default = \"Four Seasons Plugin", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Plugin Quattro Stagioni"
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsFourSeasonsMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the Four Seasons Plugin", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Di pi\xC3\xB9 sul Plugin Quattro Stagioni"
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsTerraMaxx, Type = String, Dynamic = True, Default = \"TerraMaxx Plugin", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Plugin TerraMaxx"
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsTerraMaxxMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the TerraMaxx Plugin", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Di pi\xC3\xB9 sul Plugin TerraMaxx"
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsXAmbience, Type = String, Dynamic = True, Default = \"xAmbience Plugin", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Plugin xAmbience"
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsXAmbienceMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the xAmbience Plugin", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Di pi\xC3\xB9 sul Plugin xAmbience"
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsXPlane, Type = String, Dynamic = True, Default = \"X-Plane\xC2\xAE Default", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"X-Plane\xC2\xAE Predefinito"
 	#tag EndConstant
 
 	#tag Constant, Name = kSeparator, Type = String, Dynamic = False, Default = \"----", Scope = Public
@@ -3700,6 +3774,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Instaluj"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xB8\xD1\x82\xD1\x8C"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Instalar"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Installa"
 	#tag EndConstant
 
 	#tag Constant, Name = kStageInstallerVersion, Type = String, Dynamic = True, Default = \"Installer Version", Scope = Public
@@ -3711,6 +3786,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Wersja Instalatora"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x92\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x8B \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Versi\xC3\xB3n del Instalador"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Versione dell\xE2\x80\x99Installatore"
 	#tag EndConstant
 
 	#tag Constant, Name = kStageIntroduction, Type = String, Dynamic = True, Default = \"Introduction", Scope = Public
@@ -3722,6 +3798,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Wprowadzenie"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x92\xD0\xB2\xD0\xB5\xD0\xB4\xD0\xB5\xD0\xBD\xD0\xB8\xD0\xB5"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Introducci\xC3\xB3n"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Introduzione"
 	#tag EndConstant
 
 	#tag Constant, Name = kStageLicense, Type = String, Dynamic = True, Default = \"License", Scope = Public
@@ -3733,6 +3810,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Licencja"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9B\xD0\xB8\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB7\xD0\xB8\xD1\x8F"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Licencia"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Licenza"
 	#tag EndConstant
 
 	#tag Constant, Name = kStageLocalScan, Type = String, Dynamic = True, Default = \"Compare Local To Remote", Scope = Public
@@ -3744,9 +3822,11 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Por\xC3\xB3wnaj lokalne do zdalnych"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA1\xD1\x80\xD0\xB0\xD0\xB2\xD0\xBD\xD0\xB5\xD0\xBD\xD0\xB8\xD0\xB5 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xBE\xD0\xB2"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Comparar Local con Remoto"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Compara i file locali con quelli remoti"
 	#tag EndConstant
 
 	#tag Constant, Name = kStageSettings, Type = String, Dynamic = True, Default = \"Settings", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Impostazioni"
 	#tag EndConstant
 
 	#tag Constant, Name = kStageSummary, Type = String, Dynamic = True, Default = \"Summary", Scope = Public
@@ -3758,6 +3838,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Podsumowanie"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x97\xD0\xB0\xD0\xB2\xD0\xB5\xD1\x80\xD1\x88\xD0\xB5\xD0\xBD\xD0\xB8\xD0\xB5"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Resumen"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Riassunto"
 	#tag EndConstant
 
 	#tag Constant, Name = kTypeOfInstall, Type = String, Dynamic = True, Default = \"Type of Install", Scope = Public
@@ -3769,9 +3850,11 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Typ instalacji"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA2\xD0\xB8\xD0\xBF \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Tipo de instalaci\xC3\xB3n"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Tipo di Installazione"
 	#tag EndConstant
 
 	#tag Constant, Name = kUseSteam, Type = String, Dynamic = True, Default = \"Use Steam", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Usa Steam"
 	#tag EndConstant
 
 	#tag Constant, Name = kXPlaneFolder, Type = String, Dynamic = True, Default = \"X-Plane\xC2\xAE Folder", Scope = Public

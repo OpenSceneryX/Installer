@@ -205,6 +205,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Zgoda"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xB8\xD0\xBD\xD0\xB8\xD0\xBC\xD0\xB0\xD1\x8E"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"De Acuerdo"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Accetto"
 	#tag EndConstant
 
 	#tag Constant, Name = kAgreeLicense, Type = String, Dynamic = True, Default = \"To continue installing the software you must agree to the terms of the license.", Scope = Public
@@ -216,6 +217,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Aby kontynuowa\xC4\x87 instalacj\xC4\x99 oprogramowania musisz zgodzi\xC4\x87 si\xC4\x99 na warunki licencji."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x94\xD0\xBB\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB4\xD0\xBE\xD0\xBB\xD0\xB6\xD0\xB5\xD0\xBD\xD0\xB8\xD1\x8F \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8 \xD0\xB2\xD1\x8B \xD0\xB4\xD0\xBE\xD0\xBB\xD0\xB6\xD0\xBD\xD1\x8B \xD0\xBF\xD1\x80\xD0\xB8\xD0\xBD\xD1\x8F\xD1\x82\xD1\x8C \xD1\x83\xD1\x81\xD0\xBB\xD0\xBE\xD0\xB2\xD0\xB8\xD1\x8F \xD0\x9B\xD0\xB8\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB7\xD0\xB8\xD0\xBE\xD0\xBD\xD0\xBD\xD0\xBE\xD0\xB3\xD0\xBE \xD1\x81\xD0\xBE\xD0\xB3\xD0\xBB\xD0\xB0\xD1\x88\xD0\xB5\xD0\xBD\xD0\xB8\xD1\x8F."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Para continuar instalando el programa debe estar de acuerdo con los t\xC3\xA9rminos de la licencia."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Per continuare l\xE2\x80\x99installazione del software devi accettare i termini della licenza. "
 	#tag EndConstant
 
 	#tag Constant, Name = kClickAgree, Type = String, Dynamic = True, Default = \"Click Agree to continue or click Disagree to cancel the installation and quit the Installer.", Scope = Public
@@ -227,6 +229,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Kliknij Zgoda aby kontynuowa\xC4\x87 lub Odmawiam aby przerwa\xC4\x87 instalacj\xC4\x99 i zako\xC5\x84czy\xC4\x87 Instalator."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9D\xD0\xB0\xD0\xB6\xD0\xB0\xD1\x82\xD1\x8C \xD0\x9F\xD1\x80\xD0\xB8\xD0\xBD\xD0\xB8\xD0\xBC\xD0\xB0\xD1\x8E \xD0\xB4\xD0\xBB\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB4\xD0\xBE\xD0\xBB\xD0\xB6\xD0\xB5\xD0\xBD\xD0\xB8\xD1\x8F \xD0\xB8\xD0\xBB\xD0\xB8 \xD0\x9D\xD0\xB5 \xD0\xBF\xD1\x80\xD0\xB8\xD0\xBD\xD0\xB8\xD0\xBC\xD0\xB0\xD1\x8E \xD0\xB4\xD0\xBB\xD1\x8F \xD0\xBE\xD1\x82\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x8B \xD0\xB8 \xD0\xB2\xD1\x8B\xD1\x85\xD0\xBE\xD0\xB4\xD0\xB0 \xD0\xB8\xD0\xB7 \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x8B \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Pulse \"De Acuerdo\" para continuar o pulse \"En Desacuerdo\" para cancelar la instalaci\xC3\xB3n y salir del instalador."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Premi \xE2\x80\x9CAccetto\xE2\x80\x9D per continuare o premi \xE2\x80\x9CRifiuto\xE2\x80\x9D per cancellare l\xE2\x80\x99installazione e uscire dall\xE2\x80\x99Installatore."
 	#tag EndConstant
 
 	#tag Constant, Name = kDisagree, Type = String, Dynamic = True, Default = \"Disagree", Scope = Public
@@ -238,6 +241,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Odmawiam"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9D\xD0\xB5 \xD0\xBF\xD1\x80\xD0\xB8\xD0\xBD\xD0\xB8\xD0\xBC\xD0\xB0\xD1\x8E"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"En Desacuerdo"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Rifiuto"
 	#tag EndConstant
 
 	#tag Constant, Name = kReadLicense, Type = String, Dynamic = True, Default = \"Read License", Scope = Public
@@ -249,6 +253,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Przeczytaj Licencj\xC4\x99"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD1\x87\xD0\xB5\xD1\x81\xD1\x82\xD1\x8C \xD0\xBB\xD0\xB8\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB7\xD0\xB8\xD1\x8E"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Lea la Licencia"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Leggi la Licenza"
 	#tag EndConstant
 
 	#tag Constant, Name = kWindowTitle, Type = String, Dynamic = True, Default = \"Confirm License", Scope = Public
@@ -260,6 +265,7 @@ End
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Zatwierd\xC5\xBA Licencj\xC4\x99"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD0\xBE\xD0\xB4\xD1\x82\xD0\xB2\xD0\xB5\xD1\x80\xD0\xB4\xD0\xB8\xD1\x82\xD1\x8C \xD0\x9B\xD0\xB8\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB7\xD0\xB8\xD1\x8E"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Confirme la Licencia"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Conferma la Licenza"
 	#tag EndConstant
 
 
