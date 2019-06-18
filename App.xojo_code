@@ -186,13 +186,14 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kDonationPrompt, Type = String, Dynamic = True, Default = \"If you use and like the library\x2C please consider a donation to keep it running:", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Se usi e ti piace questa libreria\x2C per favore considera una donazione per farla crescere:"
 	#tag EndConstant
 
 	#tag Constant, Name = kEdit, Type = String, Dynamic = True, Default = \"&Edit", Scope = Public
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"&Editer"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"&Editar"
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"&Edita"
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Edita"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Modifica"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"&Bearbeiten"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"B&ewerken"
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\xA2\xD7\xA8\xD7\x95\xD7\x9A"
@@ -279,7 +280,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"&Annuler"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"&Deshacer"
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"&Desf\xC3\xA9s"
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"Ann&ulla"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Annulla "
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"&R\xC3\xBCckg\xC3\xA4ngig"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"&Ongedaan maken"
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x91\xD7\x98\xD7\x9C"
@@ -303,7 +304,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Este instalador no puede operar sin saber donde est\xC3\xA1 ubicada su carpeta de X-Plane\xC2\xAE y dejar\xC3\xA1 de ejecutarse."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"L\'installeur ne peut pas fonctionner sans X-Plane\xC2\xAE et va maintenant \xC3\xAAtre ferm\xC3\xA9."
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Aquest instal\xC2\xB7lador no pot continuar sense saber on \xC3\xA9s la vostra carpeta de l\'X-Plane\xC2\xAE i ara es tancar\xC3\xA0."
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"Questo installatore non pu\xC3\xB2 continuare senza aver specificato la posizione della cartella di X-Plane\xC2\xAE e verr\xC3\xA0 terminato."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Questo installatore non pu\xC3\xB2 lavorare senza aver specificato la posizione della cartella di X-Plane\xC2\xAE e quindi verr\xC3\xA0 chiuso."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Dieses Installationsprogramm funktioniert nicht\x2C solange der X-Plane\xC2\xAE Ordner nicht lokalisiert ist. Das Programm wird nun beendet."
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Deze installer werkt niet als hij niet weet waar je X-Plane\xC2\xAE map is en wordt nu afgesloten."
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x94\xD7\x9E\xD7\xAA\xD7\xA7\xD7\x99\xD7\x9F \xD7\x94\xD7\x96\xD7\x94 \xD7\x9C\xD7\x90 \xD7\x99\xD7\x9B\xD7\x95\xD7\x9C \xD7\x9C\xD7\xA2\xD7\x91\xD7\x95\xD7\x93 \xD7\x9E\xD7\x91\xD7\x9C\xD7\x99 \xD7\x9C\xD7\x93\xD7\xA2\xD7\xAA \xD7\x94\xD7\x99\xD7\x9B\xD7\x9F \xD7\xAA\xD7\x99\xD7\xA7\xD7\x99\xD7\xAA \xD7\x94\xD7\x90\xD7\xA7\xD7\xA1-\xD7\xA4\xD7\x9C\xD7\x9F\xC2\xAE \xD7\xA9\xD7\x9C\xD7\x9A \xD7\xA0\xD7\x9E\xD7\xA6\xD7\x90\xD7\xAA \xD7\x95\xD7\x9B\xD7\xA2\xD7\xAA \xD7\x99\xD7\x99\xD7\xA1\xD7\x92\xD7\xA8."
@@ -312,9 +313,11 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kErrorSteamNotFound, Type = String, Dynamic = True, Default = \"A Steam installation could not be found.", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Un installazione di Steam non pu\xC3\xB2 essere trovata. "
 	#tag EndConstant
 
 	#tag Constant, Name = kErrorXPlaneSteamFolderNotFound, Type = String, Dynamic = True, Default = \"The XPlane Steam folder could not be found at ${1}.", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"La cartella di XPlane Steam non pu\xC3\xB2 essere trovata a ${1}."
 	#tag EndConstant
 
 	#tag Constant, Name = kFile, Type = String, Dynamic = True, Default = \"&File", Scope = Public
@@ -338,6 +341,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"&Zamknij"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x97\xD0\xB0\xD0\xBA\xD1\x80\xD1\x8B\xD1\x82\xD1\x8C"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"&Cerrar"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Chiudi"
 	#tag EndConstant
 
 	#tag Constant, Name = kFileQuit, Type = String, Dynamic = True, Default = \"&Quit", Scope = Public
@@ -348,7 +352,7 @@ Inherits Application
 		#Tag Instance, Platform = Windows, Language = fr, Definition  = \"&Quitter"
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"&Surt"
 		#Tag Instance, Platform = Windows, Language = ca, Definition  = \"&Surt"
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Chiudi"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Esci"
 		#Tag Instance, Platform = Windows, Language = it, Definition  = \"&Chiudi"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"&Beenden"
 		#Tag Instance, Platform = Windows, Language = de, Definition  = \"&Beenden"
@@ -368,7 +372,7 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kHelp, Type = String, Dynamic = True, Default = \"&Help", Scope = Public
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"Aiut&o"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Aiuto"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"&Hilfe"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"&Help"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"&Aide"
@@ -517,6 +521,12 @@ Inherits Application
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="pPlatform"
+			Group="Behavior"
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass
