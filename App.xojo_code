@@ -188,6 +188,7 @@ Inherits Application
 	#tag Constant, Name = kDonationPrompt, Type = String, Dynamic = True, Default = \"If you use and like the library\x2C please consider a donation to keep it running:", Scope = Public
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"Se usi e ti piace questa libreria\x2C per favore considera una donazione per farla crescere:"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x95\xD1\x81\xD0\xBB\xD0\xB8 \xD0\xB2\xD0\xB0\xD0\xBC \xD0\xBF\xD0\xBE\xD0\xBD\xD1\x80\xD0\xB0\xD0\xB2\xD0\xB8\xD0\xBB\xD0\xBE\xD1\x81\xD1\x8C \xD0\xBF\xD1\x80\xD0\xB8\xD0\xBB\xD0\xBE\xD0\xB6\xD0\xB5\xD0\xBD\xD0\xB8\xD0\xB5 \xD0\xB8 \xD0\xB2\xD1\x8B \xD0\xB5\xD0\xB3\xD0\xBE \xD0\xB8\xD1\x81\xD0\xBF\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xB7\xD1\x83\xD0\xB5\xD1\x82\xD0\xB5\x2C \xD0\xBF\xD0\xBE\xD0\xB6\xD0\xB0\xD0\xBB\xD1\x83\xD0\xB9\xD1\x81\xD1\x82\xD0\xB0 \xD1\x80\xD0\xB0\xD1\x81\xD1\x81\xD0\xBC\xD0\xBE\xD1\x82\xD1\x80\xD0\xB8\xD1\x82\xD0\xB5 \xD0\xB2\xD0\xBE\xD0\xB7\xD0\xBC\xD0\xBE\xD0\xB6\xD0\xBD\xD0\xBE\xD1\x81\xD1\x82\xD1\x8C \xD0\xBF\xD0\xBE\xD0\xB6\xD0\xB5\xD1\x80\xD1\x82\xD0\xB2\xD0\xBE\xD0\xB2\xD0\xB0\xD0\xBD\xD0\xB8\xD1\x8F \xD0\xBD\xD0\xB0 \xD0\xB5\xD0\xB3\xD0\xBE \xD0\xBF\xD0\xBE\xD0\xB4\xD0\xB4\xD0\xB5\xD1\x80\xD0\xB6\xD0\xBA\xD1\x83"
+		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Indien je de scenery bestanden mooi vindt en gebruikt\x2C overweeg dan een donatie om het project te ondersteunen."
 	#tag EndConstant
 
 	#tag Constant, Name = kEdit, Type = String, Dynamic = True, Default = \"&Edit", Scope = Public
@@ -316,11 +317,13 @@ Inherits Application
 	#tag Constant, Name = kErrorSteamNotFound, Type = String, Dynamic = True, Default = \"A Steam installation could not be found.", Scope = Public
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"Un installazione di Steam non pu\xC3\xB2 essere trovata. "
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9D\xD0\xB5 \xD1\x83\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xBE\xD1\x81\xD1\x8C \xD0\xBD\xD0\xB0\xD0\xB9\xD1\x82\xD0\xB8 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD1\x83 Steam."
+		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Een Steam installatie kon niet worden gevonden"
 	#tag EndConstant
 
 	#tag Constant, Name = kErrorXPlaneSteamFolderNotFound, Type = String, Dynamic = True, Default = \"The XPlane Steam folder could not be found at ${1}.", Scope = Public
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"La cartella di XPlane Steam non pu\xC3\xB2 essere trovata a ${1}."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD0\xB0\xD0\xBF\xD0\xBA\xD0\xB0 XPlane Steam \xD0\xBD\xD0\xB5 \xD0\xBC\xD0\xBE\xD0\xB6\xD0\xB5\xD1\x82 \xD0\xB1\xD1\x8B\xD1\x82\xD1\x8C \xD0\xBD\xD0\xB0\xD0\xB9\xD0\xB4\xD0\xB5\xD0\xBD\xD0\xB0 \xD0\xB2"
+		#Tag Instance, Platform = Any, Language = nl, Definition  = \"De XPlane Steam map kon niet worden gevonden bij ${1}."
 	#tag EndConstant
 
 	#tag Constant, Name = kFile, Type = String, Dynamic = True, Default = \"&File", Scope = Public
