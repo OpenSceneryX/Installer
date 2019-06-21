@@ -3275,7 +3275,7 @@ End
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"OpenSceneryX pu\xC3\xB2 incorporare elementi nel cuore del sistema di autogenerazione di X-Plane\xC2\xAE."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"OpenSceneryX \xD0\xBC\xD0\xBE\xD0\xB6\xD0\xB5\xD1\x82 \xD0\xB2\xD0\xBA\xD0\xBB\xD1\x8E\xD1\x87\xD0\xB0\xD1\x82\xD1\x8C \xD1\x8D\xD0\xBB\xD0\xB5\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x82\xD1\x8B \xD0\xB2 \xD0\xBE\xD1\x81\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBD\xD1\x8B\xD0\xB5 \xD1\x81\xD0\xB8\xD1\x81\xD1\x82\xD0\xB5\xD0\xBC\xD1\x8B \xD0\xB0\xD0\xB2\xD1\x82\xD0\xBE\xD0\xB3\xD0\xB5\xD0\xBD\xD0\xBE\xD0\xB2 X-Plane\xC2\xAE."
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"OpenSceneryX kan elementen in de X-Plane\xC2\xAE hoofd programma verwerken."
-		#Tag Instance, Platform = Any, Language = fr, Definition  = \"OpenSceneryX peut incorporer des \xC3\xA9l\xC3\xA9m\xC3\xA9ents dans l\'autogen d\'X-Plane\xC2\xAE."
+		#Tag Instance, Platform = Any, Language = fr, Definition  = \"OpenSceneryX peut incorporer des \xC3\xA9l\xC3\xA9ments dans l\'autogen d\'X-Plane\xC2\xAE."
 	#tag EndConstant
 
 	#tag Constant, Name = kCoreIntegrationForestEnable, Type = String, Dynamic = True, Default = \"Incorporate HD forests", Scope = Public
