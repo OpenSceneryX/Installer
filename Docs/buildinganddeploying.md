@@ -4,6 +4,14 @@ Building and Deploying the Installer
 Prerequisites and Notes
 -----------------------
 
+* To test running the installer in a different language, on the Mac you can pass arguments to the debugger.  For example, to run in Hebrew, in _Shared_ -> _Debug_ -> _Command Line Arguments_:
+
+    ```
+    --args -AppleLanguages "(he)" -AppleLocale he
+    ```
+
+    In Windows, it seems the only way is to switch the System language to the language to be tested.
+
 * The Windows version of the installer needs the `zlib1` DLL to be included at the same level as the executable.  This is done by a Windows build step, but the DLL must be downloaded and present at `Libraries/zlib1-64/zlib1.dll`
 
 * The Windows version needs to run as an administrator.  This is done by a Windows build step, but the Windows VM (or machine) must have [rcedit](https://github.com/electron/rcedit) installed.
@@ -36,35 +44,27 @@ Building
 
 * Notarize Mac `.dmg` - see separate [notarizing instructions](notarizing.md)
 
-* Upload all installers to the AWS S3 bucket, replacing existing versions.
+* Edit names of zips and dmg to insert version number at end, before extension. The Mac one also needs `Mac-` inserted, all this ought to be automated…
+
+* Upload all installers to the AWS S3 bucket.
 
 * In AWS S3 console, select new uploads and choose _Actions -> Make Public_
 
 * Upload `versioninfo/installerversion.txt` and `versioninfo/installerreleasenotes.html` to hosting servers, replacing existing versions.
 
-* In AWS Cloudfront console, create invalidatation in `downloads.opensceneryx.com` distribution for the following paths:
-    ```
-    /OpenSceneryX-Installer-Mac.dmg
-    /OpenSceneryX-Installer-Windows.zip
-    /OpenSceneryX-Installer-Linux-x86-64.zip
-    /OpenSceneryX-Installer-Linux-x86-32.zip
-    /OpenSceneryX-Installer-Linux-ARM-32.zip
-    ```
 * Clear Cloudflare cache for the following URLs:
 
     ```
-    https://downloads.opensceneryx.com/OpenSceneryX-Installer.dmg
-    https://downloads.opensceneryx.com/OpenSceneryX-Installer-Windows.zip
-    https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-x86-64.zip
-    https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-x86-32.zip
-    https://downloads.opensceneryx.com/OpenSceneryX-Installer-Linux-ARM-32.zip
     https://www.opensceneryx.com/versioninfo/installerreleasenotes.html
     https://www.opensceneryx.com/versioninfo/installerversion.txt
     ```
 
+* Edit the website homepage to update the version number on all downloads. As the Gutenberg visual editor can't (yet) cope with the download block, currently do this by searching and replacing directly in the database.
+
 * Promotion:
 
     - Post a new reply to the [x-plane.org main OpenSceneryX thread](https://forums.x-plane.org/index.php?/forums/topic/25174-opensceneryx-v320-released/&do=findComment&comment=277394)
+    - Post a new topic in the [ThresholdX OpenSceneryX Announcements Forum](https://forum.thresholdx.net/forum/157-announcements/)
 	- Post an article on the site
 	- Tweet
     - Reddit [r/Xplane](https://www.reddit.com/r/Xplane/)

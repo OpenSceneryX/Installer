@@ -30,6 +30,16 @@ Inherits Application
 		    removeAllCachedResponses( sharedURLCache( NSClassFromString( "NSURLCache" ) ) )
 		  #EndIf
 		  
+		  #If TargetMacOS Then
+		    App.pPlatform = "macOS"
+		  #ElseIf TargetLinux Then
+		    App.pPlatform = "Linux"
+		  #ElseIf TargetWindows Then
+		    App.pPlatform = "Windows"
+		  #Else
+		    App.pPlatform = "Unknown"
+		  #EndIf
+		  
 		  wndMain.show
 		  
 		End Sub
@@ -90,7 +100,7 @@ Inherits Application
 
 	#tag Method, Flags = &h0
 		Sub loadPreferences()
-		  Dim prefsFile As FolderItem = SpecialFolder.Preferences.Child(App.kApplicationName + ".plist")
+		  Dim prefsFile As FolderItem = SpecialFolder.Preferences.Child(App.kApplicationNameASCII + ".plist")
 		  If (prefsFile.exists) Then
 		    If (Not pPreferences.loadXML(prefsFile)) Then
 		      pPreferences = New Dictionary
@@ -126,7 +136,7 @@ Inherits Application
 
 	#tag Method, Flags = &h21
 		Private Sub savePreferences()
-		  dim prefsFile as FolderItem = SpecialFolder.Preferences().Child(App.kApplicationName + ".plist")
+		  dim prefsFile as FolderItem = SpecialFolder.Preferences().Child(App.kApplicationNameASCII + ".plist")
 		  dim result as Boolean = pPreferences.saveXML(prefsFile, true)
 		End Sub
 	#tag EndMethod
@@ -137,6 +147,10 @@ Inherits Application
 		End Function
 	#tag EndMethod
 
+
+	#tag Property, Flags = &h0
+		pPlatform As String
+	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		pPreferences As Dictionary
@@ -159,6 +173,9 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD0\xB0 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8 OpenSceneryX"
 	#tag EndConstant
 
+	#tag Constant, Name = kApplicationNameASCII, Type = String, Dynamic = False, Default = \"OpenSceneryX Installer", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kColourDarkBlue, Type = Color, Dynamic = False, Default = \"&c3634a3", Scope = Public
 	#tag EndConstant
 
@@ -169,13 +186,17 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kDonationPrompt, Type = String, Dynamic = True, Default = \"If you use and like the library\x2C please consider a donation to keep it running:", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Se usi e ti piace questa libreria\x2C per favore considera una donazione per farla crescere:"
+		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x95\xD1\x81\xD0\xBB\xD0\xB8 \xD0\xB2\xD0\xB0\xD0\xBC \xD0\xBF\xD0\xBE\xD0\xBD\xD1\x80\xD0\xB0\xD0\xB2\xD0\xB8\xD0\xBB\xD0\xBE\xD1\x81\xD1\x8C \xD0\xBF\xD1\x80\xD0\xB8\xD0\xBB\xD0\xBE\xD0\xB6\xD0\xB5\xD0\xBD\xD0\xB8\xD0\xB5 \xD0\xB8 \xD0\xB2\xD1\x8B \xD0\xB5\xD0\xB3\xD0\xBE \xD0\xB8\xD1\x81\xD0\xBF\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xB7\xD1\x83\xD0\xB5\xD1\x82\xD0\xB5\x2C \xD0\xBF\xD0\xBE\xD0\xB6\xD0\xB0\xD0\xBB\xD1\x83\xD0\xB9\xD1\x81\xD1\x82\xD0\xB0 \xD1\x80\xD0\xB0\xD1\x81\xD1\x81\xD0\xBC\xD0\xBE\xD1\x82\xD1\x80\xD0\xB8\xD1\x82\xD0\xB5 \xD0\xB2\xD0\xBE\xD0\xB7\xD0\xBC\xD0\xBE\xD0\xB6\xD0\xBD\xD0\xBE\xD1\x81\xD1\x82\xD1\x8C \xD0\xBF\xD0\xBE\xD0\xB6\xD0\xB5\xD1\x80\xD1\x82\xD0\xB2\xD0\xBE\xD0\xB2\xD0\xB0\xD0\xBD\xD0\xB8\xD1\x8F \xD0\xBD\xD0\xB0 \xD0\xB5\xD0\xB3\xD0\xBE \xD0\xBF\xD0\xBE\xD0\xB4\xD0\xB4\xD0\xB5\xD1\x80\xD0\xB6\xD0\xBA\xD1\x83"
+		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Indien je de scenery bestanden mooi vindt en gebruikt\x2C overweeg dan een donatie om het project te ondersteunen."
+		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Si vous utilisez et appr\xC3\xA9ciez cette biblioth\xC3\xA8que\x2C pensez \xC3\xA0 faire une donation pour la soutenir:"
 	#tag EndConstant
 
 	#tag Constant, Name = kEdit, Type = String, Dynamic = True, Default = \"&Edit", Scope = Public
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"&Editer"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"&Editar"
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"&Edita"
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Edita"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Modifica"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"&Bearbeiten"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"B&ewerken"
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\xA2\xD7\xA8\xD7\x95\xD7\x9A"
@@ -262,7 +283,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"&Annuler"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"&Deshacer"
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"&Desf\xC3\xA9s"
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"Ann&ulla"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Annulla "
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"&R\xC3\xBCckg\xC3\xA4ngig"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"&Ongedaan maken"
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x91\xD7\x98\xD7\x9C"
@@ -286,7 +307,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Este instalador no puede operar sin saber donde est\xC3\xA1 ubicada su carpeta de X-Plane\xC2\xAE y dejar\xC3\xA1 de ejecutarse."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"L\'installeur ne peut pas fonctionner sans X-Plane\xC2\xAE et va maintenant \xC3\xAAtre ferm\xC3\xA9."
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Aquest instal\xC2\xB7lador no pot continuar sense saber on \xC3\xA9s la vostra carpeta de l\'X-Plane\xC2\xAE i ara es tancar\xC3\xA0."
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"Questo installatore non pu\xC3\xB2 continuare senza aver specificato la posizione della cartella di X-Plane\xC2\xAE e verr\xC3\xA0 terminato."
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Questo installatore non pu\xC3\xB2 lavorare senza aver specificato la posizione della cartella di X-Plane\xC2\xAE e quindi verr\xC3\xA0 chiuso."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Dieses Installationsprogramm funktioniert nicht\x2C solange der X-Plane\xC2\xAE Ordner nicht lokalisiert ist. Das Programm wird nun beendet."
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Deze installer werkt niet als hij niet weet waar je X-Plane\xC2\xAE map is en wordt nu afgesloten."
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x94\xD7\x9E\xD7\xAA\xD7\xA7\xD7\x99\xD7\x9F \xD7\x94\xD7\x96\xD7\x94 \xD7\x9C\xD7\x90 \xD7\x99\xD7\x9B\xD7\x95\xD7\x9C \xD7\x9C\xD7\xA2\xD7\x91\xD7\x95\xD7\x93 \xD7\x9E\xD7\x91\xD7\x9C\xD7\x99 \xD7\x9C\xD7\x93\xD7\xA2\xD7\xAA \xD7\x94\xD7\x99\xD7\x9B\xD7\x9F \xD7\xAA\xD7\x99\xD7\xA7\xD7\x99\xD7\xAA \xD7\x94\xD7\x90\xD7\xA7\xD7\xA1-\xD7\xA4\xD7\x9C\xD7\x9F\xC2\xAE \xD7\xA9\xD7\x9C\xD7\x9A \xD7\xA0\xD7\x9E\xD7\xA6\xD7\x90\xD7\xAA \xD7\x95\xD7\x9B\xD7\xA2\xD7\xAA \xD7\x99\xD7\x99\xD7\xA1\xD7\x92\xD7\xA8."
@@ -295,9 +316,17 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kErrorSteamNotFound, Type = String, Dynamic = True, Default = \"A Steam installation could not be found.", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Un installazione di Steam non pu\xC3\xB2 essere trovata. "
+		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9D\xD0\xB5 \xD1\x83\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xBE\xD1\x81\xD1\x8C \xD0\xBD\xD0\xB0\xD0\xB9\xD1\x82\xD0\xB8 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD1\x83 Steam."
+		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Een Steam installatie kon niet worden gevonden"
+		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Une Sintallation Steam ne peut \xC3\xAAtre trouv\xC3\xA9e."
 	#tag EndConstant
 
 	#tag Constant, Name = kErrorXPlaneSteamFolderNotFound, Type = String, Dynamic = True, Default = \"The XPlane Steam folder could not be found at ${1}.", Scope = Public
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"La cartella di XPlane Steam non pu\xC3\xB2 essere trovata a ${1}."
+		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD0\xB0\xD0\xBF\xD0\xBA\xD0\xB0 XPlane Steam \xD0\xBD\xD0\xB5 \xD0\xBC\xD0\xBE\xD0\xB6\xD0\xB5\xD1\x82 \xD0\xB1\xD1\x8B\xD1\x82\xD1\x8C \xD0\xBD\xD0\xB0\xD0\xB9\xD0\xB4\xD0\xB5\xD0\xBD\xD0\xB0 \xD0\xB2"
+		#Tag Instance, Platform = Any, Language = nl, Definition  = \"De XPlane Steam map kon niet worden gevonden bij ${1}."
+		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Le dossier Steam d\'Xplane ne peut \xC3\xAAtre trouv\xC3\xA9 \xC3\xA0 l\'emplacement ${1}."
 	#tag EndConstant
 
 	#tag Constant, Name = kFile, Type = String, Dynamic = True, Default = \"&File", Scope = Public
@@ -321,6 +350,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"&Zamknij"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x97\xD0\xB0\xD0\xBA\xD1\x80\xD1\x8B\xD1\x82\xD1\x8C"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"&Cerrar"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Chiudi"
 	#tag EndConstant
 
 	#tag Constant, Name = kFileQuit, Type = String, Dynamic = True, Default = \"&Quit", Scope = Public
@@ -331,7 +361,7 @@ Inherits Application
 		#Tag Instance, Platform = Windows, Language = fr, Definition  = \"&Quitter"
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"&Surt"
 		#Tag Instance, Platform = Windows, Language = ca, Definition  = \"&Surt"
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Chiudi"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Esci"
 		#Tag Instance, Platform = Windows, Language = it, Definition  = \"&Chiudi"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"&Beenden"
 		#Tag Instance, Platform = Windows, Language = de, Definition  = \"&Beenden"
@@ -351,7 +381,7 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kHelp, Type = String, Dynamic = True, Default = \"&Help", Scope = Public
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"Aiut&o"
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"&Aiuto"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"&Hilfe"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"&Help"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"&Aide"
@@ -414,6 +444,9 @@ Inherits Application
 	#tag Constant, Name = kPreferenceDeleteUnused, Type = String, Dynamic = False, Default = \"DeleteUnused", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPreferenceHDForests, Type = String, Dynamic = False, Default = \"HDForests", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPreferenceInstallType, Type = String, Dynamic = False, Default = \"InstallType", Scope = Public
 	#tag EndConstant
 
@@ -462,10 +495,10 @@ Inherits Application
 	#tag Constant, Name = kURLBackupLibrary, Type = Text, Dynamic = False, Default = \"https://forums.x-plane.org/index.php\?/files/file/25033-backup-scenery-library/", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/manifest-beta.xml.zip", Scope = Public
+	#tag Constant, Name = kURLDevManifest, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/manifest.xml.zip", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/repository-beta", Scope = Public
+	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/repository", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
@@ -497,6 +530,12 @@ Inherits Application
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="pPlatform"
+			Group="Behavior"
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass
