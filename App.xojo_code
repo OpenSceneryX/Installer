@@ -190,6 +190,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x95\xD1\x81\xD0\xBB\xD0\xB8 \xD0\xB2\xD0\xB0\xD0\xBC \xD0\xBF\xD0\xBE\xD0\xBD\xD1\x80\xD0\xB0\xD0\xB2\xD0\xB8\xD0\xBB\xD0\xBE\xD1\x81\xD1\x8C \xD0\xBF\xD1\x80\xD0\xB8\xD0\xBB\xD0\xBE\xD0\xB6\xD0\xB5\xD0\xBD\xD0\xB8\xD0\xB5 \xD0\xB8 \xD0\xB2\xD1\x8B \xD0\xB5\xD0\xB3\xD0\xBE \xD0\xB8\xD1\x81\xD0\xBF\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xB7\xD1\x83\xD0\xB5\xD1\x82\xD0\xB5\x2C \xD0\xBF\xD0\xBE\xD0\xB6\xD0\xB0\xD0\xBB\xD1\x83\xD0\xB9\xD1\x81\xD1\x82\xD0\xB0 \xD1\x80\xD0\xB0\xD1\x81\xD1\x81\xD0\xBC\xD0\xBE\xD1\x82\xD1\x80\xD0\xB8\xD1\x82\xD0\xB5 \xD0\xB2\xD0\xBE\xD0\xB7\xD0\xBC\xD0\xBE\xD0\xB6\xD0\xBD\xD0\xBE\xD1\x81\xD1\x82\xD1\x8C \xD0\xBF\xD0\xBE\xD0\xB6\xD0\xB5\xD1\x80\xD1\x82\xD0\xB2\xD0\xBE\xD0\xB2\xD0\xB0\xD0\xBD\xD0\xB8\xD1\x8F \xD0\xBD\xD0\xB0 \xD0\xB5\xD0\xB3\xD0\xBE \xD0\xBF\xD0\xBE\xD0\xB4\xD0\xB4\xD0\xB5\xD1\x80\xD0\xB6\xD0\xBA\xD1\x83"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Indien je de scenery bestanden mooi vindt en gebruikt\x2C overweeg dan een donatie om het project te ondersteunen."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Si vous utilisez et appr\xC3\xA9ciez cette biblioth\xC3\xA8que\x2C pensez \xC3\xA0 faire une donation pour la soutenir:"
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"Ay\xC3\xBAdanos a seguir manteniendo la librer\xC3\xADa. Si la usas y te gusta por favor considera hacer una donaci\xC3\xB3n:"
 	#tag EndConstant
 
 	#tag Constant, Name = kEdit, Type = String, Dynamic = True, Default = \"&Edit", Scope = Public
@@ -229,6 +230,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"&\xD0\xA3\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xB8\xD1\x82\xD1\x8C"
 		#Tag Instance, Platform = Windows, Language = ru, Definition  = \"&\xD0\xA3\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xB8\xD1\x82\xD1\x8C"
 		#Tag Instance, Platform = Linux, Language = ru, Definition  = \"&\xD0\xA3\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xB8\xD1\x82\xD1\x8C"
+		#Tag Instance, Platform = Mac OS, Language = es, Definition  = \"&Borrar"
 	#tag EndConstant
 
 	#tag Constant, Name = kEditCopy, Type = String, Dynamic = True, Default = \"&Copy", Scope = Public
@@ -292,7 +294,7 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kErrorNoCustomSceneryFolder, Type = String, Dynamic = True, Default = \"A \"Custom Scenery\" folder could not be found inside the X-Plane\xC2\xAE folder you specified\x2C please try again.", Scope = Public
-		#Tag Instance, Platform = Any, Language = es, Definition  = \"No fue posible localizar una carpeta \"Custom Scenery\" dentro de la carpeta de X-Plane\xC2\xAE que usted especific\xC3\xB3\x2C por favor intente de nuevo."
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"No fue posible localizar una carpeta \"Custom Scenery\" dentro de la carpeta de X-Plane\xC2\xAE especificada\x2C por favor int\xC3\xA9ntalo de nuevo."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Le dossier \"Custom Scenery\"  n\'a pas pu \xC3\xAAtre trouv\xC3\xA9 dans le r\xC3\xA9pertoire d\'X-Plane\xC2\xAE. Veuillez r\xC3\xA9essayer."
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"La carpeta \xC2\xABCustom Scenery\xC2\xBB no es troba dins la carpeta d\'X-Plane\xC2\xAE que heu seleccionat\x2C torneu-ho a provar un altre cop."
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"Non \xC3\xA8 stata trovata la cartella dei \"Custom Scenery\" nella cartella di X-Plane\xC2\xAE che avete specificato\x2C per favore riprovare."
@@ -320,6 +322,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9D\xD0\xB5 \xD1\x83\xD0\xB4\xD0\xB0\xD0\xBB\xD0\xBE\xD1\x81\xD1\x8C \xD0\xBD\xD0\xB0\xD0\xB9\xD1\x82\xD0\xB8 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD1\x83 Steam."
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Een Steam installatie kon niet worden gevonden"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Une Sintallation Steam ne peut \xC3\xAAtre trouv\xC3\xA9e."
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"Un instalador de Steam no pudo ser encontrado."
 	#tag EndConstant
 
 	#tag Constant, Name = kErrorXPlaneSteamFolderNotFound, Type = String, Dynamic = True, Default = \"The XPlane Steam folder could not be found at ${1}.", Scope = Public
@@ -327,6 +330,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD0\xB0\xD0\xBF\xD0\xBA\xD0\xB0 XPlane Steam \xD0\xBD\xD0\xB5 \xD0\xBC\xD0\xBE\xD0\xB6\xD0\xB5\xD1\x82 \xD0\xB1\xD1\x8B\xD1\x82\xD1\x8C \xD0\xBD\xD0\xB0\xD0\xB9\xD0\xB4\xD0\xB5\xD0\xBD\xD0\xB0 \xD0\xB2"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"De XPlane Steam map kon niet worden gevonden bij ${1}."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Le dossier Steam d\'Xplane ne peut \xC3\xAAtre trouv\xC3\xA9 \xC3\xA0 l\'emplacement ${1}."
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"La carpeta X-Plane\xC2\xAE de Steam no pudo ser encontrada en ${1}."
 	#tag EndConstant
 
 	#tag Constant, Name = kFile, Type = String, Dynamic = True, Default = \"&File", Scope = Public
@@ -378,6 +382,8 @@ Inherits Application
 	#tag Constant, Name = kFileQuitShortcut, Type = String, Dynamic = True, Default = \"", Scope = Public
 		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"Cmd+Q"
 		#Tag Instance, Platform = Linux, Language = Default, Definition  = \"Ctrl+Q"
+		#Tag Instance, Platform = Mac OS, Language = es, Definition  = \"Cmd+Q"
+		#Tag Instance, Platform = Linux, Language = es, Definition  = \"Ctrl+Q"
 	#tag EndConstant
 
 	#tag Constant, Name = kHelp, Type = String, Dynamic = True, Default = \"&Help", Scope = Public
