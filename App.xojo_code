@@ -191,6 +191,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Indien je de scenery bestanden mooi vindt en gebruikt\x2C overweeg dan een donatie om het project te ondersteunen."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Si vous utilisez et appr\xC3\xA9ciez cette biblioth\xC3\xA8que\x2C pensez \xC3\xA0 faire une donation pour la soutenir:"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Ay\xC3\xBAdanos a seguir manteniendo la librer\xC3\xADa. Si la usas y te gusta por favor considera hacer una donaci\xC3\xB3n:"
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Si utilitzeu i us agrada la biblioteca\x2C considereu una donaci\xC3\xB3 per mantenir-la en funcionament:"
 	#tag EndConstant
 
 	#tag Constant, Name = kEdit, Type = String, Dynamic = True, Default = \"&Edit", Scope = Public
@@ -323,6 +324,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Een Steam installatie kon niet worden gevonden"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Une Sintallation Steam ne peut \xC3\xAAtre trouv\xC3\xA9e."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Un instalador de Steam no pudo ser encontrado."
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"No s\xE2\x80\x99ha pogut trobar una instal\xC2\xB7laci\xC3\xB3 de Steam."
 	#tag EndConstant
 
 	#tag Constant, Name = kErrorXPlaneSteamFolderNotFound, Type = String, Dynamic = True, Default = \"The XPlane Steam folder could not be found at ${1}.", Scope = Public
@@ -331,6 +333,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"De XPlane Steam map kon niet worden gevonden bij ${1}."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Le dossier Steam d\'Xplane ne peut \xC3\xAAtre trouv\xC3\xA9 \xC3\xA0 l\'emplacement ${1}."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"La carpeta X-Plane\xC2\xAE de Steam no pudo ser encontrada en ${1}."
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"No s\xE2\x80\x99ha pogut trobar la carpeta X-Plane\xC2\xAE Steam a ${1}."
 	#tag EndConstant
 
 	#tag Constant, Name = kFile, Type = String, Dynamic = True, Default = \"&File", Scope = Public
@@ -404,7 +407,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"&\xC3\x9Cber"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Over de OpenScenery&X installer"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"A &propos de l\'intalleur OpenSceneyX"
-		#Tag Instance, Platform = Any, Language = ca, Definition  = \"&Quan a l\'instal\xC2\xB7lador OpenSceneryX"
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"&Sobre l\'instal\xC2\xB7lador OpenSceneryX"
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x90\xD7\x95\xD7\x93\xD7\x95\xD7\xAA \xD7\x94\xD7\x9E\xD7\xAA\xD7\xA7\xD7\x99\xD7\x9F \xD7\xA9\xD7\x9C \xD7\x90\xD7\x95\xD7\xA4\xD7\x9F-\xD7\xA1\xD7\x99\xD7\xA0\xD7\xA8\xD7\x99-\xD7\x90\xD7\x99\xD7\xA7\xD7\xA1"
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"&O Instalatorze OpenSceneryX"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"&\xD0\x9E \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD0\xB5 \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8 OpenSceneryX"
@@ -420,7 +423,7 @@ Inherits Application
 	#tag Constant, Name = kLocateXPlaneFolder, Type = String, Dynamic = True, Default = \"Please locate your X-Plane\xC2\xAE folder", Scope = Public
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Por favor localice su carpeta de X-Plane\xC2\xAE"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Indiquer le chemin de votre installation X-Plane\xC2\xAE"
-		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Trieu la carpeta de l\'X-Plane\xC2\xAE"
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Localitzeu la carpeta de l\'X-Plane\xC2\xAE"
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"Per favore imposta la cartella principale di X-Plane\xC2\xAE"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Lokalisieren Sie bitte Ihren X-Plane\xC2\xAE Ordner"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Geef de lokatie van je X-Plane\xC2\xAEmap aan"
