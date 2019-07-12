@@ -3138,7 +3138,7 @@ End
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9E\xD1\x82\xD0\xBA\xD0\xBB\xD1\x8E\xD1\x87\xD0\xB8\xD1\x82\xD1\x8C \xD0\xB1\xD0\xB8\xD0\xB1\xD0\xBB\xD0\xB8\xD0\xBE\xD1\x82\xD0\xB5\xD0\xBA\xD1\x83 \xD1\x80\xD0\xB5\xD0\xB7\xD0\xB5\xD1\x80\xD0\xB2\xD0\xBD\xD0\xBE\xD0\xB3\xD0\xBE \xD0\xBA\xD0\xBE\xD0\xBF\xD0\xB8\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB0\xD0\xBD\xD0\xB8\xD1\x8F"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Schakel de Backup van de scenery bestanden uit"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"D\xC3\xA9sactiver la biblioth\xC3\xA8que de sauvegarde"
-		#Tag Instance, Platform = Any, Language = es, Definition  = \"Deshabilitar la Librer\xC3\xADa de Respaldo"
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"Desactivar la Librer\xC3\xADa de Respaldo"
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryDisableHelp, Type = String, Dynamic = True, Default = \"OpenSceneryX includes a backup library for many other popular third party libraries\x2C in case you haven\xE2\x80\x99t installed those libraries.  If you want to disable this feature completely\x2C select this option", Scope = Private
@@ -3162,7 +3162,7 @@ End
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x95\xD1\x81\xD0\xBB\xD0\xB8 \xD0\xB2\xD1\x8B \xD0\xBD\xD0\xB5 \xD1\x85\xD0\xBE\xD1\x82\xD0\xB8\xD1\x82\xD0\xB5 \xD0\xB2\xD0\xB8\xD0\xB4\xD0\xB5\xD1\x82\xD1\x8C \xD0\xB7\xD0\xB0\xD0\xBF\xD0\xBE\xD0\xBB\xD0\xBD\xD0\xB8\xD1\x82\xD0\xB5\xD0\xBB\xD0\xB8 \xD0\xB1\xD0\xB8\xD0\xB1\xD0\xBB\xD0\xB8\xD0\xBE\xD1\x82\xD0\xB5\xD0\xBA\xD0\xB8 \xD1\x80\xD0\xB5\xD0\xB7\xD0\xB5\xD1\x80\xD0\xB2\xD0\xBD\xD0\xBE\xD0\xB3\xD0\xBE \xD0\xBA\xD0\xBE\xD0\xBF\xD0\xB8\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB0\xD0\xBD\xD0\xB8\xD1\x8F\x2C \xD0\xB2\xD1\x8B\xD0\xB1\xD0\xB5\xD1\x80\xD0\xB8\xD1\x82\xD0\xB5 \xD1\x8D\xD1\x82\xD0\xBE\xD1\x82 \xD0\xBF\xD0\xB0\xD1\x80\xD0\xB0\xD0\xBC\xD0\xB5\xD1\x82\xD1\x80."
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Als je geen Backup van plaatsvervangers wilt zien\x2C kies deze optie."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Si vous ne voulez pas voir les emplacements r\xC3\xA9serv\xC3\xA9s pour la biblioth\xC3\xA8que de sauvegarde\x2C s\xC3\xA9lectionnez cette option."
-		#Tag Instance, Platform = Any, Language = es, Definition  = \"Si no quieres ver los Marcadores de Posici\xC3\xB3n de la Librer\xC3\xADa de Respaldo\x2C selecciona esta opci\xC3\xB3n."
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"Si quieres ver los Marcadores de Posici\xC3\xB3n de la Librer\xC3\xADa de Respaldo\x2C selecciona esta opci\xC3\xB3n."
 	#tag EndConstant
 
 	#tag Constant, Name = kBackupLibraryMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the Backup Library", Scope = Private
@@ -3790,7 +3790,7 @@ End
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9E\xD1\x82\xD0\xBA\xD0\xBB\xD1\x8E\xD1\x87\xD0\xB8\xD1\x82\xD1\x8C \xD0\xA1\xD0\xB5\xD0\xB7\xD0\xBE\xD0\xBD\xD1\x8B \xD0\xB2 OpenScenery"
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Schakel OpenSceneryX jaargetijden uit"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"D\xC3\xA9sactiver les saisons OpenSceneryX"
-		#Tag Instance, Platform = Any, Language = es, Definition  = \"Deshabilitar las estaciones de OpenSceneryX"
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"Desactivar las estaciones de OpenSceneryX"
 	#tag EndConstant
 
 	#tag Constant, Name = kSeasonsFourSeasons, Type = String, Dynamic = True, Default = \"Four Seasons Plugin", Scope = Private
