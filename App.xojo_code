@@ -477,6 +477,9 @@ Inherits Application
 	#tag Constant, Name = kPreferenceSeasonsFourSeasons, Type = String, Dynamic = False, Default = \"fourseasons", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPreferenceSeasonsSAM, Type = String, Dynamic = False, Default = \"sam", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPreferenceSeasonsTerraMaxx, Type = String, Dynamic = False, Default = \"terramaxx", Scope = Public
 	#tag EndConstant
 
@@ -523,6 +526,9 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kURLSeasonsFourSeasons, Type = Text, Dynamic = False, Default = \"https://forums.x-plane.org/index.php\?/files/file/44351-four-seasons/", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kURLSeasonsSAM, Type = Text, Dynamic = False, Default = \"https://forum.thresholdx.net/files/file/122-sam-scenery-animation-manager/", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLSeasonsTerramaxx, Type = Text, Dynamic = False, Default = \"http://maxx-xp.com/terramaxx", Scope = Public

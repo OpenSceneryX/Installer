@@ -71,7 +71,6 @@ Begin Window wndMain
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Top             =   125
          Transparent     =   True
          Value           =   3
@@ -839,7 +838,6 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   6
-            TabStop         =   True
             Top             =   626
             Transparent     =   True
             Value           =   0
@@ -895,7 +893,6 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   6
-            TabStop         =   True
             Top             =   592
             Transparent     =   True
             Value           =   0
@@ -1432,7 +1429,7 @@ Begin Window wndMain
                HelpTag         =   ""
                Index           =   -2147483648
                InitialParent   =   "grpSeasons"
-               InitialValue    =   "#kSeasonsXPlane\n#kSeasonsFourSeasons\n#kSeasonsTerraMaxx\n#kSeasonsXAmbience\n#kSeasonsDisable"
+               InitialValue    =   "#kSeasonsXPlane\n#kSeasonsFourSeasons\n#kSeasonsSAM\n#kSeasonsTerraMaxx\n#kSeasonsXAmbience\n#kSeasonsDisable"
                Italic          =   False
                Left            =   610
                ListIndex       =   0
@@ -1483,7 +1480,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   10.0
                TextUnit        =   0
-               Top             =   378
+               Top             =   368
                Transparent     =   False
                Underline       =   True
                Visible         =   True
@@ -1518,7 +1515,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   10.0
                TextUnit        =   0
-               Top             =   401
+               Top             =   414
                Transparent     =   False
                Underline       =   True
                Visible         =   True
@@ -1553,7 +1550,42 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   10.0
                TextUnit        =   0
-               Top             =   424
+               Top             =   437
+               Transparent     =   False
+               Underline       =   True
+               Visible         =   True
+               Width           =   236
+            End
+            Begin Label txtSeasonsSAMMoreInfoLink
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "grpSeasons"
+               Italic          =   False
+               Left            =   610
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   False
+               LockRight       =   False
+               LockTop         =   False
+               Multiline       =   False
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   10
+               TabPanelIndex   =   4
+               TabStop         =   True
+               Text            =   "#kSeasonsSAMMoreInfoLink"
+               TextAlign       =   0
+               TextColor       =   &c0000FE00
+               TextFont        =   "System"
+               TextSize        =   10.0
+               TextUnit        =   0
+               Top             =   391
                Transparent     =   False
                Underline       =   True
                Visible         =   True
@@ -2153,7 +2185,6 @@ Begin Window wndMain
       End
    End
    Begin Thread thrUpdateFolderStructure
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -2163,7 +2194,6 @@ Begin Window wndMain
       TabPanelIndex   =   0
    End
    Begin Timer tmrUpdateFolderStructure
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -2191,7 +2221,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   39
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   124
       Transparent     =   True
       Visible         =   True
@@ -2216,7 +2245,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   40
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   156
       Transparent     =   True
       Visible         =   True
@@ -2241,7 +2269,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   41
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   188
       Transparent     =   True
       Visible         =   True
@@ -2266,7 +2293,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   42
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   220
       Transparent     =   True
       Visible         =   True
@@ -2291,7 +2317,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   43
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   252
       Transparent     =   True
       Visible         =   True
@@ -2316,7 +2341,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   44
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   284
       Transparent     =   True
       Visible         =   True
@@ -2341,14 +2365,12 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   45
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   316
       Transparent     =   True
       Visible         =   True
       Width           =   10
    End
    Begin Xojo.Net.HTTPSocket sockVersion
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2356,7 +2378,6 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Xojo.Net.HTTPSocket sockManifest
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2364,7 +2385,6 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Xojo.Net.HTTPSocket sockFile
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2372,7 +2392,6 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Thread thrLocalScan
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Priority        =   5
@@ -2381,7 +2400,6 @@ Begin Window wndMain
       TabPanelIndex   =   0
    End
    Begin Timer tmrLocalScan
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Mode            =   0
@@ -2551,6 +2569,8 @@ End
 		      libraryContents = libraryContents + getPartial("seasonal_xplane.txt")
 		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons) Then
 		      libraryContents = libraryContents + getPartial("seasonal_fourseasons.txt")
+		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsSAM) Then
+		      libraryContents = libraryContents + getPartial("seasonal_sam.txt")
 		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx) Then
 		      libraryContents = libraryContents + getPartial("seasonal_terramaxx.txt")
 		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience) Then
@@ -2853,6 +2873,8 @@ End
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXPlane
 		  Elseif (popSeasons.List(popSeasons.ListIndex) = kSeasonsFourSeasons) Then
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons
+		  Elseif (popSeasons.List(popSeasons.ListIndex) = kSeasonsSAM) Then
+		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsSAM
 		  Elseif (popSeasons.List(popSeasons.ListIndex) = kSeasonsTerraMaxx) Then
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx
 		  Elseif (popSeasons.List(popSeasons.ListIndex) = kSeasonsXAmbience) Then
@@ -2936,6 +2958,8 @@ End
 		          popSeasons.SelectByText(kSeasonsXPlane)
 		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons Then
 		          popSeasons.SelectByText(kSeasonsFourSeasons)
+		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsSAM Then
+		          popSeasons.SelectByText(kSeasonsSAM)
 		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx Then
 		          popSeasons.SelectByText(kSeasonsTerraMaxx)
 		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience Then
@@ -3828,6 +3852,24 @@ End
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"M\xC3\xA9s informaci\xC3\xB3 sobre el Plugin de Quatre Estacions"
 	#tag EndConstant
 
+	#tag Constant, Name = kSeasonsSAM, Type = String, Dynamic = True, Default = \"SAM Plugin", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Plugin SAM"
+		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD0\xBB\xD0\xB0\xD0\xB3\xD0\xB8\xD0\xBD SAM "
+		#Tag Instance, Platform = Any, Language = nl, Definition  = \"SAM Plugin"
+		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Plugin SAM"
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"Plugin SAM"
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Plugin de SAM"
+	#tag EndConstant
+
+	#tag Constant, Name = kSeasonsSAMMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the SAM Plugin", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Di pi\xC3\xB9 sul Plugin SAM"
+		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD0\xB7\xD0\xBD\xD0\xB0\xD1\x82\xD1\x8C \xD0\xB1\xD0\xBE\xD0\xBB\xD1\x8C\xD1\x88\xD0\xB5 \xD0\xBE \xD0\xBF\xD0\xBB\xD0\xB0\xD0\xB3\xD0\xB8\xD0\xBD\xD0\xB5 SAM"
+		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Meer over de SAM Plugin"
+		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Plus \xC3\xA0 propos du plugin SAM"
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"M\xC3\xA1s informaci\xC3\xB3n sobre el Plugin SAM"
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"M\xC3\xA9s informaci\xC3\xB3 sobre el Plugin de SAM"
+	#tag EndConstant
+
 	#tag Constant, Name = kSeasonsTerraMaxx, Type = String, Dynamic = True, Default = \"TerraMaxx Plugin", Scope = Private
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"Plugin TerraMaxx"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD0\xBB\xD0\xB0\xD0\xB3\xD0\xB8\xD0\xBD TerraMaxx "
@@ -4226,6 +4268,19 @@ End
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
 		  ShowURL(App.kURLSeasonsXAmbience)
+		  
+		End Function
+	#tag EndEvent
+#tag EndEvents
+#tag Events txtSeasonsSAMMoreInfoLink
+	#tag Event
+		Sub Open()
+		  me.mousecursor = system.cursors.FingerPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  ShowURL(App.kURLSeasonsSAM)
 		  
 		End Function
 	#tag EndEvent
