@@ -414,12 +414,6 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"&Acerca del Instalador OpenSceneryX"
 	#tag EndConstant
 
-	#tag Constant, Name = kHTTPLogin, Type = String, Dynamic = False, Default = \"opensceneryx_installer", Scope = Public
-	#tag EndConstant
-
-	#tag Constant, Name = kHTTPPassword, Type = String, Dynamic = False, Default = \"0p3nsc3n3ryx\xC2\xA3", Scope = Public
-	#tag EndConstant
-
 	#tag Constant, Name = kLocateXPlaneFolder, Type = String, Dynamic = True, Default = \"Please locate your X-Plane\xC2\xAE folder", Scope = Public
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Por favor localice su carpeta de X-Plane\xC2\xAE"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Indiquer le chemin de votre installation X-Plane\xC2\xAE"
