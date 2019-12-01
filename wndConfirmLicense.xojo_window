@@ -293,7 +293,7 @@ End
 	#tag Event
 		Sub Action()
 		  wndConfirmLicense.close
-		  wndLicense.show
+		  showURL(App.kURLLicense)
 		  
 		End Sub
 	#tag EndEvent
