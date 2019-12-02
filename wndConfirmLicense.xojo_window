@@ -212,7 +212,7 @@ End
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Om met installatie verder te gaan moet je akkoord gaan met de voorwaarden van de licentie"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Um mit der Installation weiterzufahren m\xC3\xBCssen Sie den Lizenzbestimmungen zustimmen."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Avant d\'installer ce logiciel\x2C vous devez accepter les termes de la license."
-		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Per continuar instal\xC2\xB7lant el programari heu d\'estar d\'acord amb els termes de la llic\xC3\xA8ncia."
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Per continuar instal\xC2\xB7lant el programa heu d\'estar d\'acord amb els termes de la llic\xC3\xA8ncia."
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x91\xD7\x9B\xD7\x93\xD7\x99 \xD7\x9C\xD7\x94\xD7\x9E\xD7\xA9\xD7\x99\xD7\x9A \xD7\x91\xD7\x94\xD7\xAA\xD7\xA7\xD7\xA0\xD7\xAA \xD7\x94\xD7\xAA\xD7\x95\xD7\x9B\xD7\xA0\xD7\x94 \xD7\x90\xD7\xAA\xD7\x94 \xD7\x97\xD7\x99\xD7\x99\xD7\x91 \xD7\x9C\xD7\x94\xD7\xA1\xD7\x9B\xD7\x99\xD7\x9D \xD7\x9C\xD7\xAA\xD7\xA0\xD7\x90\xD7\x99 \xD7\x94\xD7\xA8\xD7\xA9\xD7\x99\xD7\x95\xD7\x9F."
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Aby kontynuowa\xC4\x87 instalacj\xC4\x99 oprogramowania musisz zgodzi\xC4\x87 si\xC4\x99 na warunki licencji."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x94\xD0\xBB\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB4\xD0\xBE\xD0\xBB\xD0\xB6\xD0\xB5\xD0\xBD\xD0\xB8\xD1\x8F \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8 \xD0\xB2\xD1\x8B \xD0\xB4\xD0\xBE\xD0\xBB\xD0\xB6\xD0\xBD\xD1\x8B \xD0\xBF\xD1\x80\xD0\xB8\xD0\xBD\xD1\x8F\xD1\x82\xD1\x8C \xD1\x83\xD1\x81\xD0\xBB\xD0\xBE\xD0\xB2\xD0\xB8\xD1\x8F \xD0\x9B\xD0\xB8\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB7\xD0\xB8\xD0\xBE\xD0\xBD\xD0\xBD\xD0\xBE\xD0\xB3\xD0\xBE \xD1\x81\xD0\xBE\xD0\xB3\xD0\xBB\xD0\xB0\xD1\x88\xD0\xB5\xD0\xBD\xD0\xB8\xD1\x8F."
@@ -236,7 +236,7 @@ End
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Niet Akkoord"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"ABLEHNEN"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Je refuse"
-		#Tag Instance, Platform = Any, Language = ca, Definition  = \"No d\'acord"
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"En desacord"
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x9C\xD7\x90 \xD7\x9E\xD7\xA1\xD7\x9B\xD7\x99\xD7\x9D"
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Odmawiam"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9D\xD0\xB5 \xD0\xBF\xD1\x80\xD0\xB8\xD0\xBD\xD0\xB8\xD0\xBC\xD0\xB0\xD1\x8E"
@@ -293,7 +293,7 @@ End
 	#tag Event
 		Sub Action()
 		  wndConfirmLicense.close
-		  wndLicense.show
+		  showURL(App.kURLLicense)
 		  
 		End Sub
 	#tag EndEvent

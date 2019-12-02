@@ -59,7 +59,7 @@ Building
     https://www.opensceneryx.com/versioninfo/installerversion.txt
     ```
 
-* Edit the website homepage to update the version number on all downloads. As the Gutenberg visual editor can't (yet) cope with the download block, currently do this by searching and replacing directly in the database.
+* Edit the website homepage to update the version number on all downloads. As the Gutenberg visual editor can't (yet) cope with the download block, currently do this by searching and replacing directly in the database (post ID = 748).
 
 * Promotion:
 
@@ -68,6 +68,8 @@ Building
 	- Post an article on the site
 	- Tweet
     - Reddit [r/Xplane](https://www.reddit.com/r/Xplane/)
+
+* Create a new section in `versioninfo/installerreleasenotes.html`
 
 
 Customising the DMG
