@@ -18,7 +18,7 @@ $ xcrun altool --type osx --notarize-app --file OpenSceneryX-Installer.dmg --pri
 The notarization process takes time on the Apple side. To check the status of a notarization:
 
 ```bash
-$ xcrun altool --notarization-info <request_uuid> -u <username> -p
+$ xcrun altool --notarization-info <request_uuid> -u <username>
 ```
 
 Once notarization is complete, staple the ticket to the dmg:
