@@ -22,6 +22,10 @@ Protected Class FolderManifest
 		  pDifferenceExclusions.Append("/opensceneryx/placeholder.pol")
 		  pDifferenceExclusions.Append("/opensceneryx/placeholder.net")
 		  pDifferenceExclusions.Append("/opensceneryx/placeholder.str")
+		  ' We exclude the library.txt itself because the installer always contructs it at the end of the install, so it will almost always be
+		  ' different to the server version. Note: A default library.txt is still included to ensure the zip file version works out of the box
+		  pDifferenceExclusions.Append("/library.txt")
+		  
 		End Sub
 	#tag EndMethod
 
@@ -144,7 +148,7 @@ Protected Class FolderManifest
 
 	#tag Method, Flags = &h0
 		Sub getDifferences(newManifest as FolderManifest, ByRef changedFiles as Collection, ByRef deletedFiles as Collection)
-		  dim i as Integer
+		  Dim i As Integer
 		  
 		  // First iterate our dictionary looking for items not in the new dictionary
 		  dim keys() as Variant = pManifest.keys()
