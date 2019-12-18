@@ -541,7 +541,9 @@ Inherits Application
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="pPlatform"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
