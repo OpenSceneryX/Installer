@@ -10,7 +10,7 @@ echo "============="
 export COPYFILE_DISABLE=true
 cd ..
 
-cd Builds\ -\ Installer.xojo_project/Windows\ 64\ bit/
+cd Builds\ -\ Installer/Windows\ 64\ bit/
 
 echo
 echo "Zipping"

@@ -28,10 +28,10 @@ echo Administrator Launch
 echo --------------------
 
 # Modify the Manifest to ensure the app runs as administrator.
-# This requires the executable from the electron project: https://github.com/electron/rcedit to be present 
+# This requires the executable from the electron project: https://github.com/electron/rcedit to be present
 # at 'C:\Program Files (x86)\rcedit\rcedit-x64.exe' within the VM.
 
-/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\rcedit\\rcedit-x64.exe" "../Builds - Installer.xojo_project/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe" --set-requested-execution-level "requireAdministrator"
+/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\rcedit\\rcedit-x64.exe" "../Builds - Installer/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe" --set-requested-execution-level "requireAdministrator"
 echo Done
 
 echo
@@ -49,7 +49,7 @@ echo -------
 
 read -sp 'Certificate Password: ' PASSWORD 0<&3
 
-/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\x64\\signtool.exe" sign /v /f "../Certificates/COMODO/Austin Goudge.p12" /p $PASSWORD /d "OpenSceneryX Installer" /t http://timestamp.verisign.com/scripts/timestamp.dll "../Builds - Installer.xojo_project/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe"
+/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\x64\\signtool.exe" sign /v /f "../Certificates/COMODO/Austin Goudge.p12" /p $PASSWORD /d "OpenSceneryX Installer" /t http://timestamp.verisign.com/scripts/timestamp.dll "../Builds - Installer/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe"
 
 echo Complete
 echo --------
