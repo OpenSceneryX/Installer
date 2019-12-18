@@ -1,6 +1,6 @@
 #tag Class
 Protected Class ZipBinaryStreamReader
-Implements IStreamReader, Readable
+Implements IStreamReader,Readable
 	#tag Method, Flags = &h0
 		Sub Constructor(binstream as BinaryStream, size as Int64, prefix as String, suffix as String)
 		  // the constructor
@@ -12,6 +12,14 @@ Implements IStreamReader, Readable
 		  me.streamLen = size
 		  me.leftToRead = me.prefixLen + me.streamLen + me.suffixLen
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function EndOfFile() As Boolean
+		  // Part of the Readable interface.
+		  
+		  return Remaining() = 0
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -164,7 +172,9 @@ Implements IStreamReader, Readable
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -172,12 +182,15 @@ Implements IStreamReader, Readable
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -185,6 +198,7 @@ Implements IStreamReader, Readable
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -192,6 +206,7 @@ Implements IStreamReader, Readable
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
