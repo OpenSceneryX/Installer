@@ -14,7 +14,7 @@ echo
 echo "x86 32-bit"
 echo "----------"
 
-cd Builds\ -\ Installer.xojo_project/Linux/
+cd Builds\ -\ Installer/Linux/
 zip -r ../../OpenSceneryX-Installer-Linux-x86-32.zip OpenSceneryX\ Installer
 cd ../../
 
@@ -22,7 +22,7 @@ echo
 echo "x86 64-bit"
 echo "----------"
 
-cd Builds\ -\ Installer.xojo_project/Linux\ 64\ bit/
+cd Builds\ -\ Installer/Linux\ 64\ bit/
 zip -r ../../OpenSceneryX-Installer-Linux-x86-64.zip OpenSceneryX\ Installer
 cd ../../
 
@@ -30,7 +30,7 @@ echo
 echo "ARM 32-bit"
 echo "----------"
 
-cd Builds\ -\ Installer.xojo_project/Linux\ ARM/
+cd Builds\ -\ Installer/Linux\ ARM/
 zip -r ../../OpenSceneryX-Installer-Linux-ARM-32.zip OpenSceneryX\ Installer
 cd ../../
 

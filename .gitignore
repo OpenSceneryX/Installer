@@ -1,4 +1,4 @@
-Builds - Installer.xojo_project
+Builds - Installer*
 OpenSceneryX-Installer*.zip
 OpenSceneryX Installer.dmg
 OpenSceneryX-Installer*.dmg
@@ -7,3 +7,4 @@ Libraries
 Certificates
 template.dmg
 Thumbs.db
+ZipPackage/ZipSupport/Private_unencrypted

@@ -46,7 +46,6 @@ Inherits ZipEntryBase
 		    
 		    if not f.Directory and mbHdr.UInt64Value(65) <> 0 then
 		      TTsFolderItem.SetMacType f, mbHdr.StringValue(65,4)
-		      f.MacCreator = mbHdr.StringValue(69,4)
 		    end
 		    
 		    ///////////////////////////
@@ -358,7 +357,6 @@ Inherits ZipEntryBase
 		        #if TargetMacOS
 		          // new files default to "????" - let's change them to zeros
 		          type = new MemoryBlock(4)
-		          zdest.MacCreator = type
 		          TTsFolderItem.SetMacType zdest, type
 		        #endif
 		        
@@ -416,7 +414,6 @@ Inherits ZipEntryBase
 		        elseif me.extra <> nil and me.extra.GetTypeCreatorName(type, crea, name) then
 		          // use the information from the archive entry's Extra Field
 		          TTsFolderItem.SetMacType zdest, type
-		          zdest.MacCreator = crea
 		          if name <> "" then
 		            z_adjustMacFilename name, 0, zdest
 		          end
@@ -905,15 +902,19 @@ Inherits ZipEntryBase
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="z_hasDittoName"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -921,12 +922,15 @@ Inherits ZipEntryBase
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -934,6 +938,7 @@ Inherits ZipEntryBase
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -941,6 +946,7 @@ Inherits ZipEntryBase
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
