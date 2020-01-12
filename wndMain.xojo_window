@@ -71,7 +71,7 @@ Begin Window wndMain
          TabPanelIndex   =   0
          Top             =   125
          Transparent     =   True
-         Value           =   0
+         Value           =   3
          Visible         =   True
          Width           =   611
          Begin Label txtWelcome
@@ -1428,7 +1428,7 @@ Begin Window wndMain
                HelpTag         =   ""
                Index           =   -2147483648
                InitialParent   =   "grpSeasons"
-               InitialValue    =   "#kSeasonsXPlane\n#kSeasonsFourSeasons\n#kSeasonsSAM\n#kSeasonsTerraMaxx\n#kSeasonsXAmbience\n#kSeasonsDisable"
+               InitialValue    =   "#kSeasonsXPlane\n#kSeasonsFourSeasons\n#kSeasonsSAM\n#kSeasonsTerraMaxx\n#kSeasonsXAmbience\n#kSeasonsXEnviro\n#kSeasonsDisable"
                Italic          =   False
                Left            =   610
                ListIndex       =   0
@@ -1479,7 +1479,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   10.0
                TextUnit        =   0
-               Top             =   368
+               Top             =   365
                Transparent     =   False
                Underline       =   True
                Visible         =   True
@@ -1514,7 +1514,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   10.0
                TextUnit        =   0
-               Top             =   414
+               Top             =   403
                Transparent     =   False
                Underline       =   True
                Visible         =   True
@@ -1549,7 +1549,7 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   10.0
                TextUnit        =   0
-               Top             =   437
+               Top             =   422
                Transparent     =   False
                Underline       =   True
                Visible         =   True
@@ -1584,7 +1584,42 @@ Begin Window wndMain
                TextFont        =   "System"
                TextSize        =   10.0
                TextUnit        =   0
-               Top             =   391
+               Top             =   384
+               Transparent     =   False
+               Underline       =   True
+               Visible         =   True
+               Width           =   236
+            End
+            Begin Label txtSeasonsXEnviroMoreInfoLink
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "grpSeasons"
+               Italic          =   False
+               Left            =   610
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   False
+               LockRight       =   False
+               LockTop         =   False
+               Multiline       =   False
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   11
+               TabPanelIndex   =   4
+               TabStop         =   True
+               Text            =   "#kSeasonsXEnviroMoreInfoLink"
+               TextAlign       =   0
+               TextColor       =   &c0000FE00
+               TextFont        =   "System"
+               TextSize        =   10.0
+               TextUnit        =   0
+               Top             =   441
                Transparent     =   False
                Underline       =   True
                Visible         =   True
@@ -2568,6 +2603,8 @@ End
 		      libraryContents = libraryContents + getPartial("seasonal_terramaxx.txt")
 		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience) Then
 		      libraryContents = libraryContents + getPartial("seasonal_xambience.txt")
+		    Elseif (App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXEnviro) Then
+		      libraryContents = libraryContents + getPartial("seasonal_xenviro.txt")
 		    End If
 		  End If
 		  
@@ -2872,6 +2909,8 @@ End
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx
 		  Elseif (popSeasons.List(popSeasons.ListIndex) = kSeasonsXAmbience) Then
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience
+		  Elseif (popSeasons.List(popSeasons.ListIndex) = kSeasonsXEnviro) Then
+		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXEnviro
 		  Else
 		    App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled
 		  End If
@@ -2901,7 +2940,7 @@ End
 		  
 		  i = i - 1
 		  
-		  if (not pPanelCompleted(panelIndex)) then
+		  If (Not pPanelCompleted(panelIndex)) Then
 		    // Panel not completed, begin any processing relevant to the panel
 		    select case txtStage(ppnlMain.value).text
 		      
@@ -2957,6 +2996,8 @@ End
 		          popSeasons.SelectByText(kSeasonsTerraMaxx)
 		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience Then
 		          popSeasons.SelectByText(kSeasonsXAmbience)
+		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXEnviro Then
+		          popSeasons.SelectByText(kSeasonsXEnviro)
 		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled Then
 		          popSeasons.SelectByText(kSeasonsDisable)
 		        End If
@@ -3899,6 +3940,24 @@ End
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"M\xC3\xA9s informaci\xC3\xB3 sobre el Plugin xAmbience"
 	#tag EndConstant
 
+	#tag Constant, Name = kSeasonsXEnviro, Type = String, Dynamic = True, Default = \"xEnviro Plugin", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Plugin xEnviro"
+		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD0\xBB\xD0\xB0\xD0\xB3\xD0\xB8\xD0\xBD xEnviro "
+		#Tag Instance, Platform = Any, Language = nl, Definition  = \"xEnviro Plugin"
+		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Plugin xEnviro"
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"Plugin xEnviro"
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Plugin xEnviro"
+	#tag EndConstant
+
+	#tag Constant, Name = kSeasonsXEnviroMoreInfoLink, Type = String, Dynamic = True, Default = \"More about the xEnviro Plugin", Scope = Private
+		#Tag Instance, Platform = Any, Language = it, Definition  = \"Di pi\xC3\xB9 sul Plugin xEnviro"
+		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD0\xB7\xD0\xBD\xD0\xB0\xD1\x82\xD1\x8C \xD0\xB1\xD0\xBE\xD0\xBB\xD1\x8C\xD1\x88\xD0\xB5 \xD0\xBE \xD0\xBF\xD0\xBB\xD0\xB0\xD0\xB3\xD0\xB8\xD0\xBD\xD0\xB5 xEnviro "
+		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Meer over de xEnviro Plugin"
+		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Plus \xC3\xA0 propos du plugin xEnviro"
+		#Tag Instance, Platform = Any, Language = es, Definition  = \"M\xC3\xA1s informaci\xC3\xB3n sobre el Plugin xEnviro"
+		#Tag Instance, Platform = Any, Language = ca, Definition  = \"M\xC3\xA9s informaci\xC3\xB3 sobre el Plugin xEnviro"
+	#tag EndConstant
+
 	#tag Constant, Name = kSeasonsXPlane, Type = String, Dynamic = True, Default = \"X-Plane\xC2\xAE Default", Scope = Private
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"X-Plane\xC2\xAE Predefinito"
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x91\xD0\xB0\xD0\xB7\xD0\xBE\xD0\xB2\xD1\x8B\xD0\xB9 X-Plane\xC2\xAE"
@@ -4274,6 +4333,19 @@ End
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
 		  ShowURL(App.kURLSeasonsSAM)
+		  
+		End Function
+	#tag EndEvent
+#tag EndEvents
+#tag Events txtSeasonsXEnviroMoreInfoLink
+	#tag Event
+		Sub Open()
+		  me.mousecursor = system.cursors.FingerPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  ShowURL(App.kURLSeasonsXEnviro)
 		  
 		End Function
 	#tag EndEvent

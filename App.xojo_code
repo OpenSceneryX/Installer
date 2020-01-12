@@ -480,6 +480,9 @@ Inherits Application
 	#tag Constant, Name = kPreferenceSeasonsXAmbience, Type = String, Dynamic = False, Default = \"xambience", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPreferenceSeasonsXEnviro, Type = String, Dynamic = False, Default = \"xenviro", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPreferenceSeasonsXPlane, Type = String, Dynamic = False, Default = \"xplane", Scope = Public
 	#tag EndConstant
 
@@ -529,6 +532,9 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kURLSeasonsXAmbience, Type = Text, Dynamic = False, Default = \"https://forums.x-plane.org/index.php\?/forums/topic/168048-xambience-arrives/", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kURLSeasonsXEnviro, Type = Text, Dynamic = False, Default = \"http://www.xenviro.net", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerversion.txt", Scope = Public
