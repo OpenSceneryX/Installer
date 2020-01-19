@@ -1428,7 +1428,7 @@ Begin Window wndMain
                HelpTag         =   ""
                Index           =   -2147483648
                InitialParent   =   "grpSeasons"
-               InitialValue    =   "#kSeasonsXPlane\n#kSeasonsFourSeasons\n#kSeasonsSAM\n#kSeasonsTerraMaxx\n#kSeasonsXAmbience\n#kSeasonsXEnviro\n#kSeasonsDisable"
+               InitialValue    =   ""
                Italic          =   False
                Left            =   610
                ListIndex       =   0
@@ -2552,6 +2552,7 @@ End
 		  If (App.pPreferences.hasKey(App.kPreferenceXPlanePath)) Then xPlanePath = App.pPreferences.value(App.kPreferenceXPlanePath)
 		  If (xPlanePath <> "") Then App.pXPlaneFolder = GetFolderItem(xPlanePath, FolderItem.PathTypeNative)
 		  
+		  
 		End Sub
 	#tag EndEvent
 
@@ -2867,6 +2868,74 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub populateSeasons()
+		  Dim pluginsFolder As FolderItem = App.pXPlaneFolder.child("Resources").child("plugins")
+		  
+		  
+		  // Clear down the seasons popup
+		  popSeasons.RemoveAllRows
+		  
+		  // Always add default XPlane option
+		  popSeasons.AddRow(kSeasonsXPlane)
+		  
+		  #If TargetMacOS
+		    popSeasons.AddRow("-")
+		  #EndIf
+		  
+		  // Detect Four Seasons plugin by looking for the Python file
+		  If pluginsFolder.child("PythonScripts").Exists And pluginsFolder.child("PythonScripts").child("PI_four_seasons.py").exists Then
+		    popSeasons.AddRow(kSeasonsFourSeasons)
+		  End If
+		  
+		  // Detect SAM plugin by looking for it's folder
+		  If pluginsFolder.child("SAM").Exists Then
+		    popSeasons.AddRow(kSeasonsSAM)
+		  End If
+		  
+		  // Always add TerraMaxx - it's a commercial plugin and we don't know what to look for
+		  popSeasons.AddRow(kSeasonsTerraMaxx)
+		  
+		  // Always add XAmbience - it's a commercial plugin and we don't know what to look for
+		  popSeasons.AddRow(kSeasonsXAmbience)
+		  
+		  // Detect xEnviro by looking for its regional PNGs
+		  If App.pXPlaneFolder.child("Resources").child("seasons").child("region_au.png").exists _
+		    And App.pXPlaneFolder.child("Resources").child("seasons").child("region_wi.png").exists _
+		    And App.pXPlaneFolder.child("Resources").child("seasons").child("region_dw.png").exists _
+		    And App.pXPlaneFolder.child("Resources").child("seasons").child("region_hw.png").exists Then
+		    popSeasons.AddRow(kSeasonsXEnviro)
+		  End If
+		  
+		  #If TargetMacOS
+		    popSeasons.AddRow("-")
+		  #EndIf
+		  
+		  // Always add disabled option
+		  popSeasons.AddRow(kSeasonsDisable)
+		  
+		  // Re-select option
+		  If App.pPreferences.hasKey(App.kPreferenceSeasons) Then
+		    If App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXPlane Then
+		      popSeasons.SelectByText(kSeasonsXPlane)
+		    Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons Then
+		      popSeasons.SelectByText(kSeasonsFourSeasons)
+		    Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsSAM Then
+		      popSeasons.SelectByText(kSeasonsSAM)
+		    Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx Then
+		      popSeasons.SelectByText(kSeasonsTerraMaxx)
+		    Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience Then
+		      popSeasons.SelectByText(kSeasonsXAmbience)
+		    Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXEnviro Then
+		      popSeasons.SelectByText(kSeasonsXEnviro)
+		    Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled Then
+		      popSeasons.SelectByText(kSeasonsDisable)
+		    End If
+		  End If
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub preProcessLocalFolderItem(osxFolderItem as FolderItem)
 		  // Fix any one-off issues here, usually caused by case changes
 		  
@@ -2966,7 +3035,7 @@ End
 		        txtXplaneFolder.text = "[Not Set]"
 		        enableContinue(0)
 		      else
-		        setupOSXFolder()
+		        setupOSXFolder
 		        txtXplaneFolder.text = App.pXPlaneFolder.nativePath
 		        setPanelCompleted(panelIndex)
 		      end if
@@ -2985,23 +3054,7 @@ End
 		        End If
 		      End If
 		      
-		      If App.pPreferences.hasKey(App.kPreferenceSeasons) Then
-		        If App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXPlane Then
-		          popSeasons.SelectByText(kSeasonsXPlane)
-		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsFourSeasons Then
-		          popSeasons.SelectByText(kSeasonsFourSeasons)
-		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsSAM Then
-		          popSeasons.SelectByText(kSeasonsSAM)
-		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsTerraMaxx Then
-		          popSeasons.SelectByText(kSeasonsTerraMaxx)
-		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXAmbience Then
-		          popSeasons.SelectByText(kSeasonsXAmbience)
-		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXEnviro Then
-		          popSeasons.SelectByText(kSeasonsXEnviro)
-		        Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled Then
-		          popSeasons.SelectByText(kSeasonsDisable)
-		        End If
-		      End If
+		      populateSeasons
 		      
 		      If App.pPreferences.HasKey(App.kPreferenceStaticAircraft) Then
 		        chkStaticAircraft.value = App.pPreferences.value(App.kPreferenceStaticAircraft)
@@ -3085,7 +3138,7 @@ End
 		  dim tempFolderItem as FolderItem
 		  // Newest name takes top priority, followed by older releases
 		  pOsxFolderItem = App.pXPlaneFolder.child("Custom Scenery").child("OpenSceneryX")
-		  if (pOsxFolderItem.exists()) then
+		  If (pOsxFolderItem.exists) Then
 		    foundPrevious = true
 		  end if
 		  
@@ -4159,8 +4212,8 @@ End
 		Sub Action()
 		  dim i as integer
 		  
-		  if (App.getXPlaneFolder(false)) then
-		    setupOSXFolder()
+		  If (App.getXPlaneFolder(False)) Then
+		    setupOSXFolder
 		    
 		    // Set the current panel as having been completed
 		    setPanelCompleted(ppnlMain.value)
@@ -4171,7 +4224,9 @@ End
 		    next
 		    
 		    txtXplaneFolder.text = App.pXPlaneFolder.nativePath
-		    enableContinue()
+		    enableContinue
+		    
+		    populateSeasons
 		  end if
 		End Sub
 	#tag EndEvent
@@ -4218,6 +4273,7 @@ End
 		      txtXplaneFolder.text = App.pXPlaneFolder.nativePath
 		      enableContinue(1)
 		      
+		      populateSeasons
 		      Return
 		    End If
 		  Next

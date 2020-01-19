@@ -1,7 +1,7 @@
 #tag Module
 Protected Module ClassExtensions
 	#tag Method, Flags = &h0
-		Sub SelectByText(Extends p As PopupMenu, t As String)
+		Sub SelectByText(Extends p as PopupMenu, t as String, optional default as Integer)
 		  For i As Integer = 0 To p.ListCount - 1
 		    If p.List(i) = t Then
 		      p.ListIndex = i
@@ -9,6 +9,8 @@ Protected Module ClassExtensions
 		    End If
 		  Next
 		  
+		  // Couldn't find the item, select the default
+		  p.ListIndex = default
 		  
 		End Sub
 	#tag EndMethod
@@ -19,7 +21,9 @@ Protected Module ClassExtensions
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -27,12 +31,15 @@ Protected Module ClassExtensions
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -40,6 +47,7 @@ Protected Module ClassExtensions
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -47,6 +55,7 @@ Protected Module ClassExtensions
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Module
