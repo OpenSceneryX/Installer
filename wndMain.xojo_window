@@ -71,7 +71,7 @@ Begin Window wndMain
          TabPanelIndex   =   0
          Top             =   125
          Transparent     =   True
-         Value           =   3
+         Value           =   0
          Visible         =   True
          Width           =   611
          Begin Label txtWelcome
