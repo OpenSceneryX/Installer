@@ -100,7 +100,26 @@ Inherits Application
 
 	#tag Method, Flags = &h0
 		Sub loadPreferences()
+		  ' Old prefs location
+		  
 		  Dim prefsFile As FolderItem = SpecialFolder.Preferences.Child(App.kApplicationNameASCII + ".plist")
+		  
+		  If (prefsFile.exists) Then
+		    If (Not pPreferences.loadXML(prefsFile)) Then
+		      pPreferences = New Dictionary
+		    End If
+		    prefsFile.Delete
+		  End If
+		  
+		  ' New prefs location in a subfolder so it can be shared with kaju updater
+		  
+		  pPrefsFolder = SpecialFolder.ApplicationData.Child(App.kApplicationNameASCII)
+		  If Not pPrefsFolder.Exists Then
+		    pPrefsFolder.CreateAsFolder
+		  End If
+		  
+		  prefsFile = pPrefsFolder.Child(App.kApplicationName + ".plist")
+		  
 		  If (prefsFile.exists) Then
 		    If (Not pPreferences.loadXML(prefsFile)) Then
 		      pPreferences = New Dictionary
@@ -136,8 +155,9 @@ Inherits Application
 
 	#tag Method, Flags = &h21
 		Private Sub savePreferences()
-		  dim prefsFile as FolderItem = SpecialFolder.Preferences().Child(App.kApplicationNameASCII + ".plist")
-		  dim result as Boolean = pPreferences.saveXML(prefsFile, true)
+		  Dim prefsFile As FolderItem = pPrefsFolder.Child(App.kApplicationNameASCII + ".plist")
+		  Dim result As Boolean = pPreferences.saveXML(prefsFile, True)
+		  
 		End Sub
 	#tag EndMethod
 
@@ -154,6 +174,10 @@ Inherits Application
 
 	#tag Property, Flags = &h0
 		pPreferences As Dictionary
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private pPrefsFolder As FolderItem
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
