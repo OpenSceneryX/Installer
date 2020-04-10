@@ -69,7 +69,7 @@ Begin Window wndMain
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
+         TabStop         =   "True"
          Top             =   125
          Transparent     =   True
          Value           =   0
@@ -837,7 +837,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   6
-            TabStop         =   True
+            TabStop         =   "True"
             Top             =   626
             Transparent     =   True
             Value           =   0.0
@@ -894,7 +894,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   6
-            TabStop         =   True
+            TabStop         =   "True"
             Top             =   592
             Transparent     =   True
             Value           =   0.0
@@ -2258,7 +2258,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   39
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   "True"
       Top             =   124
       Transparent     =   True
       Visible         =   True
@@ -2283,7 +2283,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   40
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   "True"
       Top             =   156
       Transparent     =   True
       Visible         =   True
@@ -2308,7 +2308,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   41
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   "True"
       Top             =   188
       Transparent     =   True
       Visible         =   True
@@ -2333,7 +2333,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   42
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   "True"
       Top             =   220
       Transparent     =   True
       Visible         =   True
@@ -2358,7 +2358,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   43
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   "True"
       Top             =   252
       Transparent     =   True
       Visible         =   True
@@ -2383,7 +2383,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   44
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   "True"
       Top             =   284
       Transparent     =   True
       Visible         =   True
@@ -2408,7 +2408,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   45
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   "True"
       Top             =   316
       Transparent     =   True
       Visible         =   True
@@ -2789,7 +2789,7 @@ End
 
 	#tag Method, Flags = &h0
 		Sub downloadNextFile()
-		  dim filePath as String = normaliseFilePath(pPendingFiles.item(1))
+		  Dim filePath As String = normaliseFilePath(pPendingFiles.item(1))
 		  dim i as Integer
 		  dim parts() as String = filePath.split("/")
 		  
@@ -2814,9 +2814,9 @@ End
 		  
 		  url = url + ".zip"
 		  
+		  pSockFileWorking = True
 		  sockFile.send("GET", url, destinationFile)
 		  
-		  pSockFileWorking = true
 		End Sub
 	#tag EndMethod
 
