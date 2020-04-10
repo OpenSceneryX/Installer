@@ -2230,7 +2230,7 @@ Begin Window wndMain
       InitialParent   =   ""
       LockedInPosition=   False
       Mode            =   0
-      Period          =   500
+      Period          =   100
       Scope           =   0
       TabPanelIndex   =   0
    End
