@@ -116,8 +116,9 @@ Inherits Application
 
 	#tag Method, Flags = &h0
 		Sub initKajuUpdateChecker()
-		  ' Only auto-update on Mac or Windows, as Kaju doesn't support different linux updates for different architectures
-		  #If TargetMacOS Or TargetWindows Then
+		  ' Only auto-update on 64 bit architectures - we don't support auto-updating on Linux 32 bit as Kaju
+		  ' doesn't support separate versions for x86 and ARM
+		  #If Target64Bit Then
 		    Dim updater As New Kaju.UpdateChecker(pPrefsFolder)
 		    
 		    ' This line matches the allowed updates to the app's Stage Code in the shared Build Settings.
