@@ -54,7 +54,13 @@ Building
 
 * Click `Export…` and save the file as `versioninfo/installerupdatedata.json`
 
-* Upload `versioninfo/installerversion.txt`,  `versioninfo/installerreleasenotes.html` and `versioninfo/installerupdatedata.json` to hosting servers, replacing existing versions.
+* Upload `versioninfo/installerversion.txt`, `versioninfo/installerreleasenotes.html` as `installerreleasenotes.txt` and `versioninfo/installerupdatedata.json` to hosting servers:
+
+    ```
+    scp installerreleasenotes.html <server>:<path>/versioninfo/installerreleasenotes.txt
+    scp installerversion.txt <server>:<path>/versioninfo/installerversion.txt
+    scp installerupdatedata.json <server>:<path>/versioninfo/installerupdatedata.json
+    ```
 
 * Clear Cloudflare cache for the following URLs:
 
