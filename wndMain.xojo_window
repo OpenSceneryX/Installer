@@ -2905,46 +2905,51 @@ End
 
 	#tag Method, Flags = &h0
 		Sub populateSeasons()
-		  Dim pluginsFolder As FolderItem = App.pXPlaneFolder.child("Resources").child("plugins")
-		  
 		  
 		  // Clear down the seasons popup
 		  popSeasons.RemoveAllRows
 		  
-		  // Always add default XPlane option
-		  popSeasons.AddRow(kSeasonsXPlane)
-		  
-		  #If TargetMacOS
-		    popSeasons.AddRow("-")
-		  #EndIf
-		  
-		  // Detect Four Seasons plugin by looking for the Python file
-		  If pluginsFolder.child("PythonScripts").Exists And pluginsFolder.child("PythonScripts").child("PI_four_seasons.py").exists Then
-		    popSeasons.AddRow(kSeasonsFourSeasons)
+		  If (App.pXPlaneFolder <> Nil And App.pXPlaneFolder.exists And App.pXPlaneFolder.directory And App.pXPlaneFolder.child("Resources").exists And App.pXPlaneFolder.child("Resources").child("plugins").exists) Then
+		    
+		    Dim resourcesFolder As FolderItem = App.pXPlaneFolder.child("Resources")
+		    Dim pluginsFolder As FolderItem = resourcesFolder.child("plugins")
+		    
+		    // Always add default XPlane option
+		    popSeasons.AddRow(kSeasonsXPlane)
+		    
+		    #If TargetMacOS
+		      popSeasons.AddRow("-")
+		    #EndIf
+		    
+		    // Detect Four Seasons plugin by looking for the Python file
+		    If pluginsFolder.child("PythonScripts").Exists And pluginsFolder.child("PythonScripts").child("PI_four_seasons.py").exists Then
+		      popSeasons.AddRow(kSeasonsFourSeasons)
+		    End If
+		    
+		    // Detect SAM plugin by looking for it's folder
+		    If pluginsFolder.child("SAM").Exists Then
+		      popSeasons.AddRow(kSeasonsSAM)
+		    End If
+		    
+		    // Always add TerraMaxx - it's a commercial plugin and we don't know what to look for
+		    popSeasons.AddRow(kSeasonsTerraMaxx)
+		    
+		    // Always add XAmbience - it's a commercial plugin and we don't know what to look for
+		    popSeasons.AddRow(kSeasonsXAmbience)
+		    
+		    // Detect xEnviro by looking for its regional PNGs
+		    If resourcesFolder.child("seasons").exists _
+		      And resourcesFolder.child("seasons").child("region_au.png").exists _
+		      And resourcesFolder.child("seasons").child("region_wi.png").exists _
+		      And resourcesFolder.child("seasons").child("region_dw.png").exists _
+		      And resourcesFolder.child("seasons").child("region_hw.png").exists Then
+		      popSeasons.AddRow(kSeasonsXEnviro)
+		    End If
+		    
+		    #If TargetMacOS
+		      popSeasons.AddRow("-")
+		    #EndIf
 		  End If
-		  
-		  // Detect SAM plugin by looking for it's folder
-		  If pluginsFolder.child("SAM").Exists Then
-		    popSeasons.AddRow(kSeasonsSAM)
-		  End If
-		  
-		  // Always add TerraMaxx - it's a commercial plugin and we don't know what to look for
-		  popSeasons.AddRow(kSeasonsTerraMaxx)
-		  
-		  // Always add XAmbience - it's a commercial plugin and we don't know what to look for
-		  popSeasons.AddRow(kSeasonsXAmbience)
-		  
-		  // Detect xEnviro by looking for its regional PNGs
-		  If App.pXPlaneFolder.child("Resources").child("seasons").child("region_au.png").exists _
-		    And App.pXPlaneFolder.child("Resources").child("seasons").child("region_wi.png").exists _
-		    And App.pXPlaneFolder.child("Resources").child("seasons").child("region_dw.png").exists _
-		    And App.pXPlaneFolder.child("Resources").child("seasons").child("region_hw.png").exists Then
-		    popSeasons.AddRow(kSeasonsXEnviro)
-		  End If
-		  
-		  #If TargetMacOS
-		    popSeasons.AddRow("-")
-		  #EndIf
 		  
 		  // Always add disabled option
 		  popSeasons.AddRow(kSeasonsDisable)
@@ -2963,10 +2968,13 @@ End
 		      popSeasons.SelectByText(kSeasonsXAmbience)
 		    Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXEnviro Then
 		      popSeasons.SelectByText(kSeasonsXEnviro)
-		    Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled Then
+		    Else
 		      popSeasons.SelectByText(kSeasonsDisable)
 		    End If
+		  Else
+		    popSeasons.SelectByText(kSeasonsDisable)
 		  End If
+		  
 		  
 		End Sub
 	#tag EndMethod
