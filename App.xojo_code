@@ -45,6 +45,18 @@ Inherits Application
 		End Sub
 	#tag EndEvent
 
+	#tag Event
+		Function UnhandledException(error As RuntimeException) As Boolean
+		  If error <> Nil Then
+		    Var type As String = Introspection.GetType(error).Name
+		    MessageBox(type + EndOfLine + EndOfLine + Join(error.Stack, EndOfLine))
+		  End If
+		  
+		  Return False
+		  
+		End Function
+	#tag EndEvent
+
 
 	#tag MenuHandler
 		Function HelpAbout() As Boolean Handles HelpAbout.Action
