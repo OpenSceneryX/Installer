@@ -40,23 +40,28 @@ Building
 
 * If not using a Parallels VM for the Windows signing and resource fork editing, copy the Windows build across to the Windows machine and perform those steps, then copy it back in place (using a Parallels VM, this is done automatically as part of the build).
 
-* Run `Scripts/buildall.sh`
+* Run `Scripts/buildall.sh [versionnumber]`
 
-* Notarize Mac `.dmg` - see separate [notarizing instructions](notarizing.md)
-
-* Edit names of zips and dmg to insert version number at end, before extension. The Mac one also needs `Mac-` inserted, all this ought to be automated…
+* Notarize Mac `.dmg` and `.zip` - see separate [notarizing instructions](notarizing.md)
 
 * Upload all installers to the AWS S3 bucket.
 
 * In AWS S3 console, select new uploads and choose _Actions -> Make Public_
 
-* Upload `versioninfo/installerversion.txt` and `versioninfo/installerreleasenotes.html` to hosting servers, replacing existing versions.
+* Open the Kaju admin app and add a new version, duplicating previous, set the version number to match the build above and set the Build Stage in the `Preview` dropdown to the correct stage.
+
+* Click `From URL` on all three executables to generate a new hash for the binaries.
+
+* Click `Export…` and save the file as `versioninfo/installerupdatedata.json`
+
+* Upload `versioninfo/installerversion.txt`,  `versioninfo/installerreleasenotes.html` and `versioninfo/installerupdatedata.json` to hosting servers, replacing existing versions.
 
 * Clear Cloudflare cache for the following URLs:
 
     ```
     https://www.opensceneryx.com/versioninfo/installerreleasenotes.html
     https://www.opensceneryx.com/versioninfo/installerversion.txt
+    https://www.opensceneryx.com/versioninfo/installerupdatedata.json
     ```
 
 * Edit the website homepage to update the version number on all downloads. As the Gutenberg visual editor can't (yet) cope with the download block, currently do this by searching and replacing directly in the database (post ID = 748).
