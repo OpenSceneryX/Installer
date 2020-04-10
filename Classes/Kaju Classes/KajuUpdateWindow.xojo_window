@@ -300,7 +300,7 @@ Begin Window KajuUpdateWindow
       Scope           =   2
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   "True"
       Top             =   555
       Transparent     =   False
       Value           =   0.0
@@ -321,9 +321,7 @@ Begin Window KajuUpdateWindow
       PID             =   0
       Result          =   ""
       Scope           =   2
-      TabIndex        =   "9"
       TabPanelIndex   =   0
-      TabStop         =   True
       TimeOut         =   0
    End
    Begin HTMLViewer hvNewWindow
@@ -429,9 +427,7 @@ Begin Window KajuUpdateWindow
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   2
-      TabIndex        =   "14"
       TabPanelIndex   =   0
-      TabStop         =   True
       ValidateCertificates=   False
    End
 End
