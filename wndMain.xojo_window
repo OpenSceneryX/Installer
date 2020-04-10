@@ -2548,6 +2548,8 @@ End
 		  App.pPreferences = New Dictionary
 		  App.loadPreferences
 		  
+		  App.initKajuUpdateChecker
+		  
 		  Dim xPlanePath As String
 		  If (App.pPreferences.hasKey(App.kPreferenceXPlanePath)) Then xPlanePath = App.pPreferences.value(App.kPreferenceXPlanePath)
 		  If (xPlanePath <> "") Then App.pXPlaneFolder = GetFolderItem(xPlanePath, FolderItem.PathTypeNative)

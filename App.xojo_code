@@ -3,7 +3,11 @@ Protected Class App
 Inherits Application
 	#tag Event
 		Sub Close()
-		  savePreferences()
+		  savePreferences
+		  
+		  // The Kaju App.UpdateInitiater's Destructor should fire automatically on quit, but sometimes it doesn't, so we force the issue here.
+		  App.UpdateInitiater = Nil
+		  
 		End Sub
 	#tag EndEvent
 
@@ -111,6 +115,30 @@ Inherits Application
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub initKajuUpdateChecker()
+		  ' Only auto-update on Mac or Windows, as Kaju doesn't support different linux updates for different architectures
+		  #If TargetMacOS Or TargetWindows Then
+		    Dim updater As New Kaju.UpdateChecker(pPrefsFolder)
+		    
+		    If (App.StageCode = 3) Then
+		      updater.ServerPublicRSAKey = App.kKeyKajuUpdate
+		      updater.UpdateURL = App.kURLKajuUpdateData
+		    Else
+		      updater.ServerPublicRSAKey = App.kKeyKajuDevUpdate
+		      updater.UpdateURL = App.kURLKajuDevUpdateData
+		    End If
+		    
+		    updater.DefaultImage = imgBannerBG
+		    updater.DefaultUseTransparency = True
+		    updater.AllowRedirection = True
+		    
+		    updater.ExecuteAsync
+		  #EndIf
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub loadPreferences()
 		  ' Old prefs location
 		  
@@ -194,6 +222,10 @@ Inherits Application
 
 	#tag Property, Flags = &h0
 		pXPlaneFolder As FolderItem
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		UpdateInitiater As Kaju.UpdateInitiater
 	#tag EndProperty
 
 
@@ -450,6 +482,12 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"&Acerca del Instalador OpenSceneryX"
 	#tag EndConstant
 
+	#tag Constant, Name = kKeyKajuDevUpdate, Type = Text, Dynamic = False, Default = \"", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kKeyKajuUpdate, Type = Text, Dynamic = False, Default = \"", Scope = Private
+	#tag EndConstant
+
 	#tag Constant, Name = kLocateXPlaneFolder, Type = String, Dynamic = True, Default = \"Please locate your X-Plane\xC2\xAE folder", Scope = Public
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Por favor localice su carpeta de X-Plane\xC2\xAE"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Indiquer le chemin de votre installation X-Plane\xC2\xAE"
@@ -547,6 +585,12 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kURLKajuDevUpdateData, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevupdatedata.json", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kURLKajuUpdateData, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerupdatedata.json", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kURLLicense, Type = Text, Dynamic = False, Default = \"https://creativecommons.org/licenses/by-nc-nd/2.0/uk/", Scope = Public
