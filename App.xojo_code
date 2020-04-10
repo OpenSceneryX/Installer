@@ -120,14 +120,12 @@ Inherits Application
 		  #If TargetMacOS Or TargetWindows Then
 		    Dim updater As New Kaju.UpdateChecker(pPrefsFolder)
 		    
-		    If (App.StageCode = 3) Then
-		      updater.ServerPublicRSAKey = App.kKeyKajuUpdate
-		      updater.UpdateURL = App.kURLKajuUpdateData
-		    Else
-		      updater.ServerPublicRSAKey = App.kKeyKajuDevUpdate
-		      updater.UpdateURL = App.kURLKajuDevUpdateData
-		    End If
+		    ' This line matches the allowed updates to the app's Stage Code in the shared Build Settings.
+		    ' So a 'Final' version app will only get updates marked as 'Final', while a 'Development' app will get all updates.
+		    updater.AllowedStage = App.StageCode
 		    
+		    updater.ServerPublicRSAKey = App.kKeyKajuUpdate
+		    updater.UpdateURL = App.kURLKajuUpdateData
 		    updater.DefaultImage = imgBannerBG
 		    updater.DefaultUseTransparency = True
 		    updater.AllowRedirection = True
@@ -482,10 +480,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"&Acerca del Instalador OpenSceneryX"
 	#tag EndConstant
 
-	#tag Constant, Name = kKeyKajuDevUpdate, Type = Text, Dynamic = False, Default = \"", Scope = Private
-	#tag EndConstant
-
-	#tag Constant, Name = kKeyKajuUpdate, Type = Text, Dynamic = False, Default = \"", Scope = Private
+	#tag Constant, Name = kKeyKajuUpdate, Type = Text, Dynamic = False, Default = \"30820120300D06092A864886F70D01010105000382010D00308201080282010100DA2AD994B9F91D39D1C6433F4578593CC096D89C874A650011C0C3095AB5C750CDCBB269A8D61EF3D86F0A4C5A7D179F2D32E54F941F873AC97F06AEA63BFA8740BDEE090E32B5FD864244C2221F18D4E05202D35B63D2874C271E4CAC9465BCB042EF2F3685757FC449A084D08809BCF8C7ACDBA74FEC3FE0EED4AC23271ACCE4D338AEFE747BC8C963A8061585927EA812BA8C304597F0CBB788B949D0AF185C29490015F926D293B9F57FCE4DD7CBA5746119215020364EC4A4285358DCF7334C89D84F313679CFC1078C14CB3BC192F1C5E1DB942F567A232FCDBE4E6EA8184AC62245B53A1CD34A54C6D69E854A6A172A02EE963E6AB33D02EEB00B43F9020111", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kLocateXPlaneFolder, Type = String, Dynamic = True, Default = \"Please locate your X-Plane\xC2\xAE folder", Scope = Public
@@ -585,9 +580,6 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kURLDevVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
-	#tag EndConstant
-
-	#tag Constant, Name = kURLKajuDevUpdateData, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevupdatedata.json", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kURLKajuUpdateData, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerupdatedata.json", Scope = Private
