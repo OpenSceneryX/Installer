@@ -69,7 +69,6 @@ Begin Window wndMain
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Top             =   125
          Transparent     =   True
          Value           =   0
@@ -837,7 +836,6 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   6
-            TabStop         =   True
             Top             =   626
             Transparent     =   True
             Value           =   0.0
@@ -894,7 +892,6 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   6
-            TabStop         =   True
             Top             =   592
             Transparent     =   True
             Value           =   0.0
@@ -2220,7 +2217,6 @@ Begin Window wndMain
       End
    End
    Begin Thread thrUpdateFolderStructure
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -2230,12 +2226,11 @@ Begin Window wndMain
       TabPanelIndex   =   0
    End
    Begin Timer tmrUpdateFolderStructure
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
       Mode            =   0
-      Period          =   500
+      Period          =   100
       Scope           =   0
       TabPanelIndex   =   0
    End
@@ -2258,7 +2253,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   39
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   124
       Transparent     =   True
       Visible         =   True
@@ -2283,7 +2277,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   40
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   156
       Transparent     =   True
       Visible         =   True
@@ -2308,7 +2301,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   41
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   188
       Transparent     =   True
       Visible         =   True
@@ -2333,7 +2325,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   42
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   220
       Transparent     =   True
       Visible         =   True
@@ -2358,7 +2349,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   43
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   252
       Transparent     =   True
       Visible         =   True
@@ -2383,7 +2373,6 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   44
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   284
       Transparent     =   True
       Visible         =   True
@@ -2408,14 +2397,12 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   45
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   316
       Transparent     =   True
       Visible         =   True
       Width           =   10
    End
    Begin Xojo.Net.HTTPSocket sockVersion
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2423,7 +2410,6 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Xojo.Net.HTTPSocket sockManifest
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2431,7 +2417,6 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Xojo.Net.HTTPSocket sockFile
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2439,7 +2424,6 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Thread thrLocalScan
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Priority        =   5
@@ -2448,7 +2432,6 @@ Begin Window wndMain
       TabPanelIndex   =   0
    End
    Begin Timer tmrLocalScan
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Mode            =   0
@@ -2789,7 +2772,7 @@ End
 
 	#tag Method, Flags = &h0
 		Sub downloadNextFile()
-		  dim filePath as String = normaliseFilePath(pPendingFiles.item(1))
+		  Dim filePath As String = normaliseFilePath(pPendingFiles.item(1))
 		  dim i as Integer
 		  dim parts() as String = filePath.split("/")
 		  
@@ -2814,9 +2797,9 @@ End
 		  
 		  url = url + ".zip"
 		  
+		  pSockFileWorking = True
 		  sockFile.send("GET", url, destinationFile)
 		  
-		  pSockFileWorking = true
 		End Sub
 	#tag EndMethod
 
@@ -2905,46 +2888,51 @@ End
 
 	#tag Method, Flags = &h0
 		Sub populateSeasons()
-		  Dim pluginsFolder As FolderItem = App.pXPlaneFolder.child("Resources").child("plugins")
-		  
 		  
 		  // Clear down the seasons popup
 		  popSeasons.RemoveAllRows
 		  
-		  // Always add default XPlane option
-		  popSeasons.AddRow(kSeasonsXPlane)
-		  
-		  #If TargetMacOS
-		    popSeasons.AddRow("-")
-		  #EndIf
-		  
-		  // Detect Four Seasons plugin by looking for the Python file
-		  If pluginsFolder.child("PythonScripts").Exists And pluginsFolder.child("PythonScripts").child("PI_four_seasons.py").exists Then
-		    popSeasons.AddRow(kSeasonsFourSeasons)
+		  If (App.pXPlaneFolder <> Nil And App.pXPlaneFolder.exists And App.pXPlaneFolder.directory And App.pXPlaneFolder.child("Resources").exists And App.pXPlaneFolder.child("Resources").child("plugins").exists) Then
+		    
+		    Dim resourcesFolder As FolderItem = App.pXPlaneFolder.child("Resources")
+		    Dim pluginsFolder As FolderItem = resourcesFolder.child("plugins")
+		    
+		    // Always add default XPlane option
+		    popSeasons.AddRow(kSeasonsXPlane)
+		    
+		    #If TargetMacOS
+		      popSeasons.AddRow("-")
+		    #EndIf
+		    
+		    // Detect Four Seasons plugin by looking for the Python file
+		    If pluginsFolder.child("PythonScripts").Exists And pluginsFolder.child("PythonScripts").child("PI_four_seasons.py").exists Then
+		      popSeasons.AddRow(kSeasonsFourSeasons)
+		    End If
+		    
+		    // Detect SAM plugin by looking for it's folder
+		    If pluginsFolder.child("SAM").Exists Then
+		      popSeasons.AddRow(kSeasonsSAM)
+		    End If
+		    
+		    // Always add TerraMaxx - it's a commercial plugin and we don't know what to look for
+		    popSeasons.AddRow(kSeasonsTerraMaxx)
+		    
+		    // Always add XAmbience - it's a commercial plugin and we don't know what to look for
+		    popSeasons.AddRow(kSeasonsXAmbience)
+		    
+		    // Detect xEnviro by looking for its regional PNGs
+		    If resourcesFolder.child("seasons").exists _
+		      And resourcesFolder.child("seasons").child("region_au.png").exists _
+		      And resourcesFolder.child("seasons").child("region_wi.png").exists _
+		      And resourcesFolder.child("seasons").child("region_dw.png").exists _
+		      And resourcesFolder.child("seasons").child("region_hw.png").exists Then
+		      popSeasons.AddRow(kSeasonsXEnviro)
+		    End If
+		    
+		    #If TargetMacOS
+		      popSeasons.AddRow("-")
+		    #EndIf
 		  End If
-		  
-		  // Detect SAM plugin by looking for it's folder
-		  If pluginsFolder.child("SAM").Exists Then
-		    popSeasons.AddRow(kSeasonsSAM)
-		  End If
-		  
-		  // Always add TerraMaxx - it's a commercial plugin and we don't know what to look for
-		  popSeasons.AddRow(kSeasonsTerraMaxx)
-		  
-		  // Always add XAmbience - it's a commercial plugin and we don't know what to look for
-		  popSeasons.AddRow(kSeasonsXAmbience)
-		  
-		  // Detect xEnviro by looking for its regional PNGs
-		  If App.pXPlaneFolder.child("Resources").child("seasons").child("region_au.png").exists _
-		    And App.pXPlaneFolder.child("Resources").child("seasons").child("region_wi.png").exists _
-		    And App.pXPlaneFolder.child("Resources").child("seasons").child("region_dw.png").exists _
-		    And App.pXPlaneFolder.child("Resources").child("seasons").child("region_hw.png").exists Then
-		    popSeasons.AddRow(kSeasonsXEnviro)
-		  End If
-		  
-		  #If TargetMacOS
-		    popSeasons.AddRow("-")
-		  #EndIf
 		  
 		  // Always add disabled option
 		  popSeasons.AddRow(kSeasonsDisable)
@@ -2963,10 +2951,13 @@ End
 		      popSeasons.SelectByText(kSeasonsXAmbience)
 		    Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsXEnviro Then
 		      popSeasons.SelectByText(kSeasonsXEnviro)
-		    Elseif App.pPreferences.value(App.kPreferenceSeasons) = App.kPreferenceSeasonsDisabled Then
+		    Else
 		      popSeasons.SelectByText(kSeasonsDisable)
 		    End If
+		  Else
+		    popSeasons.SelectByText(kSeasonsDisable)
 		  End If
+		  
 		  
 		End Sub
 	#tag EndMethod
@@ -3214,6 +3205,14 @@ End
 		End Sub
 	#tag EndMethod
 
+
+	#tag Property, Flags = &h0
+		pCurrentFileBytesReceived As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		pCurrentFileTotalBytes As Integer
+	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		pDeletedFiles As Collection
@@ -4546,6 +4545,9 @@ End
 		    
 		    showMessage(txtInstallBodyText2, kDownloadingFiles + " ", Array(filePath, str(currentFile + 1), str(prgBarOverall.maximum)))
 		    
+		    prgBarFile.maximum = pCurrentFileTotalBytes
+		    prgBarFile.value = pCurrentFileBytesReceived
+		    txtFilePercent.Text = Str(Round((pCurrentFileBytesReceived / pCurrentFileTotalBytes) * 100)) + "%"
 		    prgBarOverall.value = currentFile
 		    prgBarOverall.visible = true
 		    txtOverallPercent.text = str(round((prgBarOverall.maximum - pPendingFiles.count) * 100 / prgBarOverall.maximum)) + "%"
@@ -4726,12 +4728,12 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub ReceiveProgress(BytesReceived as Int64, TotalBytes as Int64, NewData as xojo.Core.MemoryBlock)
-		  ' On Linux, the socket can exist longer than the window and controls (!) so need to check for null
-		  If (prgBarFile <> Nil) Then
-		    prgBarFile.maximum = TotalBytes
-		    prgBarFile.value = BytesReceived
-		    txtFilePercent.Text = Str(Round((BytesReceived / TotalBytes) * 100)) + "%"
-		  End If
+		  // Cannot set these directly into the progress UI elements as this socket was originally initiated from a thread
+		  // Store them in properties and update from the Timer
+		  
+		  pCurrentFileTotalBytes = TotalBytes
+		  pCurrentFileBytesReceived = BytesReceived
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -5054,6 +5056,22 @@ End
 		Visible=true
 		Group="Position"
 		InitialValue="600"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="pCurrentFileBytesReceived"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="pCurrentFileTotalBytes"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
 		Type="Integer"
 		EditorType=""
 	#tag EndViewProperty
