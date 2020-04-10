@@ -28,7 +28,7 @@ Building
 
 * Clear out any old builds / zips
 
-* Update version number in app
+* Update version number in app. For a release build, ensure the `Stage Code` is set to `Final` in `Build Settings` -> `Shared`. Our Kaju update logic is set to only update to the same or higher Stage Code. So, a user with a Final build (almost all users) will only receive Final builds.
 
 * Update `versioninfo/installerversion.txt` with new version number
 
@@ -40,7 +40,7 @@ Building
 
 * If not using a Parallels VM for the Windows signing and resource fork editing, copy the Windows build across to the Windows machine and perform those steps, then copy it back in place (using a Parallels VM, this is done automatically as part of the build).
 
-* Run `Scripts/buildall.sh [versionnumber]`
+* Run `Scripts/buildall.sh <versionnumber>`
 
 * Notarize Mac `.dmg` and `.zip` - see separate [notarizing instructions](notarizing.md)
 
@@ -48,15 +48,15 @@ Building
 
 * In AWS S3 console, select new uploads and choose _Actions -> Make Public_
 
-* Open the Kaju admin app and add a new version, duplicating previous, set the version number to match the build above and set the Build Stage in the `Preview` dropdown to the correct stage.
+* Open the Kaju admin app and add a new version, duplicating previous, set the version number to match the build above.
 
-* Click `From URL` on all three executables to generate a new hash for the binaries.
+* Create a new hash for all three binaries by dragging them into the appropriate fields. Ensure the Mac binary is the zip version, not the dmg.
 
 * Click `Export…` and save the file as `versioninfo/installerupdatedata.json`
 
-* Upload `versioninfo/installerversion.txt`, `versioninfo/installerreleasenotes.html` as `installerreleasenotes.txt` and `versioninfo/installerupdatedata.json` to hosting servers:
+* Upload `versioninfo/installerversion.txt`, `versioninfo/installerreleasenotes.html` AS `installerreleasenotes.txt` and `versioninfo/installerupdatedata.json` to hosting servers:
 
-    ```
+    ```bash
     scp installerreleasenotes.html <server>:<path>/versioninfo/installerreleasenotes.txt
     scp installerversion.txt <server>:<path>/versioninfo/installerversion.txt
     scp installerupdatedata.json <server>:<path>/versioninfo/installerupdatedata.json
