@@ -1,9 +1,31 @@
-<h2>Installer Release Notes</h2>
+<style>
+	body {
+	  color: black;
+	  background-color: white;
+	  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	}
+
+	h3 {
+		background-color: #c5c6e7;
+		padding: 0.4em;
+	}
+
+	@media screen and (prefers-color-scheme: dark) {
+		body {
+		  background: black;
+		  color: #c0c0c0;
+		}
+
+		h3 {
+			background-color: #3838ac;
+		}
+	}
+</style>
 
 <h3>Version x.x.x - xxxx xxxxx xxxx</h3>
 <ol>
 	<li>The season switching drop-down menu is now intelligent and will only show options that exist for your X-Plane® installation.</li>
-	<li>Added support for season switching using the <a href="http://www.xenviro.net">xEnviro Plugin</a>.</li>
+	<li>Added support for season switching using the <a href="http://www.xenviro.net" target="_blank">xEnviro Plugin</a>.</li>
 	<li>No longer reports one file needs updating even for a fully up to date installation.</li>
 	<li>Slow performance on Ubuntu Linux 19 fixed.</li>
 	<li>If you enable HD forest overrides and also have seasons enabled, all core X-Plane® forests will now be seasonal.</li>
@@ -14,7 +36,7 @@
 
 <h3>Version 2.7.0 - 2nd December 2019</h3>
 <ol>
-	<li>Added support for season switching using the <a href="https://forum.thresholdx.net/files/file/122-sam-scenery-animation-manager/">Scenery Animation Manager plugin (SAM)</a>.</li>
+	<li>Added support for season switching using the <a href="https://forum.thresholdx.net/files/file/122-sam-scenery-animation-manager/" target="_blank">Scenery Animation Manager plugin (SAM)</a>.</li>
 	<li>New application icon.</li>
 	<li>Improve button and drop-down menu layouts on Linux.</li>
 	<li>The Spanish and Catalan translations have been updated, thank you to Haris Amiel.</li>
@@ -42,7 +64,7 @@
 
 <h3>Version 2.5.0 - 29th March 2019</h3>
 <ol>
-	<li>Support for seasons. OpenSceneryX now exports seasonal regions compatible with core X-Plane®, the <a href="https://forums.x-plane.org/index.php?/files/file/44351-four-seasons/">Four Seasons plugin</a>, the <a href="http://maxx-xp.com/terramaxx">TerraMaxx plugin</a> and the <a href="https://forums.x-plane.org/index.php?/forums/topic/168048-xambience-arrives/">xAmbience plugin</a>. Seasonal support is optional and can be chosen at install. Note that we only support seasons for library contributions that have seasonal alternatives.</li>
+	<li>Support for seasons. OpenSceneryX now exports seasonal regions compatible with core X-Plane®, the <a href="https://forums.x-plane.org/index.php?/files/file/44351-four-seasons/" target="_blank">Four Seasons plugin</a>, the <a href="http://maxx-xp.com/terramaxx" target="_blank">TerraMaxx plugin</a> and the <a href="https://forums.x-plane.org/index.php?/forums/topic/168048-xambience-arrives/" target="_blank">xAmbience plugin</a>. Seasonal support is optional and can be chosen at install. Note that we only support seasons for library contributions that have seasonal alternatives.</li>
 	<li>Added placeholders for Autogen points (.agp) and Decal (.dcl) files.</li>
 	<li>Updated XML parsing code and moved preferences loading code to hopefully eliminate silent crashes on load for some users (especially on Windows 7 and Windows 10).</li>
 	<li>The library still includes the <a href="https://forums.x-plane.org/index.php?/files/file/25033-backup-scenery-library/">Backup Library</a> but it is now separate and the installer gives the choice of using or not using it.</li>
