@@ -127,7 +127,7 @@ Inherits Application
 		    
 		    updater.ServerPublicRSAKey = App.kKeyKajuUpdate
 		    updater.UpdateURL = App.kURLKajuUpdateData
-		    updater.DefaultImage = imgBannerBG
+		    'updater.DefaultImage = imgBannerBG
 		    updater.DefaultUseTransparency = True
 		    updater.AllowRedirection = True
 		    
