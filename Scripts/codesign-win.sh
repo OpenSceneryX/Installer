@@ -24,17 +24,6 @@ exec 3<&0 0</dev/null
 /usr/local/bin/prlctl start "Windows 10.1"
 
 echo
-echo Administrator Launch
-echo --------------------
-
-# Modify the Manifest to ensure the app runs as administrator.
-# This requires the executable from the electron project: https://github.com/electron/rcedit to be present
-# at 'C:\Program Files (x86)\rcedit\rcedit-x64.exe' within the VM.
-
-/usr/local/bin/prlctl exec "Windows 10.1" --resolve-paths --current-user "C:\\Program Files (x86)\\rcedit\\rcedit-x64.exe" "../Builds - Installer/Windows 64 bit/OpenSceneryX Installer/OpenSceneryX Installer.exe" --set-requested-execution-level "requireAdministrator"
-echo Done
-
-echo
 echo
 echo Signing
 echo -------

@@ -3,7 +3,11 @@ Protected Class App
 Inherits Application
 	#tag Event
 		Sub Close()
-		  savePreferences()
+		  savePreferences
+		  
+		  // The Kaju App.UpdateInitiater's Destructor should fire automatically on quit, but sometimes it doesn't, so we force the issue here.
+		  App.UpdateInitiater = Nil
+		  
 		End Sub
 	#tag EndEvent
 
@@ -111,8 +115,50 @@ Inherits Application
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub initKajuUpdateChecker()
+		  ' Only auto-update on 64 bit architectures - we don't support auto-updating on Linux 32 bit as Kaju
+		  ' doesn't support separate versions for x86 and ARM
+		  #If Target64Bit Then
+		    Dim updater As New Kaju.UpdateChecker(pPrefsFolder)
+		    
+		    ' This line matches the allowed updates to the app's Stage Code in the shared Build Settings.
+		    ' So a 'Final' version app will only get updates marked as 'Final', while a 'Development' app will get all updates.
+		    updater.AllowedStage = App.StageCode
+		    
+		    updater.ServerPublicRSAKey = App.kKeyKajuUpdate
+		    updater.UpdateURL = App.kURLKajuUpdateData
+		    'updater.DefaultImage = imgBannerBG
+		    updater.DefaultUseTransparency = True
+		    updater.AllowRedirection = True
+		    
+		    updater.ExecuteAsync
+		  #EndIf
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub loadPreferences()
+		  ' Old prefs location
+		  
 		  Dim prefsFile As FolderItem = SpecialFolder.Preferences.Child(App.kApplicationNameASCII + ".plist")
+		  
+		  If (prefsFile.exists) Then
+		    If (Not pPreferences.loadXML(prefsFile)) Then
+		      pPreferences = New Dictionary
+		    End If
+		    prefsFile.Delete
+		  End If
+		  
+		  ' New prefs location in a subfolder so it can be shared with kaju updater
+		  
+		  pPrefsFolder = SpecialFolder.ApplicationData.Child(App.kApplicationNameASCII)
+		  If Not pPrefsFolder.Exists Then
+		    pPrefsFolder.CreateAsFolder
+		  End If
+		  
+		  prefsFile = pPrefsFolder.Child(App.kApplicationName + ".plist")
+		  
 		  If (prefsFile.exists) Then
 		    If (Not pPreferences.loadXML(prefsFile)) Then
 		      pPreferences = New Dictionary
@@ -148,8 +194,9 @@ Inherits Application
 
 	#tag Method, Flags = &h21
 		Private Sub savePreferences()
-		  dim prefsFile as FolderItem = SpecialFolder.Preferences().Child(App.kApplicationNameASCII + ".plist")
-		  dim result as Boolean = pPreferences.saveXML(prefsFile, true)
+		  Dim prefsFile As FolderItem = pPrefsFolder.Child(App.kApplicationNameASCII + ".plist")
+		  Dim result As Boolean = pPreferences.saveXML(prefsFile, True)
+		  
 		End Sub
 	#tag EndMethod
 
@@ -168,8 +215,16 @@ Inherits Application
 		pPreferences As Dictionary
 	#tag EndProperty
 
+	#tag Property, Flags = &h21
+		Private pPrefsFolder As FolderItem
+	#tag EndProperty
+
 	#tag Property, Flags = &h0
 		pXPlaneFolder As FolderItem
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		UpdateInitiater As Kaju.UpdateInitiater
 	#tag EndProperty
 
 
@@ -426,6 +481,9 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"&Acerca del Instalador OpenSceneryX"
 	#tag EndConstant
 
+	#tag Constant, Name = kKeyKajuUpdate, Type = Text, Dynamic = False, Default = \"30820120300D06092A864886F70D01010105000382010D00308201080282010100DA2AD994B9F91D39D1C6433F4578593CC096D89C874A650011C0C3095AB5C750CDCBB269A8D61EF3D86F0A4C5A7D179F2D32E54F941F873AC97F06AEA63BFA8740BDEE090E32B5FD864244C2221F18D4E05202D35B63D2874C271E4CAC9465BCB042EF2F3685757FC449A084D08809BCF8C7ACDBA74FEC3FE0EED4AC23271ACCE4D338AEFE747BC8C963A8061585927EA812BA8C304597F0CBB788B949D0AF185C29490015F926D293B9F57FCE4DD7CBA5746119215020364EC4A4285358DCF7334C89D84F313679CFC1078C14CB3BC192F1C5E1DB942F567A232FCDBE4E6EA8184AC62245B53A1CD34A54C6D69E854A6A172A02EE963E6AB33D02EEB00B43F9020111", Scope = Private
+	#tag EndConstant
+
 	#tag Constant, Name = kLocateXPlaneFolder, Type = String, Dynamic = True, Default = \"Please locate your X-Plane\xC2\xAE folder", Scope = Public
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Por favor localice su carpeta de X-Plane\xC2\xAE"
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Indiquer le chemin de votre installation X-Plane\xC2\xAE"
@@ -522,7 +580,7 @@ Inherits Application
 	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/repository", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
+	#tag Constant, Name = kURLKajuUpdateData, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerupdatedata.json", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kURLLicense, Type = Text, Dynamic = False, Default = \"https://creativecommons.org/licenses/by-nc-nd/2.0/uk/", Scope = Public
@@ -547,9 +605,6 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kURLSeasonsXEnviro, Type = Text, Dynamic = False, Default = \"http://www.xenviro.net", Scope = Public
-	#tag EndConstant
-
-	#tag Constant, Name = kURLVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerversion.txt", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLWebsite, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com", Scope = Public
