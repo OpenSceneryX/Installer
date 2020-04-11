@@ -46,7 +46,7 @@ hdiutil convert wc.dmg -quiet -format UDZO -imagekey zlib-level=9 -o OpenScenery
 rmdir wc
 rm -f wc.dmg
 
-mv OpenSceneryX-Installer-$VERSION.dmg ..
+mv OpenSceneryX-Installer-Mac-$VERSION.dmg ..
 
 echo "Finished"
 echo "--------"
