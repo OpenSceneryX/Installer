@@ -580,9 +580,6 @@ Inherits Application
 	#tag Constant, Name = kURLDevRepository, Type = Text, Dynamic = False, Default = \"https://downloads.opensceneryx.com/repository", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kURLDevVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerdevversion.txt", Scope = Public
-	#tag EndConstant
-
 	#tag Constant, Name = kURLKajuUpdateData, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerupdatedata.json", Scope = Private
 	#tag EndConstant
 
@@ -608,9 +605,6 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kURLSeasonsXEnviro, Type = Text, Dynamic = False, Default = \"http://www.xenviro.net", Scope = Public
-	#tag EndConstant
-
-	#tag Constant, Name = kURLVersion, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com/versioninfo/installerversion.txt", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kURLWebsite, Type = Text, Dynamic = False, Default = \"https://www.opensceneryx.com", Scope = Public

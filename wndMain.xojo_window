@@ -64,7 +64,7 @@ Begin Window wndMain
          LockLeft        =   True
          LockRight       =   True
          LockTop         =   True
-         PanelCount      =   7
+         PanelCount      =   6
          Panels          =   ""
          Scope           =   0
          TabIndex        =   0
@@ -144,41 +144,6 @@ Begin Window wndMain
             Visible         =   True
             Width           =   585
          End
-         Begin Label txtInstallerVersionBodyText1
-            AutoDeactivate  =   True
-            Bold            =   False
-            DataField       =   ""
-            DataSource      =   ""
-            Enabled         =   True
-            Height          =   40
-            HelpTag         =   ""
-            Index           =   -2147483648
-            InitialParent   =   "ppnlMain"
-            Italic          =   False
-            Left            =   284
-            LockBottom      =   False
-            LockedInPosition=   False
-            LockLeft        =   True
-            LockRight       =   True
-            LockTop         =   True
-            Multiline       =   True
-            Scope           =   0
-            Selectable      =   False
-            TabIndex        =   0
-            TabPanelIndex   =   3
-            TabStop         =   True
-            Text            =   ""
-            TextAlign       =   0
-            TextColor       =   &c00000000
-            TextFont        =   "System"
-            TextSize        =   0.0
-            TextUnit        =   0
-            Top             =   139
-            Transparent     =   True
-            Underline       =   False
-            Visible         =   True
-            Width           =   544
-         End
          Begin Label txtLocalScanBodyText1
             AutoDeactivate  =   True
             Bold            =   False
@@ -200,7 +165,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   1
-            TabPanelIndex   =   5
+            TabPanelIndex   =   4
             TabStop         =   True
             Text            =   ""
             TextAlign       =   0
@@ -229,7 +194,7 @@ Begin Window wndMain
             LockTop         =   False
             Scope           =   0
             TabIndex        =   0
-            TabPanelIndex   =   5
+            TabPanelIndex   =   4
             TabStop         =   True
             Top             =   137
             Transparent     =   True
@@ -257,7 +222,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   2
-            TabPanelIndex   =   5
+            TabPanelIndex   =   4
             TabStop         =   True
             Text            =   ""
             TextAlign       =   0
@@ -286,7 +251,7 @@ Begin Window wndMain
             LockTop         =   False
             Scope           =   0
             TabIndex        =   3
-            TabPanelIndex   =   5
+            TabPanelIndex   =   4
             TabStop         =   True
             Top             =   214
             Transparent     =   True
@@ -314,7 +279,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   4
-            TabPanelIndex   =   5
+            TabPanelIndex   =   4
             TabStop         =   True
             Text            =   ""
             TextAlign       =   0
@@ -343,7 +308,7 @@ Begin Window wndMain
             LockTop         =   False
             Scope           =   0
             TabIndex        =   5
-            TabPanelIndex   =   5
+            TabPanelIndex   =   4
             TabStop         =   True
             Top             =   289
             Transparent     =   True
@@ -371,7 +336,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   6
-            TabPanelIndex   =   5
+            TabPanelIndex   =   4
             TabStop         =   True
             Text            =   ""
             TextAlign       =   0
@@ -420,63 +385,6 @@ Begin Window wndMain
             Visible         =   True
             Width           =   585
          End
-         Begin ProgressWheel prgwCheckInstaller
-            AutoDeactivate  =   True
-            Enabled         =   True
-            Height          =   16
-            HelpTag         =   ""
-            Index           =   -2147483648
-            InitialParent   =   "ppnlMain"
-            Left            =   840
-            LockBottom      =   False
-            LockedInPosition=   False
-            LockLeft        =   False
-            LockRight       =   True
-            LockTop         =   False
-            Scope           =   0
-            TabIndex        =   1
-            TabPanelIndex   =   3
-            TabStop         =   True
-            Top             =   137
-            Transparent     =   True
-            Visible         =   False
-            Width           =   16
-         End
-         Begin Label txtInstallerVersionBodyText2
-            AutoDeactivate  =   True
-            Bold            =   False
-            DataField       =   ""
-            DataSource      =   ""
-            Enabled         =   True
-            Height          =   205
-            HelpTag         =   ""
-            Index           =   -2147483648
-            InitialParent   =   "ppnlMain"
-            Italic          =   False
-            Left            =   284
-            LockBottom      =   False
-            LockedInPosition=   False
-            LockLeft        =   True
-            LockRight       =   True
-            LockTop         =   True
-            Multiline       =   True
-            Scope           =   0
-            Selectable      =   False
-            TabIndex        =   2
-            TabPanelIndex   =   3
-            TabStop         =   True
-            Text            =   ""
-            TextAlign       =   0
-            TextColor       =   &c00000000
-            TextFont        =   "System"
-            TextSize        =   0.0
-            TextUnit        =   0
-            Top             =   204
-            Transparent     =   True
-            Underline       =   False
-            Visible         =   True
-            Width           =   544
-         End
          Begin Canvas cnvComplete
             AcceptFocus     =   False
             AcceptTabs      =   False
@@ -496,7 +404,7 @@ Begin Window wndMain
             LockTop         =   True
             Scope           =   0
             TabIndex        =   0
-            TabPanelIndex   =   7
+            TabPanelIndex   =   6
             TabStop         =   True
             Top             =   152
             Transparent     =   True
@@ -525,7 +433,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   0
-            TabPanelIndex   =   6
+            TabPanelIndex   =   5
             TabStop         =   True
             Text            =   ""
             TextAlign       =   0
@@ -554,7 +462,7 @@ Begin Window wndMain
             LockTop         =   False
             Scope           =   0
             TabIndex        =   1
-            TabPanelIndex   =   6
+            TabPanelIndex   =   5
             TabStop         =   True
             Top             =   137
             Transparent     =   True
@@ -582,7 +490,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   2
-            TabPanelIndex   =   6
+            TabPanelIndex   =   5
             TabStop         =   True
             Text            =   ""
             TextAlign       =   0
@@ -614,7 +522,7 @@ Begin Window wndMain
             LockTop         =   True
             Scope           =   0
             TabIndex        =   3
-            TabPanelIndex   =   4
+            TabPanelIndex   =   3
             TabStop         =   True
             TextFont        =   "System"
             TextSize        =   0.0
@@ -645,7 +553,7 @@ Begin Window wndMain
                Scope           =   0
                Selectable      =   False
                TabIndex        =   0
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                Text            =   "#kCoreIntegrationDescription"
                TextAlign       =   0
@@ -680,7 +588,7 @@ Begin Window wndMain
                Scope           =   0
                State           =   0
                TabIndex        =   1
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                TextFont        =   "System"
                TextSize        =   0.0
@@ -713,7 +621,7 @@ Begin Window wndMain
                Scope           =   0
                State           =   0
                TabIndex        =   2
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                TextFont        =   "System"
                TextSize        =   0.0
@@ -741,7 +649,7 @@ Begin Window wndMain
             LockTop         =   False
             Scope           =   0
             TabIndex        =   3
-            TabPanelIndex   =   6
+            TabPanelIndex   =   5
             TabStop         =   True
             Top             =   192
             Transparent     =   True
@@ -769,7 +677,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   1
-            TabPanelIndex   =   7
+            TabPanelIndex   =   6
             TabStop         =   True
             Text            =   "#kInstallComplete2"
             TextAlign       =   1
@@ -804,7 +712,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   2
-            TabPanelIndex   =   7
+            TabPanelIndex   =   6
             TabStop         =   True
             Text            =   "#kInstallComplete1"
             TextAlign       =   1
@@ -835,7 +743,7 @@ Begin Window wndMain
             Maximum         =   100
             Scope           =   0
             TabIndex        =   20
-            TabPanelIndex   =   6
+            TabPanelIndex   =   5
             Top             =   626
             Transparent     =   True
             Value           =   0.0
@@ -891,7 +799,7 @@ Begin Window wndMain
             Maximum         =   100
             Scope           =   0
             TabIndex        =   22
-            TabPanelIndex   =   6
+            TabPanelIndex   =   5
             Top             =   592
             Transparent     =   True
             Value           =   0.0
@@ -919,7 +827,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   4
-            TabPanelIndex   =   6
+            TabPanelIndex   =   5
             TabStop         =   True
             Text            =   "#kCurrentFile"
             TextAlign       =   2
@@ -954,7 +862,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   5
-            TabPanelIndex   =   6
+            TabPanelIndex   =   5
             TabStop         =   True
             Text            =   "#kAllFiles"
             TextAlign       =   2
@@ -989,7 +897,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   6
-            TabPanelIndex   =   6
+            TabPanelIndex   =   5
             TabStop         =   True
             Text            =   ""
             TextAlign       =   0
@@ -1024,7 +932,7 @@ Begin Window wndMain
             Scope           =   0
             Selectable      =   False
             TabIndex        =   7
-            TabPanelIndex   =   6
+            TabPanelIndex   =   5
             TabStop         =   True
             Text            =   ""
             TextAlign       =   0
@@ -1056,7 +964,7 @@ Begin Window wndMain
             LockTop         =   True
             Scope           =   0
             TabIndex        =   1
-            TabPanelIndex   =   4
+            TabPanelIndex   =   3
             TabStop         =   True
             TextFont        =   "System"
             TextSize        =   0.0
@@ -1087,7 +995,7 @@ Begin Window wndMain
                Scope           =   0
                Selectable      =   False
                TabIndex        =   0
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                Text            =   "Untitled"
                TextAlign       =   0
@@ -1122,7 +1030,7 @@ Begin Window wndMain
                LockTop         =   False
                Scope           =   0
                TabIndex        =   1
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                TextFont        =   "System"
                TextSize        =   0.0
@@ -1154,7 +1062,7 @@ Begin Window wndMain
                LockTop         =   False
                Scope           =   0
                TabIndex        =   3
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                TextFont        =   "System"
                TextSize        =   0.0
@@ -1184,7 +1092,7 @@ Begin Window wndMain
             LockTop         =   True
             Scope           =   0
             TabIndex        =   2
-            TabPanelIndex   =   4
+            TabPanelIndex   =   3
             TabStop         =   True
             TextFont        =   "System"
             TextSize        =   0.0
@@ -1212,7 +1120,7 @@ Begin Window wndMain
                LockTop         =   True
                Scope           =   0
                TabIndex        =   2
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                TextFont        =   "System"
                TextSize        =   0.0
@@ -1242,7 +1150,7 @@ Begin Window wndMain
                LockTop         =   True
                Scope           =   0
                TabIndex        =   1
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                TextFont        =   "System"
                TextSize        =   0.0
@@ -1272,7 +1180,7 @@ Begin Window wndMain
                LockTop         =   True
                Scope           =   0
                TabIndex        =   3
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                TextFont        =   "System"
                TextSize        =   0.0
@@ -1305,7 +1213,7 @@ Begin Window wndMain
                Scope           =   0
                Selectable      =   False
                TabIndex        =   0
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                Text            =   "#kBackupLibraryDescription"
                TextAlign       =   0
@@ -1340,7 +1248,7 @@ Begin Window wndMain
                Scope           =   0
                Selectable      =   False
                TabIndex        =   4
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                Text            =   "#kBackupLibraryMoreInfoLink"
                TextAlign       =   0
@@ -1373,7 +1281,7 @@ Begin Window wndMain
             LockTop         =   True
             Scope           =   0
             TabIndex        =   4
-            TabPanelIndex   =   4
+            TabPanelIndex   =   3
             TabStop         =   True
             TextFont        =   "System"
             TextSize        =   0.0
@@ -1404,7 +1312,7 @@ Begin Window wndMain
                Scope           =   0
                Selectable      =   False
                TabIndex        =   0
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                Text            =   "#kSeasonsDescription"
                TextAlign       =   0
@@ -1439,7 +1347,7 @@ Begin Window wndMain
                LockTop         =   True
                Scope           =   0
                TabIndex        =   6
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                TextFont        =   "System"
                TextSize        =   0.0
@@ -1471,7 +1379,7 @@ Begin Window wndMain
                Scope           =   0
                Selectable      =   False
                TabIndex        =   7
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                Text            =   "#kSeasonsFourSeasonsMoreInfoLink"
                TextAlign       =   0
@@ -1506,7 +1414,7 @@ Begin Window wndMain
                Scope           =   0
                Selectable      =   False
                TabIndex        =   8
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                Text            =   "#kSeasonsTerraMaxxMoreInfoLink"
                TextAlign       =   0
@@ -1541,7 +1449,7 @@ Begin Window wndMain
                Scope           =   0
                Selectable      =   False
                TabIndex        =   9
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                Text            =   "#kSeasonsXAmbienceMoreInfoLink"
                TextAlign       =   0
@@ -1576,7 +1484,7 @@ Begin Window wndMain
                Scope           =   0
                Selectable      =   False
                TabIndex        =   10
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                Text            =   "#kSeasonsSAMMoreInfoLink"
                TextAlign       =   0
@@ -1611,7 +1519,7 @@ Begin Window wndMain
                Scope           =   0
                Selectable      =   False
                TabIndex        =   11
-               TabPanelIndex   =   4
+               TabPanelIndex   =   3
                TabStop         =   True
                Text            =   "#kSeasonsXEnviroMoreInfoLink"
                TextAlign       =   0
@@ -1795,7 +1703,7 @@ Begin Window wndMain
       Enabled         =   False
       Height          =   20
       HelpTag         =   ""
-      Index           =   3
+      Index           =   2
       InitialParent   =   ""
       Italic          =   False
       Left            =   46
@@ -1816,7 +1724,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   214
+      Top             =   182
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -1929,7 +1837,7 @@ Begin Window wndMain
       Enabled         =   False
       Height          =   20
       HelpTag         =   ""
-      Index           =   6
+      Index           =   5
       InitialParent   =   ""
       Italic          =   False
       Left            =   46
@@ -1950,7 +1858,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   310
+      Top             =   278
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -1964,7 +1872,7 @@ Begin Window wndMain
       Enabled         =   False
       Height          =   20
       HelpTag         =   ""
-      Index           =   2
+      Index           =   3
       InitialParent   =   ""
       Italic          =   False
       Left            =   46
@@ -1976,16 +1884,16 @@ Begin Window wndMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   31
+      TabIndex        =   35
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "#kStageInstallerVersion"
+      Text            =   "#kStageLocalScan"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   180
+      Top             =   214
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -2011,41 +1919,6 @@ Begin Window wndMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   35
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "#kStageLocalScan"
-      TextAlign       =   0
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   246
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   204
-   End
-   Begin Label txtStage
-      AutoDeactivate  =   True
-      Bold            =   True
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   False
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   5
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   46
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
       TabIndex        =   36
       TabPanelIndex   =   0
       TabStop         =   True
@@ -2055,7 +1928,7 @@ Begin Window wndMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   278
+      Top             =   246
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -2299,7 +2172,7 @@ Begin Window wndMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   41
+      TabIndex        =   42
       TabPanelIndex   =   0
       Top             =   188
       Transparent     =   True
@@ -2323,7 +2196,7 @@ Begin Window wndMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   42
+      TabIndex        =   43
       TabPanelIndex   =   0
       Top             =   220
       Transparent     =   True
@@ -2347,7 +2220,7 @@ Begin Window wndMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   43
+      TabIndex        =   44
       TabPanelIndex   =   0
       Top             =   252
       Transparent     =   True
@@ -2371,43 +2244,12 @@ Begin Window wndMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   44
+      TabIndex        =   45
       TabPanelIndex   =   0
       Top             =   284
       Transparent     =   True
       Visible         =   True
       Width           =   10
-   End
-   Begin Oval ovlStage
-      AutoDeactivate  =   True
-      BorderColor     =   &c00000000
-      BorderWidth     =   0.0
-      Enabled         =   True
-      FillColor       =   &cFFFFFF00
-      Height          =   10
-      HelpTag         =   ""
-      Index           =   6
-      InitialParent   =   ""
-      Left            =   24
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   45
-      TabPanelIndex   =   0
-      Top             =   316
-      Transparent     =   True
-      Visible         =   True
-      Width           =   10
-   End
-   Begin Xojo.Net.HTTPSocket sockVersion
-      Index           =   -2147483648
-      LockedInPosition=   False
-      Scope           =   0
-      TabPanelIndex   =   0
-      ValidateCertificates=   False
    End
    Begin Xojo.Net.HTTPSocket sockManifest
       Index           =   -2147483648
@@ -2526,7 +2368,6 @@ End
 		Sub Open()
 		  sockManifest.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion + " " + App.pPlatform)
 		  sockFile.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion + " " + App.pPlatform)
-		  sockVersion.RequestHeader("User-Agent") = App.stringToText(App.kApplicationNameASCII + " " + App.shortVersion + " " + App.pPlatform)
 		  
 		  If (App.StageCode = 3) Then
 		    lblPreRelease.visible = False
@@ -2680,7 +2521,7 @@ End
 		  if (pPendingFiles.count = 0 and pDeletedFiles.count = 0) then
 		    // Install is fully up to date, progress straight to summary
 		    showMessage(txtLocalScanBodyText4, kInstallUpToDate)
-		    selectPanel(6)
+		    selectPanel(5)
 		    enableContinue(1)
 		    enableBack(0)
 		  else
@@ -3040,24 +2881,7 @@ End
 		  
 		  If (Not pPanelCompleted(panelIndex)) Then
 		    // Panel not completed, begin any processing relevant to the panel
-		    select case txtStage(ppnlMain.value).text
-		      
-		    case kStageInstallerVersion
-		      enableBack(0)
-		      enableContinue(0)
-		      prgwCheckInstaller.visible = true
-		      showMessage(txtInstallerVersionBodyText1, kCheckingInstallerVersion)
-		      showMessage(txtInstallerVersionBodyText2, "")
-		      
-		      if (App.StageCode = 3) then
-		        sockVersion.send("GET", App.kURLVersion)
-		      else
-		        sockVersion.send("GET", App.kURLDevVersion)
-		      End If
-		      
-		      // Synchronous content checking was here with old Socket.  Now done in Socket methods
-		      
-		      enableBack
+		    Select Case txtStage(ppnlMain.value).Text
 		      
 		    Case kStageSettings
 		      if (App.pXPlaneFolder = nil or not App.pXPlaneFolder.exists() or not App.pXPlaneFolder.directory or not App.pXPlaneFolder.child("Custom Scenery").exists()) then
@@ -3358,18 +3182,6 @@ End
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"Cambia Cartella X-Plane\xC2\xAE"
 	#tag EndConstant
 
-	#tag Constant, Name = kCheckingInstallerVersion, Type = String, Dynamic = True, Default = \"Checking installer version\xE2\x80\xA6", Scope = Public
-		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Installer versie controle.."
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"\xC3\x9Cberpr\xC3\xBCfe die Version des Installationsprogramms..."
-		#Tag Instance, Platform = Any, Language = fr, Definition  = \"V\xC3\xA9rification de la version de l\'installeur..."
-		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Comprovant la versi\xC3\xB3 de l\'instal\xC2\xB7lador..."
-		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x91\xD7\x95\xD7\x93\xD7\xA7 \xD7\x90\xD7\xAA \xD7\x92\xD7\x99\xD7\xA8\xD7\xA1\xD7\xAA \xD7\x94\xD7\x9E\xD7\xAA\xD7\xA7\xD7\x99\xD7\x9F..."
-		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Sprawdzanie wersji Instalatora..."
-		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9F\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB5\xD1\x80\xD1\x8F\xD0\xB5\xD1\x82\xD1\x81\xD1\x8F \xD0\xB2\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x8B \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8..."
-		#Tag Instance, Platform = Any, Language = es, Definition  = \"Verificando la versi\xC3\xB3n del instalador..."
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"Controllando la versione dell\xE2\x80\x99installatore\xE2\x80\xA6"
-	#tag EndConstant
-
 	#tag Constant, Name = kClose, Type = String, Dynamic = True, Default = \"Close", Scope = Private
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Sluiten"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Beenden"
@@ -3464,18 +3276,6 @@ End
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Incorporer des appareils statiques"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Incorporar aeronave est\xC3\xA1tica"
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Incorpora aeronaus est\xC3\xA0tiques"
-	#tag EndConstant
-
-	#tag Constant, Name = kCouldntCheckInstallerVersion, Type = String, Dynamic = True, Default = \"The installer version couldn\'t be checked\x2C continuing anyway\xE2\x80\xA6", Scope = Public
-		#Tag Instance, Platform = Any, Language = nl, Definition  = \"De Installer versie kon niet worden gecontroleerd\x2C toch doorgaan..."
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Die Version des Installationsprogramms konnte nicht \xC3\xBCberpr\xC3\xBCft werden\x2C trotzdem weiterfahren..."
-		#Tag Instance, Platform = Any, Language = fr, Definition  = \"La version de l\'installeur n\'a pas pu \xC3\xAAtre v\xC3\xA9rifi\xC3\xA9e..."
-		#Tag Instance, Platform = Any, Language = ca, Definition  = \"La versi\xC3\xB3 de l\'instal\xC2\xB7lador no es pot comprovar\x2C continuant de tota manera ..."
-		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x92\xD7\x99\xD7\xA8\xD7\xA1\xD7\xAA \xD7\x94\xD7\x9E\xD7\xAA\xD7\xA7\xD7\x99\xD7\x9F \xD7\x9C\xD7\x90 \xD7\x99\xD7\x9B\xD7\x9C\xD7\x94 \xD7\x9C\xD7\x94\xD7\x99\xD7\x91\xD7\x93\xD7\xA7\x2C \xD7\x9E\xD7\x9E\xD7\xA9\xD7\x99\xD7\x9A \xD7\x91\xD7\x9B\xD7\x9C \xD7\x96\xD7\x90\xD7\xAA..."
-		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Wersja Instalatora nie mog\xC5\x82a zosta\xC4\x87 sprawdzona\x2C kontynuuje mimo tego..."
-		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x9D\xD0\xB5 \xD1\x83\xD0\xB4\xD0\xB0\xD0\xB5\xD1\x82\xD1\x81\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB5\xD1\x80\xD0\xB8\xD1\x82\xD1\x8C \xD0\xB2\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD1\x8E \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x8B \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8\x2C \xD0\xB2\xD1\x81\xD0\xB5 \xD1\x80\xD0\xB0\xD0\xB2\xD0\xBD\xD0\xBE \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB4\xD0\xBE\xD0\xBB\xD0\xB6\xD0\xB8\xD1\x82\xD1\x8C..."
-		#Tag Instance, Platform = Any, Language = es, Definition  = \"La versi\xC3\xB3n del instalador no pudo ser verificada\x2C el proceso contin\xC3\xBAa de todas maneras..."
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"La versione dell\xE2\x80\x99installatore non pu\xC3\xB2 essere controllata\x2C continuando comunque\xE2\x80\xA6"
 	#tag EndConstant
 
 	#tag Constant, Name = kCurrentFile, Type = String, Dynamic = True, Default = \"Current File:", Scope = Private
@@ -3739,18 +3539,6 @@ End
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"La installazione di OpenSceneryX \xC3\xA8 pienamente aggiornata e adesso puoi uscire dall\xE2\x80\x99installatore. "
 	#tag EndConstant
 
-	#tag Constant, Name = kInstallerVersionUpToDate, Type = String, Dynamic = True, Default = \"The installer is the most up to date version\x2C please click Continue to proceed.", Scope = Public
-		#Tag Instance, Platform = Any, Language = nl, Definition  = \"De installer is de meest recente versie\x2C klik Doorgaan om verder te gaan."
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Sie haben die neueste Version des Installationsprogramms\x2C bitte klicken Sie auf \"Weiter\" um fortzufahren."
-		#Tag Instance, Platform = Any, Language = fr, Definition  = \"l\'isntalleur est \xC3\xA0 jour\x2C cliquer sur Continuer pour poursuivre."
-		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Aquesta \xC3\xA9s la versi\xC3\xB3 m\xC3\xA9s recent de l\'instal\xC2\xB7lador\x2C si us plau feu clic a Endavant per continuar."
-		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x94\xD7\x9E\xD7\xAA\xD7\xA7\xD7\x99\xD7\x9F \xD7\xA0\xD7\x9E\xD7\xA6\xD7\x90 \xD7\x91\xD7\x92\xD7\xA8\xD7\xA1\xD7\xAA\xD7\x95 \xD7\x94\xD7\x90\xD7\x97\xD7\xA8\xD7\x95\xD7\xA0\xD7\x94\x2C \xD7\x90\xD7\xA0\xD7\x90 \xD7\x9C\xD7\x97\xD7\xA5 \xD7\xA2\xD7\x9C \xD7\x94\xD7\x9E\xD7\xA9\xD7\x9A \xD7\x91\xD7\x9B\xD7\x93\xD7\x99 \xD7\x9C\xD7\x94\xD7\xAA\xD7\xA7\xD7\x93\xD7\x9D \xD7\x94\xD7\x9C\xD7\x90\xD7\x94."
-		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Instalator jest w najnowszej dost\xC4\x99pnej wersji\x2C naci\xC5\x9Bnij Dalej by kontynuowa\xC4\x87."
-		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x98\xD1\x81\xD0\xBF\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xB7\xD1\x83\xD0\xB5\xD0\xBC\xD0\xB0\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD0\xB0 \xD0\xBF\xD0\xBE\xD1\x81\xD0\xBB\xD0\xB5\xD0\xB4\xD0\xBD\xD0\xB5\xD0\xB9 \xD0\xB2\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD0\xB8\x2C \xD0\xBD\xD0\xB0\xD0\xB6\xD0\xBC\xD0\xB8\xD1\x82\xD0\xB5 \xD0\x9F\xD1\x80\xD0\xBE\xD0\xB4\xD0\xBE\xD0\xBB\xD0\xB6\xD0\xB8\xD1\x82\xD1\x8C."
-		#Tag Instance, Platform = Any, Language = es, Definition  = \"El instalador es la versi\xC3\xB3n m\xC3\xA1s actualizada\x2C por favor pulse Continuar para proceder."
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"L\xE2\x80\x99installatore \xC3\xA8 la versione pi\xC3\xB9 aggiornata\x2C per favore premi \xE2\x80\x9CContinua\xE2\x80\x9D per procedere."
-	#tag EndConstant
-
 	#tag Constant, Name = kInstallOutOfDate, Type = String, Dynamic = True, Default = \"Your OpenSceneryX install is out of date\x2C ${1} files need to be deleted and ${2} files need to be downloaded\x2C click Install to begin the process.", Scope = Public
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"De OpenSceneryX installatie is verouderd\x2C ${1} bestanden moeten worden verwijderd en ${2} bestanden moeten worden opgehaald\x2C klik Installeren om te beginnen."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Ihre OpenSceneryX Installation ist nicht aktuell\x2C ${1} Dateien m\xC3\xBCssen gel\xC3\xB6scht werden und ${2} Dateien m\xC3\xBCssen runtergeladen werden. Klicken Sie \"Installieren\" um den Prozess zu starten."
@@ -3881,18 +3669,6 @@ End
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x94\xD7\x94\xD7\x95\xD7\xA8\xD7\x93\xD7\x94 \xD7\xA9\xD7\x9C \xD7\xA8\xD7\xA9\xD7\x99\xD7\x9E\xD7\xAA \xD7\x94\xD7\xA7\xD7\x91\xD7\xA6\xD7\x99\xD7\x9D \xD7\x94\xD7\x95\xD7\xA9\xD7\x9C\xD7\x9E\xD7\x94."
 		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Pobieranie listy plik\xC3\xB3w zosta\xC5\x82o zako\xC5\x84czone."
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x97\xD0\xB0\xD0\xB3\xD1\x80\xD1\x83\xD0\xB7\xD0\xBA\xD0\xB0 \xD1\x81\xD0\xBF\xD0\xB8\xD1\x81\xD0\xBA\xD0\xB0 \xD1\x84\xD0\xB0\xD0\xB9\xD0\xBB\xD0\xBE\xD0\xB2 \xD0\xB7\xD0\xB0\xD0\xB2\xD0\xB5\xD1\x80\xD1\x88\xD0\xB5\xD0\xBD\xD0\xB0."
-	#tag EndConstant
-
-	#tag Constant, Name = kNewInstallerAvailable, Type = String, Dynamic = True, Default = \"There is a new version of the installer available\x2C please download it from the OpenSceneryX website\xC2\xA0by clicking the logo at the top of this window.", Scope = Public
-		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Er is een nieuwe versie van de installer beschikbaar\x2C download het van de OpenSceneryX website door op het logo bovenaan dit venster te klikken."
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Eine neuere Version des Installationsprogrammes ist verf\xC3\xBCgbar. Bitte laden Sie dieses von der OpenSceneryX Internetseite runter indem Sie auf das Logo oben in diesem Fenster klicken."
-		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Une nouvelle version de l\'isntalleur est disponible.\rT\xC3\xA9l\xC3\xA9charger l\xC3\xA0 sur le site d\'OpenSceneryX en cliquant sur le logo situ\xC3\xA9 en haut de cette fen\xC3\xAAtre."
-		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Hi ha una nova versi\xC3\xB3 disponible de l\'instal\xC2\xB7lador\x2C la podeu descarregar des del lloc web d\'OpenSceneryX fent clic al logotip a la part superior d\'aquesta finestra."
-		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\xA7\xD7\x99\xD7\x99\xD7\x9E\xD7\xAA \xD7\x92\xD7\xA8\xD7\xA1\xD7\x94 \xD7\x97\xD7\x93\xD7\xA9\xD7\x94 \xD7\xA9\xD7\x9C \xD7\x94\xD7\x9E\xD7\xAA\xD7\xA7\xD7\x99\xD7\x9F\x2C \xD7\x90\xD7\xA0\xD7\x90 \xD7\x94\xD7\x95\xD7\xA8\xD7\x93 \xD7\x90\xD7\x95\xD7\xAA\xD7\x94 \xD7\x9E\xD7\x94\xD7\x90\xD7\xAA\xD7\xA8 \xD7\xA9\xD7\x9C \xD7\x90\xD7\x95\xD7\xA4\xD7\x9F-\xD7\xA1\xD7\x99\xD7\xA0\xD7\xA8\xD7\x99-\xD7\x90\xD7\x99\xD7\xA7\xD7\xA1 \xD7\xA2\xD7\x9C-\xD7\x99\xD7\x93\xD7\x99 \xD7\x9C\xD7\x97\xD7\x99\xD7\xA6\xD7\x94 \xD7\xA2\xD7\x9C \xD7\x94\xD7\x9C\xD7\x95\xD7\x92\xD7\x95 \xD7\x91\xD7\x97\xD7\x9C\xD7\xA7 \xD7\x94\xD7\xA2\xD7\x9C\xD7\x99\xD7\x95\xD7\x9F \xD7\xA9\xD7\x9C \xD7\x97\xD7\x9C\xD7\x95\xD7\x9F \xD7\x96\xD7\x94."
-		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Nowa wersja Instalatora jest dost\xC4\x99pna\x2C pobierz j\xC4\x85 ze strony OpenSceneryX klikaj\xC4\x85c na logo u g\xC3\xB3ry tego okna."
-		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x94\xD0\xBE\xD1\x81\xD1\x82\xD1\x83\xD0\xBF\xD0\xBD\xD0\xB0 \xD0\xBD\xD0\xBE\xD0\xB2\xD0\xB0\xD1\x8F \xD0\xB2\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x8B \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8\x2C \xD0\xB4\xD0\xBB\xD1\x8F \xD0\xB7\xD0\xB0\xD0\xB3\xD1\x80\xD1\x83\xD0\xB7\xD0\xBA\xD0\xB8 \xD1\x81 \xD0\xB2\xD0\xB5\xD0\xB1-\xD1\x81\xD0\xB0\xD0\xB9\xD1\x82\xD0\xB0 OpenSceneryX  \xD0\xBD\xD0\xB0\xD0\xB6\xD0\xBC\xD0\xB8\xD1\x82\xD0\xB5 \xD0\xBB\xD0\xBE\xD0\xB3\xD0\xBE\xD1\x82\xD0\xB8\xD0\xBF \xD0\xB2\xD0\xB2\xD0\xB5\xD1\x80\xD1\x85\xD1\x83 \xD0\xBE\xD0\xBA\xD0\xBD\xD0\xB0."
-		#Tag Instance, Platform = Any, Language = es, Definition  = \"Hay una versi\xC3\xB3n nueva del instalador\x2C por favor desc\xC3\xA1rguela del sitio web de OpenSceneryX pulsando en el logotipo que aparece en la parte superior de esta pantalla."
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"C\xE2\x80\x99\xC3\xA8 una nuova versione dell\xE2\x80\x99installatore disponibile\x2C per favore scaricala dal sito di OpenSceneryX premendo sul logo in cima a questa finestra."
 	#tag EndConstant
 
 	#tag Constant, Name = kNoFilesToDelete, Type = String, Dynamic = True, Default = \"No files need to be deleted.", Scope = Public
@@ -4082,18 +3858,6 @@ End
 		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\xA3\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xB8\xD1\x82\xD1\x8C"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Instalar"
 		#Tag Instance, Platform = Any, Language = it, Definition  = \"Installa"
-	#tag EndConstant
-
-	#tag Constant, Name = kStageInstallerVersion, Type = String, Dynamic = True, Default = \"Installer Version", Scope = Public
-		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Installer versie"
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Version des Installationsprogramms"
-		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Version de l\'installeur"
-		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Versi\xC3\xB3 de l\'instal\xC2\xB7lador"
-		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x92\xD7\xA8\xD7\xA1\xD7\xAA \xD7\x94\xD7\x9E\xD7\xAA\xD7\xA7\xD7\x99\xD7\x9F"
-		#Tag Instance, Platform = Any, Language = pl, Definition  = \"Wersja Instalatora"
-		#Tag Instance, Platform = Any, Language = ru, Definition  = \"\xD0\x92\xD0\xB5\xD1\x80\xD1\x81\xD0\xB8\xD1\x8F \xD0\xBF\xD1\x80\xD0\xBE\xD0\xB3\xD1\x80\xD0\xB0\xD0\xBC\xD0\xBC\xD1\x8B \xD1\x83\xD1\x81\xD1\x82\xD0\xB0\xD0\xBD\xD0\xBE\xD0\xB2\xD0\xBA\xD0\xB8"
-		#Tag Instance, Platform = Any, Language = es, Definition  = \"Versi\xC3\xB3n del Instalador"
-		#Tag Instance, Platform = Any, Language = it, Definition  = \"Versione dell\xE2\x80\x99Installatore"
 	#tag EndConstant
 
 	#tag Constant, Name = kStageIntroduction, Type = String, Dynamic = True, Default = \"Introduction", Scope = Public
@@ -4563,49 +4327,12 @@ End
 		    prgBarFile.visible = false
 		    txtFilePercent.visible = false
 		    txtOverallPercent.visible = false
-		    selectPanel(6)
+		    selectPanel(5)
 		    enableContinue(1)
 		    enableBack(0)
 		    
 		    me.Mode = Timer.ModeOff
 		  end if
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events sockVersion
-	#tag Event
-		Sub PageReceived(URL as Text, HTTPStatus as Integer, Content as xojo.Core.MemoryBlock)
-		  // Finished connection with server
-		  prgwCheckInstaller.visible = False
-		  showMessage(txtInstallerVersionBodyText1, kCheckingInstallerVersion + " " + kDone)
-		  
-		  If (HTTPStatus = 200) Then
-		    Dim serverVersion As New LooseVersion(App.mbToString(Content))
-		    Dim appVersion As New LooseVersion(App.shortVersion)
-		    
-		    If appVersion < serverVersion Then
-		      showMessage(txtInstallerVersionBodyText2, kNewInstallerAvailable)
-		    Else
-		      showMessage(txtInstallerVersionBodyText2, kInstallerVersionUpToDate)
-		      setPanelCompleted(ppnlMain.value)
-		      enableContinue
-		    End If
-		  Else
-		    // Error from server, continue anyway
-		    showMessage(txtInstallerVersionBodyText2, kCouldntCheckInstallerVersion)
-		    setPanelCompleted(ppnlMain.value)
-		    enableContinue
-		  End If
-		  
-		  
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Error(err as RuntimeException)
-		  showMessage(txtInstallerVersionBodyText2, kCouldntCheckInstallerVersion)
-		  setPanelCompleted(ppnlMain.value)
-		  enableContinue
-		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
