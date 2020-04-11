@@ -24,11 +24,10 @@ The notarization process takes time on the Apple side. To check the status of a 
 $ xcrun altool --notarization-info <request_uuid> -u <username>
 ```
 
-Once notarization is complete, staple the ticket to the dmg / zip:
+Once notarization is complete, staple the ticket to the dmg (zips cannot be stapled):
 
 ```bash
 $ xcrun stapler staple -v OpenSceneryX-Installer-Mac-<version>.dmg
-$ xcrun stapler staple -v OpenSceneryX-Installer-Mac-<version>.zip
 ```
 
 And to verify an installed application after download:
