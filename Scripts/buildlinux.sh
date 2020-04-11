@@ -18,13 +18,13 @@ fi
 export COPYFILE_DISABLE=true
 cd ..
 
-echo
-echo "x86 32-bit"
-echo "----------"
+# echo
+# echo "x86 32-bit"
+# echo "----------"
 
-cd Builds\ -\ Installer/Linux/
-zip -r ../../OpenSceneryX-Installer-Linux-x86-32-$VERSION.zip OpenSceneryX\ Installer
-cd ../../
+# cd Builds\ -\ Installer/Linux/
+# zip -r ../../OpenSceneryX-Installer-Linux-x86-32-$VERSION.zip OpenSceneryX\ Installer
+# cd ../../
 
 echo
 echo "x86 64-bit"
@@ -34,11 +34,11 @@ cd Builds\ -\ Installer/Linux\ 64\ bit/
 zip -r ../../OpenSceneryX-Installer-Linux-x86-64-$VERSION.zip OpenSceneryX\ Installer
 cd ../../
 
-echo
-echo "ARM 32-bit"
-echo "----------"
+# echo
+# echo "ARM 32-bit"
+# echo "----------"
 
-cd Builds\ -\ Installer/Linux\ ARM/
-zip -r ../../OpenSceneryX-Installer-Linux-ARM-32-$VERSION.zip OpenSceneryX\ Installer
-cd ../../
+# cd Builds\ -\ Installer/Linux\ ARM/
+# zip -r ../../OpenSceneryX-Installer-Linux-ARM-32-$VERSION.zip OpenSceneryX\ Installer
+# cd ../../
 
