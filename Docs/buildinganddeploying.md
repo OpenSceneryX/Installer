@@ -14,11 +14,9 @@ Prerequisites and Notes
 
 * The Windows version of the installer needs the `zlib1` DLL to be included at the same level as the executable.  This is done by a Windows build step, but the DLL must be downloaded and present at `Libraries/zlib1-64/zlib1.dll`
 
-* The Windows version needs to run as an administrator.  This is done by a Windows build step, but the Windows VM (or machine) must have [rcedit](https://github.com/electron/rcedit) installed.
-
 * If the build is done on a Mac with Parallels installed (and a VM called "Windows 10" present), the Windows version is signed automatically during the build, but signtool needs to be installed which is part of the [Windows 10 SDK](https://go.microsoft.com/fwlink/?LinkID=698771).
 
-* If rcedit and signing needs to be done manually for Windows (e.g. if build / signing is done on a real Windows machine, not via Parallels) then there is a utility script available for this in `Scripts/codesign-win-manual.cmd`.
+* If signing needs to be done manually for Windows (e.g. if build / signing is done on a real Windows machine, not via Parallels) then there is a utility script available for this in `Scripts/codesign-win-manual.cmd`.
 
 * The Mac app is signed automatically by the build process.
 
