@@ -145,23 +145,9 @@ Inherits FolderItem
 		Shared Function FSRefOfFolderItem(f as FolderItem) As MemoryBlock
 		  // returns NIL if the FolderItem does not exist
 		  
-		  #if TargetMacOS
-		    #if RBVersion >= 2010.05
-		      return f.MacFSRef
-		    #else
-		      dim ref as new MemoryBlock(80)
-		      if ref = nil then
-		        raise new OutOfMemoryException
-		      end
-		      Declare function REALFSRefFromFolderItem Lib "" (f as FolderItem, FSRef as Ptr, HFSUniStr255 as Ptr) as Boolean
-		      if REALFSRefFromFolderItem (f, ref, nil) then
-		        return ref
-		      end
-		    #endif
-		  #else
-		    // Must not call from Windows or Linux!
-		    break
-		  #endif
+		  // Must not call any more
+		  break
+		  
 		  
 		End Function
 	#tag EndMethod
@@ -170,14 +156,14 @@ Inherits FolderItem
 		Shared Function GetMacType(f as FolderItem) As String
 		  // Note: If you do not need support for the old 4-letter MacType codes, and if you do not like
 		  // getting the deprecation warning here, simply set the kUseMacType constant to FALSE
-		  #if kUseMacType then
+		  #If kUseMacType Then
 		    
-		    return f.MacType
+		    Return f.MacType
 		    
 		  #else
 		    
 		    #pragma unused f
-		    static NullType as String = new MemoryBlock(4)
+		    Static NullType As String = New MemoryBlock(4)
 		    return NullType
 		    
 		  #endif
@@ -559,7 +545,7 @@ Inherits FolderItem
 	#tag Constant, Name = kFSVolInfoNone, Type = Double, Dynamic = False, Default = \"&h0000", Scope = Protected
 	#tag EndConstant
 
-	#tag Constant, Name = kUseMacType, Type = Boolean, Dynamic = False, Default = \"True", Scope = Protected
+	#tag Constant, Name = kUseMacType, Type = Boolean, Dynamic = False, Default = \"False", Scope = Protected
 	#tag EndConstant
 
 
@@ -659,15 +645,36 @@ Inherits FolderItem
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="NativePath"
+			Name="IsFolder"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsAlias"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="NativePath"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Length"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Uint64"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -675,12 +682,15 @@ Inherits FolderItem
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -688,6 +698,7 @@ Inherits FolderItem
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -695,142 +706,117 @@ Inherits FolderItem
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AbsolutePath"
-			Group="Behavior"
-			Type="String"
-			EditorType="MultiLineEditor"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Count"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DisplayName"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ResourceForkLength"
-			Group="Behavior"
-			InitialValue="0"
-			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ExtensionVisible"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Locked"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Exists"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Alias"
-			Group="Behavior"
-			InitialValue="0"
-			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Visible"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Directory"
-			Group="Behavior"
-			InitialValue="0"
-			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Type"
+			Visible=false
 			Group="Behavior"
-			Type="String"
-			EditorType="MultiLineEditor"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="MacType"
-			Group="Behavior"
-			Type="String"
-			EditorType="MultiLineEditor"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="MacCreator"
-			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IsReadable"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IsWriteable"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="LastErrorCode"
-			Group="Behavior"
-			InitialValue="0"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="MacVRefNum"
-			Group="Behavior"
-			InitialValue="0"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="MacDirID"
-			Group="Behavior"
-			InitialValue="0"
-			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ShellPath"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="URLPath"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Group"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Owner"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
