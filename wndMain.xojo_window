@@ -69,6 +69,7 @@ Begin Window wndMain
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
+         TabStop         =   True
          Top             =   125
          Transparent     =   True
          Value           =   0
@@ -744,6 +745,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   5
+            TabStop         =   True
             Top             =   626
             Transparent     =   True
             Value           =   0.0
@@ -800,6 +802,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   5
+            TabStop         =   True
             Top             =   592
             Transparent     =   True
             Value           =   0.0
@@ -2090,6 +2093,7 @@ Begin Window wndMain
       End
    End
    Begin Thread thrUpdateFolderStructure
+      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -2099,6 +2103,7 @@ Begin Window wndMain
       TabPanelIndex   =   0
    End
    Begin Timer tmrUpdateFolderStructure
+      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -2126,6 +2131,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   39
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   124
       Transparent     =   True
       Visible         =   True
@@ -2150,6 +2156,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   40
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   156
       Transparent     =   True
       Visible         =   True
@@ -2174,6 +2181,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   42
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   188
       Transparent     =   True
       Visible         =   True
@@ -2198,6 +2206,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   43
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   220
       Transparent     =   True
       Visible         =   True
@@ -2222,6 +2231,7 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   44
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   252
       Transparent     =   True
       Visible         =   True
@@ -2246,12 +2256,14 @@ Begin Window wndMain
       Scope           =   0
       TabIndex        =   45
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   284
       Transparent     =   True
       Visible         =   True
       Width           =   10
    End
    Begin Xojo.Net.HTTPSocket sockManifest
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2259,6 +2271,7 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Xojo.Net.HTTPSocket sockFile
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -2266,6 +2279,7 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Thread thrLocalScan
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Priority        =   5
@@ -2274,6 +2288,7 @@ Begin Window wndMain
       TabPanelIndex   =   0
    End
    Begin Timer tmrLocalScan
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Mode            =   0
