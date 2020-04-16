@@ -17,9 +17,9 @@ Begin Window wndAbout
    MaxWidth        =   32000
    MenuBar         =   0
    MenuBarVisible  =   True
-   MinHeight       =   64
+   MinHeight       =   350
    MinimizeButton  =   True
-   MinWidth        =   64
+   MinWidth        =   276
    Placement       =   2
    Resizeable      =   False
    Title           =   "#kWindowTitle"
@@ -61,7 +61,6 @@ Begin Window wndAbout
       Width           =   236
    End
    Begin Timer tmrScroll
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -77,7 +76,6 @@ Begin Window wndAbout
       Backdrop        =   0
       DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   "True"
       Height          =   198
       HelpTag         =   ""
       Index           =   -2147483648
@@ -140,7 +138,6 @@ Begin Window wndAbout
       Backdrop        =   0
       DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   "True"
       Height          =   74
       HelpTag         =   ""
       Index           =   -2147483648
@@ -167,7 +164,6 @@ Begin Window wndAbout
          Backdrop        =   0
          DoubleBuffer    =   False
          Enabled         =   True
-         EraseBackground =   "True"
          Height          =   74
          HelpTag         =   ""
          Index           =   -2147483648
