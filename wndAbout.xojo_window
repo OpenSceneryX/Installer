@@ -17,9 +17,9 @@ Begin Window wndAbout
    MaxWidth        =   32000
    MenuBar         =   0
    MenuBarVisible  =   True
-   MinHeight       =   64
+   MinHeight       =   350
    MinimizeButton  =   True
-   MinWidth        =   64
+   MinWidth        =   276
    Placement       =   2
    Resizeable      =   False
    Title           =   "#kWindowTitle"
