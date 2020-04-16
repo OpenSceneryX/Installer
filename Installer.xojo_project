@@ -1,5 +1,5 @@
 Type=Desktop
-RBProjectVersion=2019.03
+RBProjectVersion=2019.031
 MinIDEVersion=20150400
 OrigIDEVersion=00000000
 Interface=IStreamWriter;ZipPackage/RemoveWhenUsingEinhugurPlugin/IStreamWriter.xojo_code;&h00000000528A47FF;&h0000000067F85FFF;false
@@ -70,8 +70,8 @@ SubVersion=0
 NonRelease=23
 Release=3
 InfoVersion=The installer for the OpenSceneryX X-Plane scenery library
-LongVersion=2.7.0, Copyright © 2019 Austin Goudge
-ShortVersion=2.7.0
+LongVersion=2.7.1, Copyright © 2019 Austin Goudge
+ShortVersion=2.7.1
 WinCompanyName=Austin Goudge
 WinInternalName=
 WinProductName=OpenSceneryX Installer
