@@ -18,9 +18,9 @@ Begin Window wndConfirmLicense
    MaxWidth        =   32000
    MenuBar         =   0
    MenuBarVisible  =   True
-   MinHeight       =   64
+   MinHeight       =   188
    MinimizeButton  =   True
-   MinWidth        =   64
+   MinWidth        =   493
    Placement       =   0
    Resizeable      =   False
    Title           =   "#kWindowTitle"
