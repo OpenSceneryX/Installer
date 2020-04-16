@@ -17,9 +17,9 @@ Begin Window KajuUpdateWindow
    MaxWidth        =   32000
    MenuBar         =   0
    MenuBarVisible  =   True
-   MinHeight       =   64
+   MinHeight       =   600
    MinimizeButton  =   False
-   MinWidth        =   64
+   MinWidth        =   800
    Placement       =   2
    Resizeable      =   False
    Title           =   "#KajuLocale.kWindowTitle"
