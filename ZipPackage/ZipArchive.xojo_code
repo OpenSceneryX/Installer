@@ -694,8 +694,9 @@ Inherits ZipArchiveBase
 		Function MakeMacBinaryHeader(f as FolderItem) As MemoryBlock
 		  // Use this if you plan to call 'AddItemAsStreams' and plan to
 		  //   add all forks of this folderItem.
+		  Static NullType As String = New MemoryBlock(4)
 		  
-		  return z_makeMBHdr(f.Length, f.ResourceForkLength, f.Name, TTsFolderItem.GetMacType(f), f.MacCreator, f.CreationDate, f.ModificationDate, f)
+		  Return z_makeMBHdr(f.Length, 0, f.Name, TTsFolderItem.GetMacType(f), NullType, f.CreationDate, f.ModificationDate, f)
 		  
 		End Function
 	#tag EndMethod
@@ -710,8 +711,8 @@ Inherits ZipArchiveBase
 		  //   'macName' must not be empty. Pass f.Name if in doubt.
 		  //   Mind the encoding of 'macName': if it uses any non-ASCII chars, make sure you encode them as MacRoman or
 		  //   any other adequate Macintosh encoding. If you pass "f.Name", this will be automatically handled for you.
-		  
-		  return z_makeMBHdr(dataLen, rsrcLen, macName, TTsFolderItem.GetMacType(f), f.MacCreator, f.CreationDate, f.ModificationDate, f)
+		  Static NullType As String = New MemoryBlock(4)
+		  Return z_makeMBHdr(dataLen, rsrcLen, macName, TTsFolderItem.GetMacType(f), NullType, f.CreationDate, f.ModificationDate, f)
 		  
 		End Function
 	#tag EndMethod
@@ -750,13 +751,6 @@ Inherits ZipArchiveBase
 		  //   but you must not allow this if you're also writing a MacBinary header, because ZipIt expects
 		  //   to find the longer field (code &H2705) in oder to detect a MacBinary header automatically!
 		  
-		  #if TargetMacOS
-		    // if neither name nor type&creator are available, we don't need to do this
-		    static NullType as String = new MemoryBlock(4)
-		    if macName <> "" or (not f.Directory and (TTsFolderItem.GetMacType(f)<>NullType or f.MacCreator<>NullType)) then
-		      return MakeZipExtraField(TTsFolderItem.GetMacType(f), f.MacCreator, macName)
-		    end
-		  #endif
 		  
 		End Function
 	#tag EndMethod
@@ -1522,7 +1516,9 @@ Inherits ZipArchiveBase
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -1530,12 +1526,15 @@ Inherits ZipArchiveBase
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -1543,6 +1542,7 @@ Inherits ZipArchiveBase
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -1550,11 +1550,15 @@ Inherits ZipArchiveBase
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AddMacSpecifica"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
