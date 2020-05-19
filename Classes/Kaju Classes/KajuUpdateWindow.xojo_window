@@ -17,9 +17,9 @@ Begin Window KajuUpdateWindow
    MaxWidth        =   32000
    MenuBar         =   0
    MenuBarVisible  =   True
-   MinHeight       =   600
+   MinHeight       =   64
    MinimizeButton  =   False
-   MinWidth        =   800
+   MinWidth        =   64
    Placement       =   2
    Resizeable      =   False
    Title           =   "#KajuLocale.kWindowTitle"
@@ -33,11 +33,11 @@ Begin Window KajuUpdateWindow
       Index           =   -2147483648
       Left            =   149
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Renderer        =   0
+      Renderer        =   1
       Scope           =   2
       TabIndex        =   1
       TabPanelIndex   =   0
@@ -61,7 +61,7 @@ Begin Window KajuUpdateWindow
       Italic          =   False
       Left            =   630
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -93,7 +93,7 @@ Begin Window KajuUpdateWindow
       Italic          =   False
       Left            =   468
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -125,7 +125,7 @@ Begin Window KajuUpdateWindow
       Italic          =   False
       Left            =   149
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -155,7 +155,7 @@ Begin Window KajuUpdateWindow
       Italic          =   False
       Left            =   149
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -190,7 +190,7 @@ Begin Window KajuUpdateWindow
       Italic          =   False
       Left            =   149
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -225,7 +225,7 @@ Begin Window KajuUpdateWindow
       Italic          =   False
       Left            =   149
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -260,7 +260,7 @@ Begin Window KajuUpdateWindow
       Italic          =   False
       Left            =   149
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -292,7 +292,7 @@ Begin Window KajuUpdateWindow
       InitialParent   =   ""
       Left            =   20
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -300,6 +300,7 @@ Begin Window KajuUpdateWindow
       Scope           =   2
       TabIndex        =   8
       TabPanelIndex   =   0
+      TabStop         =   "True"
       Top             =   555
       Transparent     =   False
       Value           =   0.0
@@ -310,6 +311,7 @@ Begin Window KajuUpdateWindow
       Arguments       =   ""
       Backend         =   ""
       Canonical       =   False
+      Enabled         =   True
       ErrorCode       =   0
       Index           =   -2147483648
       InitialParent   =   ""
@@ -330,11 +332,11 @@ Begin Window KajuUpdateWindow
       Index           =   -2147483648
       Left            =   -345
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Renderer        =   0
+      Renderer        =   1
       Scope           =   2
       TabIndex        =   9
       TabPanelIndex   =   0
@@ -356,7 +358,7 @@ Begin Window KajuUpdateWindow
       Italic          =   False
       Left            =   20
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -393,7 +395,7 @@ Begin Window KajuUpdateWindow
       Left            =   36
       ListIndex       =   0
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -411,6 +413,7 @@ Begin Window KajuUpdateWindow
       Width           =   101
    End
    Begin Timer tmrTimeout
+      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -420,11 +423,13 @@ Begin Window KajuUpdateWindow
       TabPanelIndex   =   0
    End
    Begin Kaju.HTTPSocketAsync hsSocket
+      AllowCertificateValidation=   False
+      Enabled         =   True
+      HTTPStatusCode  =   0
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   2
       TabPanelIndex   =   0
-      ValidateCertificates=   False
    End
 End
 #tag EndWindow
@@ -449,9 +454,6 @@ End
 
 	#tag Event
 		Sub Open()
-		  RelativeToFolderItem = GetTemporaryFolderItem
-		  DeleteOnClose.Append RelativeToFolderItem
-		  
 		  #if not TargetMacOS then
 		    //
 		    // Switch the buttons around for other platforms
@@ -659,7 +661,7 @@ End
 		  // Show the release notes
 		  //
 		  dim source as string = update.DisplayReleaseNotes
-		  hvNotes.LoadPage( source, RelativeToFolderItem )
+		  hvNotes.LoadPage( source, nil )
 		  
 		  //
 		  // hvNotes.CancelLoad will set self.Loading back to false
@@ -725,7 +727,7 @@ End
 		      //
 		      // Start the download
 		      //
-		      hsSocket.Get( url, DownloadFile )
+		      hsSocket.Get( url, DownloadFile, true )
 		      
 		      //
 		      // Start the timeout timer
@@ -991,10 +993,6 @@ End
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private RelativeToFolderItem As FolderItem
-	#tag EndProperty
-
-	#tag Property, Flags = &h21
 		Private SelectedBinary As Kaju.BinaryInformation
 	#tag EndProperty
 
@@ -1018,6 +1016,7 @@ End
 	#tag Event
 		Function NewWindow() As Object
 		  return hvNewWindow
+		  
 		End Function
 	#tag EndEvent
 	#tag Event
@@ -1132,7 +1131,7 @@ End
 		      dim f as FolderItem = containingFolder.Item( i )
 		      dim name as string = f.Name
 		      dim leftChars as string = name.Left( 1 )
-		      if leftChars <> "." and leftChars <> "_" then
+		      if leftChars <> "." and leftChars <> "_" and f.Directory then
 		        item = f
 		        exit
 		      end if
@@ -1222,51 +1221,20 @@ End
 #tag EndEvents
 #tag Events hsSocket
 	#tag Event
-		Sub ReceiveProgress(BytesReceived as Int64, TotalBytes as Int64, NewData as xojo.Core.MemoryBlock)
-		  #pragma unused newData
-		  
-		  if CurrentStage = Stage.Cancelled then
-		    //
-		    // Do nothing
-		    //
-		    return
-		  end if
-		  
-		  //
-		  // Have to get the value below 65536
-		  //
-		  
-		  const kMaxAllowed = 1000
-		  
-		  if totalBytes > kMaxAllowed then
-		    dim mult as integer = totalBytes \ kMaxAllowed
-		    totalBytes = totalBytes \ mult
-		    bytesReceived = bytesReceived \ mult
-		  end if
-		  
-		  pbProgress.Maximum = totalBytes
-		  pbProgress.Value = bytesReceived
-		  
-		  tmrTimeout.Reset
-		  
-		  
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Error(err as RuntimeException)
+		Sub Error(e As RuntimeException)
 		  tmrTimeout.Mode = Timer.ModeOff
 		  
-		  dim errMsg as string = err.Message
+		  dim errMsg as string = e.Message
 		  if errMsg = "" then
 		    errMsg = KajuLocale.kGenericErrorMessage
 		  end if
 		  
-		  ShowError( errMsg + "  (" + str( err.ErrorNumber ) + ")" )
+		  ShowError( errMsg + "  (" + str( e.ErrorNumber ) + ")" )
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub FileReceived(url As String, httpStatus As Integer, file As FolderItem)
+		Sub FileReceived(URL As String, HTTPStatus As Integer, file As FolderItem)
 		  #pragma unused url
 		  
 		  if CurrentStage = Stage.Cancelled then
@@ -1308,6 +1276,37 @@ End
 		    DeleteOnCancel.Append targetFolder
 		    shZipper.Decompress( file, targetFolder )
 		  end if
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub ReceivingProgressed(bytesReceived As Int64, totalBytes As Int64, newData As String)
+		  #pragma unused newData
+		  
+		  if CurrentStage = Stage.Cancelled then
+		    //
+		    // Do nothing
+		    //
+		    return
+		  end if
+		  
+		  //
+		  // Have to get the value below 65536
+		  //
+		  
+		  const kMaxAllowed = 1000
+		  
+		  if totalBytes > kMaxAllowed then
+		    dim mult as integer = totalBytes \ kMaxAllowed
+		    totalBytes = totalBytes \ mult
+		    bytesReceived = bytesReceived \ mult
+		  end if
+		  
+		  pbProgress.Maximum = totalBytes
+		  pbProgress.Value = bytesReceived
+		  
+		  tmrTimeout.Reset
+		  
 		  
 		End Sub
 	#tag EndEvent
