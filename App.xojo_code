@@ -152,7 +152,20 @@ Inherits Application
 		  
 		  ' New prefs location in a subfolder so it can be shared with kaju updater
 		  
-		  pPrefsFolder = SpecialFolder.ApplicationData.Child(App.kApplicationNameASCII)
+		  Dim prefsParentFolder As FolderItem
+		  
+		  #If Not TargetLinux
+		    prefsParentFolder = SpecialFolder.ApplicationData
+		  #Else
+		    prefsParentFolder = SpecialFolder.ApplicationData.Child(".config")
+		  #EndIf
+		  
+		  If Not prefsParentFolder.Exists Then
+		    prefsParentFolder.CreateAsFolder
+		  End If
+		  
+		  pPrefsFolder = prefsParentFolder.Child(App.kApplicationNameASCII)
+		  
 		  If Not pPrefsFolder.Exists Then
 		    pPrefsFolder.CreateAsFolder
 		  End If
