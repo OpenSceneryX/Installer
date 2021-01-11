@@ -2093,6 +2093,7 @@ Begin Window wndMain
       End
    End
    Begin Thread thrUpdateFolderStructure
+      DebugIdentifier =   ""
       Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
@@ -2101,6 +2102,8 @@ Begin Window wndMain
       Scope           =   0
       StackSize       =   0
       TabPanelIndex   =   0
+      ThreadID        =   0
+      ThreadState     =   0
    End
    Begin Timer tmrUpdateFolderStructure
       Enabled         =   True
@@ -2279,6 +2282,7 @@ Begin Window wndMain
       ValidateCertificates=   False
    End
    Begin Thread thrLocalScan
+      DebugIdentifier =   ""
       Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
@@ -2286,6 +2290,8 @@ Begin Window wndMain
       Scope           =   0
       StackSize       =   0
       TabPanelIndex   =   0
+      ThreadID        =   0
+      ThreadState     =   0
    End
    Begin Timer tmrLocalScan
       Enabled         =   True

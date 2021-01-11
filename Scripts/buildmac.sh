@@ -20,7 +20,7 @@ export COPYFILE_DISABLE=true
 echo "Creating zip (for auto-updater install)"
 echo "---------------------------------------"
 
-cd ../Builds\ -\ Installer/OS\ X\ 64\ bit/
+cd ../Builds\ -\ Installer/macOS\ Universal/
 # Use ditto here with -c -k --sequesterRsrc --keepParent, not zip, to maintain UTF8 code signing signature https://forums.developer.apple.com/thread/116831
 ditto -c -k --sequesterRsrc --keepParent OpenSceneryX\ Installer.app ../../OpenSceneryX-Installer-Mac-$VERSION.zip
 cd ../../Scripts
@@ -36,7 +36,7 @@ hdiutil attach wc.dmg -noautoopen -quiet -mountpoint wc
 # Remove the existing (empty) Installer directory inside the DMG
 rmdir wc/OpenSceneryX\ Installer.app
 # Copy the new installer in
-ditto -rsrc ../Builds\ -\ Installer/OS\ X\ 64\ bit/OpenSceneryX\ Installer.app wc/OpenSceneryX\ Installer.app
+ditto -rsrc ../Builds\ -\ Installer/macOS\ Universal/OpenSceneryX\ Installer.app wc/OpenSceneryX\ Installer.app
 # Unmount the working copy dmg
 WC_DEV=`hdiutil info | grep "wc" | grep "/dev/disk" | awk '{print $1}'` && hdiutil detach $WC_DEV -quiet -force
 # Create the final, compressed DMG
