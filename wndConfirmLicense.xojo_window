@@ -209,7 +209,7 @@ End
 
 	#tag Constant, Name = kAgreeLicense, Type = String, Dynamic = True, Default = \"To continue installing the software you must agree to the terms of the license.", Scope = Public
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Om met installatie verder te gaan moet je akkoord gaan met de voorwaarden van de licentie"
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Um mit der Installation weiterzufahren m\xC3\xBCssen Sie den Lizenzbestimmungen zustimmen."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Um mit der Installation fortzufahren m\xC3\xBCssen Sie den Lizenzbestimmungen zustimmen."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Avant d\'installer ce logiciel\x2C vous devez accepter les termes de la license."
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Per continuar instal\xC2\xB7lant el programa heu d\'estar d\'acord amb els termes de la llic\xC3\xA8ncia."
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x91\xD7\x9B\xD7\x93\xD7\x99 \xD7\x9C\xD7\x94\xD7\x9E\xD7\xA9\xD7\x99\xD7\x9A \xD7\x91\xD7\x94\xD7\xAA\xD7\xA7\xD7\xA0\xD7\xAA \xD7\x94\xD7\xAA\xD7\x95\xD7\x9B\xD7\xA0\xD7\x94 \xD7\x90\xD7\xAA\xD7\x94 \xD7\x97\xD7\x99\xD7\x99\xD7\x91 \xD7\x9C\xD7\x94\xD7\xA1\xD7\x9B\xD7\x99\xD7\x9D \xD7\x9C\xD7\xAA\xD7\xA0\xD7\x90\xD7\x99 \xD7\x94\xD7\xA8\xD7\xA9\xD7\x99\xD7\x95\xD7\x9F."
@@ -221,7 +221,7 @@ End
 
 	#tag Constant, Name = kClickAgree, Type = String, Dynamic = True, Default = \"Click Agree to continue or click Disagree to cancel the installation and quit the Installer.", Scope = Public
 		#Tag Instance, Platform = Any, Language = nl, Definition  = \"Klik Akkoord om door te gaan of Niet Akkoord om de installatie af te breken."
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Klicken Sie auf ZUSTIMMEN um weiterzufahren oder klicken Sie auf ABLEHNEN um die Installation abzubrechen und das Programm zu beenden."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Klicken Sie auf ZUSTIMMEN um fortzufahren oder klicken Sie auf ABLEHNEN um die Installation abzubrechen und das Programm zu beenden."
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Cliquer sur J\'accepte pour continuer ou Je refuse pour annuler l\'installation et fermer l\'installeur."
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Cliqueu a \xC2\xABD\'acord\xC2\xBB per continuar o a \xC2\xABNo d\'acord\xC2\xBB per cancel\xC2\xB7lar i sortir de l\'instal\xC2\xB7lador."
 		#Tag Instance, Platform = Any, Language = he, Definition  = \"\xD7\x9C\xD7\x97\xD7\xA5 \xD7\xA2\xD7\x9C \xD7\x9E\xD7\xA1\xD7\x9B\xD7\x99\xD7\x9D \xD7\x91\xD7\x9B\xD7\x93\xD7\x99 \xD7\x9C\xD7\x94\xD7\x9E\xD7\xA9\xD7\x99\xD7\x9A \xD7\x90\xD7\x95 \xD7\xA2\xD7\x9C \xD7\x9C\xD7\x90 \xD7\x9E\xD7\xA1\xD7\x9B\xD7\x99\xD7\x9D \xD7\x91\xD7\x9B\xD7\x93\xD7\x99 \xD7\x9C\xD7\x91\xD7\x98\xD7\x9C \xD7\x90\xD7\xAA \xD7\x94\xD7\x94\xD7\xAA\xD7\xA7\xD7\xA0\xD7\x94 \xD7\x95\xD7\x9C\xD7\xA1\xD7\x92\xD7\x95\xD7\xA8 \xD7\x90\xD7\xAA \xD7\x94\xD7\x9E\xD7\xAA\xD7\xA7\xD7\x99\xD7\x9F."

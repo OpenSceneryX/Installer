@@ -58,16 +58,19 @@ Protected Module KajuLocale
 	#tag Constant, Name = kChoose64bitMessage, Type = String, Dynamic = True, Default = \"The update is only available as 64-bit. Proceed\?", Scope = Protected
 		#Tag Instance, Platform = Any, Language = fi, Definition  = \"P\xC3\xA4ivitys on saatavana vain 64-bittisen\xC3\xA4. Jatketaanko\?"
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"The update is only available as 64-bit. Proceed\?"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Dieses Update ist nur f\xC3\xBCr 64-bit. Fortfahren\?"
 	#tag EndConstant
 
 	#tag Constant, Name = kChooseBetweenBitsMessage, Type = String, Dynamic = True, Default = \"This update is also available as 64-bit. Which would you prefer\?", Scope = Protected
 		#Tag Instance, Platform = Any, Language = fi, Definition  = \"T\xC3\xA4m\xC3\xA4 p\xC3\xA4ivitys on saatavana my\xC3\xB6s 64-bittisen\xC3\xA4. Kumman haluat\?"
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"This update is also available as 64-bit. Which would you prefer\?"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Dieses Update ist auch f\xC3\xBCr 64-bit verf\xC3\xBCgbar. Was bevorzugen Sie\?"
 	#tag EndConstant
 
 	#tag Constant, Name = kCurrenlyUsing32bitMessage, Type = String, Dynamic = True, Default = \"You are currently using the 32-bit version.", Scope = Protected
 		#Tag Instance, Platform = Any, Language = fi, Definition  = \"K\xC3\xA4yt\xC3\xA4t t\xC3\xA4ll\xC3\xA4 hetkell\xC3\xA4 32-bittist\xC3\xA4 versiota."
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"You are currently using the 32-bit version."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Sie nutzen aktuell die 32-Bit Version."
 	#tag EndConstant
 
 	#tag Constant, Name = kDownloadingMessage, Type = String, Dynamic = True, Default = \"Downloading...", Scope = Protected
@@ -143,6 +146,7 @@ Protected Module KajuLocale
 	#tag Constant, Name = kExplain64bitMessage, Type = String, Dynamic = True, Default = \"Your system may not be able to run the 64-bit version. If you\xE2\x80\x99re not sure\x2C do not select it.", Scope = Protected
 		#Tag Instance, Platform = Any, Language = fi, Definition  = \"J\xC3\xA4rjestelm\xC3\xA4si ei ehk\xC3\xA4 pysty k\xC3\xA4ytt\xC3\xA4m\xC3\xA4\xC3\xA4n 64-bittist\xC3\xA4 versiota. Jos et ole varma\x2C \xC3\xA4l\xC3\xA4 valitse sit\xC3\xA4."
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Your system may not be able to run the 64-bit version. If you\xE2\x80\x99re not sure\x2C do not select it."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Ihr System k\xC3\xB6nnte nicht f\xC3\xBCr die 64-bit Version geeignet sein. Wenn Sie sich nicht sicher sind\x2C w\xC3\xA4hlen Sie sie nicht."
 	#tag EndConstant
 
 	#tag Constant, Name = kGenericErrorMessage, Type = String, Dynamic = True, Default = \"An error has occurred.", Scope = Protected
@@ -374,11 +378,13 @@ Protected Module KajuLocale
 	#tag Constant, Name = kUse32bitLabel, Type = String, Dynamic = True, Default = \"Stay With 32-bit", Scope = Protected
 		#Tag Instance, Platform = Any, Language = fi, Definition  = \"Pysy 32-bittisess\xC3\xA4"
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Stay With 32-bit"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Bei 32-Bit bleiben."
 	#tag EndConstant
 
 	#tag Constant, Name = kUse64bitLabel, Type = String, Dynamic = True, Default = \"Switch To 64-bit", Scope = Protected
 		#Tag Instance, Platform = Any, Language = fi, Definition  = \"Vaihda 64-bittiseen"
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Switch To 64-bit"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Auf 64-Bit wechseln."
 	#tag EndConstant
 
 	#tag Constant, Name = kVersionMarker, Type = String, Dynamic = False, Default = \"<<Version>>", Scope = Protected

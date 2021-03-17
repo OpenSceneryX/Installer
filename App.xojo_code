@@ -272,6 +272,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Si vous utilisez et appr\xC3\xA9ciez cette biblioth\xC3\xA8que\x2C pensez \xC3\xA0 faire une donation pour la soutenir:"
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Ay\xC3\xBAdanos a seguir manteniendo la librer\xC3\xADa. Si la usas y te gusta por favor considera hacer una donaci\xC3\xB3n:"
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"Si utilitzeu i us agrada la biblioteca\x2C considereu una donaci\xC3\xB3 per mantenir-la en funcionament:"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Wenn Sie diese Bibliothek nutzen und m\xC3\xB6gen\x2C erw\xC3\xA4gen Sie bitte eine Spende um die Entwicklung am Laufen zu halten:"
 	#tag EndConstant
 
 	#tag Constant, Name = kEdit, Type = String, Dynamic = True, Default = \"&Edit", Scope = Public
@@ -405,6 +406,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Une Sintallation Steam ne peut \xC3\xAAtre trouv\xC3\xA9e."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"Un instalador de Steam no pudo ser encontrado."
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"No s\xE2\x80\x99ha pogut trobar una instal\xC2\xB7laci\xC3\xB3 de Steam."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Es konnte keine Steam Installation gefunden werden."
 	#tag EndConstant
 
 	#tag Constant, Name = kErrorXPlaneSteamFolderNotFound, Type = String, Dynamic = True, Default = \"The XPlane Steam folder could not be found at ${1}.", Scope = Public
@@ -414,6 +416,7 @@ Inherits Application
 		#Tag Instance, Platform = Any, Language = fr, Definition  = \"Le dossier Steam d\'Xplane ne peut \xC3\xAAtre trouv\xC3\xA9 \xC3\xA0 l\'emplacement ${1}."
 		#Tag Instance, Platform = Any, Language = es, Definition  = \"La carpeta X-Plane\xC2\xAE de Steam no pudo ser encontrada en ${1}."
 		#Tag Instance, Platform = Any, Language = ca, Definition  = \"No s\xE2\x80\x99ha pogut trobar la carpeta X-Plane\xC2\xAE Steam a ${1}."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Der XPlane Steam Ordner konnte nicht unter ${1} gefunden werden."
 	#tag EndConstant
 
 	#tag Constant, Name = kFile, Type = String, Dynamic = True, Default = \"&File", Scope = Public
