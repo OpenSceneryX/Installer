@@ -1,5 +1,5 @@
 Type=Desktop
-RBProjectVersion=2020.021
+RBProjectVersion=2021.011
 MinIDEVersion=20150400
 OrigIDEVersion=00000000
 Interface=IStreamWriter;ZipPackage/RemoveWhenUsingEinhugurPlugin/IStreamWriter.xojo_code;&h00000000528A47FF;&h0000000067F85FFF;false
@@ -90,7 +90,7 @@ WinInternalName=
 WinProductName=OpenSceneryX Installer
 WinFileDescription=
 AutoIncrementVersionInformation=True
-BuildFlags=&h1880
+BuildFlags=&h1800
 BuildLanguage=&h0
 DebugLanguage=&h0
 Region=
