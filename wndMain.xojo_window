@@ -69,6 +69,7 @@ Begin Window wndMain
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
+         TabStop         =   True
          Top             =   125
          Transparent     =   True
          Value           =   0
@@ -744,6 +745,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   5
+            TabStop         =   True
             Top             =   626
             Transparent     =   True
             Value           =   0.0
@@ -800,6 +802,7 @@ Begin Window wndMain
             Scope           =   0
             TabIndex        =   22
             TabPanelIndex   =   5
+            TabStop         =   True
             Top             =   592
             Transparent     =   True
             Value           =   0.0
